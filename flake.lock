@@ -1,0 +1,69 @@
+{
+  "nodes": {
+    "nix-darwin": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1719128254,
+        "narHash": "sha256-I7jMpq0CAOZA/i70+HDQO/ulLttyQu/K70cSESiMX7A=",
+        "owner": "LnL7",
+        "repo": "nix-darwin",
+        "rev": "50581970f37f06a4719001735828519925ef8310",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LnL7",
+        "repo": "nix-darwin",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1719223410,
+        "narHash": "sha256-jtIo8xR0Zp4SalIwmD+OdCwHF4l7OU6PD63UUK4ckt4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "efb39c6052f3ce51587cf19733f5f4e5d515aa13",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nix-darwin": "nix-darwin",
+        "nixpkgs": "nixpkgs",
+        "sre": "sre"
+      }
+    },
+    "sre": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1719337186,
+        "narHash": "sha256-gUE2sL1hr850cQRSRysdHGz59o9KiKsQEk2wMKzl4nU=",
+        "ref": "refs/heads/main",
+        "rev": "1ac2a5e5f6e52d05d55ff3fc668efc9bfd08a3ec",
+        "revCount": 17,
+        "type": "git",
+        "url": "ssh://git@github.com/mailergroup/nix-config.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/mailergroup/nix-config.git"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
