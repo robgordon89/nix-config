@@ -1,12 +1,10 @@
 { config, pkgs, ... }:
 
 {
-#   imports = [
-#     ../../modules/darwin/home-manager.nix
-#     ../../modules/shared
-#     ../../modules/shared/cachix
-#     ../../modules/darwin/homebrew
-#   ];
+  environment.systemPackages = with pkgs; [
+    # Custom Packages
+    # bob
+  ];
 
   # Enable the nix daemon
   services.nix-daemon.enable = true;
