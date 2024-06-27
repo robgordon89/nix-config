@@ -35,6 +35,7 @@
           system = "${system}";
           modules = [
             sre.darwinModules.${system}.defaults
+            ./hosts/darwin
         ];
         };
       };
