@@ -3,6 +3,9 @@
 {
   environment.systemPackages = with pkgs; [
     # Custom Packages
-    # bob
+    restic
+
+    # Shell Tools
+    eza
   ];
 }

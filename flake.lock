@@ -22,11 +22,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1719223410,
-        "narHash": "sha256-jtIo8xR0Zp4SalIwmD+OdCwHF4l7OU6PD63UUK4ckt4=",
+        "lastModified": 1719468428,
+        "narHash": "sha256-vN5xJAZ4UGREEglh3lfbbkIj+MPEYMuqewMn4atZFaQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "efb39c6052f3ce51587cf19733f5f4e5d515aa13",
+        "rev": "1e3deb3d8a86a870d925760db1a5adecc64d329d",
         "type": "github"
       },
       "original": {
@@ -50,11 +50,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1719337186,
-        "narHash": "sha256-gUE2sL1hr850cQRSRysdHGz59o9KiKsQEk2wMKzl4nU=",
+        "lastModified": 1719563676,
+        "narHash": "sha256-rEEQKN1CdKQuGSYBgb32s9wMCxfT4/vIwxd/9AgOQqE=",
         "ref": "refs/heads/main",
-        "rev": "1ac2a5e5f6e52d05d55ff3fc668efc9bfd08a3ec",
-        "revCount": 17,
+        "rev": "cbc20870fbe159584c6f4a5723226e09a2350bf7",
+        "revCount": 18,
         "type": "git",
         "url": "ssh://git@github.com/mailergroup/nix-config.git"
       },
