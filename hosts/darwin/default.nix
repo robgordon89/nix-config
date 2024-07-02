@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    # Custom Packages
-    restic
-  ];
+    imports = [
+    ../../modules/darwin/home-manager.nix
+    ../../modules/darwin/packages.nix
+    ];
 }
