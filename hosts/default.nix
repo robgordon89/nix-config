@@ -1,5 +1,7 @@
-{ config, lib, platform, isWork, pkgs, ... }:
+{ config, lib, platform, hostname, pkgs, ... }:
 
+let isWork = if (lib.strings.toLower hostname == "bobs-macbook-air") then true else false;
+in
 {
   imports = [
     ../modules/darwin/home-manager.nix

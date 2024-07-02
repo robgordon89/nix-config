@@ -29,16 +29,15 @@
   outputs = { self, nixpkgs, nix-darwin, home-manager, sre, ... }:
     let
       platform = "aarch64-darwin";
-      hostName = "Bobs-MacBook-Air";
-      isWork = if (nixpkgs.lib.strings.toLower hostName == "bobs-macbook-air") then true else false;
+      hostname = "Bobs-MacBook-Air";
       pkgs = import nixpkgs {
         inherit platform;
       };
     in
     {
       darwinConfigurations = {
-        ${hostName} = nix-darwin.lib.darwinSystem {
-          specialArgs = { inherit platform isWork; };
+        ${hostname} = nix-darwin.lib.darwinSystem {
+          specialArgs = { inherit platform hostname; };
           modules = [
             home-manager.darwinModules.home-manager
             sre.darwinModules.${platform}.defaults
