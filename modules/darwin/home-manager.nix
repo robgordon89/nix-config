@@ -9,10 +9,9 @@ in
 
   # Set some snae defaults
   system.defaults = {
-
     # Set some finder defaults
     finder = {
-      ShowPathbar = true;
+      ShowPathbar = false;
       FXEnableExtensionChangeWarning = false;
       ShowStatusBar = false;
     };
@@ -38,6 +37,15 @@ in
         </dict>
         </plist>
       '';
+    };
+  };
+
+  # Set some user preferences
+  system.defaults.CustomUserPreferences = {
+    # Dont create .DS_Store files on network and USB volumes
+    "com.apple.desktopservices" = {
+      DSDontWriteNetworkStores = true;
+      DSDontWriteUSBStores = true;
     };
   };
 

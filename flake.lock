@@ -71,11 +71,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1719931745,
-        "narHash": "sha256-JoYRAyyo9vq+H8C6M5nSK0Iw2PcWEpwKJox53STPBTs=",
+        "lastModified": 1719938369,
+        "narHash": "sha256-B8F31Av7GkWbUtVwSmjcBl0356RrLwaaU/cnLmsaF1U=",
         "ref": "refs/heads/main",
-        "rev": "97acb4a237c3aa54f1b494602425fbea0db505fb",
-        "revCount": 19,
+        "rev": "86e3749eeb684f0719d92c0861b10db5d88e3a85",
+        "revCount": 20,
         "type": "git",
         "url": "ssh://git@github.com/mailergroup/nix-config.git"
       },
