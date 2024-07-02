@@ -28,13 +28,14 @@
 
   outputs = { self, nixpkgs, nix-darwin, home-manager, sre, ... }:
     let
-       system = "aarch64-darwin";
-       hostName = "Bobs-MacBook-Air";
-       pkgs = import nixpkgs {
+      system = "aarch64-darwin";
+      hostName = "Bobs-MacBook-Air";
+      pkgs = import nixpkgs {
         inherit system;
         config = { allowUnfree = true; };
       };
-    in {
+    in
+    {
       darwinConfigurations = {
         ${hostName} = nix-darwin.lib.darwinSystem {
           specialArgs = { inherit system; };
@@ -43,7 +44,7 @@
             home-manager.darwinModules.home-manager
             sre.darwinModules.${system}.defaults
             ./hosts/darwin
-        ];
+          ];
         };
       };
       darwinPackages = self.darwinConfigurations.${hostName}.pkgs;
