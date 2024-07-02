@@ -1,5 +1,5 @@
 {
-  description = "Nix configuration for Bobs-MacBook-Air";
+  description = "Bob's Nix configuration";
 
   inputs = {
     # Nix packages
@@ -13,6 +13,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Home Manager
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # SRE Defaults
     sre = {
       url = "git+ssh://git@github.com/mailergroup/nix-config.git";
@@ -20,7 +26,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, sre, nix-darwin, ... }:
+  outputs = { self, nixpkgs, nix-darwin, home-manager, sre, ... }:
     let
        system = "aarch64-darwin";
        hostName = "Bobs-MacBook-Air";
@@ -34,6 +40,7 @@
           specialArgs = { inherit system; };
           system = "${system}";
           modules = [
+            home-manager.darwinModules.home-manager
             sre.darwinModules.${system}.defaults
             ./hosts/darwin
         ];
