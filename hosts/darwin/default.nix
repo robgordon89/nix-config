@@ -4,8 +4,5 @@
   environment.systemPackages = with pkgs; [
     # Custom Packages
     restic
-
-    # Shell Tools
-    eza
   ];
 }
