@@ -20,6 +20,26 @@
         "type": "github"
       }
     },
+    "mailerlite": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1720173595,
+        "narHash": "sha256-sxCaz/NB7tQjrGgQXzawSymdCUGL1hIRzDgZOKRDSP0=",
+        "ref": "refs/heads/main",
+        "rev": "e96d283a4426c86bea219ad8ca196135c4bc5e0c",
+        "revCount": 23,
+        "type": "git",
+        "url": "ssh://git@github.com/mailerlite/nix-config.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/mailerlite/nix-config.git"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -59,29 +79,9 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "mailerlite": "mailerlite",
         "nix-darwin": "nix-darwin",
-        "nixpkgs": "nixpkgs",
-        "sre": "sre"
-      }
-    },
-    "sre": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1720166342,
-        "narHash": "sha256-aHt/icLGdK8zNLRPT6hd8XkOvPbBEq0f7j6msy6LEtc=",
-        "ref": "refs/heads/main",
-        "rev": "4a24087f4b352a96061a4fbfd089daccd790c99c",
-        "revCount": 21,
-        "type": "git",
-        "url": "ssh://git@github.com/mailerlite/nix-config.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/mailerlite/nix-config.git"
+        "nixpkgs": "nixpkgs"
       }
     }
   },

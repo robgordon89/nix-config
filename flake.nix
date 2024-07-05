@@ -19,31 +19,27 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # SRE Defaults
-    sre = {
+    # MailerLite Defaults
+    mailerlite = {
       url = "git+ssh://git@github.com/mailerlite/nix-config.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, nix-darwin, home-manager, sre, ... }:
+  outputs = { self, nixpkgs, nix-darwin, home-manager, mailerlite, ... }@inputs:
     let
-      platform = "aarch64-darwin";
-      hostname = "Bobs-MacBook-Air";
-      pkgs = import nixpkgs {
-        inherit platform;
+      mkSystem = import ./lib/mksystem.nix {
+        inherit nixpkgs inputs;
       };
     in
     {
-      darwinConfigurations = {
-        ${hostname} = nix-darwin.lib.darwinSystem {
-          specialArgs = { inherit platform hostname; };
-          modules = [
-            home-manager.darwinModules.home-manager
-            sre.darwinModules.${platform}.defaults
-            ./hosts
-          ];
-        };
+      darwinConfigurations.titan = mkSystem "titan" {
+        system = "aarch64-darwin";
+        user = "robert";
+        darwin = true;
+        extraModules = [
+          mailerlite.darwinModules."aarch64-darwin".defaults
+        ];
       };
     };
 }
