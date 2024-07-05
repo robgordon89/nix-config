@@ -9,6 +9,7 @@
     ../../modules/darwin/finder.nix
     ../../modules/darwin/security.nix
     ../../modules/darwin/launchAgents.nix
+    ../../modules/darwin/home-manager.nix
   ];
 
   # Set some user preferences
