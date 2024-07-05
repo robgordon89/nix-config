@@ -33,7 +33,7 @@
       };
     in
     {
-      darwinConfigurations.titan = mkSystem "titan" {
+      darwinConfigurations."titan" = mkSystem "titan" {
         system = "aarch64-darwin";
         user = "robert";
         darwin = true;

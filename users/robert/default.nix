@@ -1,15 +1,15 @@
 { config, currentSystemUser, lib, pkgs, ... }:
 
 {
+  users.users.${currentSystemUser} = {
+    home = "/Users/${currentSystemUser}";
+  };
+
   imports = [
     ../../modules/darwin/finder.nix
+    ../../modules/darwin/security.nix
     ../../modules/darwin/launchAgents.nix
   ];
-  # Allow the user to use sudo with Touch ID
-  security.pam.enableSudoTouchIdAuth = true;
-
-  # Disable man pages
-  documentation.man.enable = false;
 
   # Set some user preferences
   system.defaults.CustomUserPreferences = {
