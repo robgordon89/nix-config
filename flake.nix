@@ -21,7 +21,7 @@
 
     # SRE Defaults
     sre = {
-      url = "git+ssh://git@github.com/mailergroup/nix-config.git";
+      url = "git+ssh://git@github.com/mailerlite/nix-config.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
