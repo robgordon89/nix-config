@@ -21,6 +21,7 @@
 
     # MailerLite Defaults
     mailerlite = {
+      # url = "git+file:///Users/robert/dev/mailerlite/nix-config";
       url = "git+ssh://git@github.com/mailerlite/nix-config.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -38,7 +39,7 @@
         user = "robert";
         darwin = true;
         extraModules = [
-          mailerlite.darwinModules."aarch64-darwin".defaults
+          mailerlite.darwinModules."aarch64-darwin".sre
         ];
       };
     };
