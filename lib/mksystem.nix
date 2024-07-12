@@ -6,6 +6,7 @@ name:
 { system
 , user
 , darwin ? false
+, overlays ? null
 , extraModules ? [ ]
 }:
 
@@ -17,6 +18,7 @@ let
 
   pkgs = import nixpkgs {
     inherit system;
+    overlays = builtins.attrValues overlays;
     config = { allowUnfree = true; };
   };
 
