@@ -56,9 +56,6 @@
         user = "robert";
         darwin = true;
         overlays = overlays;
-        extraModules = [
-          mailerlite.darwinModules."aarch64-darwin".sre
-        ];
       };
     };
 }
