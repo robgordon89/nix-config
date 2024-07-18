@@ -3,6 +3,7 @@
 {
   # System level
   services.nix-daemon.enable = true;
+  nix.package = pkgs.nixVersions.latest;
   nix.settings.experimental-features = "nix-command flakes";
 
   imports = [
