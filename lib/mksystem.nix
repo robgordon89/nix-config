@@ -12,7 +12,8 @@ name:
 
 let
   # The config files for this system.
-  hostConfig = ../hosts/${name}.nix;
+  defaultHostConfig = ../hosts/default.nix;
+  hostConfig = ../hosts/${user}.nix;
   userOSConfig = ../users/${user};
   userHomeConfig = ../users/${user}/home.nix;
 
@@ -30,7 +31,7 @@ systemFunc rec {
   inherit system pkgs;
 
   modules = [
-    hostConfig
+    defaultHostConfig
     userOSConfig
     home-manager.home-manager
     {
@@ -51,5 +52,5 @@ systemFunc rec {
         inputs = inputs;
       };
     }
-  ] ++ extraModules;
+  ] ++ extraModules ++ nixpkgs.lib.optional (builtins.pathExists hostConfig) [ hostConfig ];
 }
