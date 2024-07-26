@@ -14,8 +14,9 @@ let
   # The config files for this system.
   defaultHostConfig = ../hosts/default.nix;
   hostConfig = ../hosts/${user}.nix;
-  userOSConfig = ../users/${user};
-  userHomeConfig = ../users/${user}/home.nix;
+
+  defaultUserConfig = ../users/shared;
+  userConfig = ../users/${user};
 
   pkgs = import nixpkgs {
     inherit system;
@@ -32,7 +33,7 @@ systemFunc rec {
 
   modules = [
     defaultHostConfig
-    userOSConfig
+    defaultUserConfig
     home-manager.home-manager
     {
       home-manager.useGlobalPkgs = true;
@@ -52,5 +53,8 @@ systemFunc rec {
         inputs = inputs;
       };
     }
-  ] ++ extraModules ++ nixpkgs.lib.optional (builtins.pathExists hostConfig) [ hostConfig ];
+  ]
+  ++ extraModules
+  ++ nixpkgs.lib.optional (builtins.pathExists hostConfig) [ hostConfig ]
+  ++ nixpkgs.lib.optional (builtins.pathExists userConfig) [ userConfig ];
 }

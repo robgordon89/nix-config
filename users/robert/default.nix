@@ -5,6 +5,14 @@
     home = "/Users/${currentSystemUser}";
   };
 
+  home = {
+    stateVersion = "24.11";
+    packages = with pkgs;
+      [
+        bob
+      ];
+  };
+
   imports = [
     ../../modules/darwin/preferences.nix
     ../../modules/darwin/finder.nix
