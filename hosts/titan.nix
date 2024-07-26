@@ -1,7 +1,6 @@
-{ config, pkgs, ... }:
-
+{ config, pkgs, isDarwin, ... }:
 {
-  # System level
-  services.nvim.enable = true;
-
+  imports = [
+    ../modules/darwin
+  ];
 }

@@ -13,10 +13,10 @@ name:
 let
   # The config files for this system.
   defaultHostConfig = ../hosts/default.nix;
-  hostConfig = ../hosts/${user}.nix;
+  hostConfig = ../hosts/${name}.nix;
 
-  defaultUserConfig = ../users/shared;
   userConfig = ../users/${user};
+  userHomeConfig = ../users/${user}/home.nix;
 
   pkgs = import nixpkgs {
     inherit system;
@@ -24,7 +24,7 @@ let
     config = { allowUnfree = true; };
   };
 
-  # NixOS vs nix-darwin functionst
+  # NixOS vs nix-darwin functions
   systemFunc = if darwin then inputs.nix-darwin.lib.darwinSystem else inputs.nixpkgs.lib.nixosSystem;
   home-manager = if darwin then inputs.home-manager.darwinModules else inputs.home-manager.nixosModules;
 in
@@ -33,13 +33,13 @@ systemFunc rec {
 
   modules = [
     defaultHostConfig
-    defaultUserConfig
+    userConfig
+    hostConfig
     home-manager.home-manager
     {
       home-manager.useGlobalPkgs = true;
       home-manager.users.${user} = import userHomeConfig {
-        inputs = inputs;
-        pkgs = pkgs;
+        inherit inputs pkgs;
       };
     }
 
@@ -51,10 +51,9 @@ systemFunc rec {
         currentSystemName = name;
         currentSystemUser = user;
         inputs = inputs;
+        isDarwin = darwin;
       };
     }
   ]
-  ++ extraModules
-  ++ nixpkgs.lib.optional (builtins.pathExists hostConfig) [ hostConfig ]
-  ++ nixpkgs.lib.optional (builtins.pathExists userConfig) [ userConfig ];
+  ++ extraModules;
 }
