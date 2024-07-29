@@ -7,6 +7,7 @@
 
     # Nix Tools and Utilities
     statix
+    devenv
     nixpkgs-fmt
     pkgs.stable.kcl-cli
   ];
