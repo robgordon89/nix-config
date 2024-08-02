@@ -12,5 +12,6 @@
   imports = [
     ../shared/programs/neovim
     ../shared/programs/fd
+    ../shared/programs/hammerspoon
   ];
 }
