@@ -5,9 +5,10 @@
     packages = with pkgs;
       [
         bob
+        terraform
       ];
   };
-
+ 
   imports = [
     ../shared/programs/neovim
     ../shared/programs/fd
