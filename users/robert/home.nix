@@ -8,8 +8,10 @@
         terraform
       ];
   };
- 
+
   imports = [
+    ../shared/programs/zsh
+    ../shared/programs/git
     ../shared/programs/neovim
     ../shared/programs/fd
     ../shared/programs/hammerspoon
