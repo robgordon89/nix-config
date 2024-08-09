@@ -4,8 +4,35 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    autosuggestion.enable = true;
+    autosuggestion = {
+      enable = true;
+      highlight = "fg=#ffcc00";
+    };
     syntaxHighlighting.enable = true;
+    initExtra = /*bash*/''
+      ## ZSH HOOKS
+      # precmd_hook
+      hooks-define-hook precmd_hook
+      function precmd-wrapper { hooks-run-hook precmd_hook }
+      add-zsh-hook precmd precmd-wrapper
+
+      # preexec_hook
+      hooks-define-hook preexec_hook
+      function preexec-wrapper { hooks-run-hook preexec_hook "$@" }
+      add-zsh-hook preexec preexec-wrapper
+
+      # chpwd_hook
+      hooks-define-hook chpwd_hook
+      function chpwd-wrapper { hooks-run-hook chpwd_hook }
+      add-zsh-hook chpwd chpwd-wrapper
+
+      . ${./config/options.zsh}
+      . ${./config/completions.zsh}
+      . ${./config/prompt.zsh}
+      . ${./config/terminal_title.zsh}
+
+      source ${pkgs.google-cloud-sdk}/share/bash-completion/completions/gcloud
+    '';
 
     shellAliases = {
       # Shorter 
@@ -58,6 +85,8 @@
 
     history = {
       size = 10000;
+      save = 1000000;
+      share = false;
       path = "${config.xdg.dataHome}/zsh/history";
     };
 
@@ -65,6 +94,7 @@
       enable = true;
       plugins = [
         { name = "hlissner/zsh-autopair"; }
+        { name = "zsh-hooks/zsh-hooks"; }
         { name = "romkatv/gitstatus"; }
       ];
     };
