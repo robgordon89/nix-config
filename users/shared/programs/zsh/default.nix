@@ -28,6 +28,8 @@
 
       . ${./config/options.zsh}
       . ${./config/completions.zsh}
+      . ${./config/mappings.zsh}
+      . ${./config/fzf-mappings.zsh}
       . ${./config/prompt.zsh}
       . ${./config/terminal_title.zsh}
 
