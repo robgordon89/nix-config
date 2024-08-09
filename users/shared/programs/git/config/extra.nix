@@ -15,6 +15,7 @@
   tag = {
     gpgSign = true;
   };
+
   gpg = {
     format = "ssh";
   };
