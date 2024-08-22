@@ -3,7 +3,6 @@
 {
   programs.zsh = {
     enable = true;
-    
     enableCompletion = true;
     autosuggestion = {
       enable = true;
@@ -90,7 +89,6 @@
       plugins = [
         { name = "hlissner/zsh-autopair"; }
         { name = "zsh-hooks/zsh-hooks"; }
-        { name = "romkatv/gitstatus"; }
       ];
     };
 
