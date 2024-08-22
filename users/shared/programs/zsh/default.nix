@@ -3,43 +3,28 @@
 {
   programs.zsh = {
     enable = true;
+    
     enableCompletion = true;
     autosuggestion = {
       enable = true;
       highlight = "fg=#ffcc00";
+      strategy = ["history"];
     };
     syntaxHighlighting.enable = true;
     initExtra = /*bash*/''
+      fpath+=("${pkgs.pure-prompt}/share/zsh/site-functions")
+
+      if [ "$TERM" != dumb ]; then
+        autoload -U promptinit && promptinit && prompt pure
+      fi
 
       export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
-      ## ZSH HOOKS
-      # precmd_hook
-      hooks-define-hook precmd_hook
-      function precmd-wrapper { hooks-run-hook precmd_hook }
-      add-zsh-hook precmd precmd-wrapper
-
-      # preexec_hook
-      hooks-define-hook preexec_hook
-      function preexec-wrapper { hooks-run-hook preexec_hook "$@" }
-      add-zsh-hook preexec preexec-wrapper
-
-      # chpwd_hook
-      hooks-define-hook chpwd_hook
-      function chpwd-wrapper { hooks-run-hook chpwd_hook }
-      add-zsh-hook chpwd chpwd-wrapper
-
       eval "$(direnv hook $SHELL)"
-
-      # setup gitstatus
-      gitstatus_stop 'MY' && gitstatus_start -s -1 -u -1 -c -1 -d -1 'MY'
 
       . ${./config/options.zsh}
       . ${./config/completions.zsh}
       . ${./config/mappings.zsh}
-      . ${./config/fzf-mappings.zsh}
-      . ${./config/prompt.zsh}
-      . ${./config/terminal_title.zsh}
 
       source ${pkgs.google-cloud-sdk}/share/bash-completion/completions/gcloud
     '';
@@ -60,8 +45,8 @@
       kx = "kubectx";
       t = "tofu";
 
-      # Open current directory in Neovim
-      "." = "nvim .";
+      # # Open current directory in Neovim
+      # "." = "nvim .";
 
       # Add verbosity to common commands
       rm = "rm -v";
@@ -96,7 +81,7 @@
     history = {
       size = 10000;
       save = 1000000;
-      share = false;
+      share = true;
       path = "${config.xdg.dataHome}/zsh/history";
     };
 
