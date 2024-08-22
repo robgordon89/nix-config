@@ -6,6 +6,7 @@
       [
         bob
         terraform
+        poetry
       ];
   };
 

@@ -10,6 +10,9 @@
     };
     syntaxHighlighting.enable = true;
     initExtra = /*bash*/''
+
+      export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
       ## ZSH HOOKS
       # precmd_hook
       hooks-define-hook precmd_hook
@@ -25,6 +28,11 @@
       hooks-define-hook chpwd_hook
       function chpwd-wrapper { hooks-run-hook chpwd_hook }
       add-zsh-hook chpwd chpwd-wrapper
+
+      eval "$(direnv hook $SHELL)"
+
+      # setup gitstatus
+      gitstatus_stop 'MY' && gitstatus_start -s -1 -u -1 -c -1 -d -1 'MY'
 
       . ${./config/options.zsh}
       . ${./config/completions.zsh}
