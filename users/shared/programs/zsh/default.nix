@@ -7,10 +7,11 @@
     autosuggestion = {
       enable = true;
       highlight = "fg=#ffcc00";
-      strategy = ["history"];
+      strategy = [ "history" ];
     };
     syntaxHighlighting.enable = true;
     initExtra = /*bash*/''
+      export PURE_GIT_PULL=0
       fpath+=("${pkgs.pure-prompt}/share/zsh/site-functions")
 
       if [ "$TERM" != dumb ]; then
