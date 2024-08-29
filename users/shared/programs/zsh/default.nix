@@ -18,6 +18,10 @@
         autoload -U promptinit && promptinit && prompt pure
       fi
 
+      if command -v nix-your-shell > /dev/null; then
+        nix-your-shell zsh | source /dev/stdin
+      fi
+
       export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
       eval "$(direnv hook $SHELL)"
