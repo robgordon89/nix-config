@@ -72,14 +72,13 @@
       ssh = "TERM=xterm ssh";
       exa = "exa --group-directories-first";
       ls-backend = "exa";
-      ll = "ls-backend";
-      ls = "ll";
-      lsa = "ll -a";
-      lsal = "ll -al";
-      l = "ls";
+      ls = "exa";
+      lsa = "exa -a";
+      lsal = "exa -al";
+      l = "exa";
 
       update = "nix flake update --flake ~/nix-config";
-      rebuild = "darwin-rebuild switch --flake ~/nix-config";
+      rebuild = "nix run nix-darwin -- switch --flake ~/nix-config";
     };
 
     history = {
