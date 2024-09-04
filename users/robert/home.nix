@@ -11,6 +11,7 @@
   };
 
   imports = [
+    ../shared/programs/wezterm
     ../shared/programs/zsh
     ../shared/programs/git
     ../shared/programs/neovim
