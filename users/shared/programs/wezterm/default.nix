@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{pkgs, config, ...}:
 
 {
   home.file."${config.xdg.configHome}/wezterm" = {

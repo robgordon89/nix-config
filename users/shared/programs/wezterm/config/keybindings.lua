@@ -33,10 +33,18 @@ return {
         { key = 't', mods = 'SUPER', action = act.SpawnTab 'DefaultDomain' },
         { key = 'v', mods = 'ALT|CTRL', action = act.PasteFrom 'PrimarySelection' },
         { key = 'v', mods = 'SUPER', action = act.PasteFrom 'Clipboard' },
-        -- { key = 'LeftArrow', mods = 'SHIFT|CTRL', action = act.ActivatePaneDirection 'Left' },
-        -- { key = 'RightArrow', mods = 'SHIFT|CTRL', action = act.ActivatePaneDirection 'Right' },
-        -- { key = 'UpArrow', mods = 'SHIFT|CTRL', action = act.ActivatePaneDirection 'Up' },
-        -- { key = 'DownArrow', mods = 'SHIFT|CTRL', action = act.ActivatePaneDirection 'Down' },
+        -- Make SUPER-Left backward-word
+        { key = 'LeftArrow', mods = 'SUPER', action = act.SendString '\x1bb' },
+        -- Make SUPER-Right forward-word
+        { key = 'RightArrow', mods = 'SUPER', action = act.SendString '\x1bf' },
+        -- Make SHIFT|SUPER-Left beginning-of-line
+        { key = 'LeftArrow', mods = 'SHIFT|SUPER', action = act.SendString '\x01' },
+        -- Make SHIFT|SUPER-Right end-of-line
+        { key = 'RightArrow', mods = 'SHIFT|SUPER', action = act.SendString '\x05' },
+        -- Make SUPER-Backspace kill-word
+        { key = 'Backspace', mods = 'SUPER', action = act.SendString '\x1bd' },
+        -- Make SHIFT|SUPER-Backspace kill-line
+        { key = 'Backspace', mods = 'SHIFT|SUPER', action = act.SendString '\x15' },
         { key = 'Insert', mods = 'SHIFT', action = act.PasteFrom 'PrimarySelection' },
       },
       key_tables = {
