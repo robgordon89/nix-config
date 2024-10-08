@@ -1,15 +1,14 @@
 hs.loadSpoon("AppLauncher")
 
-local hyper = { "shift", "alt", "ctrl"}
+local hyper = {"ctrl", "option"}
 
 spoon.AppLauncher.modifiers = hyper
 
 hs.spoons.use("AppLauncher", {
     hotkeys = {
-        b = "Safari",
+        b = "Brave Browser",
         c = "Visual Studio Code",
         s = "Slack",
-        m = "Beeper",
         t = "WezTerm",
     },
 })

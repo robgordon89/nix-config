@@ -7,6 +7,7 @@
         bob
         terraform
         poetry
+        hugo
       ];
   };
 
