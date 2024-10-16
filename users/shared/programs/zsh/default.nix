@@ -10,31 +10,32 @@
       strategy = [ "history" ];
     };
     syntaxHighlighting.enable = true;
-    initExtra = /*bash*/''
-      export PURE_GIT_PULL=0
-      fpath+=("${pkgs.pure-prompt}/share/zsh/site-functions")
+    initExtra = # bash
+      ''
+        export PURE_GIT_PULL=0
+        fpath+=("${pkgs.pure-prompt}/share/zsh/site-functions")
 
-      if [ "$TERM" != dumb ]; then
-        autoload -U promptinit && promptinit && prompt pure
-      fi
+        if [ "$TERM" != dumb ]; then
+          autoload -U promptinit && promptinit && prompt pure
+        fi
 
-      if command -v nix-your-shell > /dev/null; then
-        nix-your-shell zsh | source /dev/stdin
-      fi
+        if command -v nix-your-shell > /dev/null; then
+          nix-your-shell zsh | source /dev/stdin
+        fi
 
-      export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+        export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
-      eval "$(direnv hook $SHELL)"
+        eval "$(direnv hook $SHELL)"
 
-      . ${./config/options.zsh}
-      . ${./config/completions.zsh}
-      . ${./config/mappings.zsh}
+        . ${./config/options.zsh}
+        . ${./config/completions.zsh}
+        . ${./config/mappings.zsh}
 
-      source ${pkgs.google-cloud-sdk}/share/bash-completion/completions/gcloud
-    '';
+        source ${pkgs.google-cloud-sdk}/share/bash-completion/completions/gcloud
+      '';
 
     shellAliases = {
-      # Shorter 
+      # Shorter
       g = "git";
       x = "exit";
       c = "clear";
@@ -95,6 +96,13 @@
         { name = "zsh-hooks/zsh-hooks"; }
       ];
     };
+
+    plugins = [
+      {
+        name = "zsh-term-title";
+        src = "${pkgs.zsh-term-title}/share/zsh/zsh-term-title/";
+      }
+    ];
 
   };
 }

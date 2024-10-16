@@ -2,15 +2,12 @@
   description = "Bob's Nix configuration";
 
   inputs = {
-    # Nix packages
-    nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    };
-
-    # Nix Stable packages
-    nixpkgs-stable = {
-      url = "github:NixOS/nixpkgs/nixos-24.05";
-    };
+    #################### Official NixOS and HM Package Sources ####################
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # The next two are for pinning to stable vs unstable regardless of what the above is set to
+    # See also 'stable-packages' and 'unstable-packages' overlays at 'overlays/default.nix"
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     # Nix Darwin
     nix-darwin = {
