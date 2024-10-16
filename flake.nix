@@ -30,11 +30,27 @@
       url = "git+ssh://git@github.com/mailerlite/nix-config.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    pre-commit-hooks = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nix-darwin, home-manager, mailerlite, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nix-darwin,
+      home-manager,
+      mailerlite,
+      ...
+    }@inputs:
     let
       inherit (self) outputs;
+      forAllSystems = nixpkgs.lib.genAttrs [
+        "aarch64-darwin"
+      ];
       mkSystem = import ./lib/mksystem.nix {
         inherit nixpkgs inputs;
       };
@@ -42,6 +58,24 @@
     in
     {
       overlays = import ./overlays { inherit inputs outputs; };
+
+      checks = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        import ./checks { inherit inputs system pkgs; }
+      );
+
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+          checks = self.checks.${system};
+        in
+        import ./shell.nix { inherit checks pkgs; }
+      );
+
       darwinConfigurations."titan" = mkSystem "titan" {
         system = "aarch64-darwin";
         user = "robert";
