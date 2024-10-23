@@ -12,17 +12,17 @@ in
 {
   # Expose mkSystem and relativeToRoot for external use
   mkSystem =
-    name:
     {
-      system,
-      user,
-      darwin ? false,
+      system ? "aarch64-darwin",
+      host,
+      user ? "robert",
+      darwin ? true,
       extraModules ? [ ],
     }:
     let
       # The config files for this system.
       defaultHostConfig = relativeToRoot "hosts/default.nix";
-      hostConfig = relativeToRoot "hosts/${name}.nix";
+      hostConfig = relativeToRoot "hosts/${host}.nix";
 
       userConfig = relativeToRoot "users/${user}";
       userHomeConfig = relativeToRoot "users/${user}/home.nix";
@@ -59,7 +59,7 @@ in
         {
           config._module.args = {
             currentSystem = system;
-            currentSystemName = name;
+            currentSystemName = host;
             currentSystemUser = user;
             inputs = inputs;
             isDarwin = darwin;

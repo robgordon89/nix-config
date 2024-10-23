@@ -2,10 +2,8 @@
   description = "Bob's Nix configuration";
 
   inputs = {
-    #################### Official NixOS and HM Package Sources ####################
+    # Nixpkgs
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    # The next two are for pinning to stable vs unstable regardless of what the above is set to
-    # See also 'stable-packages' and 'unstable-packages' overlays at 'overlays/default.nix"
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
@@ -21,13 +19,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # MailerLite Defaults
+    # MailerLite
     mailerlite = {
       # url = "git+file:///Users/robert/dev/mailerlite/nix-config";
       url = "git+ssh://git@github.com/mailerlite/nix-config.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Pre-commit hooks
     pre-commit-hooks = {
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -41,19 +40,19 @@
       nix-darwin,
       home-manager,
       mailerlite,
+      pre-commit-hooks,
       ...
     }@inputs:
 
     let
       inherit (self) outputs;
+      inherit (nixpkgs) lib;
+
       forAllSystems = nixpkgs.lib.genAttrs [
         "aarch64-darwin"
       ];
 
       overlays = import ./overlays { inherit inputs; };
-
-      inherit (nixpkgs) lib;
-
       configLib = import ./lib {
         inherit
           inputs
@@ -62,16 +61,6 @@
           lib
           ;
       };
-
-      specialArgs = {
-        inherit
-          inputs
-          outputs
-          configLib
-          nixpkgs
-          ;
-      };
-
     in
     {
       checks = forAllSystems (
@@ -92,19 +81,15 @@
       );
 
       darwinConfigurations = {
-        titan = configLib.mkSystem "titan" {
-          system = "aarch64-darwin";
-          user = "robert";
-          darwin = true;
+        titan = configLib.mkSystem {
+          host = "titan";
           extraModules = [
             mailerlite.darwinModules."aarch64-darwin".sre
           ];
         };
 
-        thebe = configLib.mkSystem "thebe" {
-          system = "aarch64-darwin";
-          user = "robert";
-          darwin = true;
+        thebe = configLib.mkSystem {
+          host = "thebe";
           extraModules = [
             mailerlite.darwinModules."aarch64-darwin".sre
           ];
