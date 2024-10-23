@@ -55,17 +55,6 @@ if [ "$os" == "Darwin" ]; then
 		xcode-select --install
 	fi
 
-	# # https://docs.brew.sh/Installation
-	# if [ ! -e /opt/homebrew/bin/brew ]; then
-	# 	echo "Installing rosetta"
-	# 	# This is required for emulation of x86_64 binaries, so let's just
-	# 	# assume if they didn't install brew yet, they need this
-	# 	softwareupdate --install-rosetta --agree-to-license
-	# 	echo "Installing homebrew"
-	# 	export NONINTERACTIVE=1
-	# 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-	# fi
-
 	green "====== REBUILD ======"
 	# Test if there's no darwin-rebuild, then use nixos-rebuild
 	if ! which darwin-rebuild &>/dev/null; then
