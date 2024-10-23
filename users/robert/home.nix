@@ -2,15 +2,13 @@
 {
   home = {
     stateVersion = "24.11";
-    packages = with pkgs;
-      [
-        bob
-        terraform
-        poetry
-        hugo
-      ];
+    packages = with pkgs; [
+      bob
+      terraform
+      poetry
+      hugo
+    ];
   };
-
   imports = [
     ../shared/programs/wezterm
     ../shared/programs/zsh

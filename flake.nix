@@ -43,19 +43,37 @@
       mailerlite,
       ...
     }@inputs:
+
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
         "aarch64-darwin"
       ];
-      mkSystem = import ./lib/mksystem.nix {
-        inherit nixpkgs inputs;
-      };
+
       overlays = import ./overlays { inherit inputs; };
+
+      inherit (nixpkgs) lib;
+
+      configLib = import ./lib {
+        inherit
+          inputs
+          nixpkgs
+          overlays
+          lib
+          ;
+      };
+
+      specialArgs = {
+        inherit
+          inputs
+          outputs
+          configLib
+          nixpkgs
+          ;
+      };
+
     in
     {
-      overlays = import ./overlays { inherit inputs outputs; };
-
       checks = forAllSystems (
         system:
         let
@@ -74,20 +92,19 @@
       );
 
       darwinConfigurations = {
-        titan = mkSystem "titan" {
+        titan = configLib.mkSystem "titan" {
           system = "aarch64-darwin";
           user = "robert";
           darwin = true;
-          overlays = overlays;
           extraModules = [
             mailerlite.darwinModules."aarch64-darwin".sre
           ];
         };
-        thebe = mkSystem "thebe" {
+
+        thebe = configLib.mkSystem "thebe" {
           system = "aarch64-darwin";
           user = "robert";
           darwin = true;
-          overlays = overlays;
           extraModules = [
             mailerlite.darwinModules."aarch64-darwin".sre
           ];
