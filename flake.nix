@@ -73,23 +73,25 @@
         import ./shell.nix { inherit checks pkgs; }
       );
 
-      darwinConfigurations."titan" = mkSystem "titan" {
-        system = "aarch64-darwin";
-        user = "robert";
-        darwin = true;
-        overlays = overlays;
-        extraModules = [
-          mailerlite.darwinModules."aarch64-darwin".sre
-        ];
-      };
-      darwinConfigurations."thebe" = mkSystem "thebe" {
-        system = "aarch64-darwin";
-        user = "robert";
-        darwin = true;
-        overlays = overlays;
-        extraModules = [
-          mailerlite.darwinModules."aarch64-darwin".sre
-        ];
+      darwinConfigurations = {
+        titan = mkSystem "titan" {
+          system = "aarch64-darwin";
+          user = "robert";
+          darwin = true;
+          overlays = overlays;
+          extraModules = [
+            mailerlite.darwinModules."aarch64-darwin".sre
+          ];
+        };
+        thebe = mkSystem "thebe" {
+          system = "aarch64-darwin";
+          user = "robert";
+          darwin = true;
+          overlays = overlays;
+          extraModules = [
+            mailerlite.darwinModules."aarch64-darwin".sre
+          ];
+        };
       };
     };
 }
