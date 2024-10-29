@@ -7,6 +7,9 @@
       terraform
       poetry
       hugo
+      ffmpeg-full
+      flyctl
+      minio-client
     ];
   };
   imports = [
