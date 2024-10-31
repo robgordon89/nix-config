@@ -1,8 +1,14 @@
-{ config, currentSystemUser, lib, pkgs, ... }:
+{
+  config,
+  configVars,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  users.users.${currentSystemUser} = {
-    home = "/Users/${currentSystemUser}";
+  users.users.${configVars.username} = {
+    home = "/Users/${configVars.username}";
     shell = pkgs.zsh;
   };
 

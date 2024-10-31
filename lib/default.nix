@@ -1,73 +1,7 @@
+{ lib, ... }:
 {
-  inputs,
-  nixpkgs,
-  overlays,
-  lib,
-  ...
-}:
-
-let
+  # use path relative to the root of the project
   relativeToRoot = lib.path.append ../.;
-in
-{
-  # Expose mkSystem and relativeToRoot for external use
-  mkSystem =
-    {
-      system ? "aarch64-darwin",
-      host,
-      user ? "robert",
-      darwin ? true,
-      extraModules ? [ ],
-    }:
-    let
-      # The config files for this system.
-      defaultHostConfig = relativeToRoot "hosts/default.nix";
-      hostConfig = relativeToRoot "hosts/${host}.nix";
-
-      userConfig = relativeToRoot "users/${user}";
-      userHomeConfig = relativeToRoot "users/${user}/home.nix";
-
-      pkgs = import nixpkgs {
-        inherit system;
-        overlays = builtins.attrValues overlays;
-        config = {
-          allowUnfree = true;
-        };
-      };
-
-      # NixOS vs nix-darwin functions
-      systemFunc = if darwin then inputs.nix-darwin.lib.darwinSystem else inputs.nixpkgs.lib.nixosSystem;
-      home-manager =
-        if darwin then inputs.home-manager.darwinModules else inputs.home-manager.nixosModules;
-    in
-    systemFunc rec {
-      inherit system pkgs;
-
-      modules = [
-        defaultHostConfig
-        userConfig
-        hostConfig
-        home-manager.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.users.${user} = import userHomeConfig {
-            inherit inputs pkgs;
-          };
-        }
-
-        # Expose extra arguments for modules
-        {
-          config._module.args = {
-            currentSystem = system;
-            currentSystemName = host;
-            currentSystemUser = user;
-            inputs = inputs;
-            isDarwin = darwin;
-          };
-        }
-      ] ++ extraModules;
-    };
-
   scanPaths =
     path:
     builtins.map (f: (path + "/${f}")) (
@@ -82,7 +16,4 @@ in
         ) (builtins.readDir path)
       )
     );
-
-  # Make relativeToRoot available for use in other modules
-  inherit relativeToRoot;
 }

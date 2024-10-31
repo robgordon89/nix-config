@@ -46,23 +46,41 @@
 
     let
       inherit (self) outputs;
-      inherit (nixpkgs) lib;
 
       forAllSystems = nixpkgs.lib.genAttrs [
         "aarch64-darwin"
       ];
 
+      inherit (nixpkgs) lib;
+
+      configVars = import ../vars { inherit inputs lib; };
+      configLib = import ./lib { inherit lib; };
+
       overlays = import ./overlays { inherit inputs; };
-      configLib = import ./lib {
+
+      specialArgs = {
         inherit
           inputs
+          outputs
+          configVars
+          configLib
           nixpkgs
-          overlays
-          lib
           ;
       };
     in
     {
+      # Custom modifications/overrides to upstream packages.
+      overlays = import ./overlays { inherit inputs outputs; };
+
+      # Custom packages to be shared or upstreamed.
+      packages = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        import ./pkgs { inherit pkgs; }
+      );
+
       checks = forAllSystems (
         system:
         let
@@ -70,6 +88,9 @@
         in
         import ./checks { inherit inputs system pkgs; }
       );
+
+      # Nix formatter available through 'nix fmt' https://nix-community.github.io/nixpkgs-fmt
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
 
       devShells = forAllSystems (
         system:
@@ -81,19 +102,32 @@
       );
 
       darwinConfigurations = {
-        titan = configLib.mkSystem {
-          host = "titan";
-          extraModules = [
+        titan = nix-darwin.lib.darwinSystem {
+          inherit specialArgs;
+          system = "aarch64-darwin";
+          modules = [
+            home-manager.darwinModules.home-manager
+            { home-manager.extraSpecialArgs = specialArgs; }
+            ./hosts/titan
             mailerlite.darwinModules."aarch64-darwin".sre
           ];
         };
+        # titan = configLib.mkSystem {
+        #   host = "titan";
+        #   specialArgs = {
+        #     isWork = false;
+        #   };
+        #   extraModules = [
+        #     mailerlite.darwinModules."aarch64-darwin".sre
+        #   ];
+        # };
 
-        thebe = configLib.mkSystem {
-          host = "thebe";
-          extraModules = [
-            mailerlite.darwinModules."aarch64-darwin".sre
-          ];
-        };
+        # thebe = configLib.mkSystem {
+        #   host = "thebe";
+        #   extraModules = [
+        #     mailerlite.darwinModules."aarch64-darwin".sre
+        #   ];
+        # };
       };
     };
 }
