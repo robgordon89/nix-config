@@ -64,11 +64,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1729706205,
-        "narHash": "sha256-b9aptO5d9YLoUnnXZrvPtSYL3iFXL+/jLKyatS9qKis=",
+        "lastModified": 1730401282,
+        "narHash": "sha256-fMm3GfWlt+NCcRZNLFvk6Qja82KjMHTFVakGMHDs4GM=",
         "ref": "refs/heads/main",
-        "rev": "639d734e194f12df5a4baba77f358781aecf3bfc",
-        "revCount": 35,
+        "rev": "c06aca6016762adf5b9625dbd4e902390a164b0a",
+        "revCount": 36,
         "type": "git",
         "url": "ssh://git@github.com/mailerlite/nix-config.git"
       },
