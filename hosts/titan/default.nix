@@ -15,7 +15,11 @@
 }:
 {
   imports = lib.flatten [
-    (configLib.relativeToRoot "modules/darwin")
+    (map configLib.relativeToRoot [
+      #################### Required Configs ####################
+      "hosts/common/core"
+    ])
+    # (configLib.relativeToRoot "modules/darwin")
   ];
 
   # https://wiki.nixos.org/wiki/FAQ/When_do_I_update_stateVersion
