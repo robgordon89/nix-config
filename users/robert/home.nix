@@ -10,6 +10,7 @@
       ffmpeg-full
       flyctl
       minio-client
+      go-task
     ];
   };
   imports = [
