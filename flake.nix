@@ -26,43 +26,65 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+
     # Pre-commit hooks
     pre-commit-hooks = {
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Krewfile for kubectl plugins
+    krewfile = {
+      url = "github:brumhard/krewfile";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      nix-darwin,
-      home-manager,
-      mailerlite,
-      pre-commit-hooks,
-      ...
+    { self
+    , nixpkgs
+    , nix-darwin
+    , home-manager
+    , mailerlite
+    , nix-vscode-extensions
+    , pre-commit-hooks
+    , krewfile
+    , ...
     }@inputs:
 
     let
       inherit (self) outputs;
-      inherit (nixpkgs) lib;
-
       forAllSystems = nixpkgs.lib.genAttrs [
         "aarch64-darwin"
       ];
+      inherit (nixpkgs) lib;
 
-      overlays = import ./overlays { inherit inputs; };
-      configLib = import ./lib {
+      configVars = import ./vars { inherit inputs lib; };
+      configLib = import ./lib { inherit lib; };
+      specialArgs = {
         inherit
           inputs
+          outputs
+          configVars
+          configLib
           nixpkgs
-          overlays
-          lib
           ;
       };
     in
     {
+      # Custom modifications/overrides to upstream packages.
+      overlays = import ./overlays { inherit inputs outputs; };
+
+      # Custom packages to be shared or upstreamed.
+      packages = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        import ./pkgs { inherit pkgs; }
+      );
+
       checks = forAllSystems (
         system:
         let
@@ -70,6 +92,9 @@
         in
         import ./checks { inherit inputs system pkgs; }
       );
+
+      # Nix formatter available through 'nix fmt' https://nix-community.github.io/nixpkgs-fmt
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
 
       devShells = forAllSystems (
         system:
@@ -81,19 +106,30 @@
       );
 
       darwinConfigurations = {
-        titan = configLib.mkSystem {
-          host = "titan";
-          extraModules = [
+        titan = nix-darwin.lib.darwinSystem {
+          inherit specialArgs;
+          modules = [
             mailerlite.darwinModules."aarch64-darwin".sre
+            home-manager.darwinModules.home-manager
+            { home-manager.extraSpecialArgs = specialArgs; }
+            ./hosts/titan
+            { networking.hostName = "titan"; }
           ];
         };
 
-        thebe = configLib.mkSystem {
-          host = "thebe";
-          extraModules = [
-            mailerlite.darwinModules."aarch64-darwin".sre
-          ];
-        };
+        # titan = configLib.mkSystem {
+        #   host = "titan";
+        #   extraModules = [
+        #     mailerlite.darwinModules."aarch64-darwin".sre
+        #   ];
+        # };
+
+        # thebe = configLib.mkSystem {
+        #   host = "thebe";
+        #   extraModules = [
+        #     mailerlite.darwinModules."aarch64-darwin".sre
+        #   ];
+        # };
       };
     };
 }

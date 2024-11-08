@@ -1,8 +1,7 @@
-{
-  inputs,
-  pkgs,
-  system,
-  ...
+{ inputs
+, pkgs
+, system
+, ...
 }:
 {
   pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
@@ -37,11 +36,11 @@
         types = [ "symlink" ];
       };
 
-      nixfmt-rfc-style = {
+      nixpkgs-fmt = {
         enable = true;
-        #        package = pkgs.nixfmt-rfc-style;
       };
-      shfmt.enable = true;
+
+      shfmt.enable = false;
 
       end-of-file-fixer.enable = true;
     };
