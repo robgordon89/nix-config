@@ -117,19 +117,16 @@
           ];
         };
 
-        # titan = configLib.mkSystem {
-        #   host = "titan";
-        #   extraModules = [
-        #     mailerlite.darwinModules."aarch64-darwin".sre
-        #   ];
-        # };
-
-        # thebe = configLib.mkSystem {
-        #   host = "thebe";
-        #   extraModules = [
-        #     mailerlite.darwinModules."aarch64-darwin".sre
-        #   ];
-        # };
+        thebe = nix-darwin.lib.darwinSystem {
+          inherit specialArgs;
+          modules = [
+            mailerlite.darwinModules."aarch64-darwin".sre
+            home-manager.darwinModules.home-manager
+            { home-manager.extraSpecialArgs = specialArgs; }
+            ./hosts/titan
+            { networking.hostName = "thebe"; }
+          ];
+        };
       };
     };
 }
