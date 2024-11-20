@@ -19,13 +19,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # MailerLite
-    mailerlite = {
-      # url = "git+file:///Users/robert/dev/mailerlite/nix-config";
-      url = "git+ssh://git@github.com/mailerlite/nix-config.git";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
     # Pre-commit hooks
@@ -110,7 +103,6 @@
           inherit specialArgs;
           system = "aarch64-darwin";
           modules = [
-            mailerlite.darwinModules."aarch64-darwin".sre
             home-manager.darwinModules.home-manager
             { home-manager.extraSpecialArgs = specialArgs; }
             ./hosts/titan
@@ -122,7 +114,6 @@
           inherit specialArgs;
           system = "aarch64-darwin";
           modules = [
-            mailerlite.darwinModules."aarch64-darwin".sre
             home-manager.darwinModules.home-manager
             { home-manager.extraSpecialArgs = specialArgs; }
             ./hosts/titan
