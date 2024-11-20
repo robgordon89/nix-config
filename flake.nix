@@ -108,6 +108,7 @@
       darwinConfigurations = {
         titan = nix-darwin.lib.darwinSystem {
           inherit specialArgs;
+          system = "aarch64-darwin";
           modules = [
             mailerlite.darwinModules."aarch64-darwin".sre
             home-manager.darwinModules.home-manager
@@ -119,6 +120,7 @@
 
         thebe = nix-darwin.lib.darwinSystem {
           inherit specialArgs;
+          system = "aarch64-darwin";
           modules = [
             mailerlite.darwinModules."aarch64-darwin".sre
             home-manager.darwinModules.home-manager
