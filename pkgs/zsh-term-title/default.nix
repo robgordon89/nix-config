@@ -1,7 +1,7 @@
-{
-  lib,
-  stdenv,
-  fetchgit,
+{ lib
+, stdenv
+, fetchgit
+,
 }:
 let
   pname = "zsh-term-title";

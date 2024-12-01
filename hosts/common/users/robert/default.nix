@@ -12,6 +12,8 @@ let
       packages = [ pkgs.home-manager ];
     };
 
+    home-manager.backupFileExtension = lib.mkDefault "bak";
+
     # Import this user's personal/home configurations
     home-manager.users.${configVars.username} = import (
       configLib.relativeToRoot "home/${configVars.username}/${config.networking.hostName}.nix"
