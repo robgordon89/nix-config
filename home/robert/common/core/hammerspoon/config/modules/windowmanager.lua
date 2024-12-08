@@ -96,3 +96,5 @@ function moveWindowToDisplay(d)
 
 hs.hotkey.bind(hyper_shift, "1", moveWindowToDisplay(1))
 hs.hotkey.bind(hyper_shift, "2", moveWindowToDisplay(2))
+
+-- hs.loadSpoon("WindowHalfsAndFifths")

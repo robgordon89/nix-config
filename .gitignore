@@ -2,3 +2,4 @@
 .direnv
 tmp
 result
+.DS_Store
