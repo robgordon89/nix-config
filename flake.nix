@@ -13,6 +13,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Nix on Droid
+    nix-on-droid = {
+      url = "github:nix-community/nix-on-droid/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -38,6 +44,7 @@
     { self
     , nixpkgs
     , nix-darwin
+    , nix-on-droid
     , home-manager
     , mailerlite
     , nix-vscode-extensions
@@ -117,6 +124,19 @@
             home-manager.darwinModules.home-manager
             { home-manager.extraSpecialArgs = specialArgs; }
             ./hosts/titan
+            { networking.hostName = "thebe"; }
+          ];
+        };
+      };
+
+      nixOnDroidConfigurations = {
+        default = nix-on-droid.lib.nixOnDroidConfiguration {
+          inherit specialArgs;
+          system = "aarch64-linux";
+          modules = [
+            home-manager.darwinModules.home-manager
+            { home-manager.extraSpecialArgs = specialArgs; }
+            ./hosts/dia
             { networking.hostName = "thebe"; }
           ];
         };

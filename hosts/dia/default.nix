@@ -10,9 +10,9 @@
   nix.package = pkgs.nixVersions.latest;
 
   imports = lib.flatten [
-    (map configLib.relativeToRoot [
-      "hosts/common/core"
-    ])
+    # (map configLib.relativeToRoot [
+    #   "hosts/common/core"
+    # ])
   ];
 
 }

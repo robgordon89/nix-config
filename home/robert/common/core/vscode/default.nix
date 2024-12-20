@@ -41,10 +41,9 @@ in
       redhat.vscode-yaml
       ryannaddy.laravel-artisan
       shufo.vscode-blade-formatter
+      ms-kubernetes-tools.vscode-kubernetes-tools
+      kcl.kcl-vscode-extension
     ]);
     # mutableExtensionsDir = false;
-    # extensions = with pkgs.vscode-extensions; [
-    #   jnoortheen.nix-ide
-    # ];
   };
 }

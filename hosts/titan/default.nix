@@ -11,7 +11,6 @@
 
   imports = lib.flatten [
     (map configLib.relativeToRoot [
-      #################### Required Configs ####################
       "hosts/common/core"
     ])
   ];

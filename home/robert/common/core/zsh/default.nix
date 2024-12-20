@@ -74,8 +74,9 @@
       exa = "exa --group-directories-first";
       ls-backend = "exa";
       ls = "exa";
+      ll = "exa -l";
       lsa = "exa -a";
-      lsal = "exa -al";
+      lla = "exa -la";
       l = "exa";
 
       update = "nix flake update --flake ~/nix-config";

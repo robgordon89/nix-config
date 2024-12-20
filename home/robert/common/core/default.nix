@@ -94,8 +94,7 @@
       zoxide
       pre-commit
       nix-your-shell
-
-      stable.kcl-cli
+      kcl
     ];
   };
 
