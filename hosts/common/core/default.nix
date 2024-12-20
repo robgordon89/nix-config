@@ -9,7 +9,7 @@
 {
   imports = lib.flatten [
     (configLib.scanPaths ./.)
-    # (configLib.relativeToRoot "hosts/common/users/${configVars.username}")
+    (configLib.relativeToRoot "hosts/common/users/${configVars.username}")
   ];
 
   home-manager.extraSpecialArgs = {
