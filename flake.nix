@@ -131,8 +131,7 @@
 
       nixOnDroidConfigurations = {
         dia = nix-on-droid.lib.nixOnDroidConfiguration {
-          inherit specialArgs;
-          system = "aarch64-linux";
+          extraSpecialArgs = { inherit specialArgs; };
           pkgs = import nixpkgs { system = "aarch64-linux"; };
           modules = [
             home-manager.darwinModules.home-manager
