@@ -130,14 +130,15 @@
       };
 
       nixOnDroidConfigurations = {
-        default = nix-on-droid.lib.nixOnDroidConfiguration {
+        dia = nix-on-droid.lib.nixOnDroidConfiguration {
           inherit specialArgs;
           system = "aarch64-linux";
+          pkgs = import nixpkgs { system = "aarch64-linux"; };
           modules = [
             home-manager.darwinModules.home-manager
             { home-manager.extraSpecialArgs = specialArgs; }
             ./hosts/dia
-            { networking.hostName = "thebe"; }
+            { networking.hostName = "dia"; }
           ];
         };
       };
