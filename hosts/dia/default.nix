@@ -20,6 +20,7 @@
   environment.packages = with pkgs; [
     vim
     git
+    which
   ];
 
   # imports = lib.flatten [
