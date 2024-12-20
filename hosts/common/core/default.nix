@@ -13,8 +13,6 @@ let
     if pkgs.stdenv.isLinux then "/home/${configVars.username}" else "/Users/${configVars.username}";
 in
 {
-  system.stateVersion = 5;
-
   imports = lib.flatten [
     (configLib.scanPaths ./.)
     (configLib.relativeToRoot "hosts/common/users/${configVars.username}")

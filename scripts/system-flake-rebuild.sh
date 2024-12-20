@@ -63,14 +63,6 @@ if [ "$os" == "Darwin" ]; then
 	else
 		darwin-rebuild $switch_args
 	fi
-else if [ "$os" == "Linux" ]; then
-	green "====== REBUILD ======"
-	if command -v nh &>/dev/null; then
-		nix-on-droid switch --flake ~/nix-config#dia
-	else
-		sudo nixos-rebuild $switch_args
-	fi
-
 else
 	green "====== REBUILD ======"
 	if command -v nh &>/dev/null; then
