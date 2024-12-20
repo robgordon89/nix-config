@@ -6,18 +6,10 @@
 , configVars
 , ...
 }:
-let
-
-  #FIXME:(configLib) switch this and other instances to configLib function
-  homeDirectory =
-    if pkgs.stdenv.isLinux then "/home/${configVars.username}" else "/Users/${configVars.username}";
-in
 {
   imports = lib.flatten [
     (configLib.scanPaths ./.)
-    (configLib.relativeToRoot "hosts/common/users/${configVars.username}")
-    inputs.home-manager.darwinModules.home-manager
-    # (builtins.attrValues outputs.nix-darwin)
+    # (configLib.relativeToRoot "hosts/common/users/${configVars.username}")
   ];
 
   home-manager.extraSpecialArgs = {

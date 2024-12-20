@@ -115,7 +115,9 @@
             home-manager.darwinModules.home-manager
             { home-manager.extraSpecialArgs = specialArgs; }
             ./hosts/titan
-            { networking.hostName = "titan"; }
+            {
+              networking.hostName = "titan";
+            }
           ];
         };
 
@@ -133,7 +135,7 @@
 
       nixOnDroidConfigurations = {
         dia = nix-on-droid.lib.nixOnDroidConfiguration {
-          # extraSpecialArgs = { inherit specialArgs; };
+          extraSpecialArgs = { inherit specialArgs; };
           pkgs = import nixpkgs { system = "aarch64-linux"; };
           modules = [
             # home-manager.darwinModules.home-manager
