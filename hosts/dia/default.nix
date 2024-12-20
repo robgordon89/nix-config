@@ -9,7 +9,8 @@
 {
   nix.package = pkgs.nixVersions.latest;
 
-  system.stateVersion = 5;
+  # Read the changelog before changing this value
+  system.stateVersion = "24.05";
 
   # Set up nix for flakes
   nix.extraOptions = ''
