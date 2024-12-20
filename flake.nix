@@ -13,16 +13,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Nix on Droid
-    nix-on-droid = {
-      url = "github:nix-community/nix-on-droid/release-24.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Nix on Droid
+    nix-on-droid = {
+      url = "github:nix-community/nix-on-droid/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
 
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
@@ -131,13 +132,13 @@
 
       nixOnDroidConfigurations = {
         dia = nix-on-droid.lib.nixOnDroidConfiguration {
-          extraSpecialArgs = { inherit specialArgs; };
+          # extraSpecialArgs = { inherit specialArgs; };
           pkgs = import nixpkgs { system = "aarch64-linux"; };
           modules = [
-            home-manager.darwinModules.home-manager
-            { home-manager.extraSpecialArgs = specialArgs; }
+            # home-manager.darwinModules.home-manager
+            # { home-manager.extraSpecialArgs = specialArgs; }
             ./hosts/dia
-            { networking.hostName = "dia"; }
+            # { networking.hostName = "dia"; }
           ];
         };
       };
