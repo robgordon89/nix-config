@@ -109,6 +109,27 @@
         "type": "github"
       }
     },
+    "home-manager_2": {
+      "inputs": {
+        "nixpkgs": [
+          "nix-on-droid",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1735381016,
+        "narHash": "sha256-CyCZFhMUkuYbSD6bxB/r43EdmDE7hYeZZPTCv0GudO4=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "10e99c43cdf4a0713b4e81d90691d22c6a58bdf2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
     "krewfile": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -192,13 +213,9 @@
     },
     "nix-on-droid": {
       "inputs": {
-        "home-manager": [
-          "home-manager"
-        ],
+        "home-manager": "home-manager_2",
         "nix-formatter-pack": "nix-formatter-pack",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
+        "nixpkgs": "nixpkgs_2",
         "nixpkgs-docs": "nixpkgs-docs",
         "nixpkgs-for-bootstrap": "nixpkgs-for-bootstrap",
         "nmd": "nmd_2"
@@ -206,23 +223,20 @@
       "locked": {
         "lastModified": 1720396533,
         "narHash": "sha256-UFzk/hZWO1VkciIO5UPaSpJN8s765wsngUSvtJM6d5Q=",
-        "owner": "nix-community",
-        "repo": "nix-on-droid",
+        "path": "/nix/store/3wqs0zryk11j09mhllxsnnaxpswvjfnp-source",
         "rev": "f3d3b8294039f2f9a8fb7ea82c320f29c6b0fe25",
-        "type": "github"
+        "type": "path"
       },
       "original": {
-        "owner": "nix-community",
-        "ref": "release-24.05",
-        "repo": "nix-on-droid",
-        "type": "github"
+        "id": "nix-on-droid",
+        "type": "indirect"
       }
     },
     "nix-vscode-extensions": {
       "inputs": {
         "flake-compat": "flake-compat",
         "flake-utils": "flake-utils_2",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
         "lastModified": 1733623412,
@@ -336,6 +350,21 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1735568378,
+        "narHash": "sha256-CXjZR7iR632UVPGClyEeXNCfG21jc+CRFB4b98ZCVuw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "d836dc6ebf98356c2369f48707da0e15779cc7d5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1713805509,
         "narHash": "sha256-YgSEan4CcrjivCNO5ZNzhg7/8ViLkZ4CB/GrGBVSudo=",
         "owner": "NixOS",
@@ -350,7 +379,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1733581040,
         "narHash": "sha256-Qn3nPMSopRQJgmvHzVqPcE3I03zJyl8cSbgnnltfFDY=",
@@ -451,7 +480,7 @@
         "nix-darwin": "nix-darwin",
         "nix-on-droid": "nix-on-droid",
         "nix-vscode-extensions": "nix-vscode-extensions",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_4",
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "pre-commit-hooks": "pre-commit-hooks"

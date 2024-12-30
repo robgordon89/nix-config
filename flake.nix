@@ -19,13 +19,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Nix on Droid
-    nix-on-droid = {
-      url = "github:nix-community/nix-on-droid/release-24.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
-
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
     # Pre-commit hooks
@@ -58,7 +51,6 @@
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
         "aarch64-darwin"
-        "aarch64-linux"
       ];
       inherit (nixpkgs) lib;
 
@@ -129,19 +121,6 @@
             { home-manager.extraSpecialArgs = specialArgs; }
             ./hosts/titan
             { networking.hostName = "thebe"; }
-          ];
-        };
-      };
-
-      nixOnDroidConfigurations = {
-        dia = nix-on-droid.lib.nixOnDroidConfiguration {
-          extraSpecialArgs = { inherit specialArgs; };
-          pkgs = import nixpkgs { system = "aarch64-linux"; };
-          modules = [
-            # home-manager.darwinModules.home-manager
-            # { home-manager.extraSpecialArgs = specialArgs; }
-            ./hosts/dia
-            # { networking.hostName = "dia"; }
           ];
         };
       };

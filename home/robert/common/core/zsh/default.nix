@@ -30,8 +30,6 @@
         . ${./config/options.zsh}
         . ${./config/completions.zsh}
         . ${./config/mappings.zsh}
-
-        source ${pkgs.google-cloud-sdk}/share/bash-completion/completions/gcloud
       '';
 
     shellAliases = {

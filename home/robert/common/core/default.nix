@@ -91,7 +91,6 @@
       # Shell tools
       direnv
       nix-direnv
-      zoxide
       pre-commit
       nix-your-shell
       kcl
