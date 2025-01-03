@@ -52,6 +52,7 @@
       go-task
       chart-testing
       cmctl
+      swaks
 
       # SaaS tools
       gh
