@@ -62,8 +62,11 @@
   "workbench.colorCustomizations" = {
     "[Default High Contrast]" = {
       "sideBarTitle.foreground" = "#000000";
+      "panelTitle.activeBorder" = "#000000";
+      "panelTitle.border" = "#353839";
+      "panelStickyScroll.border" = "#000000";
       # "list.focusOutline" = "#ff0000";
-      # "contrastActiveBorder" = "#ff0000";
+      "contrastActiveBorder" = "#353839";
       # "contrastBorder" = "#cccccc";
       # "focusBorder" = "#000000";
     };
