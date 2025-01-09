@@ -1,8 +1,4 @@
-{ config
-, pkgs
-, lib
-, ...
-}:
+{ ... }:
 
 {
   # Set some user preferences
