@@ -48,6 +48,7 @@ in
         ms-kubernetes-tools.vscode-kubernetes-tools
         kcl.kcl-vscode-extension
         wolfmah.ansible-vault-inline
+        mechatroner.rainbow-csv
       ]
     );
     mutableExtensionsDir = false;
