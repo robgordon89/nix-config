@@ -59,15 +59,15 @@
   "workbench.colorTheme" = "Default High Contrast";
   "workbench.preferredDarkColorTheme" = "Default High Contrast";
   "workbench.preferredLightColorTheme" = "Default High Contrast Light";
-  # "workbench.colorCustomizations" = {
-  #     "[Default High Contrast]" = {
-  #         "sideBarTitle.foreground" = "#000000";
-  #         "list.focusOutline" = "#ff0000";
-  #         "contrastActiveBorder" = "#ff0000";
-  #         "contrastBorder" = "#cccccc";
-  #         "focusBorder" = "#000000";
-  #     }
-  # },
+  "workbench.colorCustomizations" = {
+    "[Default High Contrast]" = {
+      "sideBarTitle.foreground" = "#000000";
+      # "list.focusOutline" = "#ff0000";
+      # "contrastActiveBorder" = "#ff0000";
+      # "contrastBorder" = "#cccccc";
+      # "focusBorder" = "#000000";
+    };
+  };
 
   "terminal.integrated.fontSize" = 14;
   "terminal.explorerKind" = "external";
@@ -162,4 +162,9 @@
   "python.experiments.enabled" = false;
 
   "github.copilot.editor.enableAutoCompletions" = true;
+
+  "custom-ui-style.electron" = {
+    "frame" = false;
+    "roundedCorners" = false;
+  };
 }

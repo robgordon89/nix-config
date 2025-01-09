@@ -5,7 +5,7 @@ let
       builtins.fetchGit {
         url = "https://github.com/nix-community/nix-vscode-extensions";
         ref = "refs/heads/master";
-        rev = "06e54246d3c91e3d5015027516100b58fc3ec986";
+        rev = "2a84ca07753e3ec608c96ed2907606361979467a";
       }
     )).extensions.aarch64-darwin;
 in
@@ -49,6 +49,7 @@ in
         kcl.kcl-vscode-extension
         wolfmah.ansible-vault-inline
         mechatroner.rainbow-csv
+        subframe7536.custom-ui-style
       ]
     );
     mutableExtensionsDir = false;
