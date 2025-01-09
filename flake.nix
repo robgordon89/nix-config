@@ -4,9 +4,8 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
     # Nix Darwin
     nix-darwin = {
@@ -16,13 +15,21 @@
 
     # Home Manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
     # Pre-commit hooks
     pre-commit-hooks = {
       url = "github:cachix/git-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Krewfile for kubectl plugins
+    krewfile = {
+      url = "github:brumhard/krewfile";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -30,93 +37,48 @@
   outputs =
     { self
     , nixpkgs
+    , nix-darwin
+    , nix-on-droid
+    , home-manager
+    , mailerlite
+    , nix-vscode-extensions
+    , pre-commit-hooks
+    , krewfile
     , ...
     }@inputs:
 
     let
       inherit (self) outputs;
-      inherit (nixpkgs) lib;
-
-      #
-      # ========= Architectures =========
-      #
       forAllSystems = nixpkgs.lib.genAttrs [
         "aarch64-darwin"
-        # "x86_64-linux"
-        # "aarch64-linux"
       ];
+      inherit (nixpkgs) lib;
 
-      #
-      # ========= Host Config Functions =========
-      #
-      # Handle a given host config based on whether its underlying system is nixos or darwin
-      mkHost = host: isDarwin: {
-        ${host} =
-          let
-            func = if isDarwin then inputs.nix-darwin.lib.darwinSystem else lib.nixosSystem;
-            systemFunc = func;
-          in
-          systemFunc {
-            specialArgs = {
-              inherit
-                inputs
-                outputs
-                isDarwin
-                ;
-
-              # ========== Extend lib with lib.custom ==========
-              # NOTE: This approach allows lib.custom to propagate into hm
-              # see: https://github.com/nix-community/home-manager/pull/3454
-              lib = nixpkgs.lib.extend (self: super: { custom = import ./lib { inherit (nixpkgs) lib; }; });
-
-            };
-            modules = [ ./hosts/${if isDarwin then "darwin" else "nixos"}/${host} ];
-          };
+      configVars = import ./vars { inherit inputs lib; };
+      configLib = import ./lib { inherit lib; };
+      specialArgs = {
+        inherit
+          inputs
+          outputs
+          configVars
+          configLib
+          nixpkgs
+          ;
       };
-      # Invoke mkHost for each host config that is declared for either nixos or darwin
-      mkHostConfigs =
-        hosts: isDarwin: lib.foldl (acc: set: acc // set) { } (lib.map (host: mkHost host isDarwin) hosts);
-      # Return the hosts declared in the given directory
-      readHosts = folder: lib.attrNames (builtins.readDir ./hosts/${folder});
     in
     {
-      #
-      # ========= Overlays =========
-      #
       # Custom modifications/overrides to upstream packages.
-      overlays = import ./overlays { inherit inputs; };
+      overlays = import ./overlays { inherit inputs outputs; };
 
-      #
-      # ========= Host Configurations =========
-      #
-      # Building configurations is available through `just rebuild` or `nixos-rebuild --flake .#hostname`
-      # nixosConfigurations = mkHostConfigs (readHosts "nixos") false;
-      darwinConfigurations = mkHostConfigs (readHosts "darwin") true;
-
-      #
-      # ========= Packages =========
-      #
-      # Add custom packages to be shared or upstreamed.
+      # Custom packages to be shared or upstreamed.
       packages = forAllSystems (
         system:
         let
-          pkgs = import nixpkgs {
-            inherit system;
-            overlays = [ self.overlays.default ];
-          };
+          pkgs = nixpkgs.legacyPackages.${system};
         in
-        lib.packagesFromDirectoryRecursive {
-          callPackage = lib.callPackageWith pkgs;
-          directory = ./pkgs/common;
-        }
+        import ./pkgs { inherit pkgs; }
       );
 
-      #
-      # ========= Formatting =========
-      #
-      # Nix formatter available through 'nix fmt' https://nix-community.github.io/nixpkgs-fmt
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
-      # Pre-commit checks
       checks = forAllSystems (
         system:
         let
@@ -124,16 +86,43 @@
         in
         import ./checks { inherit inputs system pkgs; }
       );
-      #
-      # ========= DevShell =========
-      #
-      # Custom shell for bootstrapping on new hosts, modifying nix-config, and secrets management
+
+      # Nix formatter available through 'nix fmt' https://nix-community.github.io/nixpkgs-fmt
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
+
       devShells = forAllSystems (
         system:
-        import ./shell.nix {
+        let
           pkgs = nixpkgs.legacyPackages.${system};
           checks = self.checks.${system};
-        }
+        in
+        import ./shell.nix { inherit checks pkgs; }
       );
+
+      darwinConfigurations = {
+        titan = nix-darwin.lib.darwinSystem {
+          inherit specialArgs;
+          system = "aarch64-darwin";
+          modules = [
+            home-manager.darwinModules.home-manager
+            { home-manager.extraSpecialArgs = specialArgs; }
+            ./hosts/titan
+            {
+              networking.hostName = "titan";
+            }
+          ];
+        };
+
+        thebe = nix-darwin.lib.darwinSystem {
+          inherit specialArgs;
+          system = "aarch64-darwin";
+          modules = [
+            home-manager.darwinModules.home-manager
+            { home-manager.extraSpecialArgs = specialArgs; }
+            ./hosts/titan
+            { networking.hostName = "thebe"; }
+          ];
+        };
+      };
     };
 }

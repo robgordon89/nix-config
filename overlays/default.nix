@@ -1,21 +1,11 @@
-#
-# This file defines overlays/custom modifications to upstream packages
-#
-
 { inputs, ... }:
+{
+  # This one brings our custom packages from the 'pkgs' directory
+  additions = final: _prev: import ../pkgs { pkgs = final; };
 
-let
-  # Adds my custom packages
-  # FIXME: Add per-system packages
-  additions =
-    final: prev:
-    (prev.lib.packagesFromDirectoryRecursive {
-      callPackage = prev.lib.callPackageWith final;
-      directory = ../pkgs/common;
-    });
-
-  linuxModifications = final: prev: prev.lib.mkIf final.stdenv.isLinux { };
-
+  # This one contains whatever you want to overlay
+  # You can change versions, add patches, set compilation flags, anything really.
+  # https://wiki.nixos.org/wiki/Overlays
   modifications = final: prev: {
     # example = prev.example.overrideAttrs (oldAttrs: let ... in {
     # ...
@@ -28,32 +18,22 @@ let
     #    };
   };
 
+  #
+  # Convenient access to stable or unstable nixpkgs regardless
+  #
+  # When applied, the nixpkgs-stable set (declared in the flake inputs) will
+  # be accessible through 'pkgs.stable'. Likewise, the nixpkgs-unstable set
+  # will be accessible through 'pkgs.unstable'
   stable-packages = final: _prev: {
     stable = import inputs.nixpkgs-stable {
-      inherit (final) system;
+      system = final.system;
       config.allowUnfree = true;
-      #      overlays = [
-      #     ];
     };
   };
-
   unstable-packages = final: _prev: {
     unstable = import inputs.nixpkgs-unstable {
-      inherit (final) system;
+      system = final.system;
       config.allowUnfree = true;
-      #      overlays = [
-      #     ];
     };
   };
-
-in
-{
-  default =
-    final: prev:
-
-    (additions final prev)
-    // (modifications final prev)
-    // (linuxModifications final prev)
-    // (stable-packages final prev)
-    // (unstable-packages final prev);
 }

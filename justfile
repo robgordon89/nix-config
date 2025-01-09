@@ -15,6 +15,9 @@ check-trace:
 rebuild: rebuild-pre
   scripts/system-flake-rebuild.sh
 
+rebuild-full: rebuild-pre
+  scripts/system-flake-rebuild.sh
+
 update:
   nix flake update
 
