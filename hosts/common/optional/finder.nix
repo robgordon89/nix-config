@@ -1,11 +1,5 @@
-{ config
-, pkgs
-, lib
-, ...
-}:
-
+{ pkgs, ... }:
 {
-  # Set some sane defaults
   system.defaults = {
     # Set some finder defaults
     finder = {

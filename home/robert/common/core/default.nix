@@ -1,25 +1,47 @@
+#FIXME: Move attrs that will only work on linux to nixos.nix
 { config
-, inputs
 , lib
 , pkgs
-, outputs
-, configLib
+, hostSpec
 , ...
 }:
+let
+  platform = if hostSpec.isDarwin then "darwin" else "nixos";
+in
 {
   imports = lib.flatten [
-    inputs.krewfile.homeManagerModules.krewfile
-    (configLib.scanPaths ./.)
+    (map lib.custom.relativeToRoot [
+      "modules/common/host-spec.nix"
+      "modules/home-manager"
+    ])
+    ./${platform}.nix
+    ./git
+    ./zsh
+    ./neovim
+    ./fd.nix
+    ./k9s.nix
+    ./zoxide.nix
   ];
 
+  inherit hostSpec;
+
   home = {
-    username = lib.mkDefault "robert";
-    homeDirectory = lib.mkDefault "/Users/${config.home.username}";
+    username = lib.mkDefault config.hostSpec.username;
+    homeDirectory = lib.mkDefault config.hostSpec.home;
     stateVersion = lib.mkDefault "23.05";
+    # TODO: tidy up this when 25.05 is merged
+    enableNixpkgsReleaseCheck = false;
     sessionPath = [
       "$HOME/.local/bin"
       "$HOME/scripts/talon_scripts"
     ];
+    sessionVariables = {
+      FLAKE = "$HOME/nix-config";
+      SHELL = "zsh";
+      VISUAL = "nvim";
+      EDITOR = "nvim";
+      MANPAGER = "batman"; # see ./cli/bat.nix
+    };
     packages = with pkgs; [
       # Tools
       curl
@@ -52,6 +74,8 @@
       go-task
       chart-testing
       cmctl
+      swaks
+      ncdu
 
       # SaaS tools
       gh
@@ -97,15 +121,19 @@
     ];
   };
 
-  nixpkgs = {
-    overlays = builtins.attrValues outputs.overlays;
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = (_: true);
+  nix = {
+    package = lib.mkDefault pkgs.nix;
+    settings = {
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      warn-dirty = false;
     };
   };
 
-  programs = {
-    home-manager.enable = true;
-  };
+  programs.home-manager.enable = true;
+
+  # Nicely reload system units when changing configs
+  systemd.user.startServices = "sd-switch";
 }
