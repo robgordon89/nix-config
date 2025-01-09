@@ -37,10 +37,8 @@ in
     ];
     sessionVariables = {
       FLAKE = "$HOME/nix-config";
-      SHELL = "zsh";
       VISUAL = "nvim";
       EDITOR = "nvim";
-      MANPAGER = "batman"; # see ./cli/bat.nix
     };
     packages = with pkgs; [
       # Tools
