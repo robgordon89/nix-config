@@ -72,6 +72,7 @@
     };
   };
 
+
   "terminal.integrated.fontSize" = 14;
   "terminal.explorerKind" = "external";
   "terminal.integrated.cursorBlinking" = true;
@@ -165,6 +166,8 @@
   "python.experiments.enabled" = false;
 
   "github.copilot.editor.enableAutoCompletions" = true;
+
+  "vs-kubernetes.vs-kubernetes.crd-code-completion" = "enabled";
 
   "custom-ui-style.electron" = {
     "frame" = false;
