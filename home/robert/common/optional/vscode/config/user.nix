@@ -9,6 +9,8 @@
   "editor.snippetSuggestions" = "top";
   "editor.guides.indentation" = false;
   "editor.stickyScroll.enabled" = false;
+  "editor.scrollbar.horizontal" = "hidden";
+  "editor.scrollbar.vertical" = "hidden";
   "editor.inlineSuggest.enabled" = true;
   "editor.multiCursorModifier" = "ctrlCmd";
   "editor.emptySelectionClipboard" = false;
@@ -55,6 +57,7 @@
   "workbench.layoutControl.enabled" = false;
   "workbench.activityBar.location" = "hidden";
   "workbench.editor.enablePreviewFromQuickOpen" = false;
+  "workbench.tree.renderIndentGuides" = "none";
 
   "workbench.colorTheme" = "Default High Contrast";
   "workbench.preferredDarkColorTheme" = "Default High Contrast";
@@ -65,10 +68,12 @@
       "panelTitle.activeBorder" = "#000000";
       "panelTitle.border" = "#353839";
       "panelStickyScroll.border" = "#000000";
+      "terminal.tab.activeBorder" = "#000000";
+      "terminal.border" = "#000000";
       # "list.focusOutline" = "#ff0000";
-      "contrastActiveBorder" = "#353839";
+      # "contrastActiveBorder" = "#353839";
       # "contrastBorder" = "#cccccc";
-      # "focusBorder" = "#000000";
+      "focusBorder" = "#000000";
     };
   };
 
@@ -76,11 +81,14 @@
   "terminal.integrated.fontSize" = 14;
   "terminal.explorerKind" = "external";
   "terminal.integrated.cursorBlinking" = true;
+  "terminal.integrated.stickyScroll.enabled" = false;
   "terminal.integrated.fontFamily" = "Geist Mono, monospace";
   "terminal.integrated.enableMultiLinePasteWarning" = "never";
+  "terminal.integrated.shellIntegration.decorationsEnabled" = "never";
+
 
   "breadcrumbs.enabled" = false;
-  "scm.diffDecorations" = "all";
+  "scm.diffDecorations" = "gutter";
   "git.decorations.enabled" = true;
   "problems.decorations.enabled" = false;
   "diffEditor.ignoreTrimWhitespace" = false;
@@ -172,5 +180,13 @@
   "custom-ui-style.electron" = {
     "frame" = false;
     "roundedCorners" = false;
+  };
+  "custom-ui-style.stylesheet" = {
+    ".monaco-workbench .part.sidebar>.title" = {
+      "display" = "none";
+    };
+    ".monaco-workbench .part.sidebar>.content" = {
+      "padding-top" = "10px";
+    };
   };
 }
