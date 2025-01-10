@@ -51,6 +51,7 @@ in
         wolfmah.ansible-vault-inline
         mechatroner.rainbow-csv
         subframe7536.custom-ui-style
+        tintedtheming.base16-tinted-themes
       ]
     );
     mutableExtensionsDir = false;

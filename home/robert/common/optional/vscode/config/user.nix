@@ -64,6 +64,7 @@
   "workbench.preferredDarkColorTheme" = "Default High Contrast";
   "workbench.preferredLightColorTheme" = "Default High Contrast Light";
   "workbench.colorCustomizations" = {
+    "[base16-black-metal-mayhem]" = { };
     "[Default High Contrast]" = {
       "sideBarTitle.foreground" = "#000000";
       "panelTitle.activeBorder" = "#000000";
@@ -78,18 +79,32 @@
       "list.focusOutline" = "#000000";
       "list.inactiveFocusOutline" = "#cccccc";
       "list.focusAndSelectionOutline" = "#000000";
-      "list.focusBackground" = "#202020";
-      "list.hoverBackground" = "#202020";
-      "list.activeSelectionBackground" = "#202020";
-      "list.inactiveSelectionBackground" = "#202020";
-      "list.inactiveFocusBackground" = "#202020";
       "editorLineNumber.foreground" = "#ffffff";
       "editorLineNumber.activeForeground" = "#bfbfbf";
-      "terminalCursor.background" = "#A5A2A2";
-      "terminalCursor.foreground" = "#A5A2A2";
 
       # Black Metal (Mayhem) (base16) [https://github.com/tinted-theming/tinted-vscode]
-      "terminal.background" = "#000000";
+      # Lists and trees
+      "list.activeSelectionBackground" = "#222222";
+      "list.activeSelectionForeground" = "#c1c1c1";
+      "list.dropBackground" = "#c1c1c1";
+      "list.focusBackground" = "#222222";
+      "list.focusForeground" = "#c1c1c1";
+      "list.highlightForeground" = "#c1c1c1";
+      "list.hoverBackground" = "#333333";
+      "list.hoverForeground" = "#c1c1c1";
+      "list.inactiveSelectionBackground" = "#222222";
+      "list.inactiveSelectionForeground" = "#c1c1c1";
+      "list.inactiveFocusBackground" = "#222222";
+      "list.invalidItemForeground" = "#5f8787";
+      "list.errorForeground" = "#5f8787";
+      "list.warningForeground" = "#eecc6c";
+      "listFilterWidget.background" = "#000000";
+      "listFilterWidget.noMatchesOutline" = "#5f8787";
+      "list.filterMatchBackground" = "#222222";
+      "tree.indentGuidesStroke" = "#c1c1c1";
+
+      "terminalCursor.foreground" = "#c1c1c1";
+      "terminal.background" = "#vvvvvv";
       "terminal.foreground" = "#c1c1c1";
       "terminal.ansiBlack" = "#000000";
       "terminal.ansiRed" = "#5f8787";
@@ -107,6 +122,24 @@
       "terminal.ansiBrightMagenta" = "#999999";
       "terminal.ansiBrightCyan" = "#aaaaaa";
       "terminal.ansiBrightWhite" = "#c1c1c1";
+
+      "editorGutter.background" = "#000000";
+      "editorGutter.modifiedBackground" = "#999999";
+      "editorGutter.addedBackground" = "#f3ecd4";
+      "editorGutter.deletedBackground" = "#5f8787";
+      "editorGutter.commentRangeForeground" = "#999999";
+      "editorGutter.foldingControlForeground" = "#c1c1c1";
+
+      "gitDecoration.addedResourceForeground" = "#f3ecd4";
+      "gitDecoration.modifiedResourceForeground" = "#999999";
+      "gitDecoration.deletedResourceForeground" = "#5f8787";
+      "gitDecoration.renamedResourceForeground" = "#aaaaaa";
+      "gitDecoration.stageModifiedResourceForeground" = "#999999";
+      "gitDecoration.stageDeletedResourceForeground" = "#5f8787";
+      "gitDecoration.untrackedResourceForeground" = "#aaaaaa";
+      "gitDecoration.ignoredResourceForeground" = "#999999";
+      "gitDecoration.conflictingResourceForeground" = "#eecc6c";
+      "gitDecoration.submoduleResourceForeground" = "#444444";
     };
   };
 
