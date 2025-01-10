@@ -13,6 +13,7 @@ in
   programs.vscode = {
     enable = true;
     userSettings = import ./config/user.nix;
+    keybindings = import ./config/keybindings.nix;
     extensions = (
       with extensions.vscode-marketplace;
       [

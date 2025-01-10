@@ -70,13 +70,20 @@
       "panelStickyScroll.border" = "#000000";
       "terminal.tab.activeBorder" = "#000000";
       "terminal.border" = "#000000";
-      # "list.focusOutline" = "#ff0000";
+      "tab.activeBorder" = "#000000";
       # "contrastActiveBorder" = "#353839";
       # "contrastBorder" = "#cccccc";
       "focusBorder" = "#000000";
+      "list.focusOutline" = "#000000";
+      "list.inactiveFocusOutline" = "#000000";
+      "list.focusAndSelectionOutline" = "#000000";
+      "list.focusBackground" = "#353839";
+      "list.hoverBackground" = "#353839";
+      "list.activeSelectionBackground" = "#353839";
+      "list.inactiveSelectionBackground" = "#353839";
+      "list.inactiveFocusBackground" = "#353839";
     };
   };
-
 
   "terminal.integrated.fontSize" = 14;
   "terminal.explorerKind" = "external";
@@ -85,7 +92,6 @@
   "terminal.integrated.fontFamily" = "Geist Mono, monospace";
   "terminal.integrated.enableMultiLinePasteWarning" = "never";
   "terminal.integrated.shellIntegration.decorationsEnabled" = "never";
-
 
   "breadcrumbs.enabled" = false;
   "scm.diffDecorations" = "gutter";
