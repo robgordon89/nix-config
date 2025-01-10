@@ -17,7 +17,7 @@
   "editor.minimap.renderCharacters" = false;
   "editor.copyWithSyntaxHighlighting" = false;
   "editor.fontFamily" = "Geist Mono, monospace";
-  "editor.wordSeparators" = "`~!@#$%^&*.()-=+[{]}\\|;:'\",<>/?";
+  "editor.wordSeparators" = "`~!@#$%^&*.()-=+[{]}\\|; = '\",<>/?";
 
   "editor.hover.enabled" = true;
   "editor.matchBrackets" = "never";
@@ -52,12 +52,13 @@
   "workbench.editor.showIcons" = false;
   "workbench.sideBar.location" = "left";
   "workbench.statusBar.visible" = false;
+  "workbench.editor.empty.hint" = "hidden";
   "workbench.editor.showTabs" = "multiple";
   "workbench.editor.enablePreview" = false;
   "workbench.layoutControl.enabled" = false;
   "workbench.activityBar.location" = "hidden";
-  "workbench.editor.enablePreviewFromQuickOpen" = false;
   "workbench.tree.renderIndentGuides" = "none";
+  "workbench.editor.enablePreviewFromQuickOpen" = false;
 
   "workbench.colorTheme" = "Default High Contrast";
   "workbench.preferredDarkColorTheme" = "Default High Contrast";
@@ -75,13 +76,37 @@
       # "contrastBorder" = "#cccccc";
       "focusBorder" = "#000000";
       "list.focusOutline" = "#000000";
-      "list.inactiveFocusOutline" = "#000000";
+      "list.inactiveFocusOutline" = "#cccccc";
       "list.focusAndSelectionOutline" = "#000000";
-      "list.focusBackground" = "#353839";
-      "list.hoverBackground" = "#353839";
-      "list.activeSelectionBackground" = "#353839";
-      "list.inactiveSelectionBackground" = "#353839";
-      "list.inactiveFocusBackground" = "#353839";
+      "list.focusBackground" = "#202020";
+      "list.hoverBackground" = "#202020";
+      "list.activeSelectionBackground" = "#202020";
+      "list.inactiveSelectionBackground" = "#202020";
+      "list.inactiveFocusBackground" = "#202020";
+      "editorLineNumber.foreground" = "#ffffff";
+      "editorLineNumber.activeForeground" = "#bfbfbf";
+      "terminalCursor.background" = "#A5A2A2";
+      "terminalCursor.foreground" = "#A5A2A2";
+
+      # Black Metal (Mayhem) (base16) [https://github.com/tinted-theming/tinted-vscode]
+      "terminal.background" = "#000000";
+      "terminal.foreground" = "#c1c1c1";
+      "terminal.ansiBlack" = "#000000";
+      "terminal.ansiRed" = "#5f8787";
+      "terminal.ansiGreen" = "#f3ecd4";
+      "terminal.ansiYellow" = "#eecc6c";
+      "terminal.ansiBlue" = "#888888";
+      "terminal.ansiMagenta" = "#999999";
+      "terminal.ansiCyan" = "#aaaaaa";
+      "terminal.ansiWhite" = "#c1c1c1";
+      "terminal.ansiBrightBlack" = "#333333";
+      "terminal.ansiBrightRed" = "#5f8787";
+      "terminal.ansiBrightGreen" = "#f3ecd4";
+      "terminal.ansiBrightYellow" = "#eecc6c";
+      "terminal.ansiBrightBlue" = "#888888";
+      "terminal.ansiBrightMagenta" = "#999999";
+      "terminal.ansiBrightCyan" = "#aaaaaa";
+      "terminal.ansiBrightWhite" = "#c1c1c1";
     };
   };
 
@@ -92,6 +117,12 @@
   "terminal.integrated.fontFamily" = "Geist Mono, monospace";
   "terminal.integrated.enableMultiLinePasteWarning" = "never";
   "terminal.integrated.shellIntegration.decorationsEnabled" = "never";
+  "terminal.integrated.shellIntegration.showCommandGuide" = false;
+  "terminal.integrated.showLinkHover" = false;
+  "terminal.integrated.suggest.suggestOnTriggerCharacters" = false;
+  "terminal.integrated.suggest.quickSuggestions" = false;
+  "terminal.integrated.shellIntegration.enabled" = false;
+  "terminal.integrated.drawBoldTextInBrightColors" = false;
 
   "breadcrumbs.enabled" = false;
   "scm.diffDecorations" = "gutter";
