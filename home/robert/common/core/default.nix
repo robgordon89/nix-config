@@ -86,6 +86,7 @@ in
       python312
       python312Packages.ansible-core
       nodejs_22
+      yarn
       bun
       cue
       go
