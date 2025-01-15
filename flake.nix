@@ -7,6 +7,8 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+
     # Nix Darwin
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
