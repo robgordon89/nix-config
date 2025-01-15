@@ -1,0 +1,51 @@
+version: "3"
+
+vars:
+  USERNAME:
+    sh: whoami
+  HOME_DIR: /Users/{{.USERNAME}}
+  HOSTNAME:
+    sh: scutil --get ComputerName 2>/dev/null || uname -n
+  OS:
+    sh: uname -s
+
+tasks:
+  default:
+    cmds:
+      - task --list
+
+  build-config:
+    internal: true
+    cmds:
+      - |
+        if [ "{{.OS}}" = "Darwin" ]; then
+          echo "Building Nix-Darwin configuration..."
+          nix build .#darwinConfigurations.{{.HOSTNAME}}.system
+        else
+          echo "Building Nix Home Manager configuration for Linux..."
+          nix build .#homeConfigurations.linux.activationPackage
+        fi
+
+  switch-config:
+    internal: true
+    cmds:
+      - |
+        if [ "{{.OS}}" = "Darwin" ]; then
+          darwin-rebuild switch --flake .#{{.HOSTNAME}} --show-trace
+        else
+          ./result/activate
+        fi
+
+  update:
+    cmds:
+      - nix flake update
+    desc: Update the flake.lock file
+
+  build:
+    deps: [build-config, switch-config]
+    desc: Build and apply the new configuration based on the OS
+
+  setup-nix:
+    cmds:
+      - curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --no-confirm
+    desc: Install Nix package manager

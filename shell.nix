@@ -24,7 +24,7 @@
         nix
         home-manager
         git
-        just
+        go-task
 
         age
         ssh-to-age

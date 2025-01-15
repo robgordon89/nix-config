@@ -29,6 +29,8 @@
   outputs =
     { self
     , nixpkgs
+    , nix-darwin
+    , home-manager
     , ...
     }@inputs:
 
@@ -40,43 +42,10 @@
       # ========= Architectures =========
       #
       forAllSystems = nixpkgs.lib.genAttrs [
+        "x86_64-linux"
+        "aarch64-linux"
         "aarch64-darwin"
-        # "x86_64-linux"
-        # "aarch64-linux"
       ];
-
-      #
-      # ========= Host Config Functions =========
-      #
-      # Handle a given host config based on whether its underlying system is nixos or darwin
-      mkHost = host: isDarwin: {
-        ${host} =
-          let
-            func = if isDarwin then inputs.nix-darwin.lib.darwinSystem else lib.nixosSystem;
-            systemFunc = func;
-          in
-          systemFunc {
-            specialArgs = {
-              inherit
-                inputs
-                outputs
-                isDarwin
-                ;
-
-              # ========== Extend lib with lib.custom ==========
-              # NOTE: This approach allows lib.custom to propagate into hm
-              # see: https://github.com/nix-community/home-manager/pull/3454
-              lib = nixpkgs.lib.extend (self: super: { custom = import ./lib { inherit (nixpkgs) lib; }; });
-
-            };
-            modules = [ ./hosts/${if isDarwin then "darwin" else "nixos"}/${host} ];
-          };
-      };
-      # Invoke mkHost for each host config that is declared for either nixos or darwin
-      mkHostConfigs =
-        hosts: isDarwin: lib.foldl (acc: set: acc // set) { } (lib.map (host: mkHost host isDarwin) hosts);
-      # Return the hosts declared in the given directory
-      readHosts = folder: lib.attrNames (builtins.readDir ./hosts/${folder});
     in
     {
       #
@@ -88,9 +57,20 @@
       #
       # ========= Host Configurations =========
       #
-      # Building configurations is available through `just rebuild` or `nixos-rebuild --flake .#hostname`
-      # nixosConfigurations = mkHostConfigs (readHosts "nixos") false;
-      darwinConfigurations = mkHostConfigs (readHosts "darwin") true;
+      # Building configurations is available through `just rebuild`.
+      darwinConfigurations.titan = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        pkgs = import nixpkgs {
+          system = "aarch64-darwin";
+          overlays = [ self.overlays.default ];
+          config.allowUnfree = true;
+        };
+        modules = [
+          home-manager.darwinModules.home-manager
+          ./hosts/darwin
+        ];
+        specialArgs = { inherit inputs; };
+      };
 
       #
       # ========= Packages =========
