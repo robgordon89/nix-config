@@ -80,13 +80,6 @@ in
     killall Dock
   '';
 
-  environment.shells = with pkgs; [
-    bashInteractive
-    zsh
-  ];
-
-  environment.variables.SHELL = "${pkgs.zsh}/bin/zsh";
-
   users.users.${user} = {
     home = "/Users/${user}";
     shell = pkgs.zsh;
@@ -109,6 +102,7 @@ in
         # ./programs/karabiner
         ./programs/1password-agent
         ./programs/wezterm
+        ./programs/vscode
       ];
 
       # Marked broken Oct 20, 2022 check later to remove this

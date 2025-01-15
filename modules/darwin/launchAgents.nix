@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
   environment.userLaunchAgents = {
@@ -14,7 +14,7 @@
           <array>
             <string>/bin/sh</string>
             <string>-c</string>
-            <string>/bin/ln -sf /Users/${config.hostSpec.username}/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock $SSH_AUTH_SOCK</string>
+            <string>/bin/ln -sf /Users/robert/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock $SSH_AUTH_SOCK</string>
           </array>
           <key>RunAtLoad</key>
           <true/>

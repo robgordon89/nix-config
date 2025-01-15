@@ -1,4 +1,7 @@
 { inputs
+, outputs
+, lib
+, config
 , pkgs
 , ...
 }: {
@@ -9,7 +12,6 @@
     ../../modules/darwin/launchAgents.nix
     ../../modules/darwin/prefrences.nix
     ../../modules/darwin/security.nix
-    ../../modules/shared/cachix.nix
   ];
 
   # Set the State Version
@@ -45,6 +47,14 @@
       warn-dirty = false;
 
       allow-import-from-derivation = true;
+
+      substituters = [
+        "https://nix-community.cachix.org"
+        "https://cache.nixos.org/"
+      ];
+      trusted-public-keys = [
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
 
       experimental-features = [
         "nix-command"
