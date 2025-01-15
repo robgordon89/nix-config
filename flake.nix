@@ -60,18 +60,34 @@
       # ========= Host Configurations =========
       #
       # Building configurations is available through `just rebuild`.
-      darwinConfigurations.titan = nix-darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        pkgs = import nixpkgs {
+      darwinConfigurations = {
+        titan = nix-darwin.lib.darwinSystem {
           system = "aarch64-darwin";
-          overlays = [ self.overlays.default ];
-          config.allowUnfree = true;
+          pkgs = import nixpkgs {
+            system = "aarch64-darwin";
+            overlays = [ self.overlays.default ];
+            config.allowUnfree = true;
+          };
+          modules = [
+            home-manager.darwinModules.home-manager
+            ./hosts/darwin
+          ];
+          specialArgs = { inherit inputs; };
         };
-        modules = [
-          home-manager.darwinModules.home-manager
-          ./hosts/darwin
-        ];
-        specialArgs = { inherit inputs; };
+
+        thebe = nix-darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
+          pkgs = import nixpkgs {
+            system = "aarch64-darwin";
+            overlays = [ self.overlays.default ];
+            config.allowUnfree = true;
+          };
+          modules = [
+            home-manager.darwinModules.home-manager
+            ./hosts/darwin
+          ];
+          specialArgs = { inherit inputs; };
+        };
       };
 
       #
