@@ -21,6 +21,7 @@ in
     ./fd.nix
     ./k9s.nix
     ./zoxide.nix
+    ./direnv.nix
   ];
 
   inherit hostSpec;
@@ -86,6 +87,7 @@ in
       python312
       python312Packages.ansible-core
       nodejs_22
+      typescript
       yarn
       bun
       cue
