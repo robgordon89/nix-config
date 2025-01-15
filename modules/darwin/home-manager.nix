@@ -14,42 +14,6 @@ in
   };
 
   system.defaults = {
-    # dock = {
-    #   minimize-to-application = true;
-    #   show-process-indicators = true;
-    #   show-recents = false;
-    #   static-only = false;
-    #   showhidden = false;
-    #   tilesize = 48;
-    #   wvous-bl-corner = 1;
-    #   wvous-br-corner = 1;
-    #   wvous-tl-corner = 1;
-    #   wvous-tr-corner = 1;
-    #   persistent-apps = [
-    #     "Applications/Finder.app"
-    #     "/Applications/Brave Browser.app/"
-    #     "/System/Applications/Mail.app/"
-    #     "/System/Applications/Messages.app/"
-    #     "/Applications/Slack.app/"
-    #     "/Applications/Telegram.app"
-    #     "/Applications/Ghostty.app/"
-    #     "/Applications/Fantastical.app/"
-    #     "/Applications/Discord.app/"
-    #     "/Applications/Anybox.app/"
-    #     "/Applications/Things3.app/"
-    #     "/Applications/NotePlan.app/"
-    #     "/Applications/Spotify.app/"
-    #     "/Applications/RapidAPI.app/"
-    #     "/Applications/TablePlus.app/"
-    #     "/Applications/Linear.app/"
-    #   ];
-    # };
-
-    # finder = {
-    #   ShowPathbar = true;
-    #   FXEnableExtensionChangeWarning = false;
-    #   ShowStatusBar = true;
-    # };
 
     # NSGlobalDomain = {
     #   AppleKeyboardUIMode = 3;
@@ -62,10 +26,6 @@ in
 
     # loginwindow = {
     #   GuestEnabled = false;
-    # };
-
-    # menuExtraClock = {
-    #   Show24Hour = true;
     # };
 
     # trackpad = {

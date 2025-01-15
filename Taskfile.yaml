@@ -19,11 +19,9 @@ tasks:
     cmds:
       - |
         if [ "{{.OS}}" = "Darwin" ]; then
-          echo "Building Nix-Darwin configuration..."
-          nix build .#darwinConfigurations.{{.HOSTNAME}}.system
+          nix build .#darwinConfigurations.{{.HOSTNAME}}.system --impure --show-trace
         else
-          echo "Building Nix Home Manager configuration for Linux..."
-          nix build .#homeConfigurations.linux.activationPackage
+          nix build .#homeConfigurations.linux.activationPackage --impure --show-trace
         fi
 
   switch-config:
@@ -31,7 +29,7 @@ tasks:
     cmds:
       - |
         if [ "{{.OS}}" = "Darwin" ]; then
-          darwin-rebuild switch --flake .#{{.HOSTNAME}} --show-trace
+          darwin-rebuild switch --flake .#{{.HOSTNAME}} --impure --show-trace
         else
           ./result/activate
         fi

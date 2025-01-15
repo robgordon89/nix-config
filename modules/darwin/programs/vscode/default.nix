@@ -1,5 +1,13 @@
-{ inputs, config, pkgs, ... }:
+{ config, pkgs, ... }:
 let
+  extensions =
+    (import (
+      builtins.fetchGit {
+        url = "https://github.com/nix-community/nix-vscode-extensions";
+        ref = "refs/heads/master";
+        rev = "7c871333a5fbdce2b44e773ad590d743691513e2";
+      }
+    )).extensions.aarch64-darwin;
 in
 {
   programs.vscode = {
@@ -7,7 +15,7 @@ in
     userSettings = import ./config/user.nix;
     keybindings = import ./config/keybindings.nix;
     extensions = (
-      with inputs.vscode-marketplace;
+      with extensions.vscode-marketplace;
       [
         adamhartford.vscode-base64
         amiralizadeh9480.laravel-extra-intellisense

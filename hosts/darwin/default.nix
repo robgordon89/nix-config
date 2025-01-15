@@ -6,6 +6,7 @@
 , ...
 }: {
   imports = [
+    ../../modules/darwin/dock.nix
     ../../modules/darwin/finder.nix
     ../../modules/darwin/fonts.nix
     ../../modules/darwin/home-manager.nix
