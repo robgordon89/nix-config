@@ -11,7 +11,7 @@
     ../../modules/darwin/fonts.nix
     ../../modules/darwin/home-manager.nix
     ../../modules/darwin/launchAgents.nix
-    ../../modules/darwin/prefrences.nix
+    ../../modules/darwin/preferences.nix
     ../../modules/darwin/security.nix
   ];
 
