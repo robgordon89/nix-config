@@ -4,5 +4,6 @@ with pkgs; let
 in
 shared-packages
 ++ [
+  raycast
   bob
 ]
