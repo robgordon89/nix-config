@@ -47,6 +47,8 @@ in
 
   programs.zsh.enable = true;
 
+  # services.karabiner-elements.enable = true;
+
   home-manager = {
     useGlobalPkgs = true;
     users.${user} = { pkgs, ... }: {
@@ -59,7 +61,7 @@ in
       imports = [
         ../shared/home-manager.nix
         ./programs/hammerspoon
-        # ./programs/karabiner
+        ./programs/karabiner
         ./programs/1password-agent
         ./programs/wezterm
         ./programs/vscode
