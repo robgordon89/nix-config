@@ -21,6 +21,7 @@
       "/Applications/Slack.app/"
       "/Applications/1Password.app/"
       "/Applications/TablePlus.app/"
+      "/System/Applications/System Settings.app/"
     ];
     persistent-others = [ "/Applications" "/Users/robert/Downloads" ];
   };

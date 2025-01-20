@@ -15,24 +15,38 @@ in
 
   system.defaults = {
 
-    # NSGlobalDomain = {
-    #   AppleKeyboardUIMode = 3;
-    #   AppleMeasurementUnits = "Centimeters";
-    #   InitialKeyRepeat = 30;
-    #   KeyRepeat = 1;
-    #   "com.apple.keyboard.fnState" = true;
-    #   AppleShowScrollBars = "WhenScrolling";
-    # };
+    NSGlobalDomain = {
+      AppleInterfaceStyle = "Dark";
+      AppleKeyboardUIMode = 3;
+      AppleMeasurementUnits = "Centimeters";
+      ApplePressAndHoldEnabled = true;
+      AppleScrollerPagingBehavior = false;
+      AppleShowAllExtensions = false;
+      AppleShowAllFiles = false;
+      AppleShowScrollBars = "WhenScrolling";
+      AppleSpacesSwitchOnActivate = true;
+      AppleTemperatureUnit = "Celsius";
+      AppleWindowTabbingMode = "fullscreen";
+      InitialKeyRepeat = 30;
+      KeyRepeat = 1;
+      NSAutomaticCapitalizationEnabled = true;
+      "com.apple.mouse.tapBehavior" = 1;
+    };
+
+    controlcenter = {
+      BatteryShowPercentage = true;
+      Bluetooth = true; # 18 on 24 off
+    };
 
     # loginwindow = {
     #   GuestEnabled = false;
     # };
 
-    # trackpad = {
-    #   Clicking = true;
-    #   Dragging = false;
-    #   TrackpadThreeFingerDrag = false;
-    # };
+    trackpad = {
+      Clicking = true;
+      Dragging = false;
+      TrackpadThreeFingerDrag = false;
+    };
   };
 
   system.activationScripts.postUserActivation.text = ''
@@ -47,7 +61,10 @@ in
 
   programs.zsh.enable = true;
 
-  # services.karabiner-elements.enable = true;
+  services.karabiner-elements = {
+    enable = false;
+    package = pkgs.stable.karabiner-elements;
+  };
 
   home-manager = {
     useGlobalPkgs = true;
