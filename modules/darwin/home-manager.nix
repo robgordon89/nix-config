@@ -63,6 +63,7 @@ in
 
   services.karabiner-elements = {
     enable = false;
+    # Use stable see https://github.com/LnL7/nix-darwin/issues/1041
     package = pkgs.stable.karabiner-elements;
   };
 
