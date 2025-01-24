@@ -33,6 +33,7 @@ with pkgs; [
   cmctl
   swaks
   ncdu
+  gdu
 
   # SaaS tools
   gh
@@ -44,6 +45,7 @@ with pkgs; [
   # Programming languages
   python312
   python312Packages.ansible-core
+  python312Packages.git-filter-repo
   nodejs_22
   typescript
   yarn
