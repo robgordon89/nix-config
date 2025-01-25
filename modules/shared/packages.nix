@@ -72,6 +72,7 @@ with pkgs; [
   kubeconform
   kubernetes-helm
   skaffold
+  caddy
 
   # Shell tools
   direnv

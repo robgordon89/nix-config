@@ -38,9 +38,9 @@ in
       Bluetooth = true; # 18 on 24 off
     };
 
-    # loginwindow = {
-    #   GuestEnabled = false;
-    # };
+    loginwindow = {
+      GuestEnabled = false;
+    };
 
     trackpad = {
       Clicking = true;
