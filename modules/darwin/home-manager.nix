@@ -14,7 +14,6 @@ in
   };
 
   system.defaults = {
-
     NSGlobalDomain = {
       AppleInterfaceStyle = "Dark";
       AppleKeyboardUIMode = 3;
