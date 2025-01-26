@@ -43,7 +43,6 @@ tasks:
     deps: [build-config, switch-config]
     desc: Build and apply the new configuration based on the OS
 
-  setup-nix:
-    cmds:
-      - curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --no-confirm
-    desc: Install Nix package manager
+  update-build:
+    deps: [update, build]
+    desc: Update the flake.lock file and build the new configuration

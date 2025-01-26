@@ -4,19 +4,40 @@ local color_scheme = require "color_scheme"
 
 local mux = wezterm.mux
 
-wezterm.on("gui-startup", function()
-    local tab, pane, window = mux.spawn_window{}
-    window:gui_window():maximize()
-  end)
+local cache_dir = os.getenv('HOME') .. '/.cache/wezterm/'
+local window_size_cache_path = cache_dir .. 'window_size_cache.txt'
 
--- Show which key table is active in the status area
-wezterm.on('update-right-status', function(window, pane)
-    local name = window:active_key_table()
-    if name then
-      name = 'TABLE: ' .. name
+wezterm.on("gui-startup", function()
+	os.execute("mkdir " .. cache_dir)
+
+	-- local window_size_cache_file = io.open(window_size_cache_path, "r")
+	-- local window
+	-- if window_size_cache_file ~= nil then
+	-- 	_, _, width, height = string.find(window_size_cache_file:read(), "(%d+),(%d+)")
+	-- 	_, _, window = mux.spawn_window({ width = tonumber(width), height = tonumber(height) })
+	-- 	window_size_cache_file:close()
+	-- else
+	-- 	_, _, window = mux.spawn_window({})
+	-- 	window:gui_window():maximize()
+	-- end
+end)
+
+wezterm.on("window-resized", function(_, pane)
+    local tab_size = pane:tab():get_size()
+    local cols = tab_size["cols"]
+    local rows = tab_size["rows"] + 2 -- Without adding the 2 here, the window doesn't maximize
+    x, y = window:get_position()
+    local contents = string.format("%d,%d,%d,%d", cols, rows, x, y)
+
+    local window_size_cache_file = io.open(window_size_cache_path, "w")
+    -- Check if the file was successfully opened
+    if window_size_cache_file then
+        window_size_cache_file:write(contents)
+        window_size_cache_file:close()
+    else
+        print("Error: Could not open file for writing: " .. window_size_cache_path)
     end
-    window:set_right_status(name or '')
-  end)
+end)
 
 local cfg_misc = {
   window_close_confirmation = "NeverPrompt",
@@ -38,7 +59,7 @@ local cfg_misc = {
   },
 
   inactive_pane_hsb = {
-    brightness = 0.6,
+    brightness = 0.5,
   },
   front_end = "WebGpu",
 }
@@ -61,7 +82,7 @@ merged_key_bindings = mytable.merge_all(
 local cfg_unix = {
     unix_domains = { { name = "unix" } },
     default_gui_startup_args  = { "connect", "unix" }
-  }
+}
 
 local config = mytable.merge_all(
   cfg_misc,
@@ -75,9 +96,9 @@ function scheme_for_appearance(appearance)
     else
       return "Builtin Solarized Light"
     end
-  end
+end
 
-  wezterm.on("window-config-reloaded", function(window, pane)
+wezterm.on("window-config-reloaded", function(window, pane)
     local overrides = window:get_config_overrides() or {}
     local appearance = window:get_appearance()
     local scheme = scheme_for_appearance(appearance)
@@ -88,10 +109,10 @@ function scheme_for_appearance(appearance)
         os.execute("ln -sf ~/.config/k9s/skins/light.yaml ~/.config/k9s/skins/active.yaml")
     end
     if overrides.color_scheme ~= scheme then
-      overrides.color_scheme = scheme
-      window:set_config_overrides(overrides)
+        overrides.color_scheme = scheme
+        window:set_config_overrides(overrides)
     end
-  end)
+end)
 
 config.leader = { key="a", mods="CTRL", timeout_milliseconds=1000 }
 config.color_scheme = 'Black Metal (Mayhem) (base16)'

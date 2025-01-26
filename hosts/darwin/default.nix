@@ -5,21 +5,13 @@
 , pkgs
 , ...
 }: {
+
   imports = [
-    ../../modules/darwin/dock.nix
-    ../../modules/darwin/finder.nix
-    ../../modules/darwin/fonts.nix
-    ../../modules/darwin/home-manager.nix
-    ../../modules/darwin/launchAgents.nix
-    ../../modules/darwin/preferences.nix
-    ../../modules/darwin/security.nix
+    ../../modules/darwin/default.nix
   ];
 
   # Set the State Version
   system.stateVersion = 5;
-
-  # Enable the Nix daemon
-  services.nix-daemon.enable = true;
 
   environment.variables = {
     LANG = "en_GB.UTF-8";
@@ -76,12 +68,5 @@
       allowUnsupportedSystem = true;
     };
     hostPlatform = "aarch64-darwin";
-  };
-
-  home-manager = {
-    backupFileExtension = "backup";
-    users.robert = {
-      programs.man.generateCaches = false;
-    };
   };
 }

@@ -4,7 +4,6 @@
 , ...
 }:
 let
-
   treesitterWithGrammars = (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
     p.bash
     p.comment
@@ -39,6 +38,7 @@ let
   };
 in
 {
+  # Extra packages for neovim
   home.packages = with pkgs; [
     ripgrep
     fd
@@ -48,17 +48,16 @@ in
     nodejs_22
     gh
   ];
-  programs = {
-    neovim = {
-      enable = true;
 
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-      plugins = [
-        treesitterWithGrammars
-      ];
-    };
+  programs.neovim = {
+    enable = true;
+
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    plugins = [
+      treesitterWithGrammars
+    ];
   };
 
   home.file."./.config/nvim/" = {
