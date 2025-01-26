@@ -1,12 +1,36 @@
 local hyper = {"ctrl", "option"}
 local hyper_shift = {"ctrl", "shift"}
 
+local yankeykey_apps = {
+    "Code",
+    "WezTerm",
+}
+
+function containsValue(table, value)
+    for _, v in ipairs(table) do
+        if v == value then
+            return true
+        end
+    end
+    return false
+end
+
 hs.hotkey.bind(hyper, "Left", function()
     local win = hs.window.focusedWindow()
+    local app = win:application()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
     local half = max.w / 2
+
+    if containsValue(yankeykey_apps,app:name()) then
+        f.x = max.x + 5
+        f.y = max.y + 5
+        f.w = half - 10
+        f.h = max.h - 10
+        win:setFrame(f)
+        return
+    end
 
     f.x = max.x
     f.y = max.y
@@ -17,10 +41,20 @@ end)
 
 hs.hotkey.bind(hyper, "Right", function()
     local win = hs.window.frontmostWindow()
+    local app = win:application()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
     local half = max.w / 2
+
+    if containsValue(yankeykey_apps,app:name()) then
+        f.x = half + 5
+        f.y = max.y + 5
+        f.w = half - 10
+        f.h = max.h - 10
+        win:setFrame(f, 0)
+        return
+    end
 
     f.x = half
     f.y = max.y
@@ -31,9 +65,21 @@ end)
 
 hs.hotkey.bind(hyper, "Space", function()
     local win = hs.window.frontmostWindow()
+    local app = win:application()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
+
+    print(app:name())
+
+    if containsValue(yankeykey_apps,app:name()) then
+        f.x = max.x + 5
+        f.y = max.y + 5
+        f.w = max.w - 10
+        f.h = max.h - 10
+        win:setFrame(f, 0)
+        return
+    end
 
     f.x = max.x
     f.y = max.y
@@ -44,9 +90,21 @@ end)
 
 hs.hotkey.bind(hyper_shift, "Space", function()
     local win = hs.window.frontmostWindow()
+    local app = win:application()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
+
+    print(app:name())
+
+    if containsValue(yankeykey_apps,app:name()) then
+        f.x = max.x + 5
+        f.y = max.y + 5
+        f.w = max.w - 10
+        f.h = max.h - 10
+        win:setFrame(f, 0)
+        return
+    end
 
     f.x = max.x
     f.y = max.y
@@ -57,11 +115,21 @@ end)
 
 hs.hotkey.bind(hyper_shift, "Left", function()
     local win = hs.window.frontmostWindow()
+    local app = win:application()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
     local fifths = max.w / 5
     local threefifths = fifths * 3
+
+    if containsValue(yankeykey_apps,app:name()) then
+        f.x = max.x + 5
+        f.y = max.y + 5
+        f.w = threefifths - 10
+        f.h = max.h - 10
+        win:setFrame(f, 0)
+        return
+    end
 
     f.x = max.x
     f.y = max.y
@@ -72,12 +140,22 @@ end)
 
 hs.hotkey.bind(hyper_shift, "Right", function()
     local win = hs.window.frontmostWindow()
+    local app = win:application()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
     local fifths = max.w / 5
     local twofifths = fifths * 2
     local threefifths = fifths * 3
+
+    if containsValue(yankeykey_apps,app:name()) then
+        f.x = threefifths + 5
+        f.y = max.y + 5
+        f.w = twofifths - 10
+        f.h = max.h - 10
+        win:setFrame(f, 0)
+        return
+    end
 
     f.x = threefifths
     f.y = max.y
