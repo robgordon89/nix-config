@@ -43,9 +43,19 @@ with pkgs; [
   spacectl
 
   # Programming languages
-  python312
-  python312Packages.ansible-core
-  python312Packages.git-filter-repo
+
+  # Python
+  (python312.withPackages (p: [
+    p.llm
+    p.llm-ollama
+    p.pyyaml
+    p.llm-cmd
+    p.ruff
+    p.ansible-core
+    p.git-filter-repo
+  ]))
+
+  # Others
   nodejs_22
   typescript
   yarn

@@ -9,6 +9,12 @@
     package = pkgs.stable.karabiner-elements;
   };
 
+  # services.ollama = {
+  #   enable = false;
+  #   # Optional: load models on startup
+  #   loadModels = [ "deepseek-r1" ];
+  # };
+
   services.jankyborders = {
     enable = true;
     ax_focus = true;
