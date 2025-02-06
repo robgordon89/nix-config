@@ -1,4 +1,6 @@
 { pkgs }:
+let customPackages = import ./packages { inherit pkgs; };
+in
 with pkgs; [
   # Tools
   curl
@@ -53,6 +55,7 @@ with pkgs; [
     p.ruff
     p.ansible-core
     p.git-filter-repo
+    customPackages.llm-openrouter
   ]))
 
   # Others
