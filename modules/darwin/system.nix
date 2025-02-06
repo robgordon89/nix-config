@@ -25,6 +25,10 @@
         Bluetooth = true;
       };
 
+      screencapture = {
+        location = "~/Desktop";
+      };
+
       loginwindow = {
         GuestEnabled = false;
       };
