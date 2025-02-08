@@ -16,7 +16,8 @@
   "editor.emptySelectionClipboard" = false;
   "editor.minimap.renderCharacters" = false;
   "editor.copyWithSyntaxHighlighting" = false;
-  "editor.fontFamily" = "Geist Mono, monospace";
+  "editor.fontFamily" = "TX-02, monospace";
+  "editor.fontLigatures" = true;
   "editor.wordSeparators" = "`~!@#$%^&*.()-=+[{]}\\|; = '\",<>/?";
 
   "editor.hover.enabled" = true;
@@ -147,7 +148,7 @@
   "terminal.explorerKind" = "external";
   "terminal.integrated.cursorBlinking" = true;
   "terminal.integrated.stickyScroll.enabled" = false;
-  "terminal.integrated.fontFamily" = "Geist Mono, monospace";
+  "terminal.integrated.fontFamily" = "TX-02, monospace";
   "terminal.integrated.enableMultiLinePasteWarning" = "never";
   "terminal.integrated.shellIntegration.decorationsEnabled" = "never";
   "terminal.integrated.shellIntegration.showCommandGuide" = false;
@@ -247,6 +248,7 @@
 
   "vs-kubernetes.vs-kubernetes.crd-code-completion" = "enabled";
 
+  "custom-ui-style.font.sansSerif" = "TX-02";
   "custom-ui-style.electron" = {
     "frame" = false;
     "roundedCorners" = false;

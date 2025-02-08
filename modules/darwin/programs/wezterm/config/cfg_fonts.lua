@@ -24,35 +24,29 @@ local function font_with_fallback(font_family)
   })
 end
 
-local function font_and_rules_for_jetbrains()
+local function font_and_rules_for_berkeley_mono()
   -- Use a _very slightly_ lighter variant, so that regular bold really stand out
-  local font = font_with_fallback("JetBrains Mono Light")
+  local font = font_with_fallback("TX-02")
   local font_rules = {
     {
       italic = true,
-      font = font_with_fallback("JetBrains Mono Light Italic"),
+      font = font_with_fallback("TX-02"),
     },
     {
       italic = true, intensity = "Bold",
-      font = font_with_fallback("JetBrains Mono Bold Italic"),
+      font = font_with_fallback("TX-02"),
     },
     {
       intensity = "Bold",
-      font = font_with_fallback("JetBrains Mono Bold"),
+      font = font_with_fallback("TX-02"),
     },
   }
   return font, font_rules
 end
 
+cfg.font, cfg.font_rules = font_and_rules_for_berkeley_mono()
 
-
-cfg.font, cfg.font_rules = font_and_rules_for_jetbrains()
-
--- Enable various OpenType features
--- See https://docs.microsoft.com/en-us/typography/opentype/spec/featurelist
 cfg.harfbuzz_features = {
-  "zero", -- Use a slashed zero '0' (instead of dotted)
-  "kern", -- (default) kerning (todo check what is really is)
   "liga", -- (default) ligatures
   "clig", -- (default) contextual ligatures
 }

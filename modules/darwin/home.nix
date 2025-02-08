@@ -7,7 +7,6 @@ in
     home = "/Users/${user}";
     shell = pkgs.zsh;
   };
-
   home-manager = {
     backupFileExtension = "backup";
     useGlobalPkgs = true;
@@ -18,7 +17,6 @@ in
         packages = pkgs.callPackage ./packages.nix { };
         stateVersion = "25.05";
       };
-
       imports = [
         ./programs/1password-agent
         ./programs/brave
