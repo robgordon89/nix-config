@@ -35,4 +35,15 @@
     key = "cmd+k cmd+x";
     command = "workbench.extensions.action.showInstalledExtensions";
   }
+  # Fix for ansible extension and copilot
+  {
+    key = "tab";
+    command = "-ansible.lightspeed.inlineSuggest.accept";
+    when = "inlineSuggestionVisible && editorLangId == 'ansible'";
+  }
+  {
+    key = "escape";
+    command = "-ansible.lightspeed.inlineSuggest.hide";
+    when = "inlineSuggestionVisible && editorLangId == 'ansible'";
+  }
 ]
