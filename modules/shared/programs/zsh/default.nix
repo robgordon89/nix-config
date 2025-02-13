@@ -30,6 +30,7 @@
         . ${./config/options.zsh}
         . ${./config/completions.zsh}
         . ${./config/mappings.zsh}
+        . ${./config/functions.zsh}
       '';
 
     shellAliases = {
