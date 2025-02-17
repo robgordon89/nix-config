@@ -6,5 +6,4 @@ shared-packages
 ++ [
   # Darwin specific packages
   raycast
-  bob
 ]

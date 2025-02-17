@@ -23,7 +23,6 @@ with pkgs; [
   ansible-lint
   devenv
   nixpkgs-fmt
-  bob
   terraform
   poetry
   hugo
