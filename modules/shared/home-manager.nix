@@ -3,6 +3,7 @@
     ./programs/bat
     ./programs/git
     ./programs/neovim
+    ./programs/tmux
     ./programs/zsh
     ./programs/direnv.nix
     ./programs/fd.nix
