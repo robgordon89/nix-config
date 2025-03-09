@@ -9,7 +9,6 @@ let
     p.comment
     p.css
     p.dockerfile
-    p.fish
     p.gitattributes
     p.gitignore
     p.go
@@ -57,6 +56,7 @@ in
     vimAlias = true;
     plugins = [
       treesitterWithGrammars
+      pkgs.vimPlugins.telescope-nvim
     ];
   };
 
