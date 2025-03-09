@@ -7,7 +7,7 @@
     ./programs/direnv.nix
     ./programs/fd.nix
     ./programs/k9s.nix
-    ./programs/lazygit.nix
+    # ./programs/lazygit.nix
     ./programs/tmux.nix
     ./programs/zoxide.nix
   ];
