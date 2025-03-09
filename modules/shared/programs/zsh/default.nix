@@ -91,12 +91,7 @@
       ];
     };
 
-    plugins = [
-      {
-        name = "zsh-term-title";
-        src = "${pkgs.zsh-term-title}/share/zsh/zsh-term-title/";
-      }
-    ];
+    plugins = [ ];
 
   };
 }
