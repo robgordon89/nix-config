@@ -24,7 +24,7 @@ in
         ./programs/karabiner
         ./programs/wezterm
         ./programs/vscode
-      ] ++ [ ../shared/home-manager.nix ];
+      ] ++ [ ../shared/home.nix ];
 
       # Marked broken Oct 20, 2022 check later to remove this
       # https://github.com/nix-community/home-manager/issues/3344

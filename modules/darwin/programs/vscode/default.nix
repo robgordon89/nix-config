@@ -11,6 +11,8 @@ let
 in
 {
   programs.vscode = {
+    # We dont use the package from nixpkgs becuase it doesnt allow mods
+    # See homebrew.nix where we install vscode from homebrew
     enable = true;
     userSettings = import ./config/user.nix;
     keybindings = import ./config/keybindings.nix;
