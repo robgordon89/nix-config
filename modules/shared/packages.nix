@@ -33,6 +33,8 @@ with pkgs; [
   swaks
   ncdu
   gdu
+  graphviz
+  uv
 
   # SaaS tools
   gh
@@ -83,6 +85,7 @@ with pkgs; [
   kubernetes-helm
   skaffold
   caddy
+  kubebuilder
 
   # Shell tools
   direnv

@@ -9,8 +9,6 @@
       hide_env_diff = true;
     };
     stdlib = ''
-      # Add your direnvrc configuration here
-      # For example:
       layout_uv() {
           if [[ -d ".venv" ]]; then
               VIRTUAL_ENV="$(pwd)/.venv"
