@@ -105,7 +105,7 @@
       "tree.indentGuidesStroke" = "#c1c1c1";
 
       "terminalCursor.foreground" = "#c1c1c1";
-      "terminal.background" = "#vvvvvv";
+      "terminal.background" = "#000000";
       "terminal.foreground" = "#c1c1c1";
       "terminal.ansiBlack" = "#000000";
       "terminal.ansiRed" = "#5f8787";

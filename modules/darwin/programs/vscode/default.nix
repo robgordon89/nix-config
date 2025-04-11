@@ -26,8 +26,6 @@ in
         dhoeric.ansible-vault
         editorconfig.editorconfig
         esbenp.prettier-vscode
-        github.copilot
-        github.copilot-chat
         glitchbl.laravel-create-view
         golang.go
         hashicorp.terraform
@@ -56,6 +54,8 @@ in
         tintedtheming.base16-tinted-themes
         nickgo.cuelang
         github.vscode-github-actions
+        github.copilot
+        github.copilot-chat
       ]
     );
     mutableExtensionsDir = false;

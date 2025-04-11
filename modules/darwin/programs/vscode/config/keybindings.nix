@@ -1,6 +1,6 @@
 [
   {
-    key = "ctrl+shift+x";
+    key = "shift+cmd+ctrl+alt+x";
     command = "workbench.action.closeWindow";
   }
   {

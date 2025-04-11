@@ -13,6 +13,7 @@ with pkgs; [
   age
   mtr
   netcat
+  socat
   nmap
   gnupg
   restic
@@ -42,8 +43,6 @@ with pkgs; [
   _1password-cli
   opentofu
   spacectl
-
-  # Programming languages
 
   # Python
   (python312.withPackages (p: [

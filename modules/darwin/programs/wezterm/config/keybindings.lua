@@ -23,6 +23,7 @@ return {
         { key = 'R', mods = 'CTRL', action = act.ReloadConfiguration },
         { key = 'W', mods = 'CTRL', action = act.CloseCurrentTab{ confirm = false } },
         { key = 'X', mods = 'CTRL', action = act.CloseCurrentPane{ confirm = false } },
+        { key = 'X', mods = 'SHIFT|SUPER|CTRL|ALT', action = act.CloseCurrentPane{ confirm = false } },
         { key = '[', mods = 'SHIFT|CTRL', action = act.SplitVertical{ domain =  'CurrentPaneDomain' } },
         { key = ']', mods = 'SHIFT|CTRL', action = act.SplitHorizontal{ domain =  'CurrentPaneDomain' } },
         { key = 'c', mods = 'SUPER', action = act.CopyTo 'Clipboard' },
