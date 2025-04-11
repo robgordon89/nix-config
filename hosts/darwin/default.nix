@@ -6,7 +6,6 @@
 , ...
 }:
 {
-
   imports = [
     ../../modules/darwin/default.nix
   ];
