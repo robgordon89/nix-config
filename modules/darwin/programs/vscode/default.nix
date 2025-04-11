@@ -1,13 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 let
-  extensions =
-    (import (
-      builtins.fetchGit {
-        url = "https://github.com/nix-community/nix-vscode-extensions";
-        ref = "refs/heads/master";
-        rev = "f0555ec37883d2bddca658cad7bfe995bc195217";
-      }
-    )).extensions.aarch64-darwin;
+  extensions = pkgs.vscode-extensions;
 in
 {
   programs.vscode = {

@@ -12,7 +12,6 @@
     ./security.nix
     ./system.nix
     ./services.nix
-
   ];
 
   # Enable zsh at this stage to avoid the need to restart the shell

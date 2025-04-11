@@ -24,6 +24,10 @@ let
     #    };
   };
 
+  vscode-extensions = final: prev: {
+    vscode-extensions = inputs.nix-vscode-extensions.extensions.${prev.system};
+  };
+
   stable-packages = final: _prev: {
     stable = import inputs.nixpkgs-stable {
       inherit (final) system;
@@ -50,6 +54,7 @@ in
     (additions final prev)
     // (modifications final prev)
     // (linuxModifications final prev)
+    // (vscode-extensions final prev)
     // (stable-packages final prev)
     // (unstable-packages final prev);
 }

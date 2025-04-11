@@ -7,7 +7,10 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    # VS Code Extensions
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions/d316ccee4ce2bcabea44e04492b0a464e8919165";
+    };
 
     # Nix Darwin
     nix-darwin = {
@@ -80,7 +83,9 @@
           system = "aarch64-darwin";
           pkgs = import nixpkgs {
             system = "aarch64-darwin";
-            overlays = [ self.overlays.default ];
+            overlays = [
+              self.overlays.default
+            ];
             config.allowUnfree = true;
           };
           modules = [
