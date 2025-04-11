@@ -5,7 +5,7 @@ let
       builtins.fetchGit {
         url = "https://github.com/nix-community/nix-vscode-extensions";
         ref = "refs/heads/master";
-        rev = "7c871333a5fbdce2b44e773ad590d743691513e2";
+        rev = "f0555ec37883d2bddca658cad7bfe995bc195217";
       }
     )).extensions.aarch64-darwin;
 in

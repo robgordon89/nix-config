@@ -245,6 +245,7 @@
   "python.experiments.enabled" = false;
 
   "github.copilot.editor.enableAutoCompletions" = true;
+  "chat.agent.enabled" = true;
 
   "vs-kubernetes.vs-kubernetes.crd-code-completion" = "enabled";
 
