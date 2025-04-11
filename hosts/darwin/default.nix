@@ -4,7 +4,8 @@
 , config
 , pkgs
 , ...
-}: {
+}:
+{
 
   imports = [
     ../../modules/darwin/default.nix

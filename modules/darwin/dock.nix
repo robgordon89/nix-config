@@ -23,6 +23,9 @@
       "/Applications/TablePlus.app/"
       "/System/Applications/System Settings.app/"
     ];
-    persistent-others = [ "/Applications" "/Users/robert/Downloads" ];
+    persistent-others = [
+      "/Applications"
+      "/Users/robert/Downloads"
+    ];
   };
 }

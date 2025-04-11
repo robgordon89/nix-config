@@ -1,5 +1,6 @@
 { pkgs }:
-with pkgs; [
+with pkgs;
+[
   # Tools
   curl
   wget
@@ -92,6 +93,7 @@ with pkgs; [
   pre-commit
   nix-your-shell
   kcl
+  nixfmt-rfc-style
 
   # Custom
   ml
