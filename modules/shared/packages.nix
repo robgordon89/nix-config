@@ -93,7 +93,6 @@ with pkgs;
   pre-commit
   nix-your-shell
   kcl
-  nixfmt-rfc-style
 
   # Custom
   ml

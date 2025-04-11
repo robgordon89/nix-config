@@ -30,7 +30,6 @@
         ssh-to-age
         sops
         nixpkgs-fmt
-        nixfmt-rfc-style
         ;
     };
   };

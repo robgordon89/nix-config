@@ -262,4 +262,5 @@
       "padding-top" = "10px";
     };
   };
+  "nix.formatterPath" = "nixpkgs-fmt";
 }
