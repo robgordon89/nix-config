@@ -25,7 +25,7 @@ let
   };
 
   vscode-extensions = final: prev: {
-    vscode-extensions = inputs.nix-vscode-extensions.extensions.${prev.system};
+    nix4vscode = (inputs.nix4vscode.overlays.forVscode final prev).nix4vscode;
   };
 
   stable-packages = final: _prev: {
