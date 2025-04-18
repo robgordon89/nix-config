@@ -19,7 +19,6 @@
       "wezterm"
       "brave-browser"
       "hammerspoon"
-      "karabiner-elements"
       "medis"
       "orbstack"
       "slack"

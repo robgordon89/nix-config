@@ -23,7 +23,6 @@ in
           ./programs/1password-agent
           ./programs/brave
           ./programs/hammerspoon
-          ./programs/karabiner
           ./programs/wezterm
           ./programs/vscode
         ] ++ [ ../shared/home.nix ];

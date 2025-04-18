@@ -23,29 +23,29 @@ return {
         { key = 'R', mods = 'CTRL', action = act.ReloadConfiguration },
         { key = 'W', mods = 'CTRL', action = act.CloseCurrentTab{ confirm = false } },
         { key = 'X', mods = 'CTRL', action = act.CloseCurrentPane{ confirm = false } },
-        { key = 'X', mods = 'SHIFT|SUPER|CTRL|ALT', action = act.CloseCurrentPane{ confirm = false } },
+        { key = 'X', mods = 'SHIFT|CTRL', action = act.CloseCurrentPane{ confirm = false } },
         { key = '[', mods = 'SHIFT|CTRL', action = act.SplitVertical{ domain =  'CurrentPaneDomain' } },
         { key = ']', mods = 'SHIFT|CTRL', action = act.SplitHorizontal{ domain =  'CurrentPaneDomain' } },
-        { key = 'c', mods = 'SUPER', action = act.CopyTo 'Clipboard' },
-        { key = 'h', mods = 'SUPER', action = act.ActivatePaneDirection 'Left' },
-        { key = 'j', mods = 'SUPER', action = act.ActivatePaneDirection 'Down' },
-        { key = 'k', mods = 'SUPER', action = act.ActivatePaneDirection 'Up' },
-        { key = 'l', mods = 'SUPER', action = act.ActivatePaneDirection 'Right' },
-        { key = 't', mods = 'SUPER', action = act.SpawnTab 'DefaultDomain' },
-        { key = 'v', mods = 'ALT|CTRL', action = act.PasteFrom 'PrimarySelection' },
-        { key = 'v', mods = 'SUPER', action = act.PasteFrom 'Clipboard' },
-        -- Make SUPER-Left backward-word
-        { key = 'LeftArrow', mods = 'SUPER', action = act.SendString '\x1bb' },
-        -- Make SUPER-Right forward-word
-        { key = 'RightArrow', mods = 'SUPER', action = act.SendString '\x1bf' },
-        -- Make SHIFT|SUPER-Left beginning-of-line
-        { key = 'LeftArrow', mods = 'SHIFT|SUPER', action = act.SendString '\x01' },
-        -- Make SHIFT|SUPER-Right end-of-line
-        { key = 'RightArrow', mods = 'SHIFT|SUPER', action = act.SendString '\x05' },
-        -- Make SUPER-Backspace kill-word
-        { key = 'Backspace', mods = 'SUPER', action = act.SendString '\x1bd' },
-        -- Make SHIFT|SUPER-Backspace kill-line
-        { key = 'Backspace', mods = 'SHIFT|SUPER', action = act.SendString '\x15' },
+        { key = 'c', mods = 'CMD', action = act.CopyTo 'Clipboard' },
+        { key = 'h', mods = 'CMD', action = act.ActivatePaneDirection 'Left' },
+        { key = 'j', mods = 'CMD', action = act.ActivatePaneDirection 'Down' },
+        { key = 'k', mods = 'CMD', action = act.ActivatePaneDirection 'Up' },
+        { key = 'l', mods = 'CMD', action = act.ActivatePaneDirection 'Right' },
+        { key = 't', mods = 'CMD', action = act.SpawnTab 'DefaultDomain' },
+        { key = 'v', mods = 'OPT|CTRL', action = act.PasteFrom 'PrimarySelection' },
+        { key = 'v', mods = 'CMD', action = act.PasteFrom 'Clipboard' },
+        -- Make CMD-Left backward-word
+        { key = 'LeftArrow', mods = 'CMD', action = act.SendString '\x1bb' },
+        -- Make CMD-Right forward-word
+        { key = 'RightArrow', mods = 'CMD', action = act.SendString '\x1bf' },
+        -- Make CMD|SUPER-Left beginning-of-line
+        { key = 'LeftArrow', mods = 'SHIFT|CMD', action = act.SendString '\x01' },
+        -- Make CMD|SUPER-Right end-of-line
+        { key = 'RightArrow', mods = 'SHIFT|CMD', action = act.SendString '\x05' },
+        -- Make CMD-Backspace kill-word
+        { key = 'Backspace', mods = 'CMD', action = act.SendString '\x1bd' },
+        -- Make SHIFT|CMD-Backspace kill-line
+        { key = 'Backspace', mods = 'SHIFT|CMD', action = act.SendString '\x15' },
         { key = 'Insert', mods = 'SHIFT', action = act.PasteFrom 'PrimarySelection' },
       },
       key_tables = {
@@ -90,13 +90,13 @@ return {
           { key = '^', mods = 'NONE', action = act.CopyMode 'MoveToStartOfLineContent' },
           { key = '^', mods = 'SHIFT', action = act.CopyMode 'MoveToStartOfLineContent' },
           { key = 'b', mods = 'NONE', action = act.CopyMode 'MoveBackwardWord' },
-          { key = 'b', mods = 'ALT', action = act.CopyMode 'MoveBackwardWord' },
+          { key = 'b', mods = 'OPT', action = act.CopyMode 'MoveBackwardWord' },
           { key = 'b', mods = 'CTRL', action = act.CopyMode 'PageUp' },
           { key = 'c', mods = 'CTRL', action = act.CopyMode 'Close' },
           { key = 'd', mods = 'CTRL', action = act.CopyMode{ MoveByPage = (0.5) } },
           { key = 'e', mods = 'NONE', action = act.CopyMode 'MoveForwardWordEnd' },
           { key = 'f', mods = 'NONE', action = act.CopyMode{ JumpForward = { prev_char = false } } },
-          { key = 'f', mods = 'ALT', action = act.CopyMode 'MoveForwardWord' },
+          { key = 'f', mods = 'OPT', action = act.CopyMode 'MoveForwardWord' },
           { key = 'f', mods = 'CTRL', action = act.CopyMode 'PageDown' },
           { key = 'g', mods = 'NONE', action = act.CopyMode 'MoveToScrollbackTop' },
           { key = 'g', mods = 'CTRL', action = act.CopyMode 'Close' },
@@ -104,7 +104,7 @@ return {
           { key = 'j', mods = 'NONE', action = act.CopyMode 'MoveDown' },
           { key = 'k', mods = 'NONE', action = act.CopyMode 'MoveUp' },
           { key = 'l', mods = 'NONE', action = act.CopyMode 'MoveRight' },
-          { key = 'm', mods = 'ALT', action = act.CopyMode 'MoveToStartOfLineContent' },
+          { key = 'm', mods = 'OPT', action = act.CopyMode 'MoveToStartOfLineContent' },
           { key = 'o', mods = 'NONE', action = act.CopyMode 'MoveToSelectionOtherEnd' },
           { key = 'q', mods = 'NONE', action = act.CopyMode 'Close' },
           { key = 't', mods = 'NONE', action = act.CopyMode{ JumpForward = { prev_char = true } } },
@@ -118,9 +118,9 @@ return {
           { key = 'End', mods = 'NONE', action = act.CopyMode 'MoveToEndOfLineContent' },
           { key = 'Home', mods = 'NONE', action = act.CopyMode 'MoveToStartOfLine' },
           { key = 'LeftArrow', mods = 'NONE', action = act.CopyMode 'MoveLeft' },
-          { key = 'LeftArrow', mods = 'ALT', action = act.CopyMode 'MoveBackwardWord' },
+          { key = 'LeftArrow', mods = 'OPT', action = act.CopyMode 'MoveBackwardWord' },
           { key = 'RightArrow', mods = 'NONE', action = act.CopyMode 'MoveRight' },
-          { key = 'RightArrow', mods = 'ALT', action = act.CopyMode 'MoveForwardWord' },
+          { key = 'RightArrow', mods = 'OPT', action = act.CopyMode 'MoveForwardWord' },
           { key = 'UpArrow', mods = 'NONE', action = act.CopyMode 'MoveUp' },
           { key = 'DownArrow', mods = 'NONE', action = act.CopyMode 'MoveDown' },
         },

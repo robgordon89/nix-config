@@ -18,7 +18,7 @@
   "editor.copyWithSyntaxHighlighting" = false;
   "editor.fontFamily" = "TX-02, monospace";
   "editor.fontLigatures" = true;
-  "editor.wordSeparators" = "`~!@#$%^&*.()-=+[{]}\\|; = '\",<>/?";
+  "editor.wordSeparators" = "`~!@#$%^&*.()-=+[{]}\\|;: = '\",<>/?";
 
   "editor.hover.enabled" = true;
   "editor.matchBrackets" = "never";
