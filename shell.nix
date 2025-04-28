@@ -30,6 +30,7 @@
         ssh-to-age
         sops
         nixpkgs-fmt
+        age-plugin-yubikey
         ;
     };
   };

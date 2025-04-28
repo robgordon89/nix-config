@@ -29,10 +29,13 @@
       url = "github:zhaofengli/nix-homebrew";
     };
 
+    # Homebrew Core
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
       flake = false;
     };
+
+    # Homebrew Cask
     homebrew-cask = {
       url = "github:homebrew/homebrew-cask";
       flake = false;
@@ -43,6 +46,12 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # MailerLite shared flake - temp until upstreamed
+    mailerlite = {
+      url = "path:/Users/robert/dev/mailerlite/mailerlite-nix-config";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -51,6 +60,7 @@
     , nix-darwin
     , home-manager
     , nix-homebrew
+    , mailerlite
     , ...
     }@inputs:
 
@@ -91,6 +101,13 @@
           modules = [
             home-manager.darwinModules.home-manager
             ./hosts/darwin
+            mailerlite.darwinModules.home-manager
+            {
+              mailerlite.username = "robert";
+              # mailerlite.useDefaultPackages = true;
+              # mailerlite.useDefaultHomebrewPackages = false;
+              mailerlite.useDefaultSSHConfig = true;
+            }
           ];
           specialArgs = { inherit inputs; };
         };
@@ -105,21 +122,6 @@
           modules = [
             home-manager.darwinModules.home-manager
             ./hosts/darwin
-            nix-homebrew.darwinModules.nix-homebrew
-            {
-              nix-homebrew = {
-                enable = true;
-                user = "robert";
-                taps = {
-                  "homebrew/homebrew-core" = inputs.homebrew-core;
-                  "homebrew/homebrew-cask" = inputs.homebrew-cask;
-                };
-                mutableTaps = true;
-
-                # Automatically migrate existing Homebrew installations
-                autoMigrate = true;
-              };
-            }
           ];
           specialArgs = { inherit inputs; };
         };

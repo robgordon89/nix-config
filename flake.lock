@@ -61,11 +61,33 @@
         ]
       },
       "locked": {
-        "lastModified": 1744117652,
-        "narHash": "sha256-t7dFCDl4vIOOUMhEZnJF15aAzkpaup9x4ZRGToDFYWI=",
+        "lastModified": 1744743431,
+        "narHash": "sha256-iyn/WBYDc7OtjSawbegINDe/gIkok888kQxk3aVnkgg=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "b4e98224ad1336751a2ac7493967a4c9f6d9cb3f",
+        "rev": "c61bfe3ae692f42ce688b5865fac9e0de58e1387",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "release-24.11",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "home-manager_2": {
+      "inputs": {
+        "nixpkgs": [
+          "mailerlite",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1745557122,
+        "narHash": "sha256-eqSo9ugzsqhFgaDFYUZj943nurlX4L6f+AW0skJ4W+M=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "dd26f75fb4ec1c731d4b1396eaf4439ce40a91c1",
         "type": "github"
       },
       "original": {
@@ -107,7 +129,47 @@
         "type": "github"
       }
     },
+    "mailerlite": {
+      "inputs": {
+        "home-manager": "home-manager_2",
+        "nix-darwin": "nix-darwin",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1745856971,
+        "narHash": "sha256-dIgQdlLj+XUw6EJ4ldeinnCkWLE63VrFgKaIt2jz0k4=",
+        "path": "/Users/robert/dev/mailerlite/mailerlite-nix-config",
+        "type": "path"
+      },
+      "original": {
+        "path": "/Users/robert/dev/mailerlite/mailerlite-nix-config",
+        "type": "path"
+      }
+    },
     "nix-darwin": {
+      "inputs": {
+        "nixpkgs": [
+          "mailerlite",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1745816321,
+        "narHash": "sha256-Gyh/fkCDqVNGM0BWvk+4UAS17w2UI6iwnbQQCmc1TDI=",
+        "owner": "LnL7",
+        "repo": "nix-darwin",
+        "rev": "4515dacafb0ccd42e5395aacc49fd58a43027e01",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LnL7",
+        "repo": "nix-darwin",
+        "type": "github"
+      }
+    },
+    "nix-darwin_2": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
@@ -127,7 +189,7 @@
         "type": "github"
       }
     },
-    "nix-darwin_2": {
+    "nix-darwin_3": {
       "inputs": {
         "nixpkgs": "nixpkgs"
       },
@@ -148,7 +210,7 @@
     "nix-homebrew": {
       "inputs": {
         "brew-src": "brew-src",
-        "nix-darwin": "nix-darwin_2",
+        "nix-darwin": "nix-darwin_3",
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
@@ -321,7 +383,8 @@
         "home-manager": "home-manager",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
-        "nix-darwin": "nix-darwin",
+        "mailerlite": "mailerlite",
+        "nix-darwin": "nix-darwin_2",
         "nix-homebrew": "nix-homebrew",
         "nix4vscode": "nix4vscode",
         "nixpkgs": "nixpkgs_5",

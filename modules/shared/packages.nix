@@ -46,16 +46,24 @@ with pkgs;
   spacectl
 
   # Python
-  (python312.withPackages (p: [
-    p.llm
-    p.llm-ollama
-    p.pyyaml
-    p.llm-cmd
-    p.ruff
-    p.ansible-core
-    p.git-filter-repo
-    llm-openrouter
-  ]))
+  (python312.buildEnv.override {
+    extraLibs = with python312.pkgs; [
+      # Tools
+      pyyaml
+      ruff
+      ansible-core
+      git-filter-repo
+
+      # LLM tools
+      llm
+      llm-ollama
+      llm-cmd
+
+      # Custom package
+      pkgs.llm-openrouter
+    ];
+    ignoreCollisions = true;
+  })
 
   # Others
   nodejs_22
@@ -96,4 +104,5 @@ with pkgs;
 
   # Custom
   ml
+  menu
 ]

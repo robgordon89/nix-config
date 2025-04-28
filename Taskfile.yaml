@@ -39,8 +39,13 @@ tasks:
       - nix flake update
     desc: Update the flake.lock file
 
+  update-mailerlite:
+    cmds:
+      - nix flake lock --update-input mailerlite
+    desc: Update the mailerlite input in the flake.lock file
+
   build:
-    deps: [build-config, switch-config]
+    deps: [update-mailerlite, build-config, switch-config]
     desc: Build and apply the new configuration based on the OS
 
   update-build:
