@@ -94,6 +94,7 @@ with pkgs;
   skaffold
   caddy
   kubebuilder
+  tailscale
 
   # Shell tools
   direnv

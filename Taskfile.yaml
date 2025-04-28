@@ -45,7 +45,7 @@ tasks:
     desc: Update the mailerlite input in the flake.lock file
 
   build:
-    deps: [update-mailerlite, build-config, switch-config]
+    deps: [build-config, switch-config]
     desc: Build and apply the new configuration based on the OS
 
   update-build:

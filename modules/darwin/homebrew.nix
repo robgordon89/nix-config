@@ -5,14 +5,14 @@
     onActivation.cleanup = "uninstall";
     onActivation.upgrade = true;
 
-    taps = [
-      "robusta-dev/homebrew-krr"
-    ];
+    # taps = [
+    #   "robusta-dev/homebrew-krr"
+    # ];
 
-    brews = [
-      # temp nix build wont work on krr https://github.com/NixOS/nixpkgs/issues/327629
-      "krr"
-    ];
+    # brews = [
+    #   # temp nix build wont work on krr https://github.com/NixOS/nixpkgs/issues/327629
+    #   "krr"
+    # ];
 
     casks = [
       "1password"
