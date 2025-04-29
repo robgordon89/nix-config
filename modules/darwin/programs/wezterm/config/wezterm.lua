@@ -42,7 +42,7 @@ end)
 local cfg_misc = {
   window_close_confirmation = "NeverPrompt",
   check_for_updates = false,
-  window_decorations = "RESIZE",
+  window_decorations = "RESIZE|MACOS_FORCE_SQUARE_CORNERS",
   -- Automatically reload the configuration when it changes on disk
   automatically_reload_config = true,
 

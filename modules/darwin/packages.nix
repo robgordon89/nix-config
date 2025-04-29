@@ -6,5 +6,4 @@ in
 shared-packages
 ++ [
   # Darwin specific packages
-  raycast
 ]
