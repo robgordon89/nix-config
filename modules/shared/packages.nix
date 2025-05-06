@@ -37,6 +37,10 @@ with pkgs;
   gdu
   graphviz
   uv
+  parallel
+
+  # Linters
+  golangci-lint
 
   # SaaS tools
   gh
@@ -87,6 +91,7 @@ with pkgs;
   docker
   k9s
   kubectl
+  kubectl-df-pv
   kubectx
   fluxcd
   kubeconform
