@@ -61,6 +61,7 @@ with pkgs;
       # LLM tools
       llm
       llm-ollama
+      llm-gemini
       llm-cmd
 
       # Custom package
