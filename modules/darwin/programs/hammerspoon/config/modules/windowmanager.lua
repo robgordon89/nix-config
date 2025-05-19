@@ -1,8 +1,9 @@
 local hyper = {"ctrl", "option"}
 local hyper_shift = {"ctrl", "shift"}
 
-local yankeykey_apps = {
+local jankeykey_apps = {
     "Code",
+    "Cursor",
     "WezTerm",
 }
 
@@ -23,7 +24,7 @@ hs.hotkey.bind(hyper, "Left", function()
     local max = screen:frame()
     local half = max.w / 2
 
-    if containsValue(yankeykey_apps,app:name()) then
+    if containsValue(jankeykey_apps,app:name()) then
         f.x = max.x + 5
         f.y = max.y + 5
         f.w = half - 10
@@ -47,7 +48,7 @@ hs.hotkey.bind(hyper, "Right", function()
     local max = screen:frame()
     local half = max.w / 2
 
-    if containsValue(yankeykey_apps,app:name()) then
+    if containsValue(jankeykey_apps,app:name()) then
         f.x = half + 5
         f.y = max.y + 5
         f.w = half - 10
@@ -72,7 +73,7 @@ hs.hotkey.bind(hyper, "Space", function()
 
     print(app:name())
 
-    if containsValue(yankeykey_apps,app:name()) then
+    if containsValue(jankeykey_apps,app:name()) then
         f.x = max.x + 5
         f.y = max.y + 5
         f.w = max.w - 10
@@ -97,7 +98,7 @@ hs.hotkey.bind(hyper_shift, "Space", function()
 
     print(app:name())
 
-    if containsValue(yankeykey_apps,app:name()) then
+    if containsValue(jankeykey_apps,app:name()) then
         f.x = max.x + 5
         f.y = max.y + 5
         f.w = max.w - 10
@@ -122,7 +123,7 @@ hs.hotkey.bind(hyper_shift, "Left", function()
     local fifths = max.w / 5
     local threefifths = fifths * 3
 
-    if containsValue(yankeykey_apps,app:name()) then
+    if containsValue(jankeykey_apps,app:name()) then
         f.x = max.x + 5
         f.y = max.y + 5
         f.w = threefifths - 10
@@ -148,7 +149,7 @@ hs.hotkey.bind(hyper_shift, "Right", function()
     local twofifths = fifths * 2
     local threefifths = fifths * 3
 
-    if containsValue(yankeykey_apps,app:name()) then
+    if containsValue(jankeykey_apps,app:name()) then
         f.x = threefifths + 5
         f.y = max.y + 5
         f.w = twofifths - 10

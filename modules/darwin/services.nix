@@ -26,6 +26,7 @@
     whitelist = [
       "Visual Studio Code"
       "Electron"
+      "Cursor"
       "wezterm-gui"
     ];
   };
