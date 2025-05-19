@@ -17,6 +17,7 @@
   "editor.minimap.renderCharacters" = false;
   "editor.copyWithSyntaxHighlighting" = false;
   "editor.fontFamily" = "TX-02, monospace";
+  "editor.fontWeight" = 375; # 375 is retina
   "editor.fontLigatures" = true;
   "editor.wordSeparators" = "`~!@#$%^&*.()-=+[{]}\\|;: = '\",<>/?";
 
@@ -149,6 +150,8 @@
   "terminal.integrated.cursorBlinking" = true;
   "terminal.integrated.stickyScroll.enabled" = false;
   "terminal.integrated.fontFamily" = "TX-02, monospace";
+  "terminal.integrated.fontLigatures" = true;
+  "terminal.integrated.fontWeight" = 375; # 375 is retina
   "terminal.integrated.enableMultiLinePasteWarning" = "never";
   "terminal.integrated.shellIntegration.decorationsEnabled" = "never";
   "terminal.integrated.shellIntegration.showCommandGuide" = false;
@@ -250,11 +253,22 @@
   "vs-kubernetes.vs-kubernetes.crd-code-completion" = "enabled";
 
   "custom-ui-style.font.sansSerif" = "TX-02";
+  "custom-ui-style.font.monospace" = "TX-02";
+  "custom-ui-style.font.weight" = 375; # 375 is retina
   "custom-ui-style.electron" = {
     "frame" = false;
     "roundedCorners" = false;
   };
   "custom-ui-style.stylesheet" = {
+    "#workbench\\.parts\\.sidebar > div > div > div:first-child:not(.monaco-pane-view)" = {
+      "display" = "none";
+    };
+    "#workbench\\.parts\\.sidebar .monaco-pane-view .pane-header " = {
+      "display" = "none";
+    };
+    "#workbench\\.parts\\.sidebar .monaco-pane-view .pane-body " = {
+      "padding-top" = "10px";
+    };
     ".monaco-workbench .part.sidebar>.title" = {
       "display" = "none";
     };

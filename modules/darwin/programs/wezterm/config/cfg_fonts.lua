@@ -13,32 +13,28 @@ cfg.font_size = 16.0
 -- Makes FontAwesome's double-width glyphs display properly!
 cfg.allow_square_glyphs_to_overflow_width = "WhenFollowedBySpace"
 
--- Additional font directory (necessary to find FontAwesome font!)
-cfg.font_dirs = {"fonts"} -- relative to main config file
-
-local function font_with_fallback(font_family)
-  -- family names, not file names
-  return wezterm.font_with_fallback({
-    font_family,
-    "Font Awesome 5 Free Solid", -- nice double-spaced symbols!
+local function get_font(font_family, weight)
+  return wezterm.font({
+    family = font_family,
+    weight = weight or "Regular"
   })
 end
 
 local function font_and_rules_for_berkeley_mono()
-  -- Use a _very slightly_ lighter variant, so that regular bold really stand out
-  local font = font_with_fallback("TX-02")
+  -- Use Retina weight (375) as the default
+  local font = get_font("TX-02", 375)
   local font_rules = {
     {
       italic = true,
-      font = font_with_fallback("TX-02"),
+      font = get_font("TX-02", 375),
     },
     {
       italic = true, intensity = "Bold",
-      font = font_with_fallback("TX-02"),
+      font = get_font("TX-02", "Bold"),
     },
     {
       intensity = "Bold",
-      font = font_with_fallback("TX-02"),
+      font = get_font("TX-02", "Bold"),
     },
   }
   return font, font_rules

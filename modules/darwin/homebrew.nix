@@ -20,6 +20,7 @@
       "tableplus"
       "visual-studio-code"
       "zoom"
+      "cursor"
     ];
 
     # masApps = {

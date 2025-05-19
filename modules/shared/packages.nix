@@ -7,7 +7,13 @@ with pkgs;
   ripgrep
   openssl
   jq
-  yq
+  # Replace yq-go with configured version to avoid collisions
+  (pkgs.symlinkJoin {
+    name = "yq-go-priority";
+    paths = [ yq-go ];
+    # Give this a higher priority than the Python version
+    meta.priority = 1;
+  })
   fzf
   git
   sops

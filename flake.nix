@@ -100,6 +100,9 @@
           };
           modules = [
             home-manager.darwinModules.home-manager
+            {
+              home-manager.extraSpecialArgs = { inherit inputs; };
+            }
             ./hosts/darwin
             mailerlite.darwinModules.home-manager
             {
@@ -120,6 +123,7 @@
             config.allowUnfree = true;
           };
           modules = [
+            inputs.vscodes.modules.default
             home-manager.darwinModules.home-manager
             ./hosts/darwin
           ];
