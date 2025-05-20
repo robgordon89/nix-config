@@ -76,6 +76,30 @@
         "aarch64-linux"
         "aarch64-darwin"
       ];
+
+      #
+      # ========= Host Configurations =========
+      #
+      mkHost = import ./lib/mkHost.nix { self = self; inputs = inputs; };
+
+      # Define the host configurations
+      hosts = {
+        titan = {
+          extraConfig = { };
+          extraModules = [
+            mailerlite.darwinModules.home-manager
+            {
+              mailerlite.username = "robert";
+              mailerlite.useDefaultSSHConfig = true;
+            }
+          ];
+        };
+        thebe = {
+          extraConfig = { };
+          extraModules = [ ];
+        };
+      };
+      darwinConfigurations = nixpkgs.lib.mapAttrs mkHost hosts;
     in
     {
       #
@@ -85,51 +109,14 @@
       overlays = import ./overlays { inherit inputs; };
 
       #
+      # ========= Libs =========
+      #
+      lib = import ./lib;
+
+      #
       # ========= Host Configurations =========
       #
-      # Building configurations is available through `just rebuild`.
-      darwinConfigurations = {
-        titan = nix-darwin.lib.darwinSystem {
-          system = "aarch64-darwin";
-          pkgs = import nixpkgs {
-            system = "aarch64-darwin";
-            overlays = [
-              self.overlays.default
-            ];
-            config.allowUnfree = true;
-          };
-          modules = [
-            home-manager.darwinModules.home-manager
-            {
-              home-manager.extraSpecialArgs = { inherit inputs; };
-            }
-            ./hosts/darwin
-            mailerlite.darwinModules.home-manager
-            {
-              mailerlite.username = "robert";
-              # mailerlite.useDefaultPackages = true;
-              # mailerlite.useDefaultHomebrewPackages = false;
-              mailerlite.useDefaultSSHConfig = true;
-            }
-          ];
-          specialArgs = { inherit inputs; };
-        };
-
-        thebe = nix-darwin.lib.darwinSystem {
-          system = "aarch64-darwin";
-          pkgs = import nixpkgs {
-            system = "aarch64-darwin";
-            overlays = [ self.overlays.default ];
-            config.allowUnfree = true;
-          };
-          modules = [
-            inputs.vscodes.modules.default
-            home-manager.darwinModules.home-manager
-            ./hosts/darwin
-          ];
-          specialArgs = { inherit inputs; };
-        };
-      };
+      darwinConfigurations = darwinConfigurations;
 
       #
       # ========= Packages =========

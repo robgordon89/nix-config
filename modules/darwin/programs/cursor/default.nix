@@ -11,5 +11,17 @@
     # Create a symlink for extensions as well
     ".cursor/extensions".source =
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.vscode/extensions";
+
+    # Add MCP configuration for Linear
+    ".cursor/mcp.json".text = ''
+      {
+          "mcpServers": {
+              "linear": {
+                "command": "npx",
+                "args": ["-y", "mcp-remote", "https://mcp.linear.app/sse"]
+              }
+          }
+      }
+    '';
   };
 }

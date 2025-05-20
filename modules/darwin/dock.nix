@@ -14,8 +14,10 @@
     wvous-br-corner = 1;
     wvous-tl-corner = 1;
     wvous-tr-corner = 1;
+
     persistent-apps = [
       "/Applications/Brave Browser.app/"
+      "/Applications/Cursor.app/"
       "/Applications/Visual Studio Code.app/"
       "/Applications/WezTerm.app/"
       "/Applications/Slack.app/"
@@ -23,6 +25,7 @@
       "/Applications/TablePlus.app/"
       "/System/Applications/System Settings.app/"
     ];
+
     persistent-others = [
       "/Applications"
       "/Users/robert/Downloads"
