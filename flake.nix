@@ -83,22 +83,7 @@
       mkHost = import ./lib/mkHost.nix { self = self; inputs = inputs; };
 
       # Define the host configurations
-      hosts = {
-        titan = {
-          extraConfig = { };
-          extraModules = [
-            mailerlite.darwinModules.home-manager
-            {
-              mailerlite.username = "robert";
-              mailerlite.useDefaultSSHConfig = true;
-            }
-          ];
-        };
-        thebe = {
-          extraConfig = { };
-          extraModules = [ ];
-        };
-      };
+      hosts = import ./hosts.nix inputs;
       darwinConfigurations = nixpkgs.lib.mapAttrs mkHost hosts;
     in
     {
@@ -127,7 +112,7 @@
         let
           pkgs = import nixpkgs {
             inherit system;
-            overlays = [ self.overlays.default ];
+            overlays = self.overlays;
           };
         in
         lib.packagesFromDirectoryRecursive {

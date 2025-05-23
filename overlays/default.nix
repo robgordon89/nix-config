@@ -1,60 +1,6 @@
 { inputs, ... }:
-
 let
-  # Adds my custom packages
-  # FIXME: Add per-system packages
-  additions =
-    final: prev:
-    (prev.lib.packagesFromDirectoryRecursive {
-      callPackage = prev.lib.callPackageWith final;
-      directory = ../pkgs/common;
-    });
-
-  linuxModifications = final: prev: prev.lib.mkIf final.stdenv.isLinux { };
-
-  modifications = final: prev: {
-    # example = prev.example.overrideAttrs (oldAttrs: let ... in {
-    # ...
-    # });
-    #    flameshot = prev.flameshot.overrideAttrs {
-    #      cmakeFlags = [
-    #        (prev.lib.cmakeBool "USE_WAYLAND_GRIM" true)
-    #        (prev.lib.cmakeBool "USE_WAYLAND_CLIPBOARD" true)
-    #      ];
-    #    };
-  };
-
-  vscode-extensions = final: prev: {
-    nix4vscode = (inputs.nix4vscode.overlays.forVscode final prev).nix4vscode;
-  };
-
-  stable-packages = final: _prev: {
-    stable = import inputs.nixpkgs-stable {
-      inherit (final) system;
-      config.allowUnfree = true;
-      #      overlays = [
-      #     ];
-    };
-  };
-
-  unstable-packages = final: _prev: {
-    unstable = import inputs.nixpkgs-unstable {
-      inherit (final) system;
-      config.allowUnfree = true;
-      #      overlays = [
-      #     ];
-    };
-  };
-
+  overlayFiles = builtins.filter (file: file != "default.nix") (builtins.attrNames (builtins.readDir ./.));
+  importOverlay = file: import ./${file} { inherit inputs; };
 in
-{
-  default =
-    final: prev:
-
-    (additions final prev)
-    // (modifications final prev)
-    // (linuxModifications final prev)
-    // (vscode-extensions final prev)
-    // (stable-packages final prev)
-    // (unstable-packages final prev);
-}
+map importOverlay overlayFiles

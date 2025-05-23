@@ -2,7 +2,7 @@
 { self, inputs }: name: { extraConfig, extraModules }:
 let
   system = "aarch64-darwin";
-  overlays = [ self.overlays.default ];
+  overlays = self.overlays;
   hostConfig = { hostname = name; } // extraConfig;
   pkgs = import inputs.nixpkgs {
     inherit system overlays;
