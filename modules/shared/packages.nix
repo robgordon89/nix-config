@@ -44,6 +44,8 @@ with pkgs;
   graphviz
   uv
   parallel
+  doctl
+  apktool
 
   # Linters
   golangci-lint
