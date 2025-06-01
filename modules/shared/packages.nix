@@ -45,7 +45,6 @@ with pkgs;
   uv
   parallel
   doctl
-  apktool
 
   # Linters
   golangci-lint
