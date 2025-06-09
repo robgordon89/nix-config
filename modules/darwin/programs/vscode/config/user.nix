@@ -277,4 +277,5 @@
     };
   };
   "nix.formatterPath" = "nixpkgs-fmt";
+  "extensions.ignoreRecommendations" = true;
 }

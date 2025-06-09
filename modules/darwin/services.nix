@@ -1,8 +1,5 @@
 { pkgs, ... }:
 {
-
-  services.tailscale.enable = true;
-
   services.karabiner-elements = {
     enable = false;
     # Use stable see https://github.com/LnL7/nix-darwin/issues/1041
