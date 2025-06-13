@@ -5,12 +5,12 @@
     onActivation.cleanup = "uninstall";
     onActivation.upgrade = true;
 
-    taps = [ ];
+    taps = builtins.attrNames config.nix-homebrew.taps;
     brews = [ ];
 
     casks = [
       "1password"
-      "wezterm"
+      #"wezterm"
       "brave-browser"
       "hammerspoon"
       "medis"

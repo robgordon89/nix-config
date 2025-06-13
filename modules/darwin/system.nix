@@ -39,6 +39,7 @@
         TrackpadThreeFingerDrag = false;
       };
     };
+
     activationScripts.postUserActivation.text = ''
       /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
       killall Dock'';

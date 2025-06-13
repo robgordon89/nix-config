@@ -10,6 +10,18 @@ let
   };
   modules = [
     inputs.home-manager.darwinModules.home-manager
+    inputs.nix-homebrew.darwinModules.nix-homebrew
+    {
+      nix-homebrew = {
+        enable = true;
+        user = "robert";
+        taps = {
+          "homebrew/homebrew-core" = inputs.homebrew-core;
+          "homebrew/homebrew-cask" = inputs.homebrew-cask;
+        };
+        mutableTaps = true;
+      };
+    }
     ./../hosts/darwin
   ] ++ extraModules;
 in
