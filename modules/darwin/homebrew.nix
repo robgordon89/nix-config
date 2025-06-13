@@ -10,7 +10,7 @@
 
     casks = [
       "1password"
-      #"wezterm"
+      "wezterm"
       "brave-browser"
       "hammerspoon"
       "medis"

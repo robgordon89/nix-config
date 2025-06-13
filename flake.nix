@@ -37,7 +37,7 @@
 
     # Homebrew Cask
     homebrew-cask = {
-      url = "github:homebrew/homebrew-cask";
+      url = "github:homebrew/homebrew-cask/?rev=bdd1b869423fd183dc7dade02c9a877bcef88a55";
       flake = false;
     };
 
