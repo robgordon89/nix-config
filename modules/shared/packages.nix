@@ -45,6 +45,7 @@ with pkgs;
   uv
   parallel
   doctl
+  ngrok
 
   # Linters
   golangci-lint
