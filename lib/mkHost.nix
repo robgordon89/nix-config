@@ -14,7 +14,7 @@ let
     {
       nix-homebrew = {
         enable = true;
-        user = "robert";
+        user = extraConfig.username or "robert";
         taps = {
           "homebrew/homebrew-core" = inputs.homebrew-core;
           "homebrew/homebrew-cask" = inputs.homebrew-cask;

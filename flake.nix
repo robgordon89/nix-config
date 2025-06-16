@@ -82,7 +82,6 @@
       #
       mkHost = import ./lib/mkHost.nix { self = self; inputs = inputs; };
 
-      # Define the host configurations
       hosts = import ./hosts.nix inputs;
       darwinConfigurations = nixpkgs.lib.mapAttrs mkHost hosts;
     in
@@ -96,6 +95,7 @@
       #
       # ========= Libs =========
       #
+      # Custom libraries for shared functions and utilities.
       lib = import ./lib;
 
       #
@@ -126,7 +126,6 @@
       #
       # Nix formatter available through 'nix fmt' https://nix-community.github.io/nixpkgs-fmt
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
-      # Pre-commit checks
       checks = forAllSystems (
         system:
         let
@@ -134,6 +133,7 @@
         in
         import ./checks { inherit inputs system pkgs; }
       );
+
       #
       # ========= DevShell =========
       #

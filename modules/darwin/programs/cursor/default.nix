@@ -15,12 +15,6 @@
     # Add MCP configuration for Linear
     ".cursor/mcp.json".text = ''
       {
-          "mcpServers": {
-              "linear": {
-                "command": "npx",
-                "args": ["-y", "mcp-remote", "https://mcp.linear.app/sse"]
-              }
-          }
       }
     '';
   };

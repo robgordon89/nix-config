@@ -1,6 +1,6 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, hostConfig, ... }:
 let
-  user = "robert";
+  user = hostConfig.username or "robert";
 in
 {
   users.users.${user} = {

@@ -1,8 +1,19 @@
-{ ... }:
+{ lib, hostConfig, ... }:
 
-{
-  # Set some user preferences
-  system.defaults.dock = {
+let
+  defaultApps = [
+    { name = "browser"; path = "/Applications/Brave Browser.app/"; }
+    { name = "editor"; path = "/Applications/Visual Studio Code.app/"; }
+    { name = "terminal"; path = "/Applications/WezTerm.app/"; }
+    { name = "messaging"; path = "/Applications/Beeper Desktop.app/"; }
+    { name = "passwordManager"; path = "/Applications/1Password.app/"; }
+    { name = "databaseTool"; path = "/Applications/TablePlus.app/"; }
+    { name = "settings"; path = "/System/Applications/System Settings.app/"; }
+  ];
+
+  getAppPath = app: hostConfig.dockAppOverrides.${app.name} or app.path;
+
+  defaultDock = {
     autohide = true;
     minimize-to-application = true;
     show-process-indicators = true;
@@ -14,21 +25,16 @@
     wvous-br-corner = 1;
     wvous-tl-corner = 1;
     wvous-tr-corner = 1;
-
-    persistent-apps = [
-      "/Applications/Brave Browser.app/"
-      "/Applications/Cursor.app/"
-      "/Applications/Visual Studio Code.app/"
-      "/Applications/WezTerm.app/"
-      "/Applications/Slack.app/"
-      "/Applications/1Password.app/"
-      "/Applications/TablePlus.app/"
-      "/System/Applications/System Settings.app/"
-    ];
-
+    persistent-apps = map (app: getAppPath app) defaultApps;
     persistent-others = [
       "/Applications"
       "/Users/robert/Downloads"
     ];
   };
+in
+{
+  system.defaults.dock = lib.mkMerge [
+    defaultDock
+    (hostConfig.dock or { })
+  ];
 }

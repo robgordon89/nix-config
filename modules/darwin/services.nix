@@ -1,17 +1,5 @@
 { pkgs, ... }:
 {
-  services.karabiner-elements = {
-    enable = false;
-    # Use stable see https://github.com/LnL7/nix-darwin/issues/1041
-    package = pkgs.stable.karabiner-elements;
-  };
-
-  # services.ollama = {
-  #   enable = false;
-  #   # Optional: load models on startup
-  #   loadModels = [ "deepseek-r1" ];
-  # };
-
   services.jankyborders = {
     enable = true;
     ax_focus = true;
