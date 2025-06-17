@@ -2,10 +2,10 @@
 {
   titan = {
     extraConfig = {
-      dockAppOverrides = {
+      dockPathOverrides = {
         # Use Cursor and Slack at work
-        editor = "/Applications/Cursor.app/";
-        messaging = "/Applications/Slack.app/";
+        "/Applications/Visual Studio Code.app/" = "/Applications/Cursor.app/";
+        "/Applications/Beeper Desktop.app/" = "/Applications/Slack.app/";
       };
     };
     extraModules = [

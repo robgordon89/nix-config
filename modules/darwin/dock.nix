@@ -2,16 +2,21 @@
 
 let
   defaultApps = [
-    { name = "browser"; path = "/Applications/Brave Browser.app/"; }
-    { name = "editor"; path = "/Applications/Visual Studio Code.app/"; }
-    { name = "terminal"; path = "/Applications/WezTerm.app/"; }
-    { name = "messaging"; path = "/Applications/Beeper Desktop.app/"; }
-    { name = "passwordManager"; path = "/Applications/1Password.app/"; }
-    { name = "databaseTool"; path = "/Applications/TablePlus.app/"; }
-    { name = "settings"; path = "/System/Applications/System Settings.app/"; }
+    "/Applications/Brave Browser.app/"
+    "/Applications/Visual Studio Code.app/"
+    "/Applications/WezTerm.app/"
+    "/Applications/Beeper Desktop.app/"
+    "/Applications/1Password.app/"
+    "/Applications/TablePlus.app/"
+    "/System/Applications/System Settings.app/"
   ];
 
-  getAppPath = app: hostConfig.dockAppOverrides.${app.name} or app.path;
+  # Apply path overrides if specified
+  applyPathOverrides = apps:
+    let
+      overrides = hostConfig.dockPathOverrides or { };
+    in
+    map (app: overrides.${app} or app) apps;
 
   defaultDock = {
     autohide = true;
@@ -25,7 +30,7 @@ let
     wvous-br-corner = 1;
     wvous-tl-corner = 1;
     wvous-tr-corner = 1;
-    persistent-apps = map (app: getAppPath app) defaultApps;
+    persistent-apps = applyPathOverrides defaultApps;
     persistent-others = [
       "/Applications"
       "/Users/robert/Downloads"
