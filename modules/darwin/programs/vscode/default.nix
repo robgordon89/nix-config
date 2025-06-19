@@ -29,7 +29,8 @@
       "kcl.kcl-vscode-extension"
       "mechatroner.rainbow-csv"
       "mikestead.dotenv"
-      "ms-kubernetes-tools.vscode-kubernetes-tools"
+      # Use a older version compatible with VSCode 1.96.2
+      "ms-kubernetes-tools.vscode-kubernetes-tools.1.3.13"
       "ms-python.black-formatter"
       "ms-python.debugpy"
       "ms-python.python"
