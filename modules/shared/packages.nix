@@ -46,6 +46,7 @@ with pkgs;
   parallel
   doctl
   ngrok
+  todo-txt-cli
 
   # Linters
   golangci-lint

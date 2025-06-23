@@ -10,7 +10,7 @@
       strategy = [ "history" ];
     };
     syntaxHighlighting.enable = true;
-    initExtra = # bash
+    initContent = # bash
       ''
         export PURE_GIT_PULL=0
         fpath+=("${pkgs.pure-prompt}/share/zsh/site-functions")
