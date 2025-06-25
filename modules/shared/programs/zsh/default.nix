@@ -49,6 +49,15 @@
       kx = "kubectx";
       t = "tofu";
 
+      # todo.txt aliases
+      td = "todo.sh";
+      tda = "todo.sh add";
+      tdl = "todo.sh list";
+      tdd = "todo.sh done";
+      tdr = "todo.sh report";
+      tdp = "todo.sh pri";
+      tdrp = "todo.sh replace";
+
       # Add verbosity to common commands
       rm = "rm -v";
       cp = "cp -vi";
