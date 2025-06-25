@@ -1,16 +1,17 @@
 { config, ... }:
+let
+  mkGreedy = caskName: { name = caskName; greedy = true; };
+in
 {
   homebrew = {
     enable = true;
     onActivation.cleanup = "uninstall";
-
-    # Set these to false to prevent Homebrew from trying to update itself
-    onActivation.upgrade = false;
-    onActivation.autoUpdate = false;
+    onActivation.upgrade = true;
 
     taps = builtins.attrNames config.nix-homebrew.taps;
     brews = [ ];
 
+    # casks = map mkGreedy [];
     casks = [
       "1password"
       "wezterm"
