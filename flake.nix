@@ -10,11 +10,12 @@
     # VS Code Extensions
     nix4vscode = {
       url = "github:nix-community/nix4vscode";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Nix Darwin
     nix-darwin = {
-      url = "github:LnL7/nix-darwin";
+      url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -37,7 +38,7 @@
 
     # Homebrew Cask
     homebrew-cask = {
-      url = "github:homebrew/homebrew-cask/?rev=bdd1b869423fd183dc7dade02c9a877bcef88a55";
+      url = "github:homebrew/homebrew-cask";
       flake = false;
     };
 

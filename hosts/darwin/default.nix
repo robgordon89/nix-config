@@ -13,6 +13,8 @@
   # Set the State Version
   system.stateVersion = 5;
 
+  system.primaryUser = "robert";
+
   environment.variables = {
     LANG = "en_GB.UTF-8";
   };

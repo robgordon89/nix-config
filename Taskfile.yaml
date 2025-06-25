@@ -29,9 +29,9 @@ tasks:
     cmds:
       - |
         if [ "{{.OS}}" = "Darwin" ]; then
-          darwin-rebuild switch --flake .#{{.HOSTNAME}} --impure --show-trace
+          sudo darwin-rebuild switch --flake .#{{.HOSTNAME}} --impure --show-trace
         else
-          ./result/activate
+          sudo ./result/activate
         fi
 
   update:

@@ -3,7 +3,10 @@
   homebrew = {
     enable = true;
     onActivation.cleanup = "uninstall";
-    onActivation.upgrade = true;
+
+    # Set these to false to prevent Homebrew from trying to update itself
+    onActivation.upgrade = false;
+    onActivation.autoUpdate = false;
 
     taps = builtins.attrNames config.nix-homebrew.taps;
     brews = [ ];
