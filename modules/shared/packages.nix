@@ -27,7 +27,6 @@ with pkgs;
   eza
   statix
   ansible-lint
-  devenv
   nixpkgs-fmt
   terraform
   poetry
@@ -53,7 +52,9 @@ with pkgs;
 
   # SaaS tools
   gh
-  (google-cloud-sdk.withExtraComponents [ google-cloud-sdk.components.gke-gcloud-auth-plugin ])
+  (google-cloud-sdk.withExtraComponents [
+    google-cloud-sdk.components.gke-gcloud-auth-plugin
+  ])
   _1password-cli
   opentofu
   spacectl
@@ -62,8 +63,8 @@ with pkgs;
   claude-code
 
   # Python
-  (python312.buildEnv.override {
-    extraLibs = with python312.pkgs; [
+  (python313.buildEnv.override {
+    extraLibs = with python313.pkgs; [
       # Tools
       pyyaml
       ruff
@@ -73,7 +74,6 @@ with pkgs;
       # LLM tools
       llm
       llm-ollama
-      llm-gemini
       llm-cmd
 
       # Custom package
