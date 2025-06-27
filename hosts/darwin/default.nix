@@ -24,6 +24,7 @@
   # Nix configuration managed by determinate systems
   nix = {
     enable = false;
+    package = pkgs.nix;
   };
 
   nixpkgs = {

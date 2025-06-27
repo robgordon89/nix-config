@@ -6,7 +6,9 @@ let
   hostConfig = { hostname = name; } // extraConfig;
   pkgs = import inputs.nixpkgs {
     inherit system overlays;
-    config.allowUnfree = true;
+    config = {
+      allowUnfree = true;
+    };
   };
   modules = [
     inputs.home-manager.darwinModules.home-manager

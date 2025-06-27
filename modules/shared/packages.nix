@@ -58,6 +58,9 @@ with pkgs;
   opentofu
   spacectl
 
+  # AI tools
+  claude-code
+
   # Python
   (python312.buildEnv.override {
     extraLibs = with python312.pkgs; [
