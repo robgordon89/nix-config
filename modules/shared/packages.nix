@@ -113,6 +113,7 @@ with pkgs;
   caddy
   kubebuilder
   tailscale
+  cilium-cli
 
   # Shell tools
   direnv

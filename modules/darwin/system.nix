@@ -39,5 +39,10 @@
         TrackpadThreeFingerDrag = false;
       };
     };
+
+    keyboard = {
+      enableKeyMapping = true;
+      remapCapsLockToEscape = true;
+    };
   };
 }
