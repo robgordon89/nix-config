@@ -18,7 +18,8 @@ let
     in
     map (app: overrides.${app} or app) apps;
 
-  defaultDock = {
+  # Give default settings a low priority (50)
+  defaultDock = lib.mapAttrs (name: value: lib.mkDefault value) {
     autohide = true;
     minimize-to-application = true;
     show-process-indicators = true;
@@ -36,10 +37,16 @@ let
       "/Users/robert/Downloads"
     ];
   };
+
+  # Apply a higher priority (80) to host-specific settings
+  hostDock =
+    if (hostConfig ? dock)
+    then lib.mapAttrs (name: value: lib.mkOverride 80 value) hostConfig.dock
+    else { };
 in
 {
   system.defaults.dock = lib.mkMerge [
     defaultDock
-    (hostConfig.dock or { })
+    hostDock
   ];
 }

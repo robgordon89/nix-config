@@ -1,4 +1,4 @@
-{ mailerlite, ... }:
+{ mailerlite, lib, ... }:
 {
   titan = {
     extraConfig = {
@@ -17,7 +17,12 @@
     ];
   };
   thebe = {
-    extraConfig = { };
+    extraConfig = {
+      dock = {
+        # Slightly smaller icons on the dock
+        tilesize = 42;
+      };
+    };
     extraModules = [ ];
   };
 }
