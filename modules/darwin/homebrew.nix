@@ -25,6 +25,7 @@ in
       "zoom"
       "cursor"
       "claude"
+      "mouseless"
     ];
   };
 }
