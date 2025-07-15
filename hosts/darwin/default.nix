@@ -3,6 +3,7 @@
 , lib
 , config
 , pkgs
+, hostConfig
 , ...
 }:
 {
@@ -13,7 +14,8 @@
   # Set the State Version
   system.stateVersion = 5;
 
-  system.primaryUser = "robert";
+  # Set primary user from hostConfig with fallback to "robert"
+  system.primaryUser = hostConfig.username or "robert";
 
   environment.variables = {
     LANG = "en_GB.UTF-8";
@@ -37,6 +39,6 @@
       allowInsecure = false;
       allowUnsupportedSystem = true;
     };
-    hostPlatform = "aarch64-darwin";
+    hostPlatform = hostConfig.platform or "aarch64-darwin";
   };
 }

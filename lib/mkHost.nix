@@ -1,9 +1,16 @@
 # Helper to generate darwinConfigurations for each host
 { self, inputs }: name: { extraConfig, extraModules }:
 let
-  system = "aarch64-darwin";
+  # Define the host configuration with default values, which can be overridden
+  # by the extraConfig argument.
+  hostConfig = {
+    hostname = name;
+    username = "robert";
+    platform = "aarch64-darwin";
+  } // extraConfig;
+
+  system = hostConfig.platform;
   overlays = self.overlays;
-  hostConfig = { hostname = name; } // extraConfig;
   pkgs = import inputs.nixpkgs {
     inherit system overlays;
     config = {
@@ -16,7 +23,7 @@ let
     {
       nix-homebrew = {
         enable = true;
-        user = extraConfig.username or "robert";
+        user = hostConfig.username;
         taps = {
           "homebrew/homebrew-core" = inputs.homebrew-core;
           "homebrew/homebrew-cask" = inputs.homebrew-cask;
