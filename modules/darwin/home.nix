@@ -1,16 +1,13 @@
 { pkgs, inputs, hostConfig, ... }:
-let
-  user = hostConfig.username or "robert";
-in
 {
-  users.users.${user} = {
-    home = "/Users/${user}";
+  users.users.${hostConfig.username} = {
+    home = "/Users/${hostConfig.username}";
     shell = pkgs.zsh;
   };
   home-manager = {
     backupFileExtension = "backup";
     useGlobalPkgs = true;
-    users.${user} =
+    users.${hostConfig.username} =
       { pkgs, ... }:
       {
         imports = [

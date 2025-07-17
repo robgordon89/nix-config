@@ -15,25 +15,4 @@
       "wezterm-gui"
     ];
   };
-
-  services.aerospace = {
-    enable = false;
-    settings = {
-      gaps = {
-        inner.horizontal = 8;
-        inner.vertical = 8;
-
-        outer.left = 8;
-        outer.bottom = 0;
-        outer.top = 0;
-        outer.right = 8;
-      };
-      mode.main.binding = {
-        alt-h = "focus left";
-        alt-j = "focus down";
-        alt-k = "focus up";
-        alt-l = "focus right";
-      };
-    };
-  };
 }

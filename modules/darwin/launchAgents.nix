@@ -1,7 +1,4 @@
 { pkgs, hostConfig, ... }:
-let
-  user = hostConfig.username or "robert";
-in
 {
   environment.userLaunchAgents = {
     "com.1password.SSH_AUTH_SOCK.plist" = {
@@ -16,7 +13,7 @@ in
           <array>
             <string>/bin/sh</string>
             <string>-c</string>
-            <string>/bin/ln -sf /Users/${user}/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock $SSH_AUTH_SOCK</string>
+            <string>/bin/ln -sf /Users/${hostConfig.username}/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock $SSH_AUTH_SOCK</string>
           </array>
           <key>RunAtLoad</key>
           <true/>
