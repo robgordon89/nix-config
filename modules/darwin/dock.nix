@@ -39,10 +39,7 @@ let
   };
 
   # Apply a higher priority (80) to host-specific settings
-  hostDock =
-    if (hostConfig ? dock)
-    then lib.mapAttrs (name: value: lib.mkOverride 80 value) hostConfig.dock
-    else { };
+  hostDock = lib.mapAttrs (name: value: lib.mkOverride 80 value) (hostConfig.dock or { });
 in
 {
   system.defaults.dock = lib.mkMerge [
