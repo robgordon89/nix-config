@@ -5,8 +5,8 @@
     ./documentation.nix
     ./finder.nix
     ./fonts.nix
-    ./home.nix # Home manager
-    ./homebrew.nix # Homebrew
+    ./home-manager.nix
+    ./homebrew.nix
     ./launchAgents.nix
     ./preferences.nix
     ./security.nix
