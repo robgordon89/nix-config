@@ -150,7 +150,6 @@
   "terminal.integrated.cursorBlinking" = true;
   "terminal.integrated.stickyScroll.enabled" = false;
   "terminal.integrated.fontFamily" = "TX-02, monospace";
-  "terminal.integrated.fontLigatures" = true;
   "terminal.integrated.fontWeight" = 375; # 375 is retina
   "terminal.integrated.enableMultiLinePasteWarning" = "never";
   "terminal.integrated.shellIntegration.decorationsEnabled" = "never";
@@ -247,14 +246,10 @@
 
   "python.experiments.enabled" = false;
 
-  "github.copilot.editor.enableAutoCompletions" = true;
   "chat.agent.enabled" = true;
-
-  "vs-kubernetes.vs-kubernetes.crd-code-completion" = "enabled";
 
   "custom-ui-style.font.sansSerif" = "TX-02";
   "custom-ui-style.font.monospace" = "TX-02";
-  "custom-ui-style.font.weight" = 375; # 375 is retina
   "custom-ui-style.electron" = {
     "frame" = false;
     "roundedCorners" = false;
@@ -278,4 +273,14 @@
   };
   "nix.formatterPath" = "nixpkgs-fmt";
   "extensions.ignoreRecommendations" = true;
+
+  "mcp.servers.context7" = {
+    "command" = "docker";
+    "args" = [
+      "run"
+      "-i"
+      "--rm"
+      "mcp/context7"
+    ];
+  };
 }
