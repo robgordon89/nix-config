@@ -46,6 +46,9 @@ with pkgs;
   doctl
   ngrok
   todo-txt-cli
+  (octodns.withProviders (ps: [
+    ps.cloudflare
+  ]))
 
   # Linters
   golangci-lint
@@ -58,6 +61,7 @@ with pkgs;
   _1password-cli
   opentofu
   spacectl
+  awscli2
 
   # AI tools
   claude-code
