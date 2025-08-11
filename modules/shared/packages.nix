@@ -46,8 +46,8 @@ with pkgs;
   doctl
   ngrok
   todo-txt-cli
-  (octodns.withProviders (ps: [
-    ps.cloudflare
+  (octodns.withProviders (_: [
+    octodns.providers.cloudflare
   ]))
 
   # Linters
