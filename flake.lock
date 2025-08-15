@@ -138,14 +138,18 @@
         ]
       },
       "locked": {
-        "lastModified": 1751025552,
-        "narHash": "sha256-ZK3xn9lDxDKp2ZcG8DDQJ1t6zks6c1TL5QHh+fJVTE0=",
-        "path": "/Users/robert/dev/mailerlite/mailerlite-nix-config",
-        "type": "path"
+        "lastModified": 1755269201,
+        "narHash": "sha256-4mKOQUtLfnG5unphGft8wSYve5z1KtnTdUWoNXUyokU=",
+        "ref": "feature/no-ref/flake-config-setup",
+        "rev": "c0375a12e5387c2753d69519c7afc361f0a9ea04",
+        "revCount": 41,
+        "type": "git",
+        "url": "ssh://git@github.com/mailerlite/nix-config.git"
       },
       "original": {
-        "path": "/Users/robert/dev/mailerlite/mailerlite-nix-config",
-        "type": "path"
+        "ref": "feature/no-ref/flake-config-setup",
+        "type": "git",
+        "url": "ssh://git@github.com/mailerlite/nix-config.git"
       }
     },
     "nix-darwin": {

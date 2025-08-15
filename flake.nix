@@ -50,7 +50,8 @@
 
     # MailerLite shared flake - temp until upstreamed
     mailerlite = {
-      url = "path:/Users/robert/dev/mailerlite/mailerlite-nix-config";
+      # url = "path:/Users/robert/dev/mailerlite/mailerlite-nix-config";
+      url = "git+ssh://git@github.com/mailerlite/nix-config.git?ref=feature/no-ref/flake-config-setup";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

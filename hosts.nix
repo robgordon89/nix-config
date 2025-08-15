@@ -19,7 +19,7 @@
   thebe = {
     extraConfig = {
       dock = {
-        # Slightly smaller icons on the dock
+        # Slightly smaller icons on the dock (default is 48)
         tilesize = 42;
       };
     };
