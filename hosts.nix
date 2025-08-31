@@ -22,6 +22,13 @@
         # Slightly smaller icons on the dock (default is 48)
         tilesize = 42;
       };
+      ssh = {
+        enable = true;
+        extraConfig = ''
+          Host hack
+            HostName fdaa:0:e692:0:1::2
+        '';
+      };
     };
     extraModules = [ ];
   };

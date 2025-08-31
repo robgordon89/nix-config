@@ -49,6 +49,7 @@ with pkgs;
   (octodns.withProviders (_: [
     octodns.providers.cloudflare
   ]))
+  wireguard-tools
 
   # Linters
   golangci-lint

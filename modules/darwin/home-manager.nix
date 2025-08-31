@@ -19,6 +19,8 @@
           ./programs/cursor
         ] ++ [ ../shared/home.nix ];
 
+        _module.args = { inherit hostConfig; };
+
         programs.man.generateCaches = false;
         home = {
           enableNixpkgsReleaseCheck = false;
