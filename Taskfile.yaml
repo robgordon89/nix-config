@@ -14,6 +14,11 @@ tasks:
     cmds:
       - task --list
 
+  gc:
+    cmds:
+      - nix-collect-garbage
+    desc: Tidy up the nix store
+
   build-config:
     internal: true
     cmds:
@@ -43,6 +48,11 @@ tasks:
     cmds:
       - nix flake lock --update-input mailerlite
     desc: Update the mailerlite input in the flake.lock file
+
+  update-nix:
+    cmds:
+      - sudo determinate-nixd upgrade
+    desc: Update the nixd to the latest version
 
   build:
     deps: [build-config, switch-config]
