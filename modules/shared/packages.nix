@@ -22,7 +22,6 @@ with pkgs;
   netcat
   socat
   nmap
-  gnupg
   restic
   eza
   statix
@@ -51,6 +50,11 @@ with pkgs;
   ]))
   wireguard-tools
 
+  # Security
+  gnupg
+  yubikey-manager
+  pinentry_mac
+
   # Linters
   golangci-lint
 
@@ -66,6 +70,8 @@ with pkgs;
 
   # AI tools
   claude-code
+  codex
+  gemini-cli
 
   # Python
   (python313.buildEnv.override {
