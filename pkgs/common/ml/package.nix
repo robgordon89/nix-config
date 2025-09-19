@@ -12,13 +12,13 @@ buildGoModule rec {
   src = builtins.fetchGit {
     url = "ssh://git@github.com/mailerlite/cli.git";
     # tag = "v${version}";
-    rev = "6cd1a9d071bd7dd7da7a5198ac373d86fc366b8a";
+    rev = "ba72622a399cbd2176624c20c5b76b3942a30696";
     # hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
   };
 
-  subPackages = [ "./cmd" ];
+  subPackages = [ "./cmd/ml" ];
 
-  vendorHash = "sha256-aCmQTXD8JkO2Jd/wVakBYTMKe6AZGEeJBCbV66en6pI=";
+  vendorHash = "sha256-tdp8jCt6/eJW+MBmf8AfxHoTyFkJMy72/x7BrPcUxio=";
 
   # Disable caching
   preferLocalBuild = true;
@@ -29,7 +29,6 @@ buildGoModule rec {
   ];
 
   postInstall = lib.optionalString (stdenv.buildPlatform.canExecute stdenv.hostPlatform) ''
-    mv $out/bin/cmd $out/bin/ml
     installShellCompletion --cmd ml \
       --bash <($out/bin/ml completion bash) \
       --fish <($out/bin/ml completion fish) \
