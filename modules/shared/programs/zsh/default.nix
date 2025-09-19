@@ -1,5 +1,20 @@
-{ config, pkgs, ... }:
+{ config, pkgs, hostConfig ? { }, ... }:
+let
+  # Conditionally set up editor-specific configuration
+  editorPath =
+    if hostConfig.useCursor or false then
+      "/Applications/Cursor.app/Contents/Resources/app/bin"
+    else if hostConfig.useVscode or false then
+      "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+    else "";
 
+  editorAlias =
+    if hostConfig.useCursor or false then
+      { code = "cursor"; }
+    else if hostConfig.useVscode or false then
+      { code = "code"; }
+    else { };
+in
 {
   programs.zsh = {
     enable = true;
@@ -23,7 +38,7 @@
           nix-your-shell zsh | source /dev/stdin
         fi
 
-        export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+        ${if editorPath != "" then ''export PATH="$PATH:${editorPath}"'' else ""}
 
         eval "$(direnv hook $SHELL)"
 
@@ -83,7 +98,7 @@
       lsa = "exa -a";
       lla = "exa -la";
       l = "exa";
-    };
+    } // editorAlias;
 
     history = {
       size = 10000;

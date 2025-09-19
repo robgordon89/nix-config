@@ -1,4 +1,4 @@
-{ ... }:
+{ hostConfig ? { }, ... }:
 {
   imports = [
     ./programs/git

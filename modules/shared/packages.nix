@@ -70,6 +70,7 @@ with pkgs;
 
   # AI tools
   claude-code
+  cursor-cli
   codex
   gemini-cli
 
@@ -101,15 +102,15 @@ with pkgs;
   cue
   go
   php83
-  php83Packages.deployer
+  deployer
   php83Packages.composer
   php83Packages.php-cs-fixer
 
   # Databases
-  clickhouse
-  postgresql_16
-  mariadb
-  redis
+  # clickhouse
+  # postgresql_16
+  # mariadb
+  # redis
 
   # Containers and virtualization
   docker
