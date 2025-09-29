@@ -1,12 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, hostConfig, ... }:
 {
   programs.git = {
     enable = true;
     package = pkgs.git;
-    userName = "Robert Gordon";
-    userEmail = "rob@ruled.io";
+    userName = hostConfig.fullName;
+    userEmail = hostConfig.email;
     signing = {
-      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEJOD+xGS8a9Q2Dyyah+jH6caM2n4XaJNKRvmbo7NqaY";
+      key = hostConfig.sshPublicKey;
       signByDefault = true;
     };
     extraConfig = import ./config/extra.nix;

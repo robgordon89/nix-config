@@ -1,11 +1,16 @@
 # Helper to generate darwinConfigurations for each host
-{ self, inputs }: name: { extraConfig, extraModules }:
+{ self, inputs }: hostname: { extraConfig, extraModules }:
 let
   # Define the host configuration with default values, which can be overridden
   # by the extraConfig argument.
   hostConfig = {
-    hostname = name;
+    hostname = hostname;
     username = "robert";
+    firstName = "Robert";
+    lastName = "Gordon";
+    fullName = "${hostConfig.firstName} ${hostConfig.lastName}";
+    email = "rob@ruled.io";
+    sshPublicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEJOD+xGS8a9Q2Dyyah+jH6caM2n4XaJNKRvmbo7NqaY";
     platform = "aarch64-darwin";
   } // extraConfig;
 
