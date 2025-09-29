@@ -34,7 +34,7 @@ let
     persistent-apps = applyPathOverrides defaultApps;
     persistent-others = [
       "/Applications"
-      "/Users/robert/Downloads"
+      "/Users/${hostConfig.username}/Downloads"
     ];
   };
 
