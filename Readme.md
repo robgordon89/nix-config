@@ -5,6 +5,12 @@ On a fresh Mac, you'll need to install Xcode Command Line Tools which includes g
 xcode-select --install
 ```
 
+## Clone repo
+
+```
+git clone https://github.com/robgordon89/nix-config.nix
+```
+
 ---
 
 # Install Nix
