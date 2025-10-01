@@ -34,4 +34,10 @@
     };
     extraModules = [ ];
   };
+  test = {
+    extraConfig = {
+      useVscode = true;
+    };
+    extraModules = [ ];
+  };
 }

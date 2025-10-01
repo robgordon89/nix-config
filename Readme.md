@@ -1,3 +1,12 @@
+# Setup (Fresh Mac)
+## Install Command Line Tools (includes git)
+On a fresh Mac, you'll need to install Xcode Command Line Tools which includes git and other essential development tools:
+```
+xcode-select --install
+```
+
+---
+
 # Install Nix
 ## Install Nix with installer from @determinate
 ```
