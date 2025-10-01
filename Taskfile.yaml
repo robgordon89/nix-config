@@ -34,7 +34,7 @@ tasks:
     cmds:
       - |
         if [ "{{.OS}}" = "Darwin" ]; then
-          sudo darwin-rebuild switch --flake .#{{.HOSTNAME}} --impure --show-trace
+          sudo nix run nix-darwin -- switch --flake .#{{.HOSTNAME}} --impure --show-trace
         else
           sudo ./result/activate
         fi

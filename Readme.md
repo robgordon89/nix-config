@@ -22,7 +22,14 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 ---
 
 # Init Nix Config
-## Run Nix develop (first time only)
+## Bootstrap nix-darwin (first time only)
+On a fresh machine, `darwin-rebuild` isn't installed yet, so you need to bootstrap using `nix run`:
+```
+cd nix-config
+nix run nix-darwin -- switch --flake .
+```
+
+After the initial bootstrap, you can use the task commands:
 ```
 nix develop
 task build
