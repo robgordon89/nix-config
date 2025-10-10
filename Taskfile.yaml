@@ -21,6 +21,7 @@ tasks:
 
   build-config:
     internal: true
+    silent: true
     cmds:
       - |
         if [ "{{.OS}}" = "Darwin" ]; then
@@ -31,6 +32,7 @@ tasks:
 
   switch-config:
     internal: true
+    silent: true
     cmds:
       - |
         if [ "{{.OS}}" = "Darwin" ]; then
