@@ -19,7 +19,8 @@
         "editorconfig.editorconfig"
         "esbenp.prettier-vscode"
         "github.copilot"
-        "github.copilot-chat"
+        # Use a older version compatible with VSCode 1.102.3
+        "github.copilot-chat.0.29.1"
         "github.vscode-github-actions"
         "glitchbl.laravel-create-view"
         "golang.go"
