@@ -16,9 +16,14 @@
     ".cursor/mcp.json".text = ''
       {
         "mcpServers": {
-          "linear": {
-            "command": "npx",
-            "args": ["-y", "mcp-remote", "https://mcp.linear.app/sse"]
+          "Linear": {
+            "url": "https://obot.litehub.io/mcp-connect/default-linear-2ad8f8d8"
+          },
+          "Github": {
+            "url": "https://obot.litehub.io/mcp-connect/default-github-391ae5a6"
+          },
+          "Sentry": {
+            "url": "https://obot.litehub.io/mcp-connect/default-sentry-f0fce749r4tcg"
           }
         }
       }

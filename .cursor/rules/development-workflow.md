@@ -3,12 +3,10 @@
 ## Common Tasks
 
 ### Building and Testing
-- Use `task build` to build the configuration
+- Use `task build` to build the configuration and switch
 - Use `task update` to update nix flakes
 - Use `task update-mailerlite` for just updating mailerlite flake (easier when working on it)
 - Use `nix flake check` to validate the flake
-- Use `darwin-rebuild switch` to apply changes
-- Use `home-manager switch` for home-manager changes
 
 ### Configuration Changes
 1. Edit the appropriate module file
