@@ -258,6 +258,9 @@
     "#workbench\\.parts\\.sidebar > div > div > div:first-child:not(.monaco-pane-view)" = {
       "display" = "none";
     };
+    "#workbench\\.parts\\.sidebar > div > div > div.sidebar2-compositeComponent" = {
+      "inset" = "10px 0px 0px";
+    };
     "#workbench\\.parts\\.sidebar .monaco-pane-view .pane-header " = {
       "display" = "none";
     };
