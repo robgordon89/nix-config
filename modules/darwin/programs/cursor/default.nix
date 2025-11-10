@@ -24,6 +24,12 @@
           },
           "Sentry": {
             "url": "https://obot.litehub.io/mcp-connect/default-sentry-f0fce749r4tcg"
+          },
+          "Outline Search": {
+            "url": "https://obot.litehub.io/mcp-connect/ms1959x5"
+          },
+          "Context7": {
+            "url": "https://obot.litehub.io/mcp-connect/ms1lrhvc"
           }
         }
       }

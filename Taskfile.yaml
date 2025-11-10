@@ -39,7 +39,7 @@ tasks:
           if command -v darwin-rebuild &> /dev/null; then
             sudo darwin-rebuild switch --flake .#{{.HOSTNAME}} --impure --show-trace
           else
-            nix run nix-darwin -- switch --flake .#{{.HOSTNAME}} --impure --show-trace
+            sudo nix run nix-darwin -- switch --flake .#{{.HOSTNAME}} --impure --show-trace
           fi
         else
           sudo ./result/activate

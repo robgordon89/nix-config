@@ -25,28 +25,27 @@ in
       strategy = [ "history" ];
     };
     syntaxHighlighting.enable = true;
-    initContent = # bash
-      ''
-        export PURE_GIT_PULL=0
-        fpath+=("${pkgs.pure-prompt}/share/zsh/site-functions")
+    initContent = ''
+      export PURE_GIT_PULL=0
+      fpath+=("${pkgs.pure-prompt}/share/zsh/site-functions")
 
-        if [ "$TERM" != dumb ]; then
-          autoload -U promptinit && promptinit && prompt pure
-        fi
+      if [ "$TERM" != dumb ]; then
+        autoload -U promptinit && promptinit && prompt pure
+      fi
 
-        if command -v nix-your-shell > /dev/null; then
-          nix-your-shell zsh | source /dev/stdin
-        fi
+      if command -v nix-your-shell > /dev/null; then
+        nix-your-shell zsh | source /dev/stdin
+      fi
 
-        ${if editorPath != "" then ''export PATH="$PATH:${editorPath}"'' else ""}
+      ${if editorPath != "" then ''export PATH="$PATH:${editorPath}"'' else ""}
 
-        eval "$(direnv hook $SHELL)"
+      . ${./config/options.zsh}
+      . ${./config/completions.zsh}
+      . ${./config/mappings.zsh}
+      . ${./config/functions.zsh}
 
-        . ${./config/options.zsh}
-        . ${./config/completions.zsh}
-        . ${./config/mappings.zsh}
-        . ${./config/functions.zsh}
-      '';
+      eval "$(${pkgs.direnv}/bin/direnv hook $SHELL)"
+    '';
 
     shellAliases = {
       # Shorter

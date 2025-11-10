@@ -6,4 +6,5 @@ in
 shared-packages
 ++ [
   # Darwin specific packages
+  tart
 ]

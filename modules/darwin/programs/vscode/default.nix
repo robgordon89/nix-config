@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 {
   programs.vscode = {
     # We dont use the package from nixpkgs becuase it doesnt allow mods
@@ -53,5 +53,10 @@
       ];
     };
     mutableExtensionsDir = false;
+  };
+
+  # Create mcp.json directly since userMcp is not available in home-manager release-25.05
+  home.file."Library/Application Support/Code/User/mcp.json" = {
+    text = builtins.toJSON (import ./config/mcp.nix);
   };
 }

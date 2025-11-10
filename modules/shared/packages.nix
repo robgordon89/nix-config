@@ -133,6 +133,7 @@ with pkgs;
   pre-commit
   nix-your-shell
   kcl
+  lefthook
 
   # Custom
   ml
