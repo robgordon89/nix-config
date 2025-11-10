@@ -26,7 +26,6 @@ with pkgs;
   statix
   ansible-lint
   nixpkgs-fmt
-  terraform
   poetry
   hugo
   ffmpeg-full
