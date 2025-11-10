@@ -23,7 +23,6 @@ with pkgs;
   socat
   nmap
   restic
-  eza
   statix
   ansible-lint
   nixpkgs-fmt
@@ -128,6 +127,11 @@ with pkgs;
   cilium-cli
 
   # Shell tools
+  eza # Better ls
+  bat # Better cat
+  ripgrep # Better grep
+  fd # Better find
+  procs # Better ps
   direnv
   nix-direnv
   pre-commit

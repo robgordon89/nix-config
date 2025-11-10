@@ -75,36 +75,14 @@
         "type": "github"
       }
     },
-    "home-manager_2": {
-      "inputs": {
-        "nixpkgs": [
-          "mailerlite",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1747688870,
-        "narHash": "sha256-ypL9WAZfmJr5V70jEVzqGjjQzF0uCkz+AFQF7n9NmNc=",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "d5f1f641b289553927b3801580598d200a501863",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "ref": "release-24.11",
-        "repo": "home-manager",
-        "type": "github"
-      }
-    },
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1762178887,
-        "narHash": "sha256-UvopYRVtR6Faf5Mz6jhVFzQBhpBUB6VA+xt66E+nLQM=",
+        "lastModified": 1762790058,
+        "narHash": "sha256-INQPWJKf4ps1pMg6L74yv2HW02RUGZiX0hV9ZpO+zk4=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "54264077d1e1989b4ac4eaf3f8d7ed6c1075258b",
+        "rev": "b088aa3cc11177f3f94d9c91d2f6baf24fab6fc9",
         "type": "github"
       },
       "original": {
@@ -116,11 +94,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1762178253,
-        "narHash": "sha256-Kd7uxYPsJ6y2Sph9t88iQPAUBaY7ZIUouypfPC38fFU=",
+        "lastModified": 1762790174,
+        "narHash": "sha256-8KG6Bdjf4cQxDxz+NVOrlLLXqZGh/SQfaOxnxXDfDEc=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "1a2083b5e93919134bdd588904b1710cec865073",
+        "rev": "57f548c12df1f41420be48e19573e77eb29c8deb",
         "type": "github"
       },
       "original": {
@@ -131,15 +109,13 @@
     },
     "mailerlite": {
       "inputs": {
-        "home-manager": "home-manager_2",
-        "nix-darwin": "nix-darwin",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1755269204,
-        "narHash": "sha256-Wv1u96l1TW2nw+fgPQkiG1PViqw6rDfZmVJdNSZxcZg=",
+        "lastModified": 1762791612,
+        "narHash": "sha256-d4A5g6C+BNRFUvWoIUm+EWzq3JcLRop+FzlbqvDwBoo=",
         "path": "/Users/robert/dev/mailerlite/mailerlite-nix-config",
         "type": "path"
       },
@@ -151,36 +127,15 @@
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
-          "mailerlite",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1762039661,
-        "narHash": "sha256-oM5BwAGE78IBLZn+AqxwH/saqwq3e926rNq5HmOulkc=",
-        "owner": "LnL7",
-        "repo": "nix-darwin",
-        "rev": "c3c8c9f2a5ed43175ac4dc030308756620e6e4e4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "LnL7",
-        "repo": "nix-darwin",
-        "type": "github"
-      }
-    },
-    "nix-darwin_2": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1762039661,
-        "narHash": "sha256-oM5BwAGE78IBLZn+AqxwH/saqwq3e926rNq5HmOulkc=",
+        "lastModified": 1762627886,
+        "narHash": "sha256-/QLk1bzmbcqJt9sU43+y/3tHtXhAy0l8Ck0MoO2+evQ=",
         "owner": "nix-darwin",
         "repo": "nix-darwin",
-        "rev": "c3c8c9f2a5ed43175ac4dc030308756620e6e4e4",
+        "rev": "5125a3cd414dc98bbe2c528227aa6b62ee61f733",
         "type": "github"
       },
       "original": {
@@ -216,11 +171,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1762135411,
-        "narHash": "sha256-1Bnvql0KUmEWn1gUa7W9UIBUibTpH1Ah3BxlFj2+SWM=",
+        "lastModified": 1762740276,
+        "narHash": "sha256-GIKw253/EbEBSXJxaawt8oSv5JGgTabGT9Y8vBFN4Dg=",
         "owner": "nix-community",
         "repo": "nix4vscode",
-        "rev": "3dba0e73759fcfb95ba77129c2b1ef46f759737c",
+        "rev": "bfa9d99a1768af7c6f4dbca7038a202fb80a2e9f",
         "type": "github"
       },
       "original": {
@@ -231,27 +186,27 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1761907660,
-        "narHash": "sha256-kJ8lIZsiPOmbkJypG+B5sReDXSD1KGu2VEPNqhRa/ew=",
+        "lastModified": 1762482733,
+        "narHash": "sha256-g/da4FzvckvbiZT075Sb1/YDNDr+tGQgh4N8i5ceYMg=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "2fb006b87f04c4d3bdf08cfdbc7fab9c13d94a15",
+        "rev": "e1ebeec86b771e9d387dd02d82ffdc77ac753abc",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-unstable",
+        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1761999846,
-        "narHash": "sha256-IYlYnp4O4dzEpL77BD/lj5NnJy2J8qbHkNSFiPBCbqo=",
+        "lastModified": 1762498405,
+        "narHash": "sha256-Zg/SCgCaAioc0/SVZQJxuECGPJy+OAeBcGeA5okdYDc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "3de8f8d73e35724bf9abef41f1bdbedda1e14a31",
+        "rev": "6faeb062ee4cf4f105989d490831713cc5a43ee1",
         "type": "github"
       },
       "original": {
@@ -263,11 +218,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1761907660,
-        "narHash": "sha256-kJ8lIZsiPOmbkJypG+B5sReDXSD1KGu2VEPNqhRa/ew=",
+        "lastModified": 1762596750,
+        "narHash": "sha256-rXXuz51Bq7DHBlfIjN7jO8Bu3du5TV+3DSADBX7/9YQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "2fb006b87f04c4d3bdf08cfdbc7fab9c13d94a15",
+        "rev": "b6a8526db03f735b89dd5ff348f53f752e7ddc8e",
         "type": "github"
       },
       "original": {
@@ -286,11 +241,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1760663237,
-        "narHash": "sha256-BflA6U4AM1bzuRMR8QqzPXqh8sWVCNDzOdsxXEguJIc=",
+        "lastModified": 1762441963,
+        "narHash": "sha256-j+rNQ119ffYUkYt2YYS6rnd6Jh/crMZmbqpkGLXaEt0=",
         "owner": "cachix",
         "repo": "git-hooks.nix",
-        "rev": "ca5b894d3e3e151ffc1db040b6ce4dcc75d31c37",
+        "rev": "8e7576e79b88c16d7ee3bbd112c8d90070832885",
         "type": "github"
       },
       "original": {
@@ -305,7 +260,7 @@
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
         "mailerlite": "mailerlite",
-        "nix-darwin": "nix-darwin_2",
+        "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
         "nix4vscode": "nix4vscode",
         "nixpkgs": "nixpkgs",

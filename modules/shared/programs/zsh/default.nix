@@ -48,6 +48,13 @@ in
     '';
 
     shellAliases = {
+
+      # Listing with eza
+      ls = "${pkgs.eza}/bin/eza --group-directories-first" + (if pkgs ? eza then "" else "ls");
+      ll = "${pkgs.eza}/bin/eza --group-directories-first -la" + (if pkgs ? eza then "" else "ll");
+      la = "${pkgs.eza}/bin/eza --group-directories-first -a" + (if pkgs ? eza then "" else "la");
+      lt = "${pkgs.eza}/bin/eza --group-directories-first --tree" + (if pkgs ? eza then "" else "lt");
+
       # Shorter
       g = "git";
       x = "exit";
@@ -56,21 +63,32 @@ in
       v = "nvim";
       vi = "nvim";
       vim = "nvim";
-      d = "docker";
-      k = "kubectl";
-      terraform = "tofu";
-      tf = "tofu";
-      kx = "kubectx";
-      t = "tofu";
 
-      # todo.txt aliases
-      td = "todo.sh";
-      tda = "todo.sh add";
-      tdl = "todo.sh list";
-      tdd = "todo.sh done";
-      tdr = "todo.sh report";
-      tdp = "todo.sh pri";
-      tdrp = "todo.sh replace";
+      # Docker shortcuts
+      d = "docker";
+      dc = "docker-compose";
+      dps = "docker ps";
+      dimg = "docker images";
+
+      # Kubernetes shortcuts
+      k = "kubectl";
+      kgp = "kubectl get pods";
+      kgs = "kubectl get services";
+      kgd = "kubectl get deployments";
+      kl = "kubectl logs";
+      kex = "kubectl exec -it";
+      kctx = "kubectx";
+      kx = "kubectx";
+      kns = "kubens";
+
+      terraform = "tofu";
+
+
+      # Utility aliases
+      cat = "${pkgs.bat}/bin/bat --style=auto" + (if pkgs ? bat then "" else "cat");
+      grep = "${pkgs.ripgrep}/bin/rg" + (if pkgs ? ripgrep then "" else "grep");
+      find = "${pkgs.fd}/bin/fd" + (if pkgs ? fd then "" else "find");
+      ps = "${pkgs.procs}/bin/procs" + (if pkgs ? procs then "" else "ps");
 
       # Add verbosity to common commands
       rm = "rm -v";
@@ -90,13 +108,6 @@ in
       gitcleanbranches = "git branch --merged | grep -v \* | xargs git branch -D";
 
       ssh = "TERM=xterm ssh";
-      exa = "exa --group-directories-first";
-      ls-backend = "exa";
-      ls = "exa";
-      ll = "exa -l";
-      lsa = "exa -a";
-      lla = "exa -la";
-      l = "exa";
     } // editorAlias;
 
     history = {

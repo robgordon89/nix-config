@@ -1,5 +1,5 @@
 # Helper to generate darwinConfigurations for each host
-{ self, inputs }: hostname: { extraConfig, extraModules }:
+{ self, inputs }: hostname: { extraConfig, extraDarwinModules ? [ ], extraHomeManagerModules ? [ ] }:
 let
   # Define the host configuration with default values, which can be overridden
   # by the extraConfig argument.
@@ -24,6 +24,11 @@ let
   };
   modules = [
     inputs.home-manager.darwinModules.home-manager
+    {
+      home-manager = {
+        sharedModules = extraHomeManagerModules;
+      };
+    }
     inputs.nix-homebrew.darwinModules.nix-homebrew
     {
       nix-homebrew = {
@@ -37,7 +42,7 @@ let
       };
     }
     ./../hosts/darwin
-  ] ++ extraModules;
+  ] ++ extraDarwinModules;
 in
 inputs.nix-darwin.lib.darwinSystem {
   inherit system pkgs modules;

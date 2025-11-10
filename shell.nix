@@ -20,17 +20,9 @@
 
     nativeBuildInputs = builtins.attrValues {
       inherit (pkgs)
-
-        nix
-        home-manager
-        git
-        go-task
-
-        age
-        ssh-to-age
-        sops
         nixpkgs-fmt
-        age-plugin-yubikey
+        nil
+        go-task
         ;
     };
   };

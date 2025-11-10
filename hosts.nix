@@ -9,11 +9,26 @@
         "/Applications/Beeper Desktop.app/" = "/Applications/Slack.app/";
       };
     };
-    extraModules = [
-      mailerlite.darwinModules.home-manager
+    extraDarwinModules = [
+      mailerlite.modules.darwin.defaults
       {
-        mailerlite.username = "robert";
-        mailerlite.useDefaultSSHConfig = true;
+        mailerlite = {
+          onepasswordAgent.enable = false;
+        };
+      }
+    ];
+    extraHomeManagerModules = [
+      mailerlite.modules.home-manager.defaults
+      {
+        mailerlite =
+          {
+            git.enable = false;
+            ssh.enable = false;
+            direnv.enable = false;
+            shell.enable = false;
+            notifier.enable = true;
+            onepassword.enable = false;
+          };
       }
     ];
   };
@@ -32,12 +47,14 @@
         '';
       };
     };
-    extraModules = [ ];
+    extraDarwinModules = [ ];
+    extraHomeManagerModules = [ ];
   };
   test = {
     extraConfig = {
       useVscode = true;
     };
-    extraModules = [ ];
+    extraDarwinModules = [ ];
+    extraHomeManagerModules = [ ];
   };
 }
