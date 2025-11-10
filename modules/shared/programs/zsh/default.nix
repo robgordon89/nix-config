@@ -33,9 +33,8 @@ in
         autoload -U promptinit && promptinit && prompt pure
       fi
 
-      if command -v nix-your-shell > /dev/null; then
-        nix-your-shell zsh | source /dev/stdin
-      fi
+      # Nix-your-shell integration
+      ${pkgs.nix-your-shell}/bin/nix-your-shell zsh | source /dev/stdin
 
       ${if editorPath != "" then ''export PATH="$PATH:${editorPath}"'' else ""}
 
@@ -43,12 +42,9 @@ in
       . ${./config/completions.zsh}
       . ${./config/mappings.zsh}
       . ${./config/functions.zsh}
-
-      eval "$(${pkgs.direnv}/bin/direnv hook $SHELL)"
     '';
 
     shellAliases = {
-
       # Listing with eza
       ls = "${pkgs.eza}/bin/eza --group-directories-first" + (if pkgs ? eza then "" else "ls");
       ll = "${pkgs.eza}/bin/eza --group-directories-first -la" + (if pkgs ? eza then "" else "ll");
