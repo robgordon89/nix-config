@@ -23,7 +23,10 @@
         mailerlite =
           {
             git.enable = false;
-            ssh.enable = false;
+            ssh = {
+              enable = true;
+              username = "robert";
+            };
             direnv.enable = false;
             shell.enable = false;
             notifier.enable = true;

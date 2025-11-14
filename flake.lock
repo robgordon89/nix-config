@@ -114,8 +114,8 @@
         ]
       },
       "locked": {
-        "lastModified": 1762797193,
-        "narHash": "sha256-zEPfDB0iRpWnA7kyryVJkc4OP8KbOf4rsrC1IXejw6I=",
+        "lastModified": 1763130158,
+        "narHash": "sha256-ppK1TCXbsxJ3QPExAT/9dW5REATM8kL6Nu2ppA+fXVA=",
         "path": "/Users/robert/dev/mailerlite/mailerlite-nix-config",
         "type": "path"
       },
