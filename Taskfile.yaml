@@ -5,9 +5,7 @@ vars:
     sh: whoami
   HOME_DIR: /Users/{{.USERNAME}}
   HOSTNAME:
-    sh: scutil --get ComputerName 2>/dev/null || uname -n
-  OS:
-    sh: uname -s
+    sh: "(scutil --get ComputerName 2>/dev/null || uname -n) | tr -cd 'A-Za-z0-9-' | tr ' ' '-'"
 
 tasks:
   default:
@@ -24,25 +22,17 @@ tasks:
     silent: true
     cmds:
       - |
-        if [ "{{.OS}}" = "Darwin" ]; then
-          nix build .#darwinConfigurations.{{.HOSTNAME}}.system --impure --show-trace
-        else
-          nix build .#homeConfigurations.linux.activationPackage --impure --show-trace
-        fi
+        nix build .#darwinConfigurations.{{.HOSTNAME}}.system --impure --show-trace
 
   switch-config:
     internal: true
     silent: true
     cmds:
       - |
-        if [ "{{.OS}}" = "Darwin" ]; then
-          if command -v darwin-rebuild &> /dev/null; then
-            sudo darwin-rebuild switch --flake .#{{.HOSTNAME}} --impure --show-trace
-          else
-            sudo nix run nix-darwin -- switch --flake .#{{.HOSTNAME}} --impure --show-trace
-          fi
+        if command -v darwin-rebuild &> /dev/null; then
+          sudo darwin-rebuild switch --flake .#{{.HOSTNAME}} --impure --show-trace
         else
-          sudo ./result/activate
+          sudo nix run nix-darwin -- switch --flake .#{{.HOSTNAME}} --impure --show-trace
         fi
 
   update:
