@@ -33,8 +33,8 @@ let
     wvous-tr-corner = 1;
     persistent-apps = applyPathOverrides defaultApps;
     persistent-others = [
-      "/Applications"
-      "/Users/${hostConfig.username}/Downloads"
+      { folder = { path = "/Applications"; showas = "grid"; displayas = "folder"; }; }
+      { folder = { path = "/Users/${hostConfig.username}/Downloads"; showas = "grid"; displayas = "folder"; }; }
     ];
   };
 
