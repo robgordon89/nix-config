@@ -131,7 +131,7 @@ with pkgs;
   ripgrep # Better grep
   fd # Better find
   procs # Better ps
-  direnv
+  stable.direnv
   nix-direnv
   pre-commit
   nix-your-shell

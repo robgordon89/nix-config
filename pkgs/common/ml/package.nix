@@ -30,8 +30,6 @@ buildGoModule rec {
 
   postInstall = lib.optionalString (stdenv.buildPlatform.canExecute stdenv.hostPlatform) ''
     installShellCompletion --cmd ml \
-      --bash <($out/bin/ml completion bash) \
-      --fish <($out/bin/ml completion fish) \
       --zsh <($out/bin/ml completion zsh)
   '';
 

@@ -1,14 +1,19 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   programs.direnv = {
     enable = true;
+
+    package = pkgs.stable.direnv;
+
     nix-direnv = {
       enable = true;
     };
+
     config = {
       hide_env_diff = true;
     };
+
     stdlib = ''
       layout_uv() {
           if [[ -d ".venv" ]]; then
