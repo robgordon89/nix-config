@@ -22,15 +22,15 @@
       {
         mailerlite =
           {
+            # Disable modules that I don't use
             git.enable = false;
-            ssh = {
-              enable = true;
-              username = "robert";
-            };
             direnv.enable = false;
             shell.enable = false;
-            notifier.enable = true;
             onepassword.enable = false;
+            ssh = {
+              username = "robert";
+            };
+            notifier.enable = true;
           };
       }
     ];
