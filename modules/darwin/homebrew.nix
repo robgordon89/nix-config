@@ -30,7 +30,6 @@ in
       "zoom"
       "claude"
       "mouseless"
-      "macfuse"
       "logi-options+"
     ] ++ editorCasks;
   };

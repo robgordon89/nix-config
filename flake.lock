@@ -111,16 +111,17 @@
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
-        ]
+        ],
+        "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1763130158,
-        "narHash": "sha256-ppK1TCXbsxJ3QPExAT/9dW5REATM8kL6Nu2ppA+fXVA=",
-        "path": "/Users/robert/dev/mailerlite/mailerlite-nix-config",
+        "lastModified": 1765202285,
+        "narHash": "sha256-Flc4H7QkCqVr1q5ingTZRGYJdF3gOrZ3M0RvcAuSjkg=",
+        "path": "/Users/robert/.config/mailerlite/nix-config",
         "type": "path"
       },
       "original": {
-        "path": "/Users/robert/dev/mailerlite/mailerlite-nix-config",
+        "path": "/Users/robert/.config/mailerlite/nix-config",
         "type": "path"
       }
     },
@@ -202,6 +203,22 @@
     },
     "nixpkgs-stable": {
       "locked": {
+        "lastModified": 1735564410,
+        "narHash": "sha256-HB/FA0+1gpSs8+/boEavrGJH+Eq08/R2wWNph1sM1Dg=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "1e7a8f391f1a490460760065fa0630b5520f9cf8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-24.05-darwin",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-stable_2": {
+      "locked": {
         "lastModified": 1762756533,
         "narHash": "sha256-HiRDeUOD1VLklHeOmaKDzf+8Hb7vSWPVFcWwaTrpm+U=",
         "owner": "NixOS",
@@ -264,7 +281,7 @@
         "nix-homebrew": "nix-homebrew",
         "nix4vscode": "nix4vscode",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-stable": "nixpkgs-stable",
+        "nixpkgs-stable": "nixpkgs-stable_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "pre-commit-hooks": "pre-commit-hooks"
       }

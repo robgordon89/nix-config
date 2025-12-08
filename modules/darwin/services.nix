@@ -1,5 +1,8 @@
 { pkgs, ... }:
 {
+  services.aerospace = {
+    enable = false;
+  };
   services.jankyborders = {
     enable = true;
     ax_focus = true;
