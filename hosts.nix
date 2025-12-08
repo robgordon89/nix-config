@@ -30,7 +30,6 @@ in
             # Disable modules that I don't use
             git.enable = false;
             direnv.enable = false;
-            shell.enable = false;
             onepassword.enable = false;
             ssh = {
               username = "robert";
