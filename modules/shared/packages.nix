@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, hostConfig ? { extraHomeManagerPackages = [ ]; } }:
 with pkgs;
 [
   # Tools
@@ -141,4 +141,4 @@ with pkgs;
   # Custom
   ml
   menu
-]
+] ++ hostConfig.extraHomeManagerPackages

@@ -24,7 +24,7 @@
         programs.man.generateCaches = false;
         home = {
           enableNixpkgsReleaseCheck = false;
-          packages = pkgs.callPackage ./packages.nix { };
+          packages = pkgs.callPackage ./packages.nix { inherit hostConfig; };
           stateVersion = "25.05";
         };
 

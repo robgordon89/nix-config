@@ -12,6 +12,7 @@ let
     email = "rob@ruled.io";
     sshPublicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEJOD+xGS8a9Q2Dyyah+jH6caM2n4XaJNKRvmbo7NqaY";
     platform = "aarch64-darwin";
+    extraHomeManagerPackages = [ ];
   } // extraConfig;
 
   system = hostConfig.platform;

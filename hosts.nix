@@ -1,4 +1,7 @@
 { mailerlite, lib, ... }:
+let
+  system = "aarch64-darwin";
+in
 {
   titan = {
     extraConfig = {
@@ -8,6 +11,8 @@
         "/Applications/Visual Studio Code.app/" = "/Applications/Cursor.app/";
         "/Applications/Beeper Desktop.app/" = "/Applications/Slack.app/";
       };
+      extraHomeManagerPackages = [ ]
+        ++ mailerlite.pkgs.${system}.sre;
     };
     extraDarwinModules = [
       mailerlite.modules.darwin.defaults
