@@ -286,4 +286,5 @@
       "mcp/context7"
     ];
   };
+  "cursor.composer.usageSummaryDisplay" = "always";
 }

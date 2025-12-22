@@ -45,13 +45,23 @@ tasks:
       - nix flake lock --update-input mailerlite
     desc: Update the mailerlite input in the flake.lock file
 
+  update-hash:
+    internal: true
+    cmds:
+      - ml-update-hash 2>/dev/null || true
+    desc: Update the stored hash after successful build
+
   update-nix:
     cmds:
       - sudo determinate-nixd upgrade
     desc: Update the nixd to the latest version
 
   build:
-    deps: [build-config, switch-config]
+    deps: [update-mailerlite]
+    cmds:
+      - task: build-config
+      - task: switch-config
+      - task: update-hash
     desc: Build and apply the new configuration based on the OS
 
   update-build:
