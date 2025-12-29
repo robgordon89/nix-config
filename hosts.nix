@@ -17,9 +17,7 @@ in
     extraDarwinModules = [
       mailerlite.modules.darwin.defaults
       {
-        mailerlite = {
-          onepasswordAgent.enable = false;
-        };
+        # mailerlite = { };
       }
     ];
     extraHomeManagerModules = [
@@ -28,13 +26,7 @@ in
         mailerlite =
           {
             # Disable modules that I don't use
-            git.enable = false;
             direnv.enable = false;
-            onepassword.enable = false;
-            ssh = {
-              username = "robert";
-            };
-            notifier.enable = true;
           };
       }
     ];

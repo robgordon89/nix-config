@@ -115,8 +115,8 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1765208209,
-        "narHash": "sha256-VNeJYKZvcHg0+z6WLoRTVmiyVm5JaGy77tyjnIC0Tuw=",
+        "lastModified": 1767032003,
+        "narHash": "sha256-XmJGulvqVrRMa/KaB06wLEjFKM9yekfI4XBTGrCrX9k=",
         "path": "/Users/robert/.config/mailerlite/nix-config",
         "type": "path"
       },
