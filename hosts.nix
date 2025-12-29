@@ -27,6 +27,9 @@ in
           {
             # Disable modules that I don't use
             direnv.enable = false;
+            ssh = {
+              username = "robert";
+            };
           };
       }
     ];
@@ -39,7 +42,6 @@ in
         tilesize = 42;
       };
       ssh = {
-        enable = true;
         extraConfig = ''
           Host hack
             HostName fdaa:0:e692:0:1::2
