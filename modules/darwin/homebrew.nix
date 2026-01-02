@@ -28,8 +28,6 @@ in
       "syntax-highlight"
       "tableplus"
       "zoom"
-      "claude"
-      "mouseless"
       "logi-options+"
     ] ++ editorCasks;
   };
