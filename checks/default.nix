@@ -1,9 +1,6 @@
-{ inputs
-, system
-, ...
-}:
+{ inputs, pkgs, ... }:
 {
-  pre-commit-check = inputs.pre-commit-hooks.lib.${stdenv.hostPlatform.system}.run {
+  pre-commit-check = inputs.pre-commit-hooks.lib.${pkgs.stdenv.hostPlatform.system}.run {
     src = ./.;
     default_stages = [ "pre-commit" ];
     hooks = {

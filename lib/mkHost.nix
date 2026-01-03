@@ -15,10 +15,10 @@ let
     extraHomeManagerPackages = [ ];
   } // extraConfig;
 
-  system = hostConfig.platform;
   overlays = self.overlays;
   pkgs = import inputs.nixpkgs {
-    inherit system overlays;
+    system = hostConfig.platform;
+    inherit overlays;
     config = {
       allowUnfree = true;
     };
@@ -46,6 +46,7 @@ let
   ] ++ extraDarwinModules;
 in
 inputs.nix-darwin.lib.darwinSystem {
-  inherit system pkgs modules;
+  system = hostConfig.platform;
+  inherit pkgs modules;
   specialArgs = { inherit inputs hostConfig; };
 }
