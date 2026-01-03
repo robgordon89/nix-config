@@ -1,3 +1,7 @@
+---
+applyTo: "**/*"
+---
+
 # Nix Project Context
 
 ## Host Configuration
