@@ -83,7 +83,8 @@
       mkHost = import ./lib/mkHost.nix { self = self; inputs = inputs; };
 
       hosts = import ./hosts.nix {
-        inherit (nixpkgs) mailerlite lib;
+        inherit mailerlite;
+        inherit (nixpkgs) lib;
       };
       darwinConfigurations = nixpkgs.lib.mapAttrs mkHost hosts;
     in
