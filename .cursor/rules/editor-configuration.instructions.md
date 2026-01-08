@@ -1,3 +1,7 @@
+---
+applyTo: "**/*"
+---
+
 # Editor Configuration Rules
 
 ## VS Code/Cursor Setup

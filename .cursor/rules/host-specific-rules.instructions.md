@@ -1,3 +1,7 @@
+---
+applyTo: "**/*"
+---
+
 # Host-Specific Rules
 
 ## Titan (Work Machine)

@@ -41,14 +41,23 @@ tasks:
     desc: Update the flake.lock file
 
   update-mailerlite:
+    silent: true
+    internal: true
     cmds:
-      - nix flake lock --update-input mailerlite
+      - |
+        if [ "{{.HOSTNAME}}" != "thebe" ]; then
+          nix flake lock --update-input mailerlite
+        fi
     desc: Update the mailerlite input in the flake.lock file
 
   update-hash:
+    silent: true
     internal: true
     cmds:
-      - ml-update-hash 2>/dev/null || true
+      - |
+        if [ "{{.HOSTNAME}}" != "thebe" ]; then
+          ml-update-hash 2>/dev/null || true
+        fi
     desc: Update the stored hash after successful build
 
   update-nix:
@@ -57,7 +66,8 @@ tasks:
     desc: Update the nixd to the latest version
 
   build:
-    deps: [update-mailerlite]
+    deps:
+      - update-mailerlite
     cmds:
       - task: build-config
       - task: switch-config
@@ -65,5 +75,7 @@ tasks:
     desc: Build and apply the new configuration based on the OS
 
   update-build:
-    deps: [update, build]
+    deps:
+      - update
+      - build
     desc: Update the flake.lock file and build the new configuration

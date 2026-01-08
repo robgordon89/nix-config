@@ -1,3 +1,7 @@
+---
+applyTo: "**/*"
+---
+
 # Nix Coding Standards
 
 ## General Principles

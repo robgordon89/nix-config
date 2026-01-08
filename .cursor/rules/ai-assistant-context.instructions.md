@@ -1,3 +1,7 @@
+---
+applyTo: "**/*"
+---
+
 # AI Assistant Context
 
 ## Project Overview

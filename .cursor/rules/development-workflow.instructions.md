@@ -1,3 +1,7 @@
+---
+applyTo: "**/*"
+---
+
 # Development Workflow Rules
 
 ## Common Tasks
