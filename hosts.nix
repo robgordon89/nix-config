@@ -17,7 +17,7 @@ in
     extraDarwinModules = [
       mailerlite.modules.darwin.defaults
       {
-        # mailerlite = { };
+        mailerlite = { };
       }
     ];
     extraHomeManagerModules = [

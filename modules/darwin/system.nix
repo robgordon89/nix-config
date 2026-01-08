@@ -40,6 +40,10 @@
       };
     };
 
+    # Disable the startup chime
+    startup.chime = false;
+
+    # Enable key mapping
     keyboard = {
       enableKeyMapping = true;
       remapCapsLockToEscape = true;

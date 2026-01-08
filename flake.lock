@@ -115,13 +115,13 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1767114809,
-        "narHash": "sha256-cOma13tKSgcbmHhF6gOhI8WUNwuhyngltClfOFtDWL8=",
-        "path": "/Users/robert/.config/mailerlite/nix-config",
+        "lastModified": 1767882682,
+        "narHash": "sha256-0t8idNNWslh0JN1SHGnRAZh5H1LluQWWyimbYXM/xgE=",
+        "path": "/Users/robert/dev/mailerlite/mailerlite-nix-config",
         "type": "path"
       },
       "original": {
-        "path": "/Users/robert/.config/mailerlite/nix-config",
+        "path": "/Users/robert/dev/mailerlite/mailerlite-nix-config",
         "type": "path"
       }
     },
