@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    # ./cachix.nix
     ./dock.nix
     ./documentation.nix
     ./finder.nix

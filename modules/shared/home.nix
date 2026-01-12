@@ -1,6 +1,7 @@
 { hostConfig ? { }, ... }:
 {
   imports = [
+    ./programs/claude-code.nix
     ./programs/git
     ./programs/neovim
     ./programs/zsh

@@ -37,6 +37,7 @@ in
       ${pkgs.nix-your-shell}/bin/nix-your-shell zsh | source /dev/stdin
 
       ${if editorPath != "" then ''export PATH="$PATH:${editorPath}"'' else ""}
+      export PATH="$HOME/.local/bin:$PATH"
 
       . ${./config/options.zsh}
       . ${./config/completions.zsh}
