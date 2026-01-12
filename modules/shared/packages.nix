@@ -101,8 +101,11 @@ with pkgs;
   go
   php83
   deployer
-  php83Packages.composer
+  (pkgs.lib.hiPrio php83Packages.composer)
   php83Packages.php-cs-fixer
+  cargo
+  flutter
+  openjdk25
 
   # Databases
   # clickhouse

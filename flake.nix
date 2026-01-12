@@ -54,6 +54,11 @@
       # url = "path:/Users/robert/.config/mailerlite/nix-config";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Claude Code
+    claude-code-overlay = {
+      url = "github:nklmilojevic/claude-code-overlay";
+    };
   };
 
   outputs =
