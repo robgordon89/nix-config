@@ -46,7 +46,7 @@ tasks:
     cmds:
       - |
         if [ "{{.HOSTNAME}}" != "thebe" ]; then
-          nix flake lock --update-input mailerlite
+          nix flake update mailerlite
         fi
     desc: Update the mailerlite input in the flake.lock file
 

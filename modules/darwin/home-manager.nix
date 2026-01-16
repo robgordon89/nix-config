@@ -28,6 +28,14 @@
           stateVersion = "25.05";
         };
 
+        # Workaround: home-manager passes string instead of list to pathsToLink
+        # This broke when nixpkgs started enforcing the list type strictly
+        # https://github.com/nix-community/home-manager/issues/8163
+        targets.darwin.linkApps.enable = false;
+
+        # Disable the broken darwin fonts module (same pathsToLink bug)
+        home.file."Library/Fonts/.home-manager-fonts-version".enable = false;
+
         # Marked broken Oct 20, 2022 check later to remove this
         # https://github.com/nix-community/home-manager/issues/3344
         manual.manpages.enable = false;

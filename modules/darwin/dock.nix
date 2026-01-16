@@ -2,13 +2,13 @@
 
 let
   defaultApps = [
-    "/Applications/Brave Browser.app/"
-    "/Applications/Visual Studio Code.app/"
-    "/Applications/WezTerm.app/"
-    "/Applications/Beeper Desktop.app/"
-    "/Applications/1Password.app/"
-    "/Applications/TablePlus.app/"
-    "/System/Applications/System Settings.app/"
+    { app = "/Applications/Brave Browser.app"; }
+    { app = "/Applications/Visual Studio Code.app"; }
+    { app = "/Applications/WezTerm.app"; }
+    { app = "/Applications/Beeper Desktop.app"; }
+    { app = "/Applications/1Password.app"; }
+    { app = "/Applications/TablePlus.app"; }
+    { app = "/System/Applications/System Settings.app"; }
   ];
 
   # Apply path overrides if specified
@@ -16,7 +16,15 @@ let
     let
       overrides = hostConfig.dockPathOverrides or { };
     in
-    map (app: overrides.${app} or app) apps;
+    map
+      (item:
+        let
+          path = item.app;
+          newPath = overrides.${path + "/"} or overrides.${path} or path;
+        in
+        { app = newPath; }
+      )
+      apps;
 
   # Give default settings a low priority (50)
   defaultDock = lib.mapAttrs (name: value: lib.mkDefault value) {
