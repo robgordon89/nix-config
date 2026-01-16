@@ -50,8 +50,7 @@
 
     # MailerLite shared flake - temp until upstreamed
     mailerlite = {
-      url = "path:/Users/robert/dev/mailerlite/mailerlite-nix-config";
-      # url = "path:/Users/robert/.config/mailerlite/nix-config";
+      url = "path:/Users/robert/.config/mailerlite/nix-config";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.nixpkgs-stable.follows = "nixpkgs-stable";
     };

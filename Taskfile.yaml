@@ -60,11 +60,6 @@ tasks:
         fi
     desc: Update the stored hash after successful build
 
-  update-nix:
-    cmds:
-      - sudo determinate-nixd upgrade
-    desc: Update the nixd to the latest version
-
   build:
     deps:
       - update-mailerlite

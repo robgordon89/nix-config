@@ -23,7 +23,7 @@
         mailerlite =
           {
             # Disable modules that I don't use
-            direnv.enable = false;
+            direnv.enable = false; # I use my own module
             ssh = {
               username = "robert";
             };
@@ -44,13 +44,6 @@
             HostName fdaa:0:e692:0:1::2
         '';
       };
-    };
-    extraDarwinModules = [ ];
-    extraHomeManagerModules = [ ];
-  };
-  test = {
-    extraConfig = {
-      useVscode = true;
     };
     extraDarwinModules = [ ];
     extraHomeManagerModules = [ ];
