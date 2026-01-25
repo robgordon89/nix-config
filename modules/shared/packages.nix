@@ -104,6 +104,8 @@ with pkgs;
   (pkgs.lib.hiPrio php83Packages.composer)
   php83Packages.php-cs-fixer
   cargo
+  javaPackages.compiler.openjdk25
+  flutter
 
   # Databases
   # clickhouse

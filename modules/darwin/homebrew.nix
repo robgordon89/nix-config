@@ -29,6 +29,8 @@ in
       "tableplus"
       "zoom"
       "logi-options+"
+      "android-studio"
+      "android-commandlinetools"
     ] ++ editorCasks;
   };
 }
