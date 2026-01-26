@@ -50,6 +50,13 @@ tasks:
         fi
     desc: Update the mailerlite input in the flake.lock file
 
+  update-claude-code:
+    silent: true
+    internal: true
+    cmds:
+      - nix flake update claude-code-overlay
+    desc: Update the claude-code-overlay input in the flake.lock file
+
   update-hash:
     silent: true
     internal: true
@@ -63,6 +70,7 @@ tasks:
   build:
     deps:
       - update-mailerlite
+      - update-claude-code
     cmds:
       - task: build-config
       - task: switch-config

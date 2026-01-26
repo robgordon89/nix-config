@@ -29,6 +29,7 @@ in
       "tableplus"
       "zoom"
       "logi-options+"
+      "swiftbar"
       "android-studio"
       "android-commandlinetools"
     ] ++ editorCasks;
