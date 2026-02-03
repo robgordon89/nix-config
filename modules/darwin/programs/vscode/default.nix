@@ -50,6 +50,7 @@
         "subframe7536.custom-ui-style"
         "tintedtheming.base16-tinted-themes"
         "wolfmah.ansible-vault-inline"
+        "bungcip.better-toml"
       ];
     };
     mutableExtensionsDir = false;
