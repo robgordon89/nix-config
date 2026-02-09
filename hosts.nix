@@ -14,7 +14,9 @@
     extraDarwinModules = [
       mailerlite.modules.darwin.defaults
       {
-        # mailerlite = { };
+        mailerlite = {
+          role = "sre";
+        };
       }
     ];
     extraHomeManagerModules = [
@@ -22,6 +24,7 @@
       {
         mailerlite =
           {
+            role = "sre";
             # Disable modules that I don't use
             direnv.enable = false; # I use my own module
             ssh = {
