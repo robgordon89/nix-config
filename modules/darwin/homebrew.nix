@@ -16,7 +16,6 @@ in
 
     taps = builtins.attrNames config.nix-homebrew.taps;
 
-    # casks = map mkGreedy [];
     casks = map mkGreedy [
       "1password"
       "wezterm"

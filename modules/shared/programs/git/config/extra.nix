@@ -18,11 +18,6 @@
   gpg = {
     format = "ssh";
   };
-  url = {
-    "git@github.com" = {
-      insteadOf = "https://github.com";
-    };
-  };
   diff = {
     "ansible-vault" = {
       textconv = "ansible-vault view";
