@@ -15,7 +15,7 @@
       mailerlite.modules.darwin.defaults
       {
         mailerlite = {
-          role = "sre";
+          team = "sre";
         };
       }
     ];
@@ -24,7 +24,7 @@
       {
         mailerlite =
           {
-            role = "sre";
+            team = "sre";
             # Disable modules that I don't use
             direnv.enable = false; # I use my own module
             ssh = {
