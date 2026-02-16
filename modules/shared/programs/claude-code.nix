@@ -5,7 +5,11 @@ let
   useVertex = cfg.useVertex or false;
 
   baseSettings = {
-    enabledPlugins = { };
+    enabledPlugins = {
+      "deep-project@piercelamb-plugins" = true;
+      "deep-plan@piercelamb-plugins" = true;
+      "deep-implement@piercelamb-plugins" = true;
+    };
   };
 
   vertexSettings = {

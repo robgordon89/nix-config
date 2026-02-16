@@ -192,7 +192,7 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-1/f7aAZRak0ZAdYJmSskUTGOL2wBRRxB7YLvps6zIUE=",
+        "narHash": "sha256-g3jGTG5f9PxUZO2HGEpljF5539wKvc7sC070mLBBefY=",
         "path": "/Users/robert/dev/mailerlite/mailerlite-nix-config",
         "type": "path"
       },
@@ -207,11 +207,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1771241576,
-        "narHash": "sha256-I/PGwiIscJVgL/sViM95iE34LotrxBYrppb8MGND67U=",
+        "lastModified": 1771243398,
+        "narHash": "sha256-Qzir6+X3EfyUKH3VhcWcZGya9mbaK9MOH8IJTB75R3k=",
         "owner": "mailerlite",
         "repo": "mailerlite-cli",
-        "rev": "ca7aaf940f8dcf8d11555c26b756aa49be560615",
+        "rev": "3f2f5fe82641e344a4cb6f0f7439bd644a09f14f",
         "type": "github"
       },
       "original": {
