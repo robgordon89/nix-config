@@ -80,7 +80,6 @@ in
 
       terraform = "tofu";
 
-
       # Utility aliases
       cat = "${pkgs.bat}/bin/bat --style=auto" + (if pkgs ? bat then "" else "cat");
       grep = "${pkgs.ripgrep}/bin/rg" + (if pkgs ? ripgrep then "" else "grep");

@@ -9,6 +9,7 @@ let
       "deep-project@piercelamb-plugins" = true;
       "deep-plan@piercelamb-plugins" = true;
       "deep-implement@piercelamb-plugins" = true;
+      "dev-browser@dev-browser-marketplace" = true;
     };
   };
 
