@@ -11,6 +11,20 @@ let
       "deep-implement@piercelamb-plugins" = true;
       "dev-browser@dev-browser-marketplace" = true;
     };
+    extraKnownMarketplaces = {
+      "dev-browser-marketplace" = {
+        source = {
+          source = "github";
+          repo = "sawyerhood/dev-browser";
+        };
+      };
+      "piercelamb-plugins" = {
+        source = {
+          source = "github";
+          repo = "piercelamb/deep-project";
+        };
+      };
+    };
   };
 
   vertexSettings = {
@@ -19,6 +33,7 @@ let
       CLOUD_ML_REGION = "global";
       ANTHROPIC_VERTEX_PROJECT_ID = cfg.vertexProjectId;
       ANTHROPIC_MODEL = "claude-opus-4-6@default";
+      ANTHROPIC_SMALL_FAST_MODEL = "claude-sonnet-4-6@default";
       ANTHROPIC_DEFAULT_HAIKU_MODEL = "claude-haiku-4-5@20251001";
     };
   };

@@ -1,11 +1,6 @@
-{ config, hostConfig ? { }, ... }:
+{ config, ... }:
 let
   mkGreedy = caskName: { name = caskName; greedy = true; };
-
-  # Conditionally include editor casks based on host config
-  editorCasks =
-    (if hostConfig.useVscode or false then [ "visual-studio-code" ] else [ ]) ++
-    (if hostConfig.useCursor or false then [ "cursor" ] else [ ]);
 in
 {
   homebrew = {
@@ -31,6 +26,7 @@ in
       "swiftbar"
       "android-studio"
       "android-commandlinetools"
-    ] ++ editorCasks;
+      "visual-studio-code"
+    ];
   };
 }

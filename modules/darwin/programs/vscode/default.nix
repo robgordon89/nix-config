@@ -1,4 +1,15 @@
-{ config, pkgs, inputs, lib, ... }:
+{ config, pkgs, inputs, lib, hostConfig, ... }:
+let
+  isTitan = hostConfig.hostname == "titan";
+  aiExtensions =
+    if isTitan then [
+      "anthropic.claude-code"
+    ] else [
+      "github.copilot"
+      # Use a older version compatible with VSCode 1.102.3
+      "github.copilot-chat.0.29.1"
+    ];
+in
 {
   programs.vscode = {
     # We dont use the package from nixpkgs becuase it doesnt allow mods
@@ -6,10 +17,10 @@
     enable = true;
     profiles.default = {
       userSettings = import ./config/user.nix;
-      keybindings = import ./config/keybindings.nix;
+      keybindings = import ./config/keybindings.nix { inherit isTitan lib; };
       enableUpdateCheck = false;
       enableExtensionUpdateCheck = false;
-      extensions = pkgs.nix4vscode.forVscode [
+      extensions = pkgs.nix4vscode.forVscode ([
         "adamhartford.vscode-base64"
         "amiralizadeh9480.laravel-extra-intellisense"
         "arrterian.nix-env-selector"
@@ -18,9 +29,6 @@
         "dhoeric.ansible-vault"
         "editorconfig.editorconfig"
         "esbenp.prettier-vscode"
-        "github.copilot"
-        # Use a older version compatible with VSCode 1.102.3
-        "github.copilot-chat.0.29.1"
         "github.vscode-github-actions"
         "glitchbl.laravel-create-view"
         "golang.go"
@@ -50,8 +58,8 @@
         "subframe7536.custom-ui-style"
         "tintedtheming.base16-tinted-themes"
         "wolfmah.ansible-vault-inline"
-        "bungcip.better-toml"
-      ];
+        "tamasfe.even-better-toml"
+      ] ++ aiExtensions);
     };
     mutableExtensionsDir = false;
   };

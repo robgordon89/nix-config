@@ -2,10 +2,8 @@
 {
   titan = {
     extraConfig = {
-      useCursor = true;
       dockPathOverrides = {
-        # Use Cursor and Slack at work
-        "/Applications/Visual Studio Code.app/" = "/Applications/Cursor.app/";
+        # Use Slack at work
         "/Applications/Beeper Desktop.app/" = "/Applications/Slack.app/";
       };
       extraHomeManagerPackages = [ ]
@@ -40,7 +38,6 @@
   };
   thebe = {
     extraConfig = {
-      useVscode = true;
       dock = {
         # Slightly smaller icons on the dock (default is 48)
         tilesize = 42;

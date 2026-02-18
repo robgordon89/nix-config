@@ -1,20 +1,4 @@
-{ config, pkgs, hostConfig ? { }, ... }:
-let
-  # Conditionally set up editor-specific configuration
-  editorPath =
-    if hostConfig.useCursor or false then
-      "/Applications/Cursor.app/Contents/Resources/app/bin"
-    else if hostConfig.useVscode or false then
-      "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-    else "";
-
-  editorAlias =
-    if hostConfig.useCursor or false then
-      { code = "cursor"; }
-    else if hostConfig.useVscode or false then
-      { code = "code"; }
-    else { };
-in
+{ config, pkgs, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -36,7 +20,7 @@ in
       # Nix-your-shell integration
       ${pkgs.nix-your-shell}/bin/nix-your-shell zsh | source /dev/stdin
 
-      ${if editorPath != "" then ''export PATH="$PATH:${editorPath}"'' else ""}
+      export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
       export PATH="$HOME/.local/bin:$PATH"
 
       . ${./config/options.zsh}
@@ -104,7 +88,7 @@ in
       gitcleanbranches = "git branch --merged | grep -v \* | xargs git branch -D";
 
       ssh = "TERM=xterm ssh";
-    } // editorAlias;
+    };
 
     history = {
       size = 10000;

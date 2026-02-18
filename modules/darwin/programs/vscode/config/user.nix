@@ -21,7 +21,7 @@
   "editor.fontLigatures" = true;
   "editor.wordSeparators" = "`~!@#$%^&*.()-=+[{]}\\|;: = '\",<>/?";
 
-  "editor.hover.enabled" = true;
+  "editor.hover.enabled" = "on";
   "editor.matchBrackets" = "never";
   "editor.colorDecorators" = false;
   "editor.lightbulb.enabled" = "off";
@@ -276,15 +276,5 @@
   };
   "nix.formatterPath" = "nixpkgs-fmt";
   "extensions.ignoreRecommendations" = true;
-
-  "mcp.servers.context7" = {
-    "command" = "docker";
-    "args" = [
-      "run"
-      "-i"
-      "--rm"
-      "mcp/context7"
-    ];
-  };
-  "cursor.composer.usageSummaryDisplay" = "always";
+  "claudeCode.preferredLocation" = "sidebar";
 }

@@ -16,7 +16,6 @@
           ./programs/hammerspoon
           ./programs/wezterm
           ./programs/vscode
-          ./programs/cursor
         ] ++ [ ../shared/home.nix ];
 
         _module.args = { inherit hostConfig; };

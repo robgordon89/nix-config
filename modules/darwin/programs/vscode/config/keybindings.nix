@@ -1,3 +1,14 @@
+{ isTitan, lib }:
+let
+  aiOpenKeybinding =
+    if isTitan then {
+      key = "alt+cmd+b";
+      command = "claude-vscode.sidebar.open";
+    } else {
+      key = "alt+cmd+b";
+      command = "github.copilot.chat.open";
+    };
+in
 [
   {
     key = "ctrl+shift+x";
@@ -35,6 +46,7 @@
     key = "cmd+k cmd+x";
     command = "workbench.extensions.action.showInstalledExtensions";
   }
+  aiOpenKeybinding
   # Fix for ansible extension and copilot
   {
     key = "tab";
