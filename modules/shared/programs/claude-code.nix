@@ -10,8 +10,15 @@ let
       "deep-plan@piercelamb-plugins" = true;
       "deep-implement@piercelamb-plugins" = true;
       "dev-browser@dev-browser-marketplace" = true;
+      "spec-interviewer@nkl-plugins" = true;
     };
     extraKnownMarketplaces = {
+      "nkl-plugins" = {
+        source = {
+          source = "github";
+          repo = "nklmilojevic/claude-marketplace";
+        };
+      };
       "dev-browser-marketplace" = {
         source = {
           source = "github";
