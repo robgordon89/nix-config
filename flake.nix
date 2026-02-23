@@ -48,18 +48,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # MailerLite shared flake - temp until upstreamed
+    # Claude Code
+    claude-code-overlay = {
+      url = "github:nklmilojevic/claude-code-overlay";
+    };
+
+    # MailerLite shared flake
     mailerlite = {
       # url = "path:/Users/robert/.config/mailerlite/nix-config";
       url = "path:/Users/robert/dev/mailerlite/mailerlite-nix-config";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.nixpkgs-stable.follows = "nixpkgs-stable";
+      inputs.claude-code-overlay.follows = "claude-code-overlay";
     };
 
-    # Claude Code
-    claude-code-overlay = {
-      url = "github:nklmilojevic/claude-code-overlay";
-    };
   };
 
   outputs =

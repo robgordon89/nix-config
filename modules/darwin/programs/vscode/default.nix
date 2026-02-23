@@ -59,6 +59,7 @@ in
         "tintedtheming.base16-tinted-themes"
         "wolfmah.ansible-vault-inline"
         "tamasfe.even-better-toml"
+        "pomdtr.excalidraw-editor"
       ] ++ aiExtensions);
     };
     mutableExtensionsDir = false;
