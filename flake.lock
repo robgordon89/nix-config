@@ -23,11 +23,38 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
+<<<<<<< Updated upstream
         "lastModified": 1771546456,
         "narHash": "sha256-lhl9mn1EyErghUwCArHB515en/k+x4Qd1RCvN9C8OX4=",
         "owner": "nklmilojevic",
         "repo": "claude-code-overlay",
         "rev": "a215586026d7242b4c5941e82306960b1ee60ba9",
+=======
+        "lastModified": 1771632924,
+        "narHash": "sha256-v4yCP8qggx470izsaba5iWOKnqTORZxcTfngxlfYHVw=",
+        "owner": "nklmilojevic",
+        "repo": "claude-code-overlay",
+        "rev": "53a00251869a1d0fafb958a823f8ec330d067385",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nklmilojevic",
+        "repo": "claude-code-overlay",
+        "type": "github"
+      }
+    },
+    "claude-code-overlay_2": {
+      "inputs": {
+        "flake-parts": "flake-parts_2",
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1771355930,
+        "narHash": "sha256-TyDtyykViIodUeuC6Nsm145SXygLnvhhRPPqUfm4v14=",
+        "owner": "nklmilojevic",
+        "repo": "claude-code-overlay",
+        "rev": "bafe483f19fdd7cab404320836c9617d36e6fad4",
+>>>>>>> Stashed changes
         "type": "github"
       },
       "original": {

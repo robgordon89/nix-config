@@ -5,6 +5,11 @@ let
   useVertex = cfg.useVertex or false;
 
   baseSettings = {
+    env = {
+      ANTHROPIC_MODEL = "opus";
+      ANTHROPIC_SMALL_FAST_MODEL = "sonnet";
+      ANTHROPIC_DEFAULT_HAIKU_MODEL = "haiku";
+    };
     enabledPlugins = {
       "deep-project@piercelamb-plugins" = true;
       "deep-plan@piercelamb-plugins" = true;
