@@ -2,7 +2,7 @@
 {
   # Allow nix-darwin to overwrite the default macOS /etc/zshenv file
   environment.etc."zshenv".knownSha256Hashes = [
-    "67a980f208e0af83355b6c0d3ad36df6fae684fb593e5e76ebf7dfca83e90878" # macOS Sequoia default /etc/zshenv
+    "4e8f7cb9b699511f4ba5f9d5f8de1c9f5efb5c607de88faf5f58b8b9cb38edbf" # macOS default /etc/zshenv
   ];
 
   system = {
