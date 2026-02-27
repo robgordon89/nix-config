@@ -195,12 +195,12 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-Xu2k720mMo/W7lewJhE8xWxaeBu0nTTW0eJA19/60OA=",
-        "path": "/Users/robert/dev/mailerlite/mailerlite-nix-config",
+        "narHash": "sha256-NaNK3WmHNU17c8o9orbtkTxgI4ClaJcsL0MTXZjs9Cw=",
+        "path": "/Users/robert/.config/mailerlite/nix-config",
         "type": "path"
       },
       "original": {
-        "path": "/Users/robert/dev/mailerlite/mailerlite-nix-config",
+        "path": "/Users/robert/.config/mailerlite/nix-config",
         "type": "path"
       }
     },
