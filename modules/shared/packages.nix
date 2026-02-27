@@ -104,14 +104,6 @@ with pkgs;
   (pkgs.lib.hiPrio php83Packages.composer)
   php83Packages.php-cs-fixer
   cargo
-  javaPackages.compiler.openjdk25
-  flutter
-
-  # Databases
-  # clickhouse
-  # postgresql_16
-  # mariadb
-  # redis
 
   # Containers and virtualization
   docker
@@ -140,6 +132,7 @@ with pkgs;
   nix-your-shell
   kcl
   lefthook
+  slides
 
   # Custom
   ml
