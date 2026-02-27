@@ -135,6 +135,6 @@ with pkgs;
   slides
 
   # Custom
-  ml
+  # ml
   menu
 ] ++ hostConfig.extraHomeManagerPackages
