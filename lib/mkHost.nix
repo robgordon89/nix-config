@@ -35,6 +35,7 @@ let
       nix-homebrew = {
         enable = true;
         user = hostConfig.username;
+        autoMigrate = true;
         taps = {
           "homebrew/homebrew-core" = inputs.homebrew-core;
           "homebrew/homebrew-cask" = inputs.homebrew-cask;
