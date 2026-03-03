@@ -51,7 +51,9 @@ let
     };
   };
 
-  settings = baseSettings // (lib.optionalAttrs useVertex vertexSettings);
+  settings = baseSettings // (lib.optionalAttrs useVertex {
+    env = baseSettings.env // vertexSettings.env;
+  });
 in
 {
   # Create symlink for claude in ~/.local/bin for shortcuts support
