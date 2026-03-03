@@ -6,6 +6,7 @@ let
 
   baseSettings = {
     env = {
+      CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS = "1";
       ANTHROPIC_MODEL = "opus";
       ANTHROPIC_SMALL_FAST_MODEL = "sonnet";
       ANTHROPIC_DEFAULT_HAIKU_MODEL = "haiku";
