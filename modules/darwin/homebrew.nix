@@ -24,6 +24,7 @@ in
       "zoom"
       "logi-options+"
       "visual-studio-code"
+      "cleanshot"
     ];
   };
 }
