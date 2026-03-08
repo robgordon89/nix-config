@@ -911,6 +911,14 @@ bindkey -M menuselect "G" end-of-history
 bindkey -M menuselect "${keysyms[Home]}" beginning-of-history
 bindkey -M menuselect "${keysyms[End]}"  end-of-history
 
+# Copy current command buffer to clipboard (macOS) (Ctrl+X, C)
+function copy-buffer-to-clipboard() {
+  echo -n "$BUFFER" | pbcopy
+  zle -M "Copied to clipboard"
+}
+zle -N copy-buffer-to-clipboard
+bindkey '^Xc' copy-buffer-to-clipboard
+
 # Clear screen but keep current command buffer (Ctrl+X, L)
 function clear-screen-and-scrollback() {
   echoti civis >"$TTY"
