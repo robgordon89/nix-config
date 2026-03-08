@@ -911,6 +911,16 @@ bindkey -M menuselect "G" end-of-history
 bindkey -M menuselect "${keysyms[Home]}" beginning-of-history
 bindkey -M menuselect "${keysyms[End]}"  end-of-history
 
+# Clear screen but keep current command buffer (Ctrl+X, L)
+function clear-screen-and-scrollback() {
+  echoti civis >"$TTY"
+  printf '%b' '\e[H\e[2J\e[3J' >"$TTY"
+  echoti cnorm >"$TTY"
+  zle redisplay
+}
+zle -N clear-screen-and-scrollback
+bindkey '^Xl' clear-screen-and-scrollback
+
 # Insert git commit template (Ctrl+X, G, C)
 # \C-b moves cursor back one position
 bindkey -s '^Xgc' 'git commit -m ""\C-b'
