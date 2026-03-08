@@ -8,10 +8,6 @@
       };
       extraHomeManagerPackages = [ ]
         ++ mailerlite.pkgs.aarch64-darwin.sre;
-      claudeCode = {
-        useVertex = true;
-        vertexProjectId = "mailerlite-claude-code";
-      };
     };
     extraDarwinModules = [
       mailerlite.modules.darwin.defaults
@@ -33,6 +29,13 @@
               username = "robert";
             };
           };
+      }
+      # Claude Code Vertex AI for work
+      {
+        programs.claudeCode.vertex = {
+          enable = true;
+          projectId = "mailerlite-claude-code";
+        };
       }
     ];
   };
@@ -61,10 +64,6 @@
       };
       extraHomeManagerPackages = [ ]
         ++ mailerlite.pkgs.aarch64-darwin.sre;
-      claudeCode = {
-        useVertex = true;
-        vertexProjectId = "mailerlite-claude-code";
-      };
     };
     extraDarwinModules = [
       mailerlite.modules.darwin.defaults
@@ -86,6 +85,13 @@
               username = "admin";
             };
           };
+      }
+      # Claude Code Vertex AI for work
+      {
+        programs.claudeCode.vertex = {
+          enable = true;
+          projectId = "mailerlite-claude-code";
+        };
       }
     ];
   };
