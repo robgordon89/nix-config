@@ -910,3 +910,7 @@ bindkey -M menuselect "g" beginning-of-history
 bindkey -M menuselect "G" end-of-history
 bindkey -M menuselect "${keysyms[Home]}" beginning-of-history
 bindkey -M menuselect "${keysyms[End]}"  end-of-history
+
+# Insert git commit template (Ctrl+X, G, C)
+# \C-b moves cursor back one position
+bindkey -s '^Xgc' 'git commit -m ""\C-b'
