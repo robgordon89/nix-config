@@ -66,59 +66,15 @@ with pkgs;
   spacectl
   awscli2
 
-  # AI tools
-  claude-code
-  cursor-cli
-  codex
-  gemini-cli
-
-  # Python
-  (python313.buildEnv.override {
-    extraLibs = with python313.pkgs; [
-      # Tools
-      pyyaml
-      ruff
-      ansible-core
-      git-filter-repo
-
-      # LLM tools
-      llm
-      llm-ollama
-      llm-cmd
-
-      # Custom package
-      pkgs.llm-openrouter
-    ];
-    ignoreCollisions = true;
-  })
-
-  # Others
-  nodejs_22
-  typescript
-  yarn
-  bun
+  # Languages (not modularized)
   cue
   go
-  php83
-  deployer
-  (pkgs.lib.hiPrio php83Packages.composer)
-  php83Packages.php-cs-fixer
   cargo
 
-  # Containers and virtualization
+  # Infrastructure
   docker
-  k9s
-  kubectl
-  kubectl-df-pv
-  kubectx
-  fluxcd
-  kubeconform
-  kubernetes-helm
-  skaffold
   caddy
-  kubebuilder
   tailscale
-  cilium-cli
 
   # Shell tools
   eza # Better ls
