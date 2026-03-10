@@ -62,6 +62,10 @@
       inputs.claude-code-overlay.follows = "claude-code-overlay";
     };
 
+    worktrunk = {
+      url = "github:max-sixty/worktrunk";
+    };
+
   };
 
   outputs =
@@ -71,6 +75,7 @@
     , home-manager
     , nix-homebrew
     , mailerlite
+    , worktrunk
     , ...
     }@inputs:
 

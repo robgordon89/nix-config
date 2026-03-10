@@ -11,5 +11,6 @@
     ./programs/k9s.nix
     ./programs/ssh.nix
     ./programs/zoxide.nix
+    ./programs/worktrunk.nix
   ];
 }

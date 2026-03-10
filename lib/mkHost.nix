@@ -27,7 +27,10 @@ let
     inputs.home-manager.darwinModules.home-manager
     {
       home-manager = {
-        sharedModules = extraHomeManagerModules;
+        sharedModules = extraHomeManagerModules ++ [
+          inputs.worktrunk.homeModules.default
+          { _module.args.worktrunk-pkgs = inputs.worktrunk.packages.${hostConfig.platform}; }
+        ];
       };
     }
     inputs.nix-homebrew.darwinModules.nix-homebrew

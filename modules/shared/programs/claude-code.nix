@@ -17,6 +17,7 @@ let
       "deep-implement@piercelamb-plugins" = true;
       "dev-browser@dev-browser-marketplace" = true;
       "spec-interviewer@nkl-plugins" = true;
+      "worktrunk@worktrunk" = true;
     };
     extraKnownMarketplaces = {
       "nkl-plugins" = {
@@ -35,6 +36,12 @@ let
         source = {
           source = "github";
           repo = "piercelamb/deep-project";
+        };
+      };
+      "worktrunk" = {
+        source = {
+          source = "github";
+          repo = "max-sixty/worktrunk";
         };
       };
     };

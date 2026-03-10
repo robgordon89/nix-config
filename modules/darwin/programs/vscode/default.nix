@@ -1,15 +1,4 @@
-{ config, pkgs, inputs, lib, hostConfig, ... }:
-let
-  isTitan = hostConfig.hostname == "titan";
-  aiExtensions =
-    if isTitan then [
-      "anthropic.claude-code"
-    ] else [
-      "github.copilot"
-      # Use a older version compatible with VSCode 1.102.3
-      "github.copilot-chat.0.29.1"
-    ];
-in
+{ config, pkgs, inputs, lib, ... }:
 {
   programs.vscode = {
     # We dont use the package from nixpkgs becuase it doesnt allow mods
@@ -17,7 +6,7 @@ in
     enable = true;
     profiles.default = {
       userSettings = import ./config/user.nix;
-      keybindings = import ./config/keybindings.nix { inherit isTitan lib; };
+      keybindings = import ./config/keybindings.nix { inherit lib; };
       enableUpdateCheck = false;
       enableExtensionUpdateCheck = false;
       extensions = pkgs.nix4vscode.forVscode ([
@@ -60,7 +49,8 @@ in
         "wolfmah.ansible-vault-inline"
         "tamasfe.even-better-toml"
         "pomdtr.excalidraw-editor"
-      ] ++ aiExtensions);
+        "anthropic.claude-code"
+      ]);
     };
     mutableExtensionsDir = false;
   };
