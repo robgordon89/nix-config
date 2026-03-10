@@ -277,5 +277,5 @@
   "nix.formatterPath" = "nixpkgs-fmt";
   "extensions.ignoreRecommendations" = true;
   "claudeCode.preferredLocation" = "sidebar";
-  "claudeCode.selectedModel" = "claude-sonnet-4-5@20250929";
+  "claudeCode.selectedModel" = "claude-opus-4-5@20251101";
 }
