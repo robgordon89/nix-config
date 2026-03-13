@@ -16,6 +16,7 @@
       "Electron"
       "Cursor"
       "wezterm-gui"
+      "Ghostty"
     ];
   };
 }

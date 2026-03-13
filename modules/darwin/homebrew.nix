@@ -14,6 +14,7 @@ in
     casks = map mkGreedy [
       "1password"
       "wezterm"
+      "ghostty"
       "brave-browser"
       "hammerspoon"
       "medis"

@@ -282,7 +282,7 @@ in
   "nix.formatterPath" = "nixpkgs-fmt";
   "extensions.ignoreRecommendations" = true;
   "claudeCode.preferredLocation" = "sidebar";
-  "claudeCode.selectedModel" = "claude-opus-4-5@20251101";
+  "claudeCode.selectedModel" = "claude-opus-4-5";
 } // lib.optionalAttrs useVertex {
   "claudeCode.disableLoginPrompt" = true;
 }

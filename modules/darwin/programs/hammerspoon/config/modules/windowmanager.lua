@@ -5,6 +5,7 @@ local jankeykey_apps = {
     "Code",
     "Cursor",
     "WezTerm",
+    "Ghostty",
 }
 
 function containsValue(table, value)

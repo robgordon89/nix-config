@@ -15,6 +15,7 @@
           ./programs/brave
           ./programs/hammerspoon
           ./programs/wezterm
+          ./programs/ghostty
           ./programs/vscode
         ] ++ [ ../shared/home.nix ];
 
