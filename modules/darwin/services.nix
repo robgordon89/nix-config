@@ -1,8 +1,5 @@
 { pkgs, ... }:
 {
-  services.aerospace = {
-    enable = false;
-  };
   services.jankyborders = {
     enable = true;
     ax_focus = true;
@@ -12,11 +9,11 @@
     width = 10.0;
     hidpi = true;
     whitelist = [
-      "Visual Studio Code"
+      "Code"
       "Electron"
       "Cursor"
       "wezterm-gui"
-      "Ghostty"
+      "ghostty"
     ];
   };
 }
