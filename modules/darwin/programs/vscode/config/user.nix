@@ -1,3 +1,8 @@
+{ lib, hostConfig }:
+let
+  claudeCodeCfg = hostConfig.claudeCode or { };
+  useVertex = claudeCodeCfg.useVertex or false;
+in
 {
   "editor.fontSize" = 14;
   "editor.lineHeight" = 28;
@@ -278,4 +283,6 @@
   "extensions.ignoreRecommendations" = true;
   "claudeCode.preferredLocation" = "sidebar";
   "claudeCode.selectedModel" = "claude-opus-4-5@20251101";
+} // lib.optionalAttrs useVertex {
+  "claudeCode.disableLoginPrompt" = true;
 }

@@ -1,11 +1,11 @@
-{ config, pkgs, inputs, lib, ... }:
+{ config, pkgs, inputs, lib, hostConfig, ... }:
 {
   programs.vscode = {
     # We dont use the package from nixpkgs becuase it doesnt allow mods
     # See homebrew.nix where we install vscode from homebrew
     enable = true;
     profiles.default = {
-      userSettings = import ./config/user.nix;
+      userSettings = import ./config/user.nix { inherit lib hostConfig; };
       keybindings = import ./config/keybindings.nix { inherit lib; };
       enableUpdateCheck = false;
       enableExtensionUpdateCheck = false;
