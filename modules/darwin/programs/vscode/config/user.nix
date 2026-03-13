@@ -275,8 +275,11 @@ in
     ".monaco-workbench .part.sidebar>.title" = {
       "display" = "none";
     };
+    ".monaco-workbench .part.sidebar" = {
+      "height" = "100%";
+    };
     ".monaco-workbench .part.sidebar>.content" = {
-      "padding-top" = "10px";
+      "padding-top" = "4px";
     };
   };
   "nix.formatterPath" = "nixpkgs-fmt";
