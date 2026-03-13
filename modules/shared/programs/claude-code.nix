@@ -31,7 +31,7 @@ let
       "mailerlite-plugins" = {
         source = {
           source = "github";
-          repo = "mailerlite/sre-standards";
+          repo = "mailerlite/claude-marketplace";
         };
       };
       "nkl-plugins" = {
