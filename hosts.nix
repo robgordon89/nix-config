@@ -9,7 +9,7 @@
       extraHomeManagerPackages = [ ]
         ++ mailerlite.pkgs.aarch64-darwin.sre;
       claudeCode = {
-        useVertex = true;
+        useVertex = false;
         vertexProjectId = "mailerlite-claude-code";
       };
     };
@@ -61,10 +61,6 @@
       };
       extraHomeManagerPackages = [ ]
         ++ mailerlite.pkgs.aarch64-darwin.sre;
-      claudeCode = {
-        useVertex = true;
-        vertexProjectId = "mailerlite-claude-code";
-      };
     };
     extraDarwinModules = [
       mailerlite.modules.darwin.defaults

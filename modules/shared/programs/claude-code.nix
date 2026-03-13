@@ -12,6 +12,7 @@ let
       ANTHROPIC_DEFAULT_HAIKU_MODEL = "haiku";
     };
     enabledPlugins = {
+      "sre-standards@mailerlite-plugins" = true;
       "example-skills@anthropic-agent-skills" = true;
       "deep-project@piercelamb-plugins" = true;
       "deep-plan@piercelamb-plugins" = true;
@@ -27,7 +28,7 @@ let
           repo = "anthropics/skills";
         };
       };
-      "sre-standards" = {
+      "mailerlite-plugins" = {
         source = {
           source = "github";
           repo = "mailerlite/sre-standards";
