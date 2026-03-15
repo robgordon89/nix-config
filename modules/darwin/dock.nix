@@ -4,7 +4,7 @@ let
   defaultApps = [
     { app = "/Applications/Brave Browser.app"; }
     { app = "/Applications/Visual Studio Code.app"; }
-    { app = "/Applications/WezTerm.app"; }
+    { app = "/Applications/Ghostty.app"; }
     { app = "/Applications/Beeper Desktop.app"; }
     { app = "/Applications/1Password.app"; }
     { app = "/Applications/TablePlus.app"; }

@@ -10,6 +10,7 @@ let
       ANTHROPIC_MODEL = "opus";
       ANTHROPIC_SMALL_FAST_MODEL = "sonnet";
       ANTHROPIC_DEFAULT_HAIKU_MODEL = "haiku";
+      CLAUDE_CODE_EFFORT_LEVEL = "max";
     };
     enabledPlugins = {
       "sre-standards@mailerlite-plugins" = true;
