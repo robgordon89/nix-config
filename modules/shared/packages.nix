@@ -123,7 +123,6 @@ with pkgs;
   # Shell tools
   eza # Better ls
   bat # Better cat
-  ripgrep # Better grep
   fd # Better find
   procs # Better ps
   stable.direnv
@@ -133,6 +132,7 @@ with pkgs;
   kcl
   lefthook
   slides
+  todo-txt-cli
 
   # Custom
   # ml

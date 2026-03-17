@@ -26,6 +26,7 @@ in
       "logi-options+"
       "visual-studio-code"
       "cleanshot"
+      "swiftbar"
     ];
   };
 }
