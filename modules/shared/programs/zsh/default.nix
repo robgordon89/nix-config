@@ -9,8 +9,10 @@
       strategy = [ "history" ];
     };
     syntaxHighlighting.enable = true;
+    sessionVariables = {
+      PURE_GIT_PULL = 0;
+    };
     initContent = ''
-      export PURE_GIT_PULL=0
       fpath+=("${pkgs.pure-prompt}/share/zsh/site-functions")
 
       if [ "$TERM" != dumb ]; then
