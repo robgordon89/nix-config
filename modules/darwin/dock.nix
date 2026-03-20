@@ -54,4 +54,10 @@ in
     defaultDock
     hostDock
   ];
+
+  # Refresh dock after homebrew installs apps (on first install)
+  system.activationScripts.postActivation.text = ''
+    echo "Refreshing dock after homebrew..."
+    killall Dock 2>/dev/null || true
+  '';
 }
