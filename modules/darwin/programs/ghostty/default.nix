@@ -22,6 +22,7 @@
     copy-on-select = clipboard
     mouse-hide-while-typing = true
     shell-integration = none
+    working-directory = inherit
 
     # Split divider
     split-divider-color = #437487
