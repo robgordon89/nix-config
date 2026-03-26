@@ -106,9 +106,10 @@ with pkgs;
   cargo
 
   # Containers and virtualization
-  docker
+  # docker
+  (pkgs.lib.hiPrio orbstack)
   k9s
-  kubectl
+  # kubectl
   kubectl-df-pv
   kubectx
   fluxcd
