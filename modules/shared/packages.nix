@@ -85,9 +85,6 @@ with pkgs;
       llm
       llm-ollama
       llm-cmd
-
-      # Custom package
-      pkgs.llm-openrouter
     ];
     ignoreCollisions = true;
   })
@@ -137,5 +134,4 @@ with pkgs;
 
   # Custom
   # ml
-  menu
 ] ++ hostConfig.extraHomeManagerPackages

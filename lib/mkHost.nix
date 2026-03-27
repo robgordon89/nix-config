@@ -1,5 +1,5 @@
 # Helper to generate darwinConfigurations for each host
-{ self, inputs }: hostname: { extraConfig, extraDarwinModules ? [ ], extraHomeManagerModules ? [ ] }:
+{ self, inputs }: hostname: { extraConfig ? { }, extraDarwinModules ? [ ], extraHomeManagerModules ? [ ] }:
 let
   # Define the host configuration with default values, which can be overridden
   # by the extraConfig argument.
@@ -26,12 +26,10 @@ let
   modules = [
     inputs.home-manager.darwinModules.home-manager
     {
-      home-manager = {
-        sharedModules = extraHomeManagerModules ++ [
-          inputs.worktrunk.homeModules.default
-          { _module.args.worktrunk-pkgs = inputs.worktrunk.packages.${hostConfig.platform}; }
-        ];
-      };
+      home-manager =
+        {
+          sharedModules = extraHomeManagerModules;
+        };
     }
     inputs.nix-homebrew.darwinModules.nix-homebrew
     {

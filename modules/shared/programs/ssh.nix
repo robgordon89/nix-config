@@ -23,7 +23,6 @@ in
         AddKeysToAgent yes
         User ${hostConfig.username}
         UseKeychain yes
-        StrictHostKeyChecking=no
         ${lib.optionalString (cfg.use1PasswordAgent or true) ''
         IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
         ''}

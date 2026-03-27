@@ -11,19 +11,16 @@ This is a Nix/nix-darwin/home-manager configuration for two macOS hosts:
 ### Titan (Work)
 - Slack instead of Beeper in dock
 - MailerLite SRE packages and modules
-- Claude Code with Vertex AI integration
 - SSH username: "robert"
 
 ### Thebe (Personal)
-- Beeper for communication
-- Smaller dock icons (tilesize = 42)
-- Custom SSH hosts
+- No custom config
 
 ### Shared Configuration
 - Both hosts use VS Code as the editor
 - Same VS Code settings, keybindings, and extensions
 - Same font configuration (TX-02, monospace)
-- Same terminal setup (WezTerm)
+- Same terminal setup (ghostty)
 - Same Neovim and Zsh configuration
 
 ## Project Structure
