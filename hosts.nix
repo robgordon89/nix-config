@@ -7,7 +7,8 @@
         "/Applications/Beeper Desktop.app/" = "/Applications/Slack.app/";
       };
       extraHomeManagerPackages = [ ]
-        ++ mailerlite.pkgs.aarch64-darwin.sre;
+        ++ mailerlite.pkgs.aarch64-darwin.sre
+        ++ (lib.filter (p: p.pname or p.name or "" == "expose") mailerlite.pkgs.aarch64-darwin.dev);
       claudeCode = {
         useVertex = false;
         vertexProjectId = "mailerlite-claude-code";
