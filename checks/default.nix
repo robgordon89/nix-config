@@ -29,8 +29,9 @@
       };
 
       # ========== nix ==========
-      nixpkgs-fmt = {
+      nixfmt = {
         enable = true;
+        package = pkgs.nixfmt-rfc-style;
       };
 
       # ========== shellscripts ==========

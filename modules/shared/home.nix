@@ -5,6 +5,7 @@
     ./programs/git
     ./programs/neovim
     ./programs/zsh
+    ./programs/doggo.nix
     ./programs/direnv.nix
     ./programs/fd.nix
     ./programs/gh.nix
