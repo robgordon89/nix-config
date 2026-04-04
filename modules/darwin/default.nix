@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   imports = [
-    # ./cachix.nix
     ./dock.nix
     ./documentation.nix
     ./finder.nix
@@ -14,8 +13,4 @@
     ./system.nix
     ./services.nix
   ];
-
-  # Enable zsh at this stage to avoid the need to restart the shell
-  programs.zsh.enable = true;
-
 }

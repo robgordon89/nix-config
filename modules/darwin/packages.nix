@@ -1,4 +1,4 @@
-{ pkgs, hostConfig ? { extraHomeManagerPackages = [ ]; } }:
+{ pkgs, hostConfig }:
 with pkgs;
 let
   shared-packages = import ../shared/packages.nix { inherit pkgs hostConfig; };
