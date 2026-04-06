@@ -42,9 +42,9 @@
       flake = false;
     };
 
-    # Pre-commit hooks
-    pre-commit-hooks = {
-      url = "github:cachix/git-hooks.nix";
+    # Lefthook
+    lefthook = {
+      url = "github:sudosubin/lefthook.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -71,6 +71,7 @@
       nix-darwin,
       home-manager,
       nix-homebrew,
+      lefthook,
       mailerlite,
       ...
     }@inputs:
@@ -141,23 +142,47 @@
       #
       # Nix formatter available through 'nix fmt' https://github.com/NixOS/nixfmt
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.pkgs.nixfmt);
+
       checks = forAllSystems (
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
         in
-        import ./checks { inherit inputs pkgs; }
+        {
+          lefthook-check = lefthook.lib.${system}.run {
+            src = ./.;
+            config = {
+              pre-commit.commands = {
+                nixfmt = {
+                  run = "${pkgs.lib.getExe pkgs.nixfmt} {staged_files}";
+                  glob = "*.nix";
+                };
+              };
+            };
+          };
+        }
       );
 
       #
       # ========= DevShell =========
       #
-      # Custom shell for bootstrapping on new hosts, modifying nix-config, and secrets management
+      # Custom shell for bootstrapping on new hosts, modifying nix-config
       devShells = forAllSystems (
         system:
-        import ./shell.nix {
+        let
           pkgs = nixpkgs.legacyPackages.${system};
-          checks = self.checks.${system};
+        in
+        {
+          default = pkgs.mkShell {
+            inherit (self.checks.${system}.lefthook-check) shellHook;
+            nativeBuildInputs = builtins.attrValues {
+              inherit (pkgs)
+                nixpkgs-fmt
+                nil
+                go-task
+                ;
+            };
+          };
         }
       );
     };

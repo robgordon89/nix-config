@@ -36,22 +36,6 @@
         "type": "github"
       }
     },
-    "flake-compat": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1767039857,
-        "narHash": "sha256-vNpUSpF5Nuw8xvDLj2KCwwksIbjua2LZCqhV1LNRDns=",
-        "owner": "NixOS",
-        "repo": "flake-compat",
-        "rev": "5edf11c44bc78a0d334f6334cdaf7d60d732daab",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "flake-compat",
-        "type": "github"
-      }
-    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -103,27 +87,6 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "gitignore": {
-      "inputs": {
-        "nixpkgs": [
-          "pre-commit-hooks",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1709087332,
-        "narHash": "sha256-HG2cCnktfHsKV0s4XW83gU3F57gaTljL9KNSuG6bnQs=",
-        "owner": "hercules-ci",
-        "repo": "gitignore.nix",
-        "rev": "637db329424fd7e46cf4185293b9cc8c88c95394",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "gitignore.nix",
         "type": "github"
       }
     },
@@ -180,6 +143,26 @@
         "type": "github"
       }
     },
+    "lefthook": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1770377107,
+        "narHash": "sha256-/QEXSDeAo5RK81PtM0yDhmt9k3v1/pse/jsrT1yXNhU=",
+        "owner": "sudosubin",
+        "repo": "lefthook.nix",
+        "rev": "9cdaf7ce95ae77cbabc5b556bdd35d3cf0b849f5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sudosubin",
+        "repo": "lefthook.nix",
+        "type": "github"
+      }
+    },
     "mailerlite": {
       "inputs": {
         "claude-code-overlay": [
@@ -195,7 +178,7 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-/4QIpbqXM3p/Fh3CW2v9yr+mM9/xwwBaulpn1L66/gU=",
+        "narHash": "sha256-K/UDkn/j+yHrtKmesN/yqBie/BBw0yze2dPiyUfrYD4=",
         "path": "/Users/robert/dev/mailerlite/mailerlite-nix-config",
         "type": "path"
       },
@@ -413,42 +396,20 @@
         "type": "github"
       }
     },
-    "pre-commit-hooks": {
-      "inputs": {
-        "flake-compat": "flake-compat",
-        "gitignore": "gitignore",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1767281941,
-        "narHash": "sha256-6MkqajPICgugsuZ92OMoQcgSHnD6sJHwk8AxvMcIgTE=",
-        "owner": "cachix",
-        "repo": "git-hooks.nix",
-        "rev": "f0927703b7b1c8d97511c4116eb9b4ec6645a0fa",
-        "type": "github"
-      },
-      "original": {
-        "owner": "cachix",
-        "repo": "git-hooks.nix",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "claude-code-overlay": "claude-code-overlay",
         "home-manager": "home-manager",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
+        "lefthook": "lefthook",
         "mailerlite": "mailerlite",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
         "nix4vscode": "nix4vscode",
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-stable": "nixpkgs-stable",
-        "nixpkgs-unstable": "nixpkgs-unstable",
-        "pre-commit-hooks": "pre-commit-hooks"
+        "nixpkgs-unstable": "nixpkgs-unstable"
       }
     },
     "systems": {
