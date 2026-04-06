@@ -65,13 +65,14 @@
   };
 
   outputs =
-    { self
-    , nixpkgs
-    , nix-darwin
-    , home-manager
-    , nix-homebrew
-    , mailerlite
-    , ...
+    {
+      self,
+      nixpkgs,
+      nix-darwin,
+      home-manager,
+      nix-homebrew,
+      mailerlite,
+      ...
     }@inputs:
 
     let
@@ -88,7 +89,10 @@
       #
       # ========= Host Configurations =========
       #
-      mkHost = import ./lib/mkHost.nix { self = self; inputs = inputs; };
+      mkHost = import ./lib/mkHost.nix {
+        self = self;
+        inputs = inputs;
+      };
 
       hosts = import ./hosts.nix {
         inherit mailerlite;

@@ -286,6 +286,7 @@ in
   "extensions.ignoreRecommendations" = true;
   "claudeCode.preferredLocation" = "sidebar";
   "claudeCode.selectedModel" = "claude-opus-4-5";
-} // lib.optionalAttrs useVertex {
+}
+// lib.optionalAttrs useVertex {
   "claudeCode.disableLoginPrompt" = true;
 }

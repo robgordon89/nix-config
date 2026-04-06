@@ -1,4 +1,11 @@
-{ config, pkgs, inputs, lib, hostConfig, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  lib,
+  hostConfig,
+  ...
+}:
 {
   programs.vscode = {
     # We dont use the package from nixpkgs becuase it doesnt allow mods

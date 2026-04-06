@@ -1,6 +1,9 @@
 { config, ... }:
 let
-  mkGreedy = caskName: { name = caskName; greedy = true; };
+  mkGreedy = caskName: {
+    name = caskName;
+    greedy = true;
+  };
 in
 {
   homebrew = {

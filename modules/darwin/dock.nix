@@ -12,19 +12,21 @@ let
   ];
 
   # Apply path overrides if specified
-  applyPathOverrides = apps:
+  applyPathOverrides =
+    apps:
     let
       overrides = hostConfig.dockPathOverrides or { };
     in
-    map
-      (item:
-        let
-          path = item.app;
-          newPath = overrides.${path + "/"} or overrides.${path} or path;
-        in
-        { app = newPath; }
-      )
-      apps;
+    map (
+      item:
+      let
+        path = item.app;
+        newPath = overrides.${path + "/"} or overrides.${path} or path;
+      in
+      {
+        app = newPath;
+      }
+    ) apps;
 
   # Give default settings a low priority (50)
   defaultDock = lib.mapAttrs (name: value: lib.mkDefault value) {
@@ -41,8 +43,20 @@ let
     wvous-tr-corner = 1;
     persistent-apps = applyPathOverrides defaultApps;
     persistent-others = [
-      { folder = { path = "/Applications"; showas = "grid"; displayas = "folder"; }; }
-      { folder = { path = "/Users/${hostConfig.username}/Downloads"; showas = "grid"; displayas = "folder"; }; }
+      {
+        folder = {
+          path = "/Applications";
+          showas = "grid";
+          displayas = "folder";
+        };
+      }
+      {
+        folder = {
+          path = "/Users/${hostConfig.username}/Downloads";
+          showas = "grid";
+          displayas = "folder";
+        };
+      }
     ];
   };
 

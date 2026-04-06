@@ -1,4 +1,7 @@
-{ hostConfig ? { }, ... }:
+{
+  hostConfig ? { },
+  ...
+}:
 {
   imports = [
     ./programs/claude-code.nix

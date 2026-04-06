@@ -1,4 +1,9 @@
-{ pkgs, inputs, hostConfig, ... }:
+{
+  pkgs,
+  inputs,
+  hostConfig,
+  ...
+}:
 {
   users.users.${hostConfig.username} = {
     home = "/Users/${hostConfig.username}";
@@ -17,7 +22,8 @@
           ./programs/wezterm
           ./programs/ghostty
           ./programs/vscode
-        ] ++ [ ../shared/home.nix ];
+        ]
+        ++ [ ../shared/home.nix ];
 
         _module.args = { inherit hostConfig; };
 
