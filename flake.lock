@@ -177,7 +177,7 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-dyDq1IA1cqm4if1jKJN6OpFuZOJhCH3OMr3AsMHHTZA=",
+        "narHash": "sha256-+cppR/IYYUJtVhiG3E72fjmphSK5eTy64lJtY/smpk0=",
         "path": "/Users/robert/dev/mailerlite/mailerlite-nix-config",
         "type": "path"
       },
