@@ -3,7 +3,7 @@
   services.jankyborders = {
     enable = true;
     ax_focus = true;
-    style = "sqaure";
+    style = "square";
     active_color = "0xFF437487"; # 437487
     inactive_color = "0xFF365D6C"; # 365D6C
     width = 10.0;
@@ -14,6 +14,8 @@
       "Cursor"
       "wezterm-gui"
       "ghostty"
+      "Brave Browser"
+      "Slack"
     ];
   };
 }

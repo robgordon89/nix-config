@@ -6,6 +6,8 @@ local jankeykey_apps = {
     "Cursor",
     "WezTerm",
     "Ghostty",
+    "Brave Browser",
+    "Slack",
 }
 
 function containsValue(table, value)
@@ -27,9 +29,9 @@ hs.hotkey.bind(hyper, "Left", function()
 
     if containsValue(jankeykey_apps,app:name()) then
         f.x = max.x + 5
-        f.y = max.y + 5
+        f.y = max.y
         f.w = half - 10
-        f.h = max.h - 10
+        f.h = max.h - 5
         win:setFrame(f)
         return
     end
@@ -50,15 +52,15 @@ hs.hotkey.bind(hyper, "Right", function()
     local half = max.w / 2
 
     if containsValue(jankeykey_apps,app:name()) then
-        f.x = half + 5
-        f.y = max.y + 5
+        f.x = max.x + half + 5
+        f.y = max.y
         f.w = half - 10
-        f.h = max.h - 10
+        f.h = max.h - 5
         win:setFrame(f, 0)
         return
     end
 
-    f.x = half
+    f.x = max.x + half
     f.y = max.y
     f.w = half
     f.h = max.h
@@ -76,9 +78,9 @@ hs.hotkey.bind(hyper, "Space", function()
 
     if containsValue(jankeykey_apps,app:name()) then
         f.x = max.x + 5
-        f.y = max.y + 5
+        f.y = max.y
         f.w = max.w - 10
-        f.h = max.h - 10
+        f.h = max.h - 5
         win:setFrame(f, 0)
         return
     end
@@ -101,9 +103,9 @@ hs.hotkey.bind(hyper_shift, "Space", function()
 
     if containsValue(jankeykey_apps,app:name()) then
         f.x = max.x + 5
-        f.y = max.y + 5
+        f.y = max.y
         f.w = max.w - 10
-        f.h = max.h - 10
+        f.h = max.h - 5
         win:setFrame(f, 0)
         return
     end
@@ -126,9 +128,9 @@ hs.hotkey.bind(hyper_shift, "Left", function()
 
     if containsValue(jankeykey_apps,app:name()) then
         f.x = max.x + 5
-        f.y = max.y + 5
+        f.y = max.y
         f.w = threefifths - 10
-        f.h = max.h - 10
+        f.h = max.h - 5
         win:setFrame(f, 0)
         return
     end
@@ -151,15 +153,15 @@ hs.hotkey.bind(hyper_shift, "Right", function()
     local threefifths = fifths * 3
 
     if containsValue(jankeykey_apps,app:name()) then
-        f.x = threefifths + 5
-        f.y = max.y + 5
+        f.x = max.x + threefifths + 5
+        f.y = max.y
         f.w = twofifths - 10
-        f.h = max.h - 10
+        f.h = max.h - 5
         win:setFrame(f, 0)
         return
     end
 
-    f.x = threefifths
+    f.x = max.x + threefifths
     f.y = max.y
     f.w = twofifths
     f.h = max.h

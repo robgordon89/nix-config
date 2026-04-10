@@ -135,7 +135,6 @@ with pkgs;
   kcl
   lefthook
   slides
-  todo-txt-cli
 
   # Custom
   # ml
