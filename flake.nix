@@ -5,7 +5,6 @@
     # Nixpkgs
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-25.05-darwin";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     # Nix Darwin
     nix-darwin = {
@@ -65,15 +64,14 @@
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      nix-darwin,
-      home-manager,
-      nix-homebrew,
-      lefthook,
-      mailerlite,
-      ...
+    { self
+    , nixpkgs
+    , nix-darwin
+    , home-manager
+    , nix-homebrew
+    , lefthook
+    , mailerlite
+    , ...
     }@inputs:
 
     let

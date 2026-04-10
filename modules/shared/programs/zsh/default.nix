@@ -105,8 +105,5 @@
         { name = "zsh-hooks/zsh-hooks"; }
       ];
     };
-
-    plugins = [ ];
-
   };
 }

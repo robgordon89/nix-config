@@ -1,8 +1,8 @@
-{
-  pkgs,
-  hostConfig ? {
+{ pkgs
+, hostConfig ? {
     extraHomeManagerPackages = [ ];
-  },
+  }
+,
 }:
 with pkgs;
 [
@@ -12,13 +12,7 @@ with pkgs;
   ripgrep
   openssl
   jq
-  # Replace yq-go with configured version to avoid collisions
-  (pkgs.symlinkJoin {
-    name = "yq-go-priority";
-    paths = [ yq-go ];
-    # Give this a higher priority than the Python version
-    meta.priority = 1;
-  })
+  (pkgs.lib.hiPrio yq-go)
   fzf
   git
   sops
@@ -91,7 +85,6 @@ with pkgs;
       llm-ollama
       llm-cmd
     ];
-    ignoreCollisions = true;
   })
 
   # Others
@@ -135,8 +128,5 @@ with pkgs;
   kcl
   lefthook
   slides
-
-  # Custom
-  # ml
 ]
 ++ hostConfig.extraHomeManagerPackages

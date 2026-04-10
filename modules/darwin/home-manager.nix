@@ -1,8 +1,7 @@
-{
-  pkgs,
-  inputs,
-  hostConfig,
-  ...
+{ pkgs
+, inputs
+, hostConfig
+, ...
 }:
 {
   users.users.${hostConfig.username} = {
@@ -19,7 +18,6 @@
           ./programs/1password-agent
           ./programs/brave
           ./programs/hammerspoon
-          ./programs/wezterm
           ./programs/ghostty
           ./programs/vscode
         ]
