@@ -1,10 +1,18 @@
-{ ... }:
+{ lib, ... }:
 {
   flake.modules.darwin.system = { config, ... }: {
     # Allow nix-darwin to overwrite the default macOS /etc/zshenv file
     environment.etc."zshenv".knownSha256Hashes = [
       "4e8f7cb9b699511f4ba5f9d5f8de1c9f5efb5c607de88faf5f58b8b9cb38edbf" # macOS default /etc/zshenv
     ];
+
+    environment.variables.LANG = "en_GB.UTF-8";
+    time.timeZone = lib.mkDefault "Europe/London";
+
+    # Nix configuration managed by Determinate Systems.
+    # Leaving this enabled makes nix-darwin rewrite /etc/nix/nix.conf and drop
+    # the installer's `extra-experimental-features = nix-command flakes` line.
+    nix.enable = false;
 
     system.primaryUser = config.meta.username;
 
