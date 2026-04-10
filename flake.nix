@@ -2,181 +2,53 @@
   description = "Bob's Nix configuration";
 
   inputs = {
-    # Nixpkgs
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-25.05-darwin";
 
-    # Nix Darwin
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # VS Code Extensions
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:vic/import-tree";
+
     nix4vscode = {
       url = "github:nix-community/nix4vscode";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Homebrew
-    nix-homebrew = {
-      url = "github:zhaofengli/nix-homebrew";
-    };
-
-    # Homebrew Core
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
       flake = false;
     };
-
-    # Homebrew Cask
     homebrew-cask = {
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
 
-    # Lefthook
     lefthook = {
       url = "github:sudosubin/lefthook.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Claude Code
-    claude-code-overlay = {
-      url = "github:nklmilojevic/claude-code-overlay";
-    };
+    claude-code-overlay.url = "github:nklmilojevic/claude-code-overlay";
 
-    # MailerLite shared flake
     mailerlite = {
-      # url = "path:/Users/robert/.config/mailerlite/nix-config";
       url = "path:/Users/robert/dev/mailerlite/mailerlite-nix-config";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.nixpkgs-stable.follows = "nixpkgs-stable";
       inputs.claude-code-overlay.follows = "claude-code-overlay";
     };
-
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      nix-darwin,
-      home-manager,
-      nix-homebrew,
-      lefthook,
-      mailerlite,
-      ...
-    }@inputs:
-
-    let
-      inherit (self) outputs;
-      inherit (nixpkgs) lib;
-
-      #
-      # ========= Architectures =========
-      #
-      forAllSystems = nixpkgs.lib.genAttrs [
-        "aarch64-darwin"
-      ];
-
-      #
-      # ========= Host Configurations =========
-      #
-      mkHost = import ./lib/mkHost.nix {
-        self = self;
-        inputs = inputs;
-      };
-
-      hosts = import ./hosts.nix {
-        inherit mailerlite;
-        inherit (nixpkgs) lib;
-      };
-      darwinConfigurations = nixpkgs.lib.mapAttrs mkHost hosts;
-    in
-    {
-      #
-      # ========= Overlays =========
-      #
-      # Custom modifications/overrides to upstream packages.
-      overlays = import ./overlays { inherit inputs; };
-
-      #
-      # ========= Host Configurations =========
-      #
-      darwinConfigurations = darwinConfigurations;
-
-      #
-      # ========= Packages =========
-      #
-      # Add custom packages to be shared or upstreamed.
-      packages = forAllSystems (
-        system:
-        let
-          pkgs = import nixpkgs {
-            inherit system;
-            overlays = builtins.attrValues self.overlays;
-          };
-        in
-        lib.packagesFromDirectoryRecursive {
-          callPackage = lib.callPackageWith pkgs;
-          directory = ./pkgs;
-        }
-      );
-
-      #
-      # ========= Formatting =========
-      #
-      # Nix formatter available through 'nix fmt' https://github.com/NixOS/nixfmt
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.pkgs.nixfmt);
-
-      checks = forAllSystems (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        {
-          lefthook-check = lefthook.lib.${system}.run {
-            src = ./.;
-            config = {
-              pre-commit.commands = {
-                nixfmt = {
-                  run = "${pkgs.lib.getExe pkgs.nixfmt} {staged_files}";
-                  glob = "*.nix";
-                };
-              };
-            };
-          };
-        }
-      );
-
-      #
-      # ========= DevShell =========
-      #
-      # Custom shell for bootstrapping on new hosts, modifying nix-config
-      devShells = forAllSystems (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        {
-          default = pkgs.mkShell {
-            inherit (self.checks.${system}.lefthook-check) shellHook;
-            nativeBuildInputs = builtins.attrValues {
-              inherit (pkgs)
-                nixpkgs-fmt
-                nil
-                go-task
-                ;
-            };
-          };
-        }
-      );
-    };
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; }
+      (inputs.import-tree ./modules);
 }
