@@ -28,6 +28,7 @@ in
       "visual-studio-code"
       "cleanshot"
       "swiftbar"
+      "cloudflare-warp"
     ];
   };
 }
