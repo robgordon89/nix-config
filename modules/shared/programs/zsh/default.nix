@@ -33,10 +33,10 @@
 
     shellAliases = {
       # Listing with eza
-      ls = "${pkgs.eza}/bin/eza --group-directories-first" + (if pkgs ? eza then "" else "ls");
-      ll = "${pkgs.eza}/bin/eza --group-directories-first -la" + (if pkgs ? eza then "" else "ll");
-      la = "${pkgs.eza}/bin/eza --group-directories-first -a" + (if pkgs ? eza then "" else "la");
-      lt = "${pkgs.eza}/bin/eza --group-directories-first --tree" + (if pkgs ? eza then "" else "lt");
+      ls = "${pkgs.eza}/bin/eza --group-directories-first";
+      ll = "${pkgs.eza}/bin/eza --group-directories-first -la";
+      la = "${pkgs.eza}/bin/eza --group-directories-first -a";
+      lt = "${pkgs.eza}/bin/eza --group-directories-first --tree";
 
       # Shorter
       g = "git";
@@ -67,9 +67,9 @@
       terraform = "tofu";
 
       # Utility aliases
-      cat = "${pkgs.bat}/bin/bat --style=auto" + (if pkgs ? bat then "" else "cat");
-      find = "${pkgs.fd}/bin/fd" + (if pkgs ? fd then "" else "find");
-      ps = "${pkgs.procs}/bin/procs" + (if pkgs ? procs then "" else "ps");
+      cat = "${pkgs.bat}/bin/bat --style=auto";
+      find = "${pkgs.fd}/bin/fd";
+      ps = "${pkgs.procs}/bin/procs";
 
       # Add verbosity to common commands
       rm = "rm -v";

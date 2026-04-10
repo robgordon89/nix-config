@@ -1,7 +1,8 @@
-{ pkgs
-, inputs
-, hostConfig
-, ...
+{
+  pkgs,
+  inputs,
+  hostConfig,
+  ...
 }:
 {
   users.users.${hostConfig.username} = {
@@ -28,7 +29,7 @@
         programs.man.generateCaches = false;
         home = {
           enableNixpkgsReleaseCheck = false;
-          packages = pkgs.callPackage ./packages.nix { inherit hostConfig; };
+          packages = import ./packages.nix { inherit pkgs hostConfig; };
           stateVersion = "25.05";
         };
 

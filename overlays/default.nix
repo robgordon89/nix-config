@@ -1,6 +1,9 @@
 { inputs, ... }:
 let
   overlayFiles = builtins.filter (file: file != "default.nix") (builtins.attrNames (builtins.readDir ./.));
-  importOverlay = file: import ./${file} { inherit inputs; };
+  overlayList = map (file: import ./${file} { inherit inputs; }) overlayFiles;
 in
-map importOverlay overlayFiles
+{
+  default = final: prev:
+    builtins.foldl' (acc: overlay: acc // (overlay final prev)) { } overlayList;
+}

@@ -1,15 +1,14 @@
-{ pkgs
-, hostConfig ? {
+{
+  pkgs,
+  hostConfig ? {
     extraHomeManagerPackages = [ ];
-  }
-,
+  },
 }:
 with pkgs;
 [
   # Tools
   curl
   wget
-  ripgrep
   openssl
   jq
   (pkgs.lib.hiPrio yq-go)
@@ -56,7 +55,6 @@ with pkgs;
   golangci-lint
 
   # SaaS tools
-  gh
   (google-cloud-sdk.withExtraComponents [
     google-cloud-sdk.components.gke-gcloud-auth-plugin
   ])
@@ -88,7 +86,6 @@ with pkgs;
   })
 
   # Others
-  nodejs_22
   typescript
   yarn
   bun
@@ -103,7 +100,6 @@ with pkgs;
   # Containers and virtualization
   # docker
   (pkgs.lib.hiPrio orbstack)
-  k9s
   # kubectl
   kubectl-df-pv
   kubectx
@@ -119,10 +115,7 @@ with pkgs;
   # Shell tools
   eza # Better ls
   bat # Better cat
-  fd # Better find
   procs # Better ps
-  stable.direnv
-  nix-direnv
   pre-commit
   nix-your-shell
   kcl

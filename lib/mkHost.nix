@@ -15,7 +15,7 @@ let
     extraHomeManagerPackages = [ ];
   } // extraConfig;
 
-  overlays = self.overlays;
+  overlays = builtins.attrValues self.overlays;
   pkgs = import inputs.nixpkgs {
     system = hostConfig.platform;
     inherit overlays;

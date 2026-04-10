@@ -186,7 +186,6 @@ in
 
   "prettier.singleQuote" = false;
   "prettier.requireConfig" = true;
-  "php-cs-fixer.lastDownload" = 1715169674762;
   # "php-cs-fixer.executablePath" = "${extensionPath}/php-cs-fixer.phar";
 
   "files.associations" = {

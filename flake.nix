@@ -64,14 +64,15 @@
   };
 
   outputs =
-    { self
-    , nixpkgs
-    , nix-darwin
-    , home-manager
-    , nix-homebrew
-    , lefthook
-    , mailerlite
-    , ...
+    {
+      self,
+      nixpkgs,
+      nix-darwin,
+      home-manager,
+      nix-homebrew,
+      lefthook,
+      mailerlite,
+      ...
     }@inputs:
 
     let
@@ -107,12 +108,6 @@
       overlays = import ./overlays { inherit inputs; };
 
       #
-      # ========= Libs =========
-      #
-      # Custom libraries for shared functions and utilities.
-      lib = import ./lib;
-
-      #
       # ========= Host Configurations =========
       #
       darwinConfigurations = darwinConfigurations;
@@ -126,7 +121,7 @@
         let
           pkgs = import nixpkgs {
             inherit system;
-            overlays = self.overlays;
+            overlays = builtins.attrValues self.overlays;
           };
         in
         lib.packagesFromDirectoryRecursive {
