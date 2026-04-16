@@ -15,9 +15,9 @@ in
   configurations.darwin.titan.module = {
     imports = [
       darwin.base
-      darwin.slack          # titan-only feature (cask: slack)
-      darwin.zoom           # titan-only feature (cask: zoom)
-      darwin.mailerlite     # titan-only feature (work)
+      darwin.slack
+      darwin.zoom
+      darwin.mailerlite
     ];
     inherit meta;
 

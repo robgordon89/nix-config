@@ -6,8 +6,7 @@ in
   configurations.darwin.thebe.module = {
     imports = [
       darwin.base
-      darwin.beeper          # thebe-only feature (cask: beeper)
+      darwin.beeper
     ];
-    # No meta overrides needed -- all defaults apply.
   };
 }

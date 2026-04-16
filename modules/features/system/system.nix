@@ -9,10 +9,11 @@
     environment.variables.LANG = "en_GB.UTF-8";
     time.timeZone = lib.mkDefault "Europe/London";
 
-    # Nix configuration managed by Determinate Systems.
-    # Leaving this enabled makes nix-darwin rewrite /etc/nix/nix.conf and drop
-    # the installer's `extra-experimental-features = nix-command flakes` line.
-    nix.enable = false;
+    # Nix configuration managed by nix-darwin, compatible with Determinate Nix.
+    # experimental-features must be set explicitly here since nix-darwin rewrites
+    # /etc/nix/nix.conf and would otherwise drop Determinate's settings.
+    nix.enable = true;
+    nix.settings.extra-experimental-features = [ "nix-command" "flakes" ];
 
     system.primaryUser = config.meta.username;
 

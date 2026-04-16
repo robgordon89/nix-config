@@ -55,6 +55,7 @@
           "tamasfe.even-better-toml"
           "pomdtr.excalidraw-editor"
           "anthropic.claude-code"
+          "github.copilot-chat"
         ]);
       };
       mutableExtensionsDir = false;
