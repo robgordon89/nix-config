@@ -1,6 +1,8 @@
 { ... }:
 {
-  flake.modules.darwin.launchAgents = { config, ... }: {
+  flake.modules.darwin.onePassword = { config, ... }: {
+    homebrew.casks = [{ name = "1password"; greedy = true; }];
+
     launchd.user.agents."com.1password.SSH_AUTH_SOCK" = {
       serviceConfig = {
         Label = "com.1password.SSH_AUTH_SOCK";
@@ -11,6 +13,13 @@
         ];
         RunAtLoad = true;
       };
+    };
+  };
+
+  flake.modules.homeManager.onePassword = { ... }: {
+    home.file.".config/1Password/ssh/agent.toml" = {
+      source = ./_1password-agent.toml;
+      recursive = true;
     };
   };
 }

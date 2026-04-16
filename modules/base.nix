@@ -16,26 +16,25 @@ in
       darwin.finder
       darwin.fonts
       darwin.homebrew
-      darwin.launchAgents
       darwin.preferences
       darwin.security
       darwin.services
-      darwin.logiOptions       # cask: logi-options+
-      darwin.cloudflareWarp    # cask: cloudflare-warp
+      darwin.logiOptions # cask: logi-options+
+      darwin.cloudflareWarp # cask: cloudflare-warp
 
       # developer category (darwin-side pieces)
-      darwin.onePassword       # cask: 1password
-      darwin.ghostty           # cask: ghostty
-      darwin.vscode            # cask: visual-studio-code
-      darwin.tableplus         # cask: tableplus
-      darwin.medis             # cask: medis
-      darwin.syntaxHighlight   # cask: syntax-highlight
+      darwin.onePassword # cask: 1password
+      darwin.ghostty # cask: ghostty
+      darwin.vscode # cask: visual-studio-code
+      darwin.tableplus # cask: tableplus
+      darwin.medis # cask: medis
+      darwin.syntaxHighlight # cask: syntax-highlight
 
       # desktop category
-      darwin.brave             # cask: brave-browser
-      darwin.hammerspoon       # cask: hammerspoon
-      darwin.cleanshot         # cask: cleanshot
-      darwin.swiftbar          # cask: swiftbar
+      darwin.brave # cask: brave-browser
+      darwin.hammerspoon # cask: hammerspoon
+      darwin.cleanshot # cask: cleanshot
+      darwin.swiftbar # cask: swiftbar
       # NOTE: darwin.slack and darwin.zoom are NOT in base.nix.
       # They are imported directly by hosts/titan.nix.
     ];
