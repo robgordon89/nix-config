@@ -1,4 +1,18 @@
-{ lib }:
+{ lib, useClaudeSidebar ? false }:
+let
+  chatSidebarCommand =
+    if useClaudeSidebar
+    then "claude-vscode.sidebar.open"
+    else "workbench.action.chat.open";
+  sidebarVisibleContext =
+    if useClaudeSidebar
+    then "sideBarVisible"
+    else "auxiliaryBarVisible";
+  toggleSidebarCommand =
+    if useClaudeSidebar
+    then "workbench.action.toggleSidebarVisibility"
+    else "workbench.action.toggleAuxiliaryBar";
+in
 [
   {
     key = "ctrl+shift+x";
@@ -38,7 +52,13 @@
   }
   {
     key = "alt+cmd+b";
-    command = "claude-vscode.sidebar.open";
+    command = chatSidebarCommand;
+    when = "!${sidebarVisibleContext}";
+  }
+  {
+    key = "alt+cmd+b";
+    command = toggleSidebarCommand;
+    when = sidebarVisibleContext;
   }
   # Fix for ansible extension and copilot
   {
