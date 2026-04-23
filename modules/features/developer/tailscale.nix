@@ -1,6 +1,11 @@
 { ... }:
 {
   flake.modules.darwin.tailscale = {
-    homebrew.casks = [{ name = "tailscale-app"; greedy = true; }];
+    homebrew.casks = [
+      {
+        name = "tailscale-app";
+        greedy = true;
+      }
+    ];
   };
 }
