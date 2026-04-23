@@ -12,7 +12,7 @@
     # Nix configuration managed by nix-darwin, compatible with Determinate Nix.
     # experimental-features must be set explicitly here since nix-darwin rewrites
     # /etc/nix/nix.conf and would otherwise drop Determinate's settings.
-    nix.enable = true;
+    nix.enable = false;
     nix.settings.extra-experimental-features = [ "nix-command" "flakes" ];
 
     system.primaryUser = config.meta.username;
