@@ -36,8 +36,6 @@ in
       darwin.hammerspoon # cask: hammerspoon
       darwin.cleanshot # cask: cleanshot
       darwin.swiftbar # cask: swiftbar
-      # NOTE: darwin.slack and darwin.zoom are NOT in base.nix.
-      # They are imported directly by hosts/titan.nix.
     ];
 
     home-manager.sharedModules = [
