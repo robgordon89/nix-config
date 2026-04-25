@@ -7,23 +7,28 @@
         default = "robert";
         description = "Unix username. Used for home dir, dock, ssh, etc.";
       };
+
       firstName = lib.mkOption {
         type = lib.types.str;
         default = "Robert";
       };
+
       lastName = lib.mkOption {
         type = lib.types.str;
         default = "Gordon";
       };
+
       fullName = lib.mkOption {
         type = lib.types.str;
         default = "${config.meta.firstName} ${config.meta.lastName}";
         defaultText = lib.literalExpression ''"''${config.meta.firstName} ''${config.meta.lastName}"'';
       };
+
       email = lib.mkOption {
         type = lib.types.str;
         default = "rob@ruled.io";
       };
+
       sshPublicKey = lib.mkOption {
         type = lib.types.str;
         default = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEJOD+xGS8a9Q2Dyyah+jH6caM2n4XaJNKRvmbo7NqaY";
@@ -38,6 +43,7 @@
           { "/Applications/Beeper Desktop.app/" = "/Applications/Slack.app/"; }
         '';
       };
+
       dock = lib.mkOption {
         type = lib.types.attrs;
         default = { };
@@ -46,19 +52,23 @@
 
       ssh = {
         enable = lib.mkEnableOption "managed ~/.ssh/config generation";
+
         username = lib.mkOption {
           type = lib.types.str;
           default = config.meta.username;
           defaultText = lib.literalExpression "config.meta.username";
         };
+
         includeOrbstack = lib.mkOption {
           type = lib.types.bool;
           default = true;
         };
+
         use1PasswordAgent = lib.mkOption {
           type = lib.types.bool;
           default = true;
         };
+
         extraConfig = lib.mkOption {
           type = lib.types.lines;
           default = "";
