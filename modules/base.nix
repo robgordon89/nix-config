@@ -27,6 +27,7 @@ in
       darwin.ghostty # cask: ghostty
       darwin.vscode # cask: visual-studio-code
       darwin.tableplus # cask: tableplus
+      darwin.tablepro # cask: tablepro
       darwin.tailscale # cask: tailscale-app
       darwin.medis # cask: medis
       darwin.syntaxHighlight # cask: syntax-highlight

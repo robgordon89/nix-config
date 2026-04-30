@@ -1,6 +1,7 @@
 { ... }:
 {
-  flake.modules.homeManager.claudeCode = { pkgs, ... }:
+  flake.modules.homeManager.claudeCode =
+    { pkgs, ... }:
     let
       settings = {
         env = {
