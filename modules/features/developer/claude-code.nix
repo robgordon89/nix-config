@@ -19,7 +19,6 @@
           "dev-browser@dev-browser-marketplace" = true;
           "spec-interviewer@nkl-plugins" = true;
           "worktrunk@worktrunk" = true;
-          "last30days-skill@last30days" = true;
         };
         extraKnownMarketplaces = {
           "claude-plugins-official" = {
@@ -56,12 +55,6 @@
             source = {
               source = "github";
               repo = "max-sixty/worktrunk";
-            };
-          };
-          "last30days-skill" = {
-            source = {
-              source = "github";
-              repo = "mvanhorn/last30days-skill";
             };
           };
         };
