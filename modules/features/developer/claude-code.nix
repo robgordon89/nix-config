@@ -9,7 +9,7 @@
           ANTHROPIC_MODEL = "opus";
           ANTHROPIC_SMALL_FAST_MODEL = "sonnet";
           ANTHROPIC_DEFAULT_HAIKU_MODEL = "haiku";
-          CLAUDE_CODE_EFFORT_LEVEL = "max";
+          CLAUDE_CODE_EFFORT_LEVEL = "high";
         };
         enabledPlugins = {
           "example-skills@anthropic-agent-skills" = true;

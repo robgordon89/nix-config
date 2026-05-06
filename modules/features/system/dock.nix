@@ -8,7 +8,7 @@
         { app = "/Applications/Ghostty.app"; }
         { app = "/Applications/Beeper Desktop.app"; }
         { app = "/Applications/1Password.app"; }
-        { app = "/Applications/TablePlus.app"; }
+        { app = "/Applications/TablePro.app"; }
         { app = "/System/Applications/System Settings.app"; }
       ];
 
@@ -18,16 +18,18 @@
         let
           overrides = config.meta.dockPathOverrides;
         in
-        map (
-          item:
-          let
-            path = item.app;
-            newPath = overrides.${path + "/"} or overrides.${path} or path;
-          in
-          {
-            app = newPath;
-          }
-        ) apps;
+        map
+          (
+            item:
+            let
+              path = item.app;
+              newPath = overrides.${path + "/"} or overrides.${path} or path;
+            in
+            {
+              app = newPath;
+            }
+          )
+          apps;
 
       # Give default settings a low priority (50)
       defaultDock = lib.mapAttrs (name: value: lib.mkDefault value) {
