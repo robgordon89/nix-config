@@ -86,6 +86,49 @@
           };
         };
 
+        hammerspoon = {
+          caffeine = lib.mkOption {
+            type = lib.types.bool;
+            default = true;
+            description = "Load the caffeine menubar toggle.";
+          };
+          launcher = lib.mkOption {
+            type = lib.types.bool;
+            default = true;
+            description = "Load the AppLauncher spoon.";
+          };
+          windowmanager = lib.mkOption {
+            type = lib.types.bool;
+            default = true;
+            description = "Load the custom window manager.";
+          };
+          reloader = lib.mkOption {
+            type = lib.types.bool;
+            default = true;
+            description = "Load the ReloadConfiguration spoon.";
+          };
+          githubNotifications = lib.mkOption {
+            type = lib.types.bool;
+            default = true;
+            description = "Load the GitHub notifications menubar.";
+          };
+          githubPrs = lib.mkOption {
+            type = lib.types.bool;
+            default = true;
+            description = "Load the GitHub PRs menubar.";
+          };
+          linearNotifications = lib.mkOption {
+            type = lib.types.bool;
+            default = false;
+            description = "Load the Linear notifications menubar.";
+          };
+          incidentIo = lib.mkOption {
+            type = lib.types.bool;
+            default = false;
+            description = "Load the incident.io menubar.";
+          };
+        };
+
         packages = {
           groups = lib.mkOption {
             type = lib.types.listOf (

@@ -9,6 +9,10 @@ let
     dockPathOverrides = {
       "/Applications/Beeper Desktop.app/" = "/Applications/Slack.app/";
     };
+    hammerspoon = {
+      linearNotifications = true;
+      incidentIo = true;
+    };
   };
 in
 {
