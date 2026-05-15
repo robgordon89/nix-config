@@ -15,7 +15,6 @@
 
         Host *
           AddKeysToAgent yes
-          User ${cfg.username}
           UseKeychain yes
           ${lib.optionalString cfg.use1PasswordAgent ''
             IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"

@@ -14,7 +14,7 @@
               tart packer
               ;
             yq-go = pkgs.lib.hiPrio pkgs.yq-go;
-            ffmpeg-full = pkgs.ffmpeg-full;
+            inherit (pkgs) ffmpeg;
             octodns = pkgs.octodns.withProviders (_: [ pkgs.octodns.providers.cloudflare ]);
 
             # Security
