@@ -36,7 +36,6 @@ in
       darwin.brave # cask: brave-browser
       darwin.hammerspoon # cask: hammerspoon
       darwin.cleanshot # cask: cleanshot
-      darwin.swiftbar # cask: swiftbar
     ];
 
     home-manager.sharedModules = [
