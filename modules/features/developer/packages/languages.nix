@@ -7,7 +7,13 @@
           all = {
             python = pkgs.python313.buildEnv.override {
               extraLibs = with pkgs.python313.pkgs; [
-                pyyaml ruff ansible-core git-filter-repo llm llm-ollama llm-cmd
+                pyyaml
+                ruff
+                ansible-core
+                git-filter-repo
+                llm
+                llm-ollama
+                llm-cmd
               ];
             };
             inherit (pkgs) typescript yarn bun cue go php83 deployer cargo;
