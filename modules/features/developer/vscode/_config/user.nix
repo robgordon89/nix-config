@@ -281,4 +281,5 @@
   "extensions.ignoreRecommendations" = true;
   "claudeCode.preferredLocation" = "sidebar";
   "claudeCode.selectedModel" = "claude-opus-4-5";
+  "terraform.experimentalFeatures.validateOnSave" = false;
 }

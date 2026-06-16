@@ -23,11 +23,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1781242427,
-        "narHash": "sha256-Mg4goGBTGgxiEcj+to2TEa80YXGb/UpZgBqk5Wj8rMk=",
+        "lastModified": 1781563175,
+        "narHash": "sha256-9nPT68uFjAQwwX1LoadHqJR2T0W3QeELEdi9W5w/6K4=",
         "owner": "nklmilojevic",
         "repo": "claude-code-overlay",
-        "rev": "e63f9f5dd46fdf826fb3888d5ed104a19f7fc656",
+        "rev": "be9ea34c508d3653694f87c929b8842a5e48fb45",
         "type": "github"
       },
       "original": {
@@ -210,7 +210,7 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-tRjd5e+OcDKET8xfMJv9TpgRQl5mKd/XmvLp+v86WMQ=",
+        "narHash": "sha256-wfelDceyk7i8l+i4DJmHp77109TFqtrHEkcF1lq8f/o=",
         "path": "/Users/robert/dev/mailerlite/mailerlite-nix-config",
         "type": "path"
       },
