@@ -34,7 +34,6 @@
               "github.vscode-github-actions"
               "glitchbl.laravel-create-view"
               "golang.go"
-              "hashicorp.terraform"
               "ihunte.laravel-blade-wrapper"
               "jnoortheen.nix-ide"
               "junstyle.php-cs-fixer"
@@ -62,6 +61,7 @@
               "wolfmah.ansible-vault-inline"
               "tamasfe.even-better-toml"
               "pomdtr.excalidraw-editor"
+              "opentofu.vscode-opentofu"
             ]
             ++ lib.optionals is_work_host [ "anthropic.claude-code" ]
             ++ lib.optionals (!is_work_host) [ "github.copilot-chat" ]

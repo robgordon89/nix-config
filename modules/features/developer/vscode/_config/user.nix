@@ -224,9 +224,6 @@
   "[python]"."editor.formatOnSave" = true;
   "[python]"."editor.defaultFormatter" = "ms-python.black-formatter";
 
-  "[terraform]"."editor.formatOnSave" = true;
-  "[terraform]"."editor.defaultFormatter" = "hashicorp.terraform";
-
   "[typescript]"."editor.tabSize" = 4;
   "[typescript]"."editor.insertSpaces" = true;
   "[typescript]"."editor.formatOnSave" = true;
@@ -234,15 +231,16 @@
 
   "[html]"."editor.defaultFormatter" = "vscode.html-language-features";
 
+  "[opentofu][opentofu-vars]"."editor.defaultFormatter" = "opentofu.vscode-opentofu";
+  "[opentofu][opentofu-vars]"."editor.formatOnSave" = true;
+  "[opentofu][opentofu-vars]"."editor.formatOnSaveMode" = "file";
+
   "redhat.telemetry.enabled" = false;
 
   "yaml.customTags" = [
     "!encrypted/pkcs1-oaep scalar"
     "!vault scalar"
   ];
-
-  "terraform.languageServer.enable" = true;
-  "terraform.languageServer.path" = "";
 
   "python.experiments.enabled" = false;
 
@@ -281,5 +279,4 @@
   "extensions.ignoreRecommendations" = true;
   "claudeCode.preferredLocation" = "sidebar";
   "claudeCode.selectedModel" = "claude-opus-4-5";
-  "terraform.experimentalFeatures.validateOnSave" = false;
 }
