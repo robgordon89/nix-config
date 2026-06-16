@@ -16,9 +16,7 @@
                 llm-cmd
               ];
             };
-            inherit (pkgs) typescript yarn bun cue go php83 deployer cargo;
-            composer = pkgs.lib.hiPrio pkgs.php83Packages.composer;
-            php-cs-fixer = pkgs.php83Packages.php-cs-fixer;
+            inherit (pkgs) typescript yarn bun cue go cargo;
           };
         in
         lib.attrValues (lib.removeAttrs all config.meta.packages.exclude);

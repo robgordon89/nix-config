@@ -54,6 +54,7 @@ in
       homeManager.git
       homeManager.gh
       homeManager.direnv
+      homeManager.php
       homeManager.claudeCode
       homeManager.zsh
       homeManager.neovim
