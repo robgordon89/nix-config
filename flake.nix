@@ -55,7 +55,8 @@
     claude-code-overlay.url = "github:nklmilojevic/claude-code-overlay";
 
     mailerlite = {
-      url = "path:/Users/robert/dev/mailerlite/mailerlite-nix-config";
+      #url = "path:/Users/robert/dev/mailerlite/mailerlite-nix-config";
+      url = "path:/Users/robert/.config/mailerlite/nix-config";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.nixpkgs-stable.follows = "nixpkgs-stable";
       inputs.claude-code-overlay.follows = "claude-code-overlay";
