@@ -7,7 +7,7 @@ let
       team = "sre";
     };
     dockPathOverrides = {
-      "/Applications/Beeper Desktop.app/" = "/Applications/Slack.app/";
+      "" = "/Applications/Slack.app/";
     };
     hammerspoon = {
       linearNotifications = true;
