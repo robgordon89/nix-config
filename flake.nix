@@ -7,7 +7,7 @@
     };
 
     nixpkgs-stable = {
-      url = "github:NixOS/nixpkgs/nixpkgs-25.05-darwin";
+      url = "github:NixOS/nixpkgs/nixpkgs-26.05-darwin";
     };
 
     nix-darwin = {
