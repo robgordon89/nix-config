@@ -11,7 +11,7 @@
               restic ansible-lint nixpkgs-fmt poetry
               go-task chart-testing cmctl swaks ncdu gdu
               graphviz uv parallel doctl ngrok wireguard-tools
-              tart packer
+              tart
               ;
             yq-go = pkgs.lib.hiPrio pkgs.yq-go;
             octodns = pkgs.octodns.withProviders (_: [ pkgs.octodns.providers.cloudflare ]);
