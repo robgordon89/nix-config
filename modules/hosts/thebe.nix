@@ -6,7 +6,6 @@ in
   configurations.darwin.thebe.module = {
     imports = [
       darwin.base
-      darwin.beeper
     ];
   };
 }

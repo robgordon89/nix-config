@@ -7,7 +7,7 @@
           all = {
             inherit (pkgs)
               kubectl-df-pv kubectx fluxcd kubeconform kubernetes-helm
-              skaffold caddy kubebuilder tailscale cilium-cli
+              skaffold caddy kubebuilder cilium-cli
               ;
             orbstack = pkgs.lib.hiPrio pkgs.orbstack;
           };
