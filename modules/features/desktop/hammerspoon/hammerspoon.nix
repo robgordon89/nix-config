@@ -1,7 +1,7 @@
 { ... }:
 {
   flake.modules.darwin.hammerspoon = {
-    homebrew.casks = [ { name = "hammerspoon"; greedy = true; } ];
+    homebrew.casks = [{ name = "hammerspoon"; greedy = true; }];
   };
 
   flake.modules.homeManager.hammerspoon =
@@ -12,7 +12,7 @@
       # Order matches the require order originally hard-coded in init.lua.
       candidates = [
         { flag = "caffeine"; name = "caffeine"; }
-        { flag = "launcher"; name = "launcher"; }
+        { flag = "launcher"; name = "applauncher"; }
         { flag = "windowmanager"; name = "windowmanager"; }
         { flag = "reloader"; name = "reloader"; }
         { flag = "githubNotifications"; name = "github-notifications"; }
