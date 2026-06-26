@@ -26,8 +26,8 @@ local initialRefreshTimer = nil
 local refresh -- forward decl
 
 local iconActive = sf.symbol("lineweight")
-local iconIdle = sf.symbol("lineweight", { color = "gray" })
-local iconMissing = sf.symbol("lineweight", { color = "gray" })
+local iconIdle = sf.symbol("lineweight", { color = "lightGray" })
+local iconMissing = sf.symbol("lineweight", { color = "lightGray" })
 
 local function getToken()
 	return Keychain.get(KEYCHAIN_SERVICE, KEYCHAIN_ACCOUNT)

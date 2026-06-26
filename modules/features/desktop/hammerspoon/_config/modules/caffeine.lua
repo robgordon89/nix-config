@@ -13,7 +13,7 @@ local timedRevertEnd = nil
 local syncTimer = nil
 
 local cupAwake = sf.symbol("cup.and.saucer.fill")
-local cupSleepy = sf.symbol("cup.and.saucer.fill", { color = "gray" })
+local cupSleepy = sf.symbol("cup.and.saucer.fill", { color = "lightGray" })
 
 local function setIcon(awake)
 	if not menubar then

@@ -28,8 +28,8 @@ local initialRefreshTimer = nil
 local refresh -- forward decl
 
 local iconActive = sf.symbol("dot.radiowaves.left.and.right")
-local iconIdle = sf.symbol("dot.radiowaves.left.and.right", { color = "gray" })
-local iconMissing = sf.symbol("exclamationmark.triangle", { color = "gray" })
+local iconIdle = sf.symbol("dot.radiowaves.left.and.right", { color = "lightGray" })
+local iconMissing = sf.symbol("exclamationmark.triangle", { color = "lightGray" })
 
 local function getToken()
 	return Keychain.get(KEYCHAIN_SERVICE, KEYCHAIN_ACCOUNT)

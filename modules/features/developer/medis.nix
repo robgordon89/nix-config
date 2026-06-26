@@ -1,6 +1,6 @@
 { ... }:
 {
   flake.modules.darwin.medis = {
-    homebrew.casks = [ { name = "medis"; greedy = true; } ];
+    homebrew.casks = [{ name = "medis"; greedy = true; }];
   };
 }

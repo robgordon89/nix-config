@@ -26,8 +26,8 @@ local initialRefreshTimer = nil
 local refresh -- forward decl
 
 local iconActive = sf.symbol("arrow.triangle.branch")
-local iconIdle = sf.symbol("arrow.triangle.branch", { color = "gray" })
-local iconMissing = sf.symbol("arrow.triangle.branch", { color = "gray" })
+local iconIdle = sf.symbol("arrow.triangle.branch", { color = "lightGray" })
+local iconMissing = sf.symbol("arrow.triangle.branch", { color = "lightGray" })
 
 local function getToken()
 	return Keychain.get(KEYCHAIN_SERVICE, KEYCHAIN_ACCOUNT)

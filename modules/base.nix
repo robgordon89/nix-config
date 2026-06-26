@@ -35,6 +35,7 @@ in
       darwin.brave # cask: brave-browser
       darwin.hammerspoon # cask: hammerspoon
       darwin.cleanshot # cask: cleanshot
+      darwin.macs-fan-control # cask: macs-fan-control
     ];
 
     home-manager.sharedModules = [
@@ -62,6 +63,7 @@ in
       homeManager.doggo
       homeManager.k9s
       homeManager.ssh
+      homeManager.finderSidebar
 
       # desktop category
       homeManager.hammerspoon

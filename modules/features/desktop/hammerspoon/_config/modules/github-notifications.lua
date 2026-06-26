@@ -22,8 +22,8 @@ local menubar = hs.menubar.new(true, "github-notifications")
 -- repaints it to the menubar foreground (white in dark menubar).
 -- bellIdle/bellMissing: rendered in fixed gray, displayed non-template.
 local bellActive = sf.symbol("bell.fill")
-local bellIdle = sf.symbol("bell.fill", { color = "gray" })
-local bellMissing = sf.symbol("bell.slash", { color = "gray" })
+local bellIdle = sf.symbol("bell.fill", { color = "lightGray" })
+local bellMissing = sf.symbol("bell.slash", { color = "lightGray" })
 local notifications = {}
 local seen = Seen.new("githubNotifSeenIDs")
 local lastBadgeState = nil
