@@ -33,7 +33,7 @@
             ];
 
             # Shell tools
-            inherit (pkgs) eza bat procs pre-commit nix-your-shell kcl lefthook;
+            inherit (pkgs) eza bat procs pre-commit nix-your-shell kcl lefthook sofka;
           };
         in
         lib.attrValues (lib.removeAttrs all config.meta.packages.exclude);

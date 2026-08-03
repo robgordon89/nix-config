@@ -7,6 +7,31 @@
   flake.modules.homeManager.vscode = { config, pkgs, inputs, lib, ... }:
     let
       is_work_host = config.meta.work.enable;
+
+      # Workaround: Anthropic periodically re-publishes the same claude-code
+      # extension version to the VS Marketplace with different bytes, so the
+      # hash pinned in nix4vscode's generated data goes stale and the build
+      # fails with a fixed-output hash mismatch. Override the vsix with the
+      # currently-served hash. Guarded on version so it self-disables once
+      # nix4vscode's data moves past this version.
+      # To refresh after another mismatch, run:
+      #   nix store prefetch-file --name anthropic-claude-code.vsix \
+      #     "https://anthropic.gallery.vsassets.io/_apis/public/gallery/publisher/anthropic/extension/claude-code/<version>/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage?"
+      claudeCodeVsixPin = {
+        version = "2.1.208";
+        hash = "sha256-+qFBbGNNxAAQMBCeHdzQDbczt2Pv3Khchv6TYqivDPM=";
+      };
+      claudeCodeVsix = pkgs.fetchurl {
+        name = "anthropic-claude-code.vsix";
+        url = "https://anthropic.gallery.vsassets.io/_apis/public/gallery/publisher/anthropic/extension/claude-code/${claudeCodeVsixPin.version}/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage?";
+        inherit (claudeCodeVsixPin) hash;
+      };
+      fixClaudeCodeVsix = map (ext:
+        if (ext.vscodeExtUniqueId or "") == "anthropic.claude-code"
+        && (ext.version or "") == claudeCodeVsixPin.version
+        then ext.overrideAttrs (_: { src = claudeCodeVsix; })
+        else ext
+      );
     in
     {
       programs.vscode = {
@@ -21,7 +46,7 @@
           };
           enableUpdateCheck = false;
           enableExtensionUpdateCheck = false;
-          extensions = pkgs.nix4vscode.forVscode (
+          extensions = fixClaudeCodeVsix (pkgs.nix4vscode.forVscode (
             [
               "adamhartford.vscode-base64"
               "amiralizadeh9480.laravel-extra-intellisense"
@@ -65,7 +90,7 @@
             ]
             ++ lib.optionals is_work_host [ "anthropic.claude-code" ]
             ++ lib.optionals (!is_work_host) [ "github.copilot-chat" ]
-          );
+          ));
         };
         mutableExtensionsDir = false;
       };

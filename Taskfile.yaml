@@ -57,6 +57,13 @@ tasks:
       - nix flake update claude-code-overlay
     desc: Update the claude-code-overlay input in the flake.lock file
 
+  update-sofka:
+    silent: true
+    internal: true
+    cmds:
+      - nix flake update sofka
+    desc: Update the sofka input in the flake.lock file
+
   update-hash:
     silent: true
     internal: true
@@ -71,6 +78,7 @@ tasks:
     deps:
       - update-mailerlite
       - update-claude-code
+      - update-sofka
     cmds:
       - task: build-config
       - task: switch-config

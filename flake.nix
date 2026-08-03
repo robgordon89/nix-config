@@ -61,6 +61,12 @@
       inputs.nixpkgs-stable.follows = "nixpkgs-stable";
       inputs.claude-code-overlay.follows = "claude-code-overlay";
     };
+
+    sofka = {
+      url = "github:nklmilojevic/sofka";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);

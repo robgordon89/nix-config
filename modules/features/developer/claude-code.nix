@@ -12,13 +12,10 @@
           CLAUDE_CODE_EFFORT_LEVEL = "high";
         };
         enabledPlugins = {
-          "example-skills@anthropic-agent-skills" = true;
-          "deep-project@piercelamb-plugins" = true;
-          "deep-plan@piercelamb-plugins" = true;
-          "deep-implement@piercelamb-plugins" = true;
-          "dev-browser@dev-browser-marketplace" = true;
           "spec-interviewer@nkl-plugins" = true;
-          "worktrunk@worktrunk" = true;
+          "query@victoriametrics-tools" = true;
+          "diagnostics@victoriametrics-tools" = true;
+          "code-review@claude-plugins-official" = true;
         };
         extraKnownMarketplaces = {
           "claude-plugins-official" = {
@@ -27,34 +24,16 @@
               repo = "anthropics/claude-plugins-official";
             };
           };
-          "anthropic-agent-skills" = {
-            source = {
-              source = "github";
-              repo = "anthropics/skills";
-            };
-          };
           "nkl-plugins" = {
             source = {
               source = "github";
               repo = "nklmilojevic/claude-marketplace";
             };
           };
-          "dev-browser-marketplace" = {
+          "victoriametrics-tools" = {
             source = {
               source = "github";
-              repo = "sawyerhood/dev-browser";
-            };
-          };
-          "piercelamb-plugins" = {
-            source = {
-              source = "github";
-              repo = "piercelamb/deep-project";
-            };
-          };
-          "worktrunk" = {
-            source = {
-              source = "github";
-              repo = "max-sixty/worktrunk";
+              repo = "victoriametrics/skills";
             };
           };
         };

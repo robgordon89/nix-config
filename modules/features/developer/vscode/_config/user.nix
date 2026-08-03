@@ -277,6 +277,5 @@
   };
   "nix.formatterPath" = "nixpkgs-fmt";
   "extensions.ignoreRecommendations" = true;
-  "claudeCode.preferredLocation" = "sidebar";
-  "claudeCode.selectedModel" = "claude-opus-4-5";
+  "claudeCode.useTerminal" = true;
 }

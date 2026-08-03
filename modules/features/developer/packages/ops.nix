@@ -10,6 +10,7 @@
               skaffold caddy kubebuilder cilium-cli
               ;
             orbstack = pkgs.lib.hiPrio pkgs.orbstack;
+
           };
         in
         lib.attrValues (lib.removeAttrs all config.meta.packages.exclude);
