@@ -1,16 +1,46 @@
 { ... }:
 {
-  flake.modules.homeManager.packagesCore = { config, lib, pkgs, ... }:
+  flake.modules.homeManager.packagesCore =
+    {
+      config,
+      lib,
+      pkgs,
+      ...
+    }:
     lib.mkIf (lib.elem "core" config.meta.packages.groups) {
       home.packages =
         let
           all = {
             # Tools
             inherit (pkgs)
-              curl wget openssl jq fzf git sops age mtr netcat socat nmap
-              restic ansible-lint nixpkgs-fmt poetry
-              go-task chart-testing cmctl swaks ncdu gdu
-              graphviz uv parallel doctl ngrok wireguard-tools
+              curl
+              wget
+              openssl
+              jq
+              fzf
+              git
+              sops
+              age
+              mtr
+              netcat
+              socat
+              nmap
+              restic
+              ansible-lint
+              nixpkgs-fmt
+              poetry
+              go-task
+              chart-testing
+              cmctl
+              swaks
+              ncdu
+              gdu
+              graphviz
+              uv
+              parallel
+              doctl
+              ngrok
+              wireguard-tools
               tart
               ;
             yq-go = pkgs.lib.hiPrio pkgs.yq-go;
@@ -33,7 +63,16 @@
             ];
 
             # Shell tools
-            inherit (pkgs) eza bat procs pre-commit nix-your-shell kcl lefthook sofka;
+            inherit (pkgs)
+              eza
+              bat
+              procs
+              pre-commit
+              nix-your-shell
+              kcl
+              lefthook
+              sofka
+              ;
           };
         in
         lib.attrValues (lib.removeAttrs all config.meta.packages.exclude);
