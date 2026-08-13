@@ -7,7 +7,6 @@
         env = {
           CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS = "1";
           ANTHROPIC_MODEL = "opus";
-          ANTHROPIC_SMALL_FAST_MODEL = "sonnet";
           ANTHROPIC_DEFAULT_HAIKU_MODEL = "haiku";
           CLAUDE_CODE_EFFORT_LEVEL = "high";
         };
@@ -16,12 +15,19 @@
           "query@victoriametrics-tools" = true;
           "diagnostics@victoriametrics-tools" = true;
           "code-review@claude-plugins-official" = true;
+          "sre-standards@mailerlite-plugins" = true;
         };
         extraKnownMarketplaces = {
           "claude-plugins-official" = {
             source = {
               source = "github";
               repo = "anthropics/claude-plugins-official";
+            };
+          };
+          "mailerlite-plugins" = {
+            source = {
+              source = "github";
+              repo = "mailerlite/claude-marketplace";
             };
           };
           "nkl-plugins" = {

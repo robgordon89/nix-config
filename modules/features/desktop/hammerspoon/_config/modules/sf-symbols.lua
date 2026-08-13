@@ -56,7 +56,6 @@ var config = NSImage.SymbolConfiguration(pointSize: CGFloat(pointSize), weight: 
 
 let colors: [String: NSColor] = [
     "gray": .gray,
-    "lightGray": NSColor(white: 0.8, alpha: 1.0),
     "secondaryLabel": .secondaryLabelColor,
     "white": .white,
     "black": .black,
@@ -120,27 +119,29 @@ try? png.write(to: URL(fileURLWithPath: outPath))
 ]==]
 
 local function shellEscape(s)
-    return "'" .. (s or ""):gsub("'", "'\\''") .. "'"
+	return "'" .. (s or ""):gsub("'", "'\\''") .. "'"
 end
 
 local function safeName(name)
-    return (name:gsub("[^%w%.]", "_"))
+	return (name:gsub("[^%w%.]", "_"))
 end
 
 local function cachePath(name, size, weight, color)
-    local colorPart = (color and color ~= "") and color or "default"
-    return string.format("%s/%s-%s-%s-%s.png", CACHE_DIR, safeName(name), size, weight, colorPart)
+	local colorPart = (color and color ~= "") and color or "default"
+	return string.format("%s/%s-%s-%s-%s.png", CACHE_DIR, safeName(name), size, weight, colorPart)
 end
 
 -- Always (re)write the renderer at module load so updates take effect on
 -- Hammerspoon reload without manual cache busting.
 local function writeRenderer()
-    hs.execute("mkdir -p " .. shellEscape(CACHE_DIR))
-    local out = io.open(RENDERER, "w")
-    if not out then return false end
-    out:write(SWIFT_RENDERER)
-    out:close()
-    return true
+	hs.execute("mkdir -p " .. shellEscape(CACHE_DIR))
+	local out = io.open(RENDERER, "w")
+	if not out then
+		return false
+	end
+	out:write(SWIFT_RENDERER)
+	out:close()
+	return true
 end
 writeRenderer()
 
@@ -151,23 +152,29 @@ writeRenderer()
 -- opts.size: SF Symbol point size (default 14, which is what SwiftBar uses
 --            and what looks right in the macOS menubar)
 function M.symbol(name, opts)
-    opts = opts or {}
-    local pointSize = opts.size or 14
-    local weight = opts.weight or "regular"
-    local color = opts.color or ""
-    local path = cachePath(name, pointSize, weight, color)
+	opts = opts or {}
+	local pointSize = opts.size or 14
+	local weight = opts.weight or "regular"
+	local color = opts.color or ""
+	local path = cachePath(name, pointSize, weight, color)
 
-    if not hs.fs.attributes(path) then
-        local cmd = string.format(
-            "/usr/bin/swift %s %s %d %s %s %s 2>/dev/null",
-            shellEscape(RENDERER), shellEscape(name), pointSize,
-            shellEscape(weight), shellEscape(color), shellEscape(path)
-        )
-        hs.execute(cmd)
-    end
+	if not hs.fs.attributes(path) then
+		local cmd = string.format(
+			"/usr/bin/swift %s %s %d %s %s %s 2>/dev/null",
+			shellEscape(RENDERER),
+			shellEscape(name),
+			pointSize,
+			shellEscape(weight),
+			shellEscape(color),
+			shellEscape(path)
+		)
+		hs.execute(cmd)
+	end
 
-    if not hs.fs.attributes(path) then return nil end
-    return hs.image.imageFromPath(path)
+	if not hs.fs.attributes(path) then
+		return nil
+	end
+	return hs.image.imageFromPath(path)
 end
 
 return M

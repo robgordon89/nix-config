@@ -10,6 +10,7 @@ local sf = require("modules/sf-symbols")
 local httpx = require("modules/http")
 local Keychain = require("modules/keychain")
 local Seen = require("modules/seen")
+local Strings = require("modules/strings")
 
 local KEYCHAIN_SERVICE = "swiftbar-github"
 local KEYCHAIN_ACCOUNT = "token"
@@ -22,8 +23,8 @@ local menubar = hs.menubar.new(true, "github-notifications")
 -- repaints it to the menubar foreground (white in dark menubar).
 -- bellIdle/bellMissing: rendered in fixed gray, displayed non-template.
 local bellActive = sf.symbol("bell.fill")
-local bellIdle = sf.symbol("bell.fill", { color = "lightGray" })
-local bellMissing = sf.symbol("bell.slash", { color = "lightGray" })
+local bellIdle = sf.symbol("bell.fill", { color = "gray" })
+local bellMissing = sf.symbol("bell.slash", { color = "gray" })
 local notifications = {}
 local seen = Seen.new("githubNotifSeenIDs")
 local lastBadgeState = nil
@@ -87,11 +88,15 @@ local function deleteToken()
 end
 
 local function setBadge()
-	if not menubar then return end
+	if not menubar then
+		return
+	end
 	local hasToken = getToken() ~= nil
 	local count = #notifications
 	local state = string.format("%s:%d", hasToken and "token" or "missing", count)
-	if state == lastBadgeState then return end
+	if state == lastBadgeState then
+		return
+	end
 	lastBadgeState = state
 
 	local icon, isTemplate
@@ -120,7 +125,9 @@ end
 
 local function authHeaders()
 	local token = getToken()
-	if not token then return nil end
+	if not token then
+		return nil
+	end
 	return {
 		["Accept"] = "application/vnd.github+json",
 		["Authorization"] = "Bearer " .. token,
@@ -128,34 +135,46 @@ local function authHeaders()
 end
 
 local function apiToWebURL(apiURL)
-	if not apiURL then return nil end
+	if not apiURL then
+		return nil
+	end
 	return (apiURL:gsub("api%.github%.com/repos", "github.com"):gsub("/pulls/", "/pull/"))
 end
 
 local function markThreadRead(id, callback)
 	local headers = authHeaders()
 	if not headers or not id then
-		if callback then callback() end
+		if callback then
+			callback()
+		end
 		return
 	end
-	httpx.send("PATCH", "https://api.github.com/notifications/threads/" .. id, headers,
-		function(ok, err)
-			if not ok then print("[gh-notif] markThreadRead " .. id .. " failed: " .. (err or "")) end
-			if callback then callback() end
-		end)
+	httpx.send("PATCH", "https://api.github.com/notifications/threads/" .. id, headers, function(ok, err)
+		if not ok then
+			print("[gh-notif] markThreadRead " .. id .. " failed: " .. (err or ""))
+		end
+		if callback then
+			callback()
+		end
+	end)
 end
 
 local function markAllRead(callback)
 	local headers = authHeaders()
 	if not headers then
-		if callback then callback() end
+		if callback then
+			callback()
+		end
 		return
 	end
-	httpx.send("PUT", "https://api.github.com/notifications", headers,
-		function(ok, err)
-			if not ok then print("[gh-notif] markAllRead failed: " .. (err or "")) end
-			if callback then callback() end
-		end)
+	httpx.send("PUT", "https://api.github.com/notifications", headers, function(ok, err)
+		if not ok then
+			print("[gh-notif] markAllRead failed: " .. (err or ""))
+		end
+		if callback then
+			callback()
+		end
+	end)
 end
 
 local function notifyOne(notif)
@@ -166,17 +185,27 @@ local function notifyOne(notif)
 	local webURL = apiToWebURL(subj.url)
 	local id = notif.id
 
-	hs.notify.new(function()
-		if id then markThreadRead(id, function() if refresh then refresh() end end) end
-		if webURL then hs.urlevent.openURL(webURL) end
-	end, {
-		title = "GitHub: " .. typeStr,
-		subTitle = reasonStr,
-		informativeText = title,
-		autoWithdraw = true,
-		hasActionButton = true,
-		actionButtonTitle = "Open",
-	}):send()
+	hs.notify
+		.new(function()
+			if id then
+				markThreadRead(id, function()
+					if refresh then
+						refresh()
+					end
+				end)
+			end
+			if webURL then
+				hs.urlevent.openURL(webURL)
+			end
+		end, {
+			title = "GitHub: " .. typeStr,
+			subTitle = reasonStr,
+			informativeText = title,
+			autoWithdraw = true,
+			hasActionButton = true,
+			actionButtonTitle = "Open",
+		})
+		:send()
 end
 
 local function dismissOne(id, webURL)
@@ -189,14 +218,18 @@ local function dismissOne(id, webURL)
 	markDismissed(id)
 	setBadge()
 	markThreadRead(id)
-	if webURL then hs.urlevent.openURL(webURL) end
+	if webURL then
+		hs.urlevent.openURL(webURL)
+	end
 end
 
 local function promptForToken()
 	local btn, token = hs.dialog.textPrompt(
 		"GitHub Token",
 		"Paste a GitHub Personal Access Token with the 'notifications' scope.",
-		"", "Save", "Cancel"
+		"",
+		"Save",
+		"Cancel"
 	)
 	if btn == "Save" and token and token ~= "" then
 		setToken(token)
@@ -213,7 +246,9 @@ local function buildMenu()
 		table.insert(items, { title = "Set token…", fn = promptForToken })
 		table.insert(items, {
 			title = "Get a token…",
-			fn = function() hs.urlevent.openURL("https://github.com/settings/tokens") end,
+			fn = function()
+				hs.urlevent.openURL("https://github.com/settings/tokens")
+			end,
 		})
 		return items
 	end
@@ -227,7 +262,7 @@ local function buildMenu()
 			local title = subj.title or ""
 			local repo = (notif.repository or {}).full_name or ""
 			local reasonStr = REASON_TEXT[notif.reason] or notif.reason or ""
-			local short = #title > 60 and (title:sub(1, 57) .. "…") or title
+			local short = Strings.truncate(title, 60)
 			local label = string.format("%s — %s (%s)", short, repo, reasonStr)
 			local webURL
 			if typ == "Issue" or typ == "PullRequest" then
@@ -238,13 +273,20 @@ local function buildMenu()
 			local id = notif.id
 			table.insert(items, {
 				title = label,
-				fn = function() dismissOne(id, webURL) end,
+				fn = function()
+					dismissOne(id, webURL)
+				end,
 			})
 		end
 	end
 
 	table.insert(items, { title = "-" })
-	table.insert(items, { title = "Refresh", fn = function() refresh() end })
+	table.insert(items, {
+		title = "Refresh",
+		fn = function()
+			refresh()
+		end,
+	})
 	table.insert(items, {
 		title = "Mark all as read",
 		fn = function()
@@ -253,16 +295,26 @@ local function buildMenu()
 			end
 			notifications = {}
 			setBadge()
-			markAllRead(function() if refresh then refresh() end end)
+			markAllRead(function()
+				if refresh then
+					refresh()
+				end
+			end)
 		end,
 	})
 	table.insert(items, {
 		title = "Open on GitHub",
-		fn = function() hs.urlevent.openURL("https://github.com/notifications") end,
+		fn = function()
+			hs.urlevent.openURL("https://github.com/notifications")
+		end,
 	})
 	table.insert(items, {
 		title = "Clear local cache",
-		fn = function() if clearDismissed then clearDismissed() end end,
+		fn = function()
+			if clearDismissed then
+				clearDismissed()
+			end
+		end,
 	})
 	table.insert(items, { title = "-" })
 	table.insert(items, {
@@ -295,10 +347,14 @@ refresh = function()
 		end
 
 		local filtered = filterDismissed(data)
-		print(string.format(
-			"[gh-notif] refresh ok: api=%d dismissed_filtered=%d kept=%d",
-			#data, #data - #filtered, #filtered
-		))
+		print(
+			string.format(
+				"[gh-notif] refresh ok: api=%d dismissed_filtered=%d kept=%d",
+				#data,
+				#data - #filtered,
+				#filtered
+			)
+		)
 
 		if seen.primed then
 			for _, n in ipairs(filtered) do
@@ -323,10 +379,14 @@ end
 -- "still in cooldown" filter can be reset without an hs.reload.
 clearDismissed = function()
 	local n = 0
-	for _ in pairs(dismissedAt) do n = n + 1 end
+	for _ in pairs(dismissedAt) do
+		n = n + 1
+	end
 	dismissedAt = {}
 	print(string.format("[gh-notif] cleared %d dismissed entries", n))
-	if refresh then refresh() end
+	if refresh then
+		refresh()
+	end
 end
 
 if menubar then
