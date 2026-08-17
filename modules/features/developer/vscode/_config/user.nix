@@ -278,4 +278,12 @@
   "nix.formatterPath" = "nixpkgs-fmt";
   "extensions.ignoreRecommendations" = true;
   "claudeCode.useTerminal" = true;
+  "yaml.disableSchemaDetection" = [
+    "**/.github/workflows/*.yml"
+    "**/.github/workflows/*.yaml"
+    "**/.gitea/workflows/*.yml"
+    "**/.gitea/workflows/*.yaml"
+    "**/.forgejo/workflows/*.yml"
+    "**/.forgejo/workflows/*.yaml"
+  ];
 }
