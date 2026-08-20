@@ -23,11 +23,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1786614904,
-        "narHash": "sha256-0SbXhPthuN+weUbQpOWUoY9UBWeYpKm6MGJBhIv5+J4=",
+        "lastModified": 1787191942,
+        "narHash": "sha256-cawjUVfiX3atnhtNxcf+u2JLr/X70WgxElvACubkrQc=",
         "owner": "nklmilojevic",
         "repo": "claude-code-overlay",
-        "rev": "290d7e1c8b13fe18ae01d44a58b2f8b2e04856fd",
+        "rev": "8259fa3e67b5a26c3b40017e9b18fad06723e2de",
         "type": "github"
       },
       "original": {
@@ -210,7 +210,7 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-Sm+8qSmSIJlCApGblDAcEZcks/iCvcUx0hQSlfYZnLk=",
+        "narHash": "sha256-CEFr6H5+X67NmQhpLWNUZfKr0P7tj8pZbsg9ANm+Ufg=",
         "path": "/Users/robert/.config/mailerlite/nix-config",
         "type": "path"
       },
@@ -225,11 +225,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1771525832,
-        "narHash": "sha256-ZOOaaVpi1jHKCwhVlTUbVQKlMHQuMaSPsTaodDm2onQ=",
+        "lastModified": 1787050399,
+        "narHash": "sha256-ioC6VIZ5ULOV/7hcaOEckSzTzWGrSRFh4Jdqf2NXKCc=",
         "owner": "mailerlite",
         "repo": "mailerlite-cli",
-        "rev": "2dbcba26016620be0b42d2da5a7dd3cb04d49a2e",
+        "rev": "712e0b84825f0f7a21e5813dd264651d428bd318",
         "type": "github"
       },
       "original": {
@@ -244,11 +244,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1771525327,
-        "narHash": "sha256-KxEyuMUtNtGqwwEY80pLwQiqs1CiNbDZ4YYoAlXd8Gk=",
+        "lastModified": 1787061353,
+        "narHash": "sha256-mWElhxrAYtASpK2pMHkKTmKjb3Br3nIafzNcl3XCNao=",
         "owner": "mailersend",
         "repo": "mailersend-cli",
-        "rev": "532628ea6d1e9cb09112623bee9ced1a8e78b811",
+        "rev": "b32c7f5abad6830745fee23af5dc40d35c28cd39",
         "type": "github"
       },
       "original": {
@@ -452,11 +452,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1786431874,
-        "narHash": "sha256-HDIQY7jUNeMSa8GzDVFj0XVV94taonoY1tfkgU5TGQg=",
+        "lastModified": 1787142687,
+        "narHash": "sha256-lgd5ackC2h24THnjftcZbEvE/LhZPjwL6q6qoerqCYc=",
         "owner": "nklmilojevic",
         "repo": "sofka",
-        "rev": "a5fb693098ccb0db2c2176d47ab913a110bb22a3",
+        "rev": "f34a444e409dff40be66b39bc177e5c90dc5c19a",
         "type": "github"
       },
       "original": {

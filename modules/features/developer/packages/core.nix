@@ -1,11 +1,10 @@
 { ... }:
 {
   flake.modules.homeManager.packagesCore =
-    {
-      config,
-      lib,
-      pkgs,
-      ...
+    { config
+    , lib
+    , pkgs
+    , ...
     }:
     lib.mkIf (lib.elem "core" config.meta.packages.groups) {
       home.packages =
@@ -57,10 +56,16 @@
 
             # SaaS / cloud
             _1password-cli = pkgs._1password-cli;
-            inherit (pkgs) opentofu spacectl;
+
+            inherit (pkgs)
+              opentofu
+              awscli2
+              spacectl
+              ;
             google-cloud-sdk = pkgs.google-cloud-sdk.withExtraComponents [
               pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
             ];
+
 
             # Shell tools
             inherit (pkgs)
