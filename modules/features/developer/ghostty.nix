@@ -1,7 +1,12 @@
 { ... }:
 {
   flake.modules.darwin.ghostty = {
-    homebrew.casks = [{ name = "ghostty"; greedy = true; }];
+    homebrew.casks = [
+      {
+        name = "ghostty";
+        greedy = true;
+      }
+    ];
   };
 
   flake.modules.homeManager.ghostty = { config, ... }: {
