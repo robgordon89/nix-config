@@ -1,5 +1,6 @@
 [
   "*~"
+  ".claude/settings.local.json"
   ".DS_Store"
   ".vscode/"
   ".idea/"

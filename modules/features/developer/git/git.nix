@@ -1,6 +1,9 @@
 { ... }:
 {
   flake.modules.homeManager.git = { config, pkgs, ... }: {
+    # Exposes `git branch-status` via PATH.
+    home.packages = [ pkgs.git-branch-status ];
+
     programs.git = {
       enable = true;
       package = pkgs.git;

@@ -1,7 +1,7 @@
 { ... }:
 {
   flake.modules.darwin.ghostty = {
-    homebrew.casks = [ { name = "ghostty"; greedy = true; } ];
+    homebrew.casks = [{ name = "ghostty"; greedy = true; }];
   };
 
   flake.modules.homeManager.ghostty = { config, ... }: {
@@ -14,10 +14,11 @@
       adjust-cell-height = 2
 
       # Window appearance
-      window-decoration = false
       window-padding-x = 8
       window-padding-y = 8
       confirm-close-surface = false
+      macos-titlebar-style = tabs
+      macos-window-buttons = hidden
 
       # Color scheme - auto switch based on system appearance
       theme = dark:Black Metal (Mayhem),light:Builtin Solarized Light
@@ -25,7 +26,7 @@
       # Misc
       copy-on-select = clipboard
       mouse-hide-while-typing = true
-      shell-integration = none
+      shell-integration = zsh
       working-directory = home
       bell-features = no-system, border
 

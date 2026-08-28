@@ -66,7 +66,6 @@
               pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
             ];
 
-
             # Shell tools
             inherit (pkgs)
               eza

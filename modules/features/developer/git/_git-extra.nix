@@ -12,6 +12,9 @@
   push = {
     default = "current";
   };
+  commit = {
+    gpgSign = true;
+  };
   tag = {
     gpgSign = true;
   };

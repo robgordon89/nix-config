@@ -23,11 +23,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1787191942,
-        "narHash": "sha256-cawjUVfiX3atnhtNxcf+u2JLr/X70WgxElvACubkrQc=",
+        "lastModified": 1787904899,
+        "narHash": "sha256-/x94yju/LJd95dvfv0c7qsDckPhF4rYbPgocYN50/FI=",
         "owner": "nklmilojevic",
         "repo": "claude-code-overlay",
-        "rev": "8259fa3e67b5a26c3b40017e9b18fad06723e2de",
+        "rev": "f8bc3a0b24b4fbe0a612ec3b5941ed9ea69a5ee7",
         "type": "github"
       },
       "original": {
@@ -210,7 +210,7 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-CEFr6H5+X67NmQhpLWNUZfKr0P7tj8pZbsg9ANm+Ufg=",
+        "narHash": "sha256-0EY3Toa865iLP+0cjo/2+Z91DizQ3ngzjF5vi2JLeSI=",
         "path": "/Users/robert/.config/mailerlite/nix-config",
         "type": "path"
       },
@@ -452,11 +452,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787142687,
-        "narHash": "sha256-lgd5ackC2h24THnjftcZbEvE/LhZPjwL6q6qoerqCYc=",
+        "lastModified": 1787583718,
+        "narHash": "sha256-sZZAL1BOS4pi1RN1E1lx/nKsIxAggKaGU/MerziNLPk=",
         "owner": "nklmilojevic",
         "repo": "sofka",
-        "rev": "f34a444e409dff40be66b39bc177e5c90dc5c19a",
+        "rev": "9b038bdc0fa2459b64dc17e89124e29cac9728f0",
         "type": "github"
       },
       "original": {
