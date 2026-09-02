@@ -1,11 +1,10 @@
 { ... }:
 {
   flake.modules.homeManager.packagesCore =
-    {
-      config,
-      lib,
-      pkgs,
-      ...
+    { config
+    , lib
+    , pkgs
+    , ...
     }:
     lib.mkIf (lib.elem "core" config.meta.packages.groups) {
       home.packages =
@@ -77,6 +76,7 @@
               kcl
               lefthook
               sofka
+              herdr
               ;
           };
         in

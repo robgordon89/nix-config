@@ -67,6 +67,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    herdr = {
+      url = "github:herdrdev/herdr";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
