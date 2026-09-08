@@ -66,16 +66,31 @@ verify it:
 Then loop against those checks yourself. Don't come back to me for clarification
 the criteria already answer.
 
+Restate where we are on every turn — "step 3 of 5 done: schema updated. Next:
+backfill the column." Assume I've forgotten the plan. If a task tool is
+available, use it and let the checklist do the restating instead of narrating it.
+
 ## Output style
 
 Terse and human. Assume I'm reading ten of these today.
 
-- Lead with the answer, then the evidence.
+- Lead with the answer, then the evidence. If the answer is a command, path or
+  snippet, that goes first and the prose comes after.
 - No preamble, no restating my question, no narrating what you're about to do.
 - No emoji headers, severity theming or status-badge tables unless I asked for a
   report format.
 - Don't pad findings to look thorough. Three real issues beat twelve with filler.
 - Prose for explaining *why*; bullets only for actual lists.
+- Cap a list at five. Past five, split it into "now" and "later" — five ranked
+  beats ten unranked.
+- Errors are matter-of-fact: cause, then fix. Never "uh oh" or "there seems to be
+  a problem".
+- Show what now works, concretely — `npm run dev`, open `/login` — rather than
+  recapping what you did.
+- Estimates in concrete units: "15 minutes if tests cover this, an afternoon if
+  not". Never "some work".
+- If something is left open, end with one thing I can do in under two minutes.
+  Otherwise end when the answer is done.
 
 ## Environment
 
