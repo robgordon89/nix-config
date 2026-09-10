@@ -1,11 +1,10 @@
 { ... }:
 {
   flake.modules.homeManager.packagesCore =
-    {
-      config,
-      lib,
-      pkgs,
-      ...
+    { config
+    , lib
+    , pkgs
+    , ...
     }:
     lib.mkIf (lib.elem "core" config.meta.packages.groups) {
       home.packages =
@@ -42,6 +41,7 @@
               ngrok
               wireguard-tools
               tart
+              zstd
               ;
             yq-go = pkgs.lib.hiPrio pkgs.yq-go;
             octodns = pkgs.octodns.withProviders (_: [ pkgs.octodns.providers.cloudflare ]);
