@@ -23,11 +23,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1788672088,
-        "narHash": "sha256-MtpZj2kze0x85Wofph4JgFrt2k2K3tvGLyzEt0rAo/A=",
+        "lastModified": 1788989115,
+        "narHash": "sha256-VL3viIRP6QJ5c8fsCuLUqo+m3ArShRfwfLSOO3BVT5U=",
         "owner": "nklmilojevic",
         "repo": "claude-code-overlay",
-        "rev": "e8c04875e0146a0daff6792445b1c5e70ed2a74e",
+        "rev": "6f298aa84f0e14e23e244f4932987a950f61beaa",
         "type": "github"
       },
       "original": {
@@ -149,6 +149,28 @@
         "type": "github"
       }
     },
+    "home-manager_2": {
+      "inputs": {
+        "nixpkgs": [
+          "sofka",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788642154,
+        "narHash": "sha256-sPpQFVaFTDqO/4vvCAhuAhqTgqN/ygu+9eJcs5eB0js=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "fd0956c99c41ae3c13a73a638f1f7e963aebc4ab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "release-26.05",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
     "homebrew-cask": {
       "flake": false,
       "locked": {
@@ -231,12 +253,12 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-0EY3Toa865iLP+0cjo/2+Z91DizQ3ngzjF5vi2JLeSI=",
-        "path": "/Users/robert/.config/mailerlite/nix-config",
+        "narHash": "sha256-EnaZQ1bCUMdyJwUs5JYXnUMgeAgvAAUDq3qOVgcRes0=",
+        "path": "/Users/robert/dev/mailerlite/mailerlite-nix-config",
         "type": "path"
       },
       "original": {
-        "path": "/Users/robert/.config/mailerlite/nix-config",
+        "path": "/Users/robert/dev/mailerlite/mailerlite-nix-config",
         "type": "path"
       }
     },
@@ -490,16 +512,17 @@
     },
     "sofka": {
       "inputs": {
+        "home-manager": "home-manager_2",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1789029639,
-        "narHash": "sha256-3FT0ii6j3UoJ4EfgLHSLQBI75AcMd54RoS+ez3+Koa8=",
+        "lastModified": 1789063636,
+        "narHash": "sha256-7+RQZA4OTGSGEQo9FjhFL1oIOrgGAuus6CfEZNvQcyw=",
         "owner": "nklmilojevic",
         "repo": "sofka",
-        "rev": "f3744a4c2e65ce3d96b6e2f07455157cb83d8f0b",
+        "rev": "b02512f889e03648902197455b146afb17c785ff",
         "type": "github"
       },
       "original": {
