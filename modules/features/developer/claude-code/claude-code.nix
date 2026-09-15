@@ -8,8 +8,7 @@
         feedbackSurveyRate = 0;
         spinnerTipsEnabled = false;
         env = {
-          ANTHROPIC_MODEL = "opus";
-          CLAUDE_CODE_EFFORT_LEVEL = "high";
+          CLAUDE_CODE_EFFORT_LEVEL = "max";
         };
         # Read-only commands only. Anything that mutates state (git push, kubectl
         # apply/delete, tofu apply, rm, docker run) deliberately still prompts.

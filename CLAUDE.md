@@ -1,117 +1,51 @@
-# Nix Configuration Project
+# nix-config
 
-## Project Overview
+nix-darwin + home-manager for two Apple Silicon Macs, built with flake-parts +
+import-tree (dendritic pattern).
 
-This is a Nix/nix-darwin/home-manager configuration for two macOS hosts:
-- **Titan**: Work machine (MailerLite SRE team)
-- **Thebe**: Personal machine
+## Hosts
 
-## Host Differences
+- **europa** — work (MailerLite SRE). Sets `meta.work`, adds Slack/Zoom and the
+  modules from the `mailerlite` flake input.
+- **thebe** — personal. `darwin.base` only.
 
-### Titan (Work)
-- Slack instead of Beeper in dock
-- MailerLite SRE packages and modules
-- SSH username: "robert"
+Defined in `modules/hosts/`. `task build` resolves the host from the machine's
+ComputerName, so the attr name must match the hostname.
 
-### Thebe (Personal)
-- No custom config
+## Layout
 
-### Shared Configuration
-- Both hosts use VS Code as the editor
-- Same VS Code settings, keybindings, and extensions
-- Same font configuration (TX-02, monospace)
-- Same terminal setup (ghostty)
-- Same Neovim and Zsh configuration
+- `modules/` — every `.nix` file here is imported automatically; paths starting
+  with `_` are skipped (`_config/` holds dotfiles and split-out settings).
+- `modules/meta.nix` — the `meta.*` options (username, work, dock, hammerspoon,
+  packages…). Per-host differences belong here as options, not as host branches.
+- `modules/base.nix` — the shared host: which darwin and home-manager modules
+  get imported.
+- `modules/features/{system,developer,desktop,work}/` — one module per app or
+  concern.
+- `overlays/`, `pkgs/` — package overrides and local derivations.
 
-## Project Structure
+## Adding a module
 
-- `hosts.nix`: Main host configuration for titan and thebe
-- `flake.nix`: Flake configuration
-- `lib/mkHost.nix`: Host builder
-- `modules/shared/`: Configuration shared by both hosts
-- `modules/darwin/`: macOS-specific modules
-- `overlays/`: Package overlays and modifications
-- `pkgs/`: Custom packages
-- `hosts/`: Host-specific overrides (minimal)
-
-## Key Files
-
-- VS Code settings: `modules/darwin/programs/vscode/config/user.nix`
-- VS Code keybindings: `modules/darwin/programs/vscode/config/keybindings.nix`
-- VS Code extensions: `modules/darwin/programs/vscode/default.nix`
-- Claude Code settings: `modules/shared/programs/claude-code.nix`
-- Host configuration: `hosts.nix`
-- Zsh configuration: `modules/shared/programs/zsh/default.nix`
-
-## Development Workflow
-
-### Building and Testing
-- Use `task build` to build the configuration and switch
-- Use `task update` to update nix flakes
-- Use `task update-mailerlite` for just updating mailerlite flake
-- Use `nix flake check` to validate the flake
-
-### Configuration Changes
-1. Edit the appropriate module file
-2. Test with `nix flake check`
-3. Build with `task build`
-4. Restart affected services if needed
-
-### Adding New Packages
-- System packages: Add to `modules/darwin/packages.nix`
-- Home Manager packages: Add to `modules/shared/packages.nix`
-- Custom packages to build: Add to `pkgs/` directory
-- Overlays: Add to `overlays/` directory
-
-### Adding New Programs
-- VS Code extensions: Add to `modules/darwin/programs/vscode/default.nix`
-- Neovim plugins: Add to `modules/shared/programs/neovim/default.nix`
-- Zsh plugins: Add to `modules/shared/programs/zsh/default.nix`
-- Custom programs: Create new module in appropriate directory
-
-## Nix Coding Standards
-
-### General Principles
-- Use declarative configuration over imperative
-- Prefer home-manager modules over direct file creation
-- Use overlays for package modifications
-- Keep host-specific config minimal, use shared modules
-
-### Nix Language Conventions
-- Use snake_case for variable names
-- Use camelCase for attribute names
-- Prefer `mkIf` and `mkDefault` for conditional config
-- Use `lib.mkMerge` for combining configurations
-- Use `lib.mkBefore`/`lib.mkAfter` for ordering
-
-### Configuration Patterns
-- Use `extraConfig` for host-specific overrides
-- Use `extraModules` for additional home-manager modules
-- Use `dockPathOverrides` for application substitutions in dock
-
-### Module Structure
 ```nix
-{ config, lib, pkgs, ... }:
+{ ... }:
 {
-  options = {
-    # Define options here
-  };
-
-  config = lib.mkIf config.enable {
-    # Implementation here
-  };
+  flake.modules.darwin.foo = { homebrew.casks = [ "foo" ]; };
+  flake.modules.homeManager.foo = { ... };
 }
 ```
 
-## Debugging
+Then list `darwin.foo` / `homeManager.foo` in `modules/base.nix`. Gate optional
+parts with `lib.mkIf config.meta.<option>`.
 
-### Common Issues
-- **Git**: Make sure all files are staged (or you will get errors)
-- **Package conflicts**: Check overlays and package priorities
-- **Service failures**: Check `modules/darwin/services.nix`
-- **Font issues**: Check `modules/darwin/fonts.nix`
+Packages go in `modules/features/developer/packages/{core,languages,ops}.nix`;
+a cask belongs to the module that owns the app.
 
-### Debugging Commands
-- `nix flake show` - Show flake structure
-- `nix eval .#darwinConfigurations.titan.config` - Evaluate config
-- `task build` - Build and switch
+## Workflow
+
+- `task build` — build and switch (refreshes the `mailerlite`,
+  `claude-code-overlay` and `sofka` inputs first)
+- `task update` / `task update-build` — update `flake.lock`
+- `nix flake check`
+- `git add` new files before building — Nix ignores untracked files and the
+  failure looks like the file doesn't exist.
+- `nixfmt` runs on staged `.nix` files via lefthook.

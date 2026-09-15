@@ -23,6 +23,7 @@ in
       darwin.cloudflareWarp # cask: cloudflare-warp
 
       # developer category (darwin-side pieces)
+      darwin.cmux # cask: cmux
       darwin.onePassword # cask: 1password
       darwin.ghostty # cask: ghostty
       darwin.vscode # cask: visual-studio-code

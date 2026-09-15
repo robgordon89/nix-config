@@ -4,7 +4,12 @@
     imports = [ inputs.mailerlite.modules.darwin.defaults ];
 
     config = lib.mkIf config.meta.work.enable {
-      mailerlite.team = config.meta.work.team;
+      mailerlite = {
+        team = config.meta.work.team;
+        autoUpdate = {
+          enable = true;
+        };
+      };
     };
   };
 
