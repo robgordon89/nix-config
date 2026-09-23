@@ -108,27 +108,6 @@
         "type": "github"
       }
     },
-    "herdr": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "rust-overlay": "rust-overlay"
-      },
-      "locked": {
-        "lastModified": 1790032847,
-        "narHash": "sha256-PYdjCSs+O1tX3RKdZ09ZTA3M+NwlnKhWbjNU8YhuG8s=",
-        "owner": "herdrdev",
-        "repo": "herdr",
-        "rev": "8ac9542757292f7a8d42a2d532bc6a8a33c7ffce",
-        "type": "github"
-      },
-      "original": {
-        "owner": "herdrdev",
-        "repo": "herdr",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -184,22 +163,6 @@
       "original": {
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "type": "github"
-      }
-    },
-    "homebrew-cmux": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1785744424,
-        "narHash": "sha256-Q3R/3rFAT84Lthm1jUI4BK/klno0IzrWun79c/RFO1I=",
-        "owner": "manaflow-ai",
-        "repo": "homebrew-cmux",
-        "rev": "2923c738081350f309068ff3120f7aeb00722126",
-        "type": "github"
-      },
-      "original": {
-        "owner": "manaflow-ai",
-        "repo": "homebrew-cmux",
         "type": "github"
       }
     },
@@ -490,10 +453,8 @@
       "inputs": {
         "claude-code-overlay": "claude-code-overlay",
         "flake-parts": "flake-parts_2",
-        "herdr": "herdr",
         "home-manager": "home-manager",
         "homebrew-cask": "homebrew-cask",
-        "homebrew-cmux": "homebrew-cmux",
         "homebrew-core": "homebrew-core",
         "import-tree": "import-tree",
         "lefthook": "lefthook",
@@ -506,27 +467,6 @@
         "sofka": "sofka"
       }
     },
-    "rust-overlay": {
-      "inputs": {
-        "nixpkgs": [
-          "herdr",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1783577481,
-        "narHash": "sha256-EWMxOWrJ031f8f/lrcEmhTRs4npw1/5N3Hcjin846c8=",
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "rev": "4cdea398dc491b082dccdce0fad1ed0b75fa3394",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "type": "github"
-      }
-    },
     "sofka": {
       "inputs": {
         "home-manager": "home-manager_2",
@@ -535,11 +475,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790149520,
-        "narHash": "sha256-fEy2pZmlfAj2yIRpOFEha56w8Kti2WjXAgfyUIJ7SkI=",
+        "lastModified": 1790179967,
+        "narHash": "sha256-hFKcYjVX5AwLsdqZK3hY1inq5D8nO/V0vXKCNGxEoH0=",
         "owner": "nklmilojevic",
         "repo": "sofka",
-        "rev": "5d4533606c8fde0a770cad6b335b85492edbec38",
+        "rev": "a9735992d28c786032ed40f5b77d4f7ed8a5804f",
         "type": "github"
       },
       "original": {

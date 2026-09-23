@@ -47,11 +47,6 @@
       flake = false;
     };
 
-    homebrew-cmux = {
-      url = "github:manaflow-ai/homebrew-cmux";
-      flake = false;
-    };
-
     lefthook = {
       url = "github:sudosubin/lefthook.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -69,11 +64,6 @@
 
     sofka = {
       url = "github:nklmilojevic/sofka";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    herdr = {
-      url = "github:herdrdev/herdr";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
