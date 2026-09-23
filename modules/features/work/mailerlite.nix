@@ -13,19 +13,26 @@
     };
   };
 
-  flake.modules.homeManager.mailerlite = { config, lib, pkgs, ... }: {
-    imports = [ inputs.mailerlite.modules.home-manager.defaults ];
+  flake.modules.homeManager.mailerlite =
+    {
+      config,
+      lib,
+      pkgs,
+      ...
+    }:
+    {
+      imports = [ inputs.mailerlite.modules.home-manager.defaults ];
 
-    config = lib.mkIf config.meta.work.enable {
-      meta.ssh.enable = lib.mkDefault true;
+      config = lib.mkIf config.meta.work.enable {
+        meta.ssh.enable = lib.mkDefault true;
 
-      mailerlite = {
-        team = config.meta.work.team;
-        direnv.enable = false;
-        ssh.username = config.meta.username;
+        mailerlite = {
+          team = config.meta.work.team;
+          direnv.enable = false;
+          ssh.username = config.meta.username;
+        };
+
+        home.packages = inputs.mailerlite.pkgs.aarch64-darwin.${config.meta.work.team};
       };
-
-      home.packages = inputs.mailerlite.pkgs.aarch64-darwin.${config.meta.work.team};
     };
-  };
 }
