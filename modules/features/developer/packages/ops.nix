@@ -18,9 +18,7 @@
               kubeconform
               kubernetes-helm
               skaffold
-              caddy
               kubebuilder
-              cilium-cli
               ;
             orbstack = pkgs.lib.hiPrio pkgs.orbstack;
 

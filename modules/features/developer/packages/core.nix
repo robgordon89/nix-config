@@ -46,7 +46,6 @@
               slides
               ;
             yq-go = pkgs.lib.hiPrio pkgs.yq-go;
-            octodns = pkgs.octodns.withProviders (_: [ pkgs.octodns.providers.cloudflare ]);
 
             # Security
             inherit (pkgs) gnupg yubikey-manager pinentry_mac;
@@ -79,7 +78,7 @@
               kcl
               lefthook
               sofka
-              herdr
+              xcodegen
               ;
           };
         in

@@ -10,7 +10,6 @@
       taps = {
         "homebrew/homebrew-core" = inputs.homebrew-core;
         "homebrew/homebrew-cask" = inputs.homebrew-cask;
-        "manaflow-ai/homebrew-cmux" = inputs.homebrew-cmux;
       };
     };
   };
