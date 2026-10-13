@@ -62,6 +62,7 @@
   "workbench.activityBar.location" = "hidden";
   "workbench.tree.renderIndentGuides" = "none";
   "workbench.editor.enablePreviewFromQuickOpen" = false;
+  "workbench.experimental.modernUI" = false;
 
   "workbench.colorTheme" = "Default High Contrast";
   "workbench.preferredDarkColorTheme" = "Default High Contrast";

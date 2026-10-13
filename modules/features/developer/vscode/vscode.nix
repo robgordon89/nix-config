@@ -10,12 +10,11 @@
   };
 
   flake.modules.homeManager.vscode =
-    {
-      config,
-      pkgs,
-      inputs,
-      lib,
-      ...
+    { config
+    , pkgs
+    , inputs
+    , lib
+    , ...
     }:
     let
       is_work_host = config.meta.work.enable;
@@ -44,9 +43,10 @@
           (ext.vscodeExtUniqueId or "") == "anthropic.claude-code"
           && (ext.version or "") == claudeCodeVsixPin.version
         then
-          ext.overrideAttrs (_: {
-            src = claudeCodeVsix;
-          })
+          ext.overrideAttrs
+            (_: {
+              src = claudeCodeVsix;
+            })
         else
           ext
       );
@@ -113,11 +113,6 @@
           );
         };
         mutableExtensionsDir = false;
-      };
-
-      # Create mcp.json directly since userMcp is not available in home-manager release-25.05
-      home.file."Library/Application Support/Code/User/mcp.json" = {
-        text = builtins.toJSON (import ./_config/mcp.nix);
       };
     };
 }

@@ -3,7 +3,7 @@
   flake.modules.darwin.ghostty = {
     homebrew.casks = [
       {
-        name = "ghostty";
+        name = "ghostty@tip";
         greedy = true;
       }
     ];
