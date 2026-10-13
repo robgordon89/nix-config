@@ -10,11 +10,12 @@
   };
 
   flake.modules.homeManager.vscode =
-    { config
-    , pkgs
-    , inputs
-    , lib
-    , ...
+    {
+      config,
+      pkgs,
+      inputs,
+      lib,
+      ...
     }:
     let
       is_work_host = config.meta.work.enable;
@@ -43,10 +44,9 @@
           (ext.vscodeExtUniqueId or "") == "anthropic.claude-code"
           && (ext.version or "") == claudeCodeVsixPin.version
         then
-          ext.overrideAttrs
-            (_: {
-              src = claudeCodeVsix;
-            })
+          ext.overrideAttrs (_: {
+            src = claudeCodeVsix;
+          })
         else
           ext
       );

@@ -19,7 +19,7 @@
       adjust-cell-height = 2
 
       # Window appearance
-      window-padding-x = 8
+      window-padding-x = 4
       window-padding-y = 8
       confirm-close-surface = false
       macos-titlebar-style = tabs
