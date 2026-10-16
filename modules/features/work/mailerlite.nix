@@ -14,10 +14,11 @@
   };
 
   flake.modules.homeManager.mailerlite =
-    { config
-    , lib
-    , pkgs
-    , ...
+    {
+      config,
+      lib,
+      pkgs,
+      ...
     }:
     {
       imports = [ inputs.mailerlite.modules.home-manager.defaults ];
