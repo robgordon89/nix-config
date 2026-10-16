@@ -114,10 +114,5 @@
         };
         mutableExtensionsDir = false;
       };
-
-      # Create mcp.json directly since userMcp is not available in home-manager release-25.05
-      home.file."Library/Application Support/Code/User/mcp.json" = {
-        text = builtins.toJSON (import ./_config/mcp.nix);
-      };
     };
 }

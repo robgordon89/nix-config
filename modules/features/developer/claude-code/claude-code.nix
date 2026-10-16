@@ -7,117 +7,67 @@
         prefersReducedMotion = true;
         feedbackSurveyRate = 0;
         spinnerTipsEnabled = false;
-        env = {
-          CLAUDE_CODE_EFFORT_LEVEL = "max";
-        };
-        # Read-only commands only. Anything that mutates state (git push, kubectl
-        # apply/delete, tofu apply, rm, docker run) deliberately still prompts.
+
         permissions = {
           allow = [
-            # shell / text
-            "Bash(ls:*)"
-            "Bash(cat:*)"
-            "Bash(head:*)"
-            "Bash(tail:*)"
-            "Bash(grep:*)"
-            "Bash(rg:*)"
-            "Bash(find:*)"
-            "Bash(fd:*)"
-            "Bash(wc:*)"
-            "Bash(sort:*)"
-            "Bash(uniq:*)"
-            "Bash(cut:*)"
-            "Bash(tr:*)"
-            "Bash(jq:*)"
-            "Bash(yq:*)"
-            "Bash(diff:*)"
-            "Bash(file:*)"
-            "Bash(stat:*)"
-            "Bash(which:*)"
-            "Bash(pwd)"
-            "Bash(date:*)"
-            "Bash(du:*)"
-            "Bash(base64:*)"
-
-            # git — read-only
+            "Read"
+            "Grep"
+            "Glob"
             "Bash(git status:*)"
-            "Bash(git log:*)"
             "Bash(git diff:*)"
+            "Bash(git log:*)"
             "Bash(git show:*)"
-            "Bash(git branch:*)"
-            "Bash(git remote -v)"
-            "Bash(git rev-parse:*)"
-            "Bash(git ls-files:*)"
-            "Bash(git symbolic-ref:*)"
-            "Bash(git fetch:*)"
-            "Bash(git blame:*)"
-            "Bash(git stash list)"
-            "Bash(git worktree list)"
-
-            # gh — read-only subcommands (gh api omitted: it can POST)
+            "Bash(git add:*)"
+            "Bash(git commit:*)"
+            "Bash(git push:*)"
             "Bash(gh pr view:*)"
-            "Bash(gh pr list:*)"
             "Bash(gh pr diff:*)"
             "Bash(gh pr checks:*)"
-            "Bash(gh pr status:*)"
-            "Bash(gh issue view:*)"
-            "Bash(gh issue list:*)"
+            "Bash(gh pr create:*)"
             "Bash(gh run view:*)"
-            "Bash(gh run list:*)"
-            "Bash(gh repo view:*)"
-            "Bash(gh search:*)"
-            "Bash(gh auth status)"
-
-            # kubernetes — read-only verbs
             "Bash(kubectl get:*)"
             "Bash(kubectl describe:*)"
             "Bash(kubectl logs:*)"
             "Bash(kubectl top:*)"
+            "Bash(kubectl events:*)"
             "Bash(kubectl explain:*)"
             "Bash(kubectl api-resources:*)"
-            "Bash(kubectl config get-contexts:*)"
-            "Bash(kubectl config current-context)"
+            "Bash(kubectl auth can-i:*)"
+            "Bash(kubectl auth whoami:*)"
+            "Bash(kubectl rollout status:*)"
+            "Bash(kubectl rollout history:*)"
             "Bash(flux get:*)"
+            "Bash(flux logs:*)"
+            "Bash(flux events:*)"
+            "Bash(flux tree:*)"
+            "Bash(flux stats:*)"
+            "Bash(flux diff kustomization:*)"
             "Bash(helm list:*)"
-            "Bash(helm template:*)"
-
-            # terraform / opentofu — plan & inspect, never apply
+            "Bash(helm status:*)"
+            "Bash(helm history:*)"
             "Bash(tofu plan:*)"
             "Bash(tofu validate:*)"
             "Bash(tofu show:*)"
             "Bash(tofu fmt:*)"
             "Bash(tofu state list:*)"
             "Bash(tofu state show:*)"
-            "Bash(terraform plan:*)"
-            "Bash(terraform validate:*)"
-            "Bash(terraform show:*)"
-            "Bash(terraform fmt:*)"
-            "Bash(terraform state list:*)"
-            "Bash(terraform state show:*)"
-
-            # build / test / lint
-            "Bash(just --list)"
-            "Bash(go test:*)"
-            "Bash(go build:*)"
-            "Bash(go vet:*)"
-            "Bash(gofmt:*)"
-            "Bash(golangci-lint:*)"
-            "Bash(nix develop:*)"
-            "Bash(nix flake check:*)"
-            "Bash(nix flake metadata:*)"
-            "Bash(nix fmt:*)"
-            "Bash(nixfmt:*)"
-
-            "WebSearch"
+          ];
+          ask = [
+            "Bash(gh pr merge:*)"
           ];
           deny = [
-            # secrets never enter context — varlock/1Password are the source
-            "Read(**/.env)"
-            "Read(**/.env.*)"
-            "Read(**/*.pem)"
-            "Read(**/*.key)"
-            "Read(**/id_rsa*)"
-            "Read(**/.aws/credentials)"
+            "Edit(**/.env*)"
+            "Edit(**/*.pem)"
+            "Edit(**/*.key)"
+            "Edit(**/id_rsa*)"
+            "Edit(**/id_ed25519*)"
+            "Edit(**/.aws/credentials)"
+            "Edit(**/kubeconfig)"
+            "Edit(**/*service-account*.json)"
+            "Bash(kubectl get secret:*)"
+            "Bash(kubectl get secrets:*)"
+            "Bash(git push --force:*)"
+            "Bash(git push -f:*)"
           ];
         };
         enabledPlugins = {

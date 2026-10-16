@@ -28,6 +28,7 @@
 
         mailerlite = {
           team = config.meta.work.team;
+          sofka.enable = false;
           direnv.enable = false;
           ssh.username = config.meta.username;
         };

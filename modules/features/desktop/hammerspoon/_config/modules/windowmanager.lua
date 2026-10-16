@@ -78,9 +78,9 @@ hs.hotkey.bind(hyper, "Space", function()
 
     if containsValue(jankeykey_apps,app:name()) then
         f.x = max.x + 5
-        f.y = max.y
+        f.y = max.y + 5
         f.w = max.w - 10
-        f.h = max.h - 5
+        f.h = max.h - 10
         win:setFrame(f, 0)
         return
     end
@@ -103,9 +103,9 @@ hs.hotkey.bind(hyper_shift, "Space", function()
 
     if containsValue(jankeykey_apps,app:name()) then
         f.x = max.x + 5
-        f.y = max.y
+        f.y = max.y + 5
         f.w = max.w - 10
-        f.h = max.h - 5
+        f.h = max.h - 10
         win:setFrame(f, 0)
         return
     end
