@@ -6,6 +6,7 @@ local jankeykey_apps = {
     "Cursor",
     "WezTerm",
     "Ghostty",
+    "Thurm",
     "Brave Browser",
     "Slack",
 }

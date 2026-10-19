@@ -15,7 +15,7 @@ let
 in
 [
   {
-    key = "ctrl+shift+x";
+    key = "cmd+shift+x";
     command = "workbench.action.closeWindow";
   }
   {

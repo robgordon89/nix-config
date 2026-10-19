@@ -10,6 +10,7 @@
       defaultApps = [
         { app = "/Applications/Brave Browser.app"; }
         { app = "/Applications/Visual Studio Code.app"; }
+        { app = "/Applications/Thurm.app"; }
         { app = "/Applications/Ghostty.app"; }
         { app = ""; }
         { app = "/Applications/1Password.app"; }

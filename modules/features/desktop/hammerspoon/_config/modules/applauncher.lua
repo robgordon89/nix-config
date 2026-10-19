@@ -9,6 +9,7 @@ hs.spoons.use("AppLauncher", {
         b = "Brave Browser",
         c = "Visual Studio Code",
         s = "Slack",
-        t = "Ghostty",
+        g = "Ghostty",
+        t = "Thurm",
     },
 })

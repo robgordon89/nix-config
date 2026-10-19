@@ -45,14 +45,16 @@
 
       # Tab management
       keybind = cmd+t=new_tab
+      keybind = cmd+alt+right=next_tab
+      keybind = cmd+alt+left=previous_tab
       keybind = ctrl+tab=next_tab
       keybind = ctrl+shift+tab=previous_tab
-      keybind = ctrl+shift+w=close_surface
+      keybind = cmd+shift+w=close_surface
 
       # Pane/split management
-      keybind = ctrl+shift+left_bracket=new_split:up
-      keybind = ctrl+shift+right_bracket=new_split:right
-      keybind = ctrl+shift+x=close_surface
+      keybind = cmd+shift+left_bracket=new_split:up
+      keybind = cmd+shift+right_bracket=new_split:right
+      keybind = cmd+shift+x=close_surface
 
       # Pane navigation
       keybind = cmd+h=goto_split:left
@@ -60,13 +62,8 @@
       keybind = cmd+k=goto_split:top
       keybind = cmd+l=goto_split:right
 
-      # Font size
-      keybind = ctrl+equal=increase_font_size:1
-      keybind = ctrl+minus=decrease_font_size:1
-      keybind = ctrl+zero=reset_font_size
-
       # Scrollback
-      keybind = ctrl+shift+l=clear_screen
+      keybind = cmd+shift+l=clear_screen
 
       # Word/line navigation (matching wezterm config)
       keybind = cmd+left=text:\x1bb
