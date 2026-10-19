@@ -61,6 +61,10 @@
       keybind = cmd+j=goto_split:bottom
       keybind = cmd+k=goto_split:top
       keybind = cmd+l=goto_split:right
+      keybind = cmd+shift+left=goto_split:left
+      keybind = cmd+shift+down=goto_split:bottom
+      keybind = cmd+shift+up=goto_split:top
+      keybind = cmd+shift+right=goto_split:right
 
       # Scrollback
       keybind = cmd+shift+l=clear_screen
@@ -68,8 +72,6 @@
       # Word/line navigation (matching wezterm config)
       keybind = cmd+left=text:\x1bb
       keybind = cmd+right=text:\x1bf
-      keybind = cmd+shift+left=text:\x01
-      keybind = cmd+shift+right=text:\x05
       keybind = cmd+backspace=text:\x1bd
       keybind = cmd+shift+backspace=text:\x15
     '';

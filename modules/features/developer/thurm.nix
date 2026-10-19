@@ -42,6 +42,10 @@
           "cmd+j" = "focus_down";
           "cmd+k" = "focus_up";
           "cmd+l" = "focus_right";
+          "cmd+shift+left" = "focus_left";
+          "cmd+shift+down" = "focus_down";
+          "cmd+shift+up" = "focus_up";
+          "cmd+shift+right" = "focus_right";
 
           "cmd+shift+l" = "clear_screen";
         };
@@ -65,24 +69,6 @@
               "M-f"
             ];
             key = "cmd+right";
-          }
-          {
-            name = "Line start";
-            exec = [
-              "thurm"
-              "send-keys"
-              "C-a"
-            ];
-            key = "cmd+shift+left";
-          }
-          {
-            name = "Line end";
-            exec = [
-              "thurm"
-              "send-keys"
-              "C-e"
-            ];
-            key = "cmd+shift+right";
           }
           {
             name = "Delete word";
