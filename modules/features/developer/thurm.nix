@@ -22,7 +22,10 @@
 
         colors.theme = "light:iTerm2 Solarized Light,dark:Black Metal (Mayhem)";
 
-        terminal.copy_on_select = true;
+        terminal = {
+          tab_completion = false;
+          copy_on_select = true;
+        };
 
         updates.channel = "tip";
 
