@@ -596,11 +596,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1792409825,
-        "narHash": "sha256-Cppa/QTWasMLsmaimGRt+vrKlN50EJ++GxCGGDSC7PY=",
+        "lastModified": 1792412004,
+        "narHash": "sha256-qXkDkKtMtEsu5AEwQS3vMU6SuBaZS+/0gkSUmwl8Th8=",
         "owner": "nklmilojevic",
         "repo": "thurm",
-        "rev": "ca36a9dee9e56ba120d0d885b42151c5bdf9d912",
+        "rev": "2f5bcdab36f05f45203353baeae6be350bde67fb",
         "type": "github"
       },
       "original": {

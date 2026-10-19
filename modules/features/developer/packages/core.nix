@@ -1,11 +1,10 @@
 { ... }:
 {
   flake.modules.homeManager.packagesCore =
-    {
-      config,
-      lib,
-      pkgs,
-      ...
+    { config
+    , lib
+    , pkgs
+    , ...
     }:
     lib.mkIf (lib.elem "core" config.meta.packages.groups) {
       home.packages =
@@ -63,7 +62,6 @@
               opentofu
               awscli2
               spacectl
-              wrangler
               ;
             google-cloud-sdk = pkgs.google-cloud-sdk.withExtraComponents [
               pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
