@@ -36,6 +36,21 @@
         "type": "github"
       }
     },
+    "crane": {
+      "locked": {
+        "lastModified": 1792350552,
+        "narHash": "sha256-292lvpvxTGKryKxh3/3tcIVi85CwYGdl4oOi113Sob8=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "e675a36b7377bebe41d548388a2501cbb16d380d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -232,7 +247,7 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-Pj9j0Zk1IUhWI7bQZ8jjVk7ks3HrVe+LKmS1UTLioBU=",
+        "narHash": "sha256-tm+GPcpKvXzS44leED5vfITRkW+DnESJ/QxuId93+uQ=",
         "path": "/Users/robert/.config/mailerlite/nix-config",
         "type": "path"
       },
@@ -464,7 +479,29 @@
         "nix4vscode": "nix4vscode",
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-stable": "nixpkgs-stable",
-        "sofka": "sofka"
+        "sofka": "sofka",
+        "thurm": "thurm"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "thurm",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792307278,
+        "narHash": "sha256-wJgFFtw/vlzsjWrQFmTn40TTkSkqHM4XXN0nh4q4uMk=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "42076d1c6a0fb405ed04f9a674e4a8f69de62ba3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
       }
     },
     "sofka": {
@@ -531,6 +568,28 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "thurm": {
+      "inputs": {
+        "crane": "crane",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": "rust-overlay"
+      },
+      "locked": {
+        "lastModified": 1792401058,
+        "narHash": "sha256-XSBBCXy7MwwFXsAGc7bQ0djJWsnJLYGdOXY2Xwor27Y=",
+        "owner": "nklmilojevic",
+        "repo": "thurm",
+        "rev": "45a9289871de9de161d012c9ebe42d2a76c72129",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nklmilojevic",
+        "repo": "thurm",
         "type": "github"
       }
     }

@@ -49,6 +49,7 @@ in
       homeManager.packagesOps
       homeManager.onePassword
       homeManager.ghostty
+      homeManager.thurm
       homeManager.vscode
       homeManager.git
       homeManager.gh

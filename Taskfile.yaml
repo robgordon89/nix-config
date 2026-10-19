@@ -64,6 +64,13 @@ tasks:
       - nix flake update sofka
     desc: Update the sofka input in the flake.lock file
 
+  update-thurm:
+    silent: true
+    internal: true
+    cmds:
+      - nix flake update thurm
+    desc: Update the thurm input in the flake.lock file
+
   update-hash:
     silent: true
     internal: true
@@ -79,6 +86,7 @@ tasks:
       - update-mailerlite
       - update-claude-code
       - update-sofka
+      - update-thurm
     cmds:
       - task: build-config
       - task: switch-config

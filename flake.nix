@@ -67,6 +67,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    thurm = {
+      url = "github:nklmilojevic/thurm";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
