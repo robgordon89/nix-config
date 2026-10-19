@@ -1,21 +1,20 @@
-{ lib, useClaudeSidebar ? false }:
+{
+  lib,
+  useClaudeSidebar ? false,
+}:
 let
   chatSidebarCommand =
-    if useClaudeSidebar
-    then "claude-vscode.sidebar.open"
-    else "workbench.action.chat.open";
-  sidebarVisibleContext =
-    if useClaudeSidebar
-    then "sideBarVisible"
-    else "auxiliaryBarVisible";
+    if useClaudeSidebar then "claude-vscode.sidebar.open" else "workbench.action.chat.open";
+  sidebarVisibleContext = if useClaudeSidebar then "sideBarVisible" else "auxiliaryBarVisible";
   toggleSidebarCommand =
-    if useClaudeSidebar
-    then "workbench.action.toggleSidebarVisibility"
-    else "workbench.action.toggleAuxiliaryBar";
+    if useClaudeSidebar then
+      "workbench.action.toggleSidebarVisibility"
+    else
+      "workbench.action.toggleAuxiliaryBar";
 in
 [
   {
-    key = "ctrl+shift+x";
+    key = "cmd+shift+x";
     command = "workbench.action.closeWindow";
   }
   {

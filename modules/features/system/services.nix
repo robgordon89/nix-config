@@ -15,6 +15,7 @@
         "Cursor"
         "wezterm-gui"
         "ghostty"
+        "Thurm"
         "Brave Browser"
         "Slack"
       ];

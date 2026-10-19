@@ -1,15 +1,17 @@
 { ... }:
 {
   flake.modules.darwin.dock =
-    { config
-    , lib
-    , pkgs
-    , ...
+    {
+      config,
+      lib,
+      pkgs,
+      ...
     }:
     let
       defaultApps = [
         { app = "/Applications/Brave Browser.app"; }
         { app = "/Applications/Visual Studio Code.app"; }
+        { app = "/Applications/Thurm.app"; }
         { app = "/Applications/Ghostty.app"; }
         { app = ""; }
         { app = "/Applications/1Password.app"; }
@@ -23,18 +25,16 @@
         let
           overrides = config.meta.dockPathOverrides;
         in
-        map
-          (
-            item:
-            let
-              path = item.app;
-              newPath = overrides.${path + "/"} or overrides.${path} or path;
-            in
-            {
-              app = newPath;
-            }
-          )
-          apps;
+        map (
+          item:
+          let
+            path = item.app;
+            newPath = overrides.${path + "/"} or overrides.${path} or path;
+          in
+          {
+            app = newPath;
+          }
+        ) apps;
 
       # Give default settings a low priority (50)
       defaultDock = lib.mapAttrs (name: value: lib.mkDefault value) {
