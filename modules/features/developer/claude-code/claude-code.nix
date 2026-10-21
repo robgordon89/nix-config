@@ -1,8 +1,20 @@
 { ... }:
 {
   flake.modules.homeManager.claudeCode =
-    { pkgs, ... }:
+    { pkgs, lib, ... }:
     let
+      thurmHook = event: [
+        {
+          hooks = [
+            {
+              type = "command";
+              command = ''[ -n "$THURM_PANE_ID" ] && "''${THURM_BIN_DIR:+$THURM_BIN_DIR/}thurm" agent-hook claude ${event}; true'';
+              timeout = 5;
+            }
+          ];
+        }
+      ];
+
       settings = {
         prefersReducedMotion = true;
         feedbackSurveyRate = 0;
@@ -69,6 +81,14 @@
             "Bash(git push --force:*)"
             "Bash(git push -f:*)"
           ];
+        };
+        hooks = lib.mapAttrs (_: thurmHook) {
+          SessionStart = "session-start";
+          UserPromptSubmit = "prompt-submit";
+          Notification = "notification";
+          PostToolUse = "tool-complete";
+          Stop = "stop";
+          SessionEnd = "session-end";
         };
         enabledPlugins = {
           "query@victoriametrics-tools" = true;
