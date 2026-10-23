@@ -262,7 +262,7 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-oHB96tnqHGPuZL4TqAahscIalsVrNlH0UiHob2U1XCQ=",
+        "narHash": "sha256-lchp7qjgJoLaStH/Jy4X+39/3htiL1KizjxTskKrn5I=",
         "path": "/Users/robert/.config/mailerlite/nix-config",
         "type": "path"
       },
@@ -277,11 +277,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1787050399,
-        "narHash": "sha256-ioC6VIZ5ULOV/7hcaOEckSzTzWGrSRFh4Jdqf2NXKCc=",
+        "lastModified": 1792691024,
+        "narHash": "sha256-jEgMeDQ9FAFx0g3Y7onqu4/1gmcL3GQydWq0FOd/YDM=",
         "owner": "mailerlite",
         "repo": "mailerlite-cli",
-        "rev": "712e0b84825f0f7a21e5813dd264651d428bd318",
+        "rev": "052958065712cf4b1bbcaeff3e7173133c2266ad",
         "type": "github"
       },
       "original": {
@@ -296,11 +296,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1790258217,
-        "narHash": "sha256-xukaeqBOLN+8/Rz4+sfqW7TPxuLTVs4QE/HP1uZfUZg=",
+        "lastModified": 1792691016,
+        "narHash": "sha256-FWiDUasTR2GdVrr/YXE/m2ch1pU9cXzxDI1mwO90/o4=",
         "owner": "mailersend",
         "repo": "mailersend-cli",
-        "rev": "43faf52971bf808086b80e612691d5523e75f6a3",
+        "rev": "4549ba78f1a4f93944b424a682671eee051540ca",
         "type": "github"
       },
       "original": {
@@ -506,11 +506,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792307278,
-        "narHash": "sha256-wJgFFtw/vlzsjWrQFmTn40TTkSkqHM4XXN0nh4q4uMk=",
+        "lastModified": 1792480937,
+        "narHash": "sha256-arni7i+yH5ZnkvAN9UotvhMml5+fZyXcMHpiOvI3WFY=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "42076d1c6a0fb405ed04f9a674e4a8f69de62ba3",
+        "rev": "5424e1e6dda30b0626935d2a03a6526db4858d60",
         "type": "github"
       },
       "original": {
@@ -596,11 +596,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1792412004,
-        "narHash": "sha256-qXkDkKtMtEsu5AEwQS3vMU6SuBaZS+/0gkSUmwl8Th8=",
+        "lastModified": 1792612190,
+        "narHash": "sha256-RhM14CNdBjXhKxK+WpncA3H+sQUFF49VmPUX0DvuxMY=",
         "owner": "nklmilojevic",
         "repo": "thurm",
-        "rev": "2f5bcdab36f05f45203353baeae6be350bde67fb",
+        "rev": "b52a6fe50e50a19951634e95e38a8adfeebca139",
         "type": "github"
       },
       "original": {
