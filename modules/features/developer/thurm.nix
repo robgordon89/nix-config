@@ -18,6 +18,7 @@
           padding_x = 4.0;
           padding_y = 8.0;
           confirm_close = false;
+          active_pane_border = true;
         };
 
         colors.theme = "light:iTerm2 Solarized Light,dark:Black Metal (Mayhem)";
