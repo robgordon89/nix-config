@@ -262,7 +262,7 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-pdm5FnTtNCa2YwkkBo+2TSagEg87q6lxQfxnAYE/SBU=",
+        "narHash": "sha256-KnasbtlR88ROr4GRO4mAUuDJ+34YqK5MFHlm9mfrLcE=",
         "path": "/Users/robert/.config/mailerlite/nix-config",
         "type": "path"
       },
@@ -506,11 +506,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792480937,
-        "narHash": "sha256-arni7i+yH5ZnkvAN9UotvhMml5+fZyXcMHpiOvI3WFY=",
+        "lastModified": 1792913333,
+        "narHash": "sha256-wjoZGhxH/Yr+OsFRpNyV9DpMGQIdNEjjAOinfzQvadk=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "5424e1e6dda30b0626935d2a03a6526db4858d60",
+        "rev": "fad80eb74614f7dc37c1c83df8caae64361eda22",
         "type": "github"
       },
       "original": {
@@ -596,11 +596,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1792612190,
-        "narHash": "sha256-RhM14CNdBjXhKxK+WpncA3H+sQUFF49VmPUX0DvuxMY=",
+        "lastModified": 1792973064,
+        "narHash": "sha256-6QVll0VSU8jizz42ZHcPmu8mCiyXEjCnLYAQM+QObzo=",
         "owner": "nklmilojevic",
         "repo": "thurm",
-        "rev": "b52a6fe50e50a19951634e95e38a8adfeebca139",
+        "rev": "2095952e3867f2d80c1b11dafcd507de41967482",
         "type": "github"
       },
       "original": {
