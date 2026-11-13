@@ -25,7 +25,7 @@
 
         terminal = {
           tab_completion = false;
-          copy_on_select = true;
+          copy_on_select = false;
         };
 
         updates.channel = "tip";

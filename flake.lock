@@ -23,11 +23,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1792370347,
-        "narHash": "sha256-PvOj8FMDhC0hPHdwDlImJfZ/jcSZ8lP5AzXGiHU3WW0=",
+        "lastModified": 1794301255,
+        "narHash": "sha256-emE+/+ULmKNN9I83Wy7BL5HkIWbNA/A7VpVZ5nZZWyE=",
         "owner": "nklmilojevic",
         "repo": "claude-code-overlay",
-        "rev": "c813cde4d74634f8a1554ab18077abb95e1d4c37",
+        "rev": "d0a234a6f677d35364d218a6ec6228c43965c6f7",
         "type": "github"
       },
       "original": {
@@ -161,6 +161,29 @@
     "home-manager_2": {
       "inputs": {
         "nixpkgs": [
+          "mailerlite",
+          "sefko",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792438572,
+        "narHash": "sha256-5mQQOcggBRBXB7NlzUxO0dbvQN4euJOISjNybrtfxPk=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "24f8f8e786f87d6a818e1746cb2389bf922afdab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "release-26.05",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "home-manager_3": {
+      "inputs": {
+        "nixpkgs": [
           "sofka",
           "nixpkgs"
         ]
@@ -259,10 +282,11 @@
         ],
         "nixpkgs-stable": [
           "nixpkgs-stable"
-        ]
+        ],
+        "sefko": "sefko"
       },
       "locked": {
-        "narHash": "sha256-KnasbtlR88ROr4GRO4mAUuDJ+34YqK5MFHlm9mfrLcE=",
+        "narHash": "sha256-N5tC7i73SblcvZxVX8iNSU7sQQy2tqM2YaPPYnKRoBY=",
         "path": "/Users/robert/.config/mailerlite/nix-config",
         "type": "path"
       },
@@ -296,11 +320,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1792691016,
-        "narHash": "sha256-FWiDUasTR2GdVrr/YXE/m2ch1pU9cXzxDI1mwO90/o4=",
+        "lastModified": 1794408149,
+        "narHash": "sha256-T+irJF8u24NWav8cWfxqoVFG5vhnDWS3in9esFElZPI=",
         "owner": "mailersend",
         "repo": "mailersend-cli",
-        "rev": "4549ba78f1a4f93944b424a682671eee051540ca",
+        "rev": "0e63eff3b9a775d76d322eeaee6eee30eabbdbd0",
         "type": "github"
       },
       "original": {
@@ -506,11 +530,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794127728,
-        "narHash": "sha256-QhZ104DwHvvMxWxmI13zdppISE27UmdqhRI2VwBg/yU=",
+        "lastModified": 1794303164,
+        "narHash": "sha256-UZMtOt43/HRVssXPSuPv8t11Toq9+CjyWUfYQ3tqGVE=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "51c6dc40d18552701f7c5c62e3f7a5fc899f7132",
+        "rev": "89750a2ef1c6a44db9f4251b16c23deffdcfddff",
         "type": "github"
       },
       "original": {
@@ -519,10 +543,32 @@
         "type": "github"
       }
     },
+    "sefko": {
+      "inputs": {
+        "home-manager": "home-manager_2",
+        "nixpkgs": [
+          "mailerlite",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794492428,
+        "narHash": "sha256-xn6whBsyW7kcELeWRO42IZUH8sI/p3pXSe9UueoBQ0Q=",
+        "owner": "nklmilojevic",
+        "repo": "sefko",
+        "rev": "0acd89c59b77994bcd40f7190bbfb0a63e4c8e97",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nklmilojevic",
+        "repo": "sefko",
+        "type": "github"
+      }
+    },
     "sofka": {
       "inputs": {
         "crane": "crane",
-        "home-manager": "home-manager_2",
+        "home-manager": "home-manager_3",
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -596,11 +642,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1794182555,
-        "narHash": "sha256-lqZGLIqsCThVwScr7w6zOwdYXCGftPvWXUZa90xUcIE=",
+        "lastModified": 1794355418,
+        "narHash": "sha256-AESZamFG0v0DKc4kMJqowrcVXYm1rt5ZlNE7RIBdmek=",
         "owner": "nklmilojevic",
         "repo": "thurm",
-        "rev": "3783f4c6224c91d02767229fc045e2f5aefcf654",
+        "rev": "eaa5f13e9fddfd9c2753c2de1c50a120c953dacc",
         "type": "github"
       },
       "original": {
